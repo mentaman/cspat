@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Cci.ILToCodeModel</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Cci.ILToCodeModel.BasicBlock">
+            <summary>
+            A block of statements that can only be reached by branching to the first statement in the block.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILToCodeModel.BasicBlock.#ctor(System.UInt32)">
+            <summary>
+            Allocates a block of statements that can only be reached by branching to the first statement in the block.
+            </summary>
+            <param name="startOffset">The IL offset of the first statement in the block.</param>
+        </member>
+        <member name="T:Microsoft.Cci.ILToCodeModel.SourceMethodBody">
+            <summary>
+            A metadata (IL) representation along with a source level representation of the body of a method or of a property/event accessor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILToCodeModel.SourceMethodBody.#ctor(Microsoft.Cci.IMethodBody,Microsoft.Cci.IMetadataHost,Microsoft.Cci.Contracts.ContractProvider,Microsoft.Cci.PdbReader)">
+            <summary>
+            Allocates a metadata (IL) representation along with a source level representation of the body of a method or of a property/event accessor.
+            </summary>
+            <param name="ilMethodBody">A method body whose IL operations should be decompiled into a block of statements that will be the
+            result of the Block property of the resulting source method body.</param>
+            <param name="host">An object representing the application that is hosting the converter. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="contractProvider">An object that associates contracts, such as preconditions and postconditions, with methods, types and loops.
+            IL to check this contracts will be generated along with IL to evaluate the block of statements. May be null.</param>
+            <param name="pdbReader">An object that maps offsets in an IL stream to source locations.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILToCodeModel.SourceMethodBody.#ctor(Microsoft.Cci.IMethodBody,Microsoft.Cci.IMetadataHost,Microsoft.Cci.Contracts.ContractProvider,Microsoft.Cci.PdbReader,System.Boolean)">
+            <summary>
+            Allocates a metadata (IL) representation along with a source level representation of the body of a method or of a property/event accessor.
+            </summary>
+            <param name="ilMethodBody">A method body whose IL operations should be decompiled into a block of statements that will be the
+            result of the Block property of the resulting source method body.</param>
+            <param name="host">An object representing the application that is hosting the converter. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="contractProvider">An object that associates contracts, such as preconditions and postconditions, with methods, types and loops.
+            IL to check this contracts will be generated along with IL to evaluate the block of statements. May be null.</param>
+            <param name="pdbReader">An object that maps offsets in an IL stream to source locations.</param>
+            <param name="contractsOnly">True if the new method body should only contain any contracts (pre or post conditions) that are
+            embedded in the given method body.</param>
+        </member>
+        <member name="M:Microsoft.Cci.ILToCodeModel.SourceMethodBody.Dispatch(Microsoft.Cci.IMetadataVisitor)">
+            <summary>
+            Calls the visitor.Visit(T) method where T is the most derived object model node interface type implemented by the concrete type
+            of the object implementing IDoubleDispatcher. The dispatch method does not invoke Dispatch on any child objects. If child traversal
+            is desired, the implementations of the Visit methods should do the subsequent dispatching.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.ILToCodeModel.SourceMethodBody.ParseInstruction(Microsoft.Cci.ILToCodeModel.BasicBlock)">
+            <summary>
+            Parse instructions and put them into an expression tree until an assignment, void call, branch target, or branch is encountered.
+            Returns true if the parsed statement is last of the current basic block. This happens when the next statement is a branch
+            target, or if the parsed statement could transfers control to anything but the following statement.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.Block">
+            <summary>
+            The collection of statements making up the body.
+            This is produced by either language parser or through decompilation of the Instructions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.OperationExceptionInformation">
+            <summary>
+            A list exception data within the method body IL.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.LocalsAreZeroed">
+            <summary>
+            True if the locals are initialized by zeroeing the stack upon method entry.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.LocalVariables">
+            <summary>
+            The local variables of the method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.MethodDefinition">
+            <summary>
+            The definition of the method whose body this is.
+            If this is the body of an event or property accessor, this will hold the corresponding adder/remover/setter or getter method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.Operations">
+            <summary>
+            A list CLR IL operations that implement this method body.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.MaxStack">
+            <summary>
+            The maximum number of elements on the evaluation stack during the execution of the method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.ILToCodeModel.SourceMethodBody.PrivateHelperTypes">
+            <summary>
+            Any types that are implicitly defined in order to implement the body semantics.
+            In case of AST to instructions conversion this lists the types produced.
+            In case of instructions to AST decompilation this should ideally be list of all types
+            which are local to method.
+            </summary>
+        </member>
+    </members>
+</doc>

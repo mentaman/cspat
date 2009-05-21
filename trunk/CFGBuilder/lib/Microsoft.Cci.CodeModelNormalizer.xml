@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Cci.CodeModelNormalizer</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Cci.CodeModelNormalizer">
+            <summary>
+            This visitor takes a code model and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.#ctor(Microsoft.Cci.IMetadataHost,Microsoft.Cci.SourceMethodBodyProvider,Microsoft.Cci.SourceToILConverterProvider,Microsoft.Cci.ISourceLocationProvider,Microsoft.Cci.Contracts.ContractProvider)">
+            <summary>
+            Initializes a visitor that takes a code model and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel. This constructor is used when
+            the code model was obtained by reading in a compiled unit of metadata via something like the PE reader. 
+            </summary>
+            <param name="host">An object representing the application that is hosting the converter. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="ilToSourceProvider">A method that will return an ISourceMethodBody object corresponding to an IMethodBody instance.</param>
+            <param name="sourceToILProvider">A delegate that returns an ISourceToILConverter object initialized with the given host, source location provider and contract provider.
+            The returned object is in turn used to convert blocks of statements into lists of IL operations.</param>
+            <param name="sourceLocationProvider">An object that can map the ILocation objects found in a block of statements to IPrimarySourceLocation objects. May be null.</param>
+            <param name="contractProvider">An object that associates contracts, such as preconditions and postconditions, with methods, types and loops.
+            IL to check this contracts will be generated along with IL to evaluate the block of statements. May be null.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.#ctor(Microsoft.Cci.IMetadataHost,System.Boolean,Microsoft.Cci.SourceMethodBodyProvider,Microsoft.Cci.SourceToILConverterProvider,Microsoft.Cci.ISourceLocationProvider,Microsoft.Cci.Contracts.ContractProvider)">
+            <summary>
+            Initializes a visitor that takes a method body and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel.
+            </summary>
+            <param name="host">An object representing the application that is hosting the converter. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="copyOnlyIfNotAlreadyMutable"></param>
+            <param name="ilToSourceProvider">A method that will return an ISourceMethodBody object corresponding to an IMethodBody instance.</param>
+            <param name="sourceToILProvider">A delegate that returns an ISourceToILConverter object initialized with the given host, source location provider and contract provider.
+            The returned object is in turn used to convert blocks of statements into lists of IL operations.</param>
+            <param name="sourceLocationProvider">An object that can map the ILocation objects found in a block of statements to IPrimarySourceLocation objects. May be null.</param>
+            <param name="contractProvider">An object that associates contracts, such as preconditions and postconditions, with methods, types and loops.
+            IL to check this contracts will be generated along with IL to evaluate the block of statements. May be null.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.#ctor(Microsoft.Cci.MutableCodeModel.CodeAndContractMutator)">
+            <summary>
+            Initializes a visitor that takes a method body and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel.
+            </summary>
+            <param name="mutator"></param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.GetNormalizedSourceMethodBodyFor(Microsoft.Cci.IMethodDefinition,Microsoft.Cci.IBlockStatement)">
+            <summary>
+            
+            </summary>
+            <param name="method"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.AnonymousDelegate)">
+            <summary>
+            Visits the specified anonymous delegate.
+            </summary>
+            <param name="anonymousDelegate">The anonymous delegate.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.AddressableExpression)">
+            <summary>
+            Visits the specified addressable expression.
+            </summary>
+            <param name="addressableExpression">The addressable expression.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.BlockStatement)">
+            <summary>
+            Visits the specified block statement.
+            </summary>
+            <param name="blockStatement">The block statement.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.BoundExpression)">
+            <summary>
+            Visits the specified bound expression.
+            </summary>
+            <param name="boundExpression">The bound expression.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.IGlobalMethodDefinition)">
+            <summary>
+            Visits the specified global method definition.
+            </summary>
+            <param name="globalMethodDefinition">The global method definition.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.LocalDeclarationStatement)">
+            <summary>
+            Visits the specified local declaration statement.
+            </summary>
+            <param name="localDeclarationStatement">The local declaration statement.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.IMethodBody)">
+            <summary>
+            Visits the specified method body.
+            </summary>
+            <param name="methodBody">The method body.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.IMethodDefinition)">
+            <summary>
+            Visits the specified method definition.
+            </summary>
+            <param name="methodDefinition">The method definition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.Contracts.IMethodContract)">
+            <summary>
+            Visits the specified method contract.
+            </summary>
+            <param name="methodContract">The method contract.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.MethodDefinition)">
+            <summary>
+            Visits the specified method definition.
+            </summary>
+            <param name="methodDefinition">The method definition.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(Microsoft.Cci.MutableCodeModel.TargetExpression)">
+            <summary>
+            Visits the specified target expression.
+            </summary>
+            <param name="targetExpression">The target expression.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(System.Collections.Generic.List{Microsoft.Cci.IMethodDefinition})">
+            <summary>
+            Visits the specified method definitions.
+            </summary>
+            <param name="methodDefinitions">The method definitions.</param>
+        </member>
+        <member name="M:Microsoft.Cci.CodeModelNormalizer.Visit(System.Collections.Generic.List{Microsoft.Cci.INestedTypeDefinition})">
+            <summary>
+            Visits the specified nested type definitions.
+            </summary>
+            <param name="nestedTypeDefinitions">The nested type definitions.</param>
+        </member>
+        <member name="T:Microsoft.Cci.MethodBodyNormalizer">
+            <summary>
+            This visitor takes a method body and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.MethodBodyNormalizer.#ctor(Microsoft.Cci.IMetadataHost,Microsoft.Cci.SourceMethodBodyProvider,Microsoft.Cci.SourceToILConverterProvider,Microsoft.Cci.ISourceLocationProvider,Microsoft.Cci.Contracts.ContractProvider)">
+            <summary>
+            Initializes a visitor that takes a method body and rewrites it so that high level constructs such as anonymous delegates and yield statements
+            are turned into helper classes and methods, thus making it easier to generate IL from the CodeModel.
+            </summary>
+            <param name="host">An object representing the application that is hosting the converter. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="ilToSourceProvider">A method that will return an ISourceMethodBody object corresponding to an IMethodBody instance.</param>
+            <param name="sourceToILProvider">A delegate that returns an ISourceToILConverter object initialized with the given host, source location provider and contract provider.
+            The returned object is in turn used to convert blocks of statements into lists of IL operations.</param>
+            <param name="sourceLocationProvider">An object that can map the ILocation objects found in a block of statements to IPrimarySourceLocation objects. May be null.</param>
+            <param name="contractProvider">An object that associates contracts, such as preconditions and postconditions, with methods, types and loops.
+            IL to check this contracts will be generated along with IL to evaluate the block of statements. May be null.</param>
+        </member>
+        <member name="M:Microsoft.Cci.MethodBodyNormalizer.Visit(Microsoft.Cci.IFieldReference)">
+            <summary>
+            Visits the specified field reference.
+            </summary>
+            <param name="fieldReference">The field reference.</param>
+        </member>
+        <member name="M:Microsoft.Cci.MethodBodyNormalizer.Visit(Microsoft.Cci.IMethodReference)">
+            <summary>
+            Visits the specified method reference.
+            </summary>
+            <param name="methodReference">The method reference.</param>
+        </member>
+        <member name="M:Microsoft.Cci.MethodBodyNormalizer.Visit(Microsoft.Cci.ITypeReference)">
+            <summary>
+            Visits the specified type reference.
+            </summary>
+            <param name="typeReference">The type reference.</param>
+        </member>
+        <member name="T:Microsoft.Cci.FixAnonymousDelegateBodyToUseClosure">
+            <summary>
+            A mutator that visits an anonymous delegate body and produces a copy that has been changed to
+            reference captured locals and parameters via fields on a closure class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.FixAnonymousDelegateBodyToUseClosure.#ctor(System.Collections.Generic.Dictionary{System.Object,Microsoft.Cci.BoundField},System.Collections.Generic.Dictionary{System.Object,System.Object},Microsoft.Cci.MutableCodeModel.TypeDefinition,System.Collections.Generic.List{Microsoft.Cci.IFieldDefinition},Microsoft.Cci.IMetadataHost,Microsoft.Cci.SourceMethodBodyProvider,Microsoft.Cci.SourceToILConverterProvider,Microsoft.Cci.ISourceLocationProvider)">
+            <summary>
+            Allocates a mutator that visits an anonymous delegate body and produces a copy that has been changed to
+            reference captured locals and parameters via fields on a closure class.
+            </summary>
+            <param name="fieldForCapturedLocalOrParameter">A map from captured locals and parameters to the closure class fields that hold their state for the method
+            corresponding to the anonymous delegate.</param>
+            <param name="cache">A cache for any duplicates created by this mutator. The cache is used both to save space and to detect when the traversal of a cycle should stop.</param>
+            <param name="closure">The definition of the class that contains the fields that hold the values of captured locals and parameters.</param>
+            <param name="outerClosures">A potentially empty list of closures that for any anonymous delegates that enclose the anonymous delegate that will be
+            traversed by this mutator.</param>
+            <param name="host">An object representing the application that is hosting this mutator. It is used to obtain access to some global
+            objects and services such as the shared name table and the table for interning references.</param>
+            <param name="ilToSourceProvider">A method that will return an ISourceMethodBody object corresponding to an IMethodBody instance.</param>
+            <param name="sourceToILProvider">A delegate that returns an ISourceToILConverter object initialized with the given host, source location provider and contract provider.
+            The returned object is in turn used to convert blocks of statements into lists of IL operations.</param>
+            <param name="sourceLocationProvider">An object that can map the ILocation objects found in a block of statements to IPrimarySourceLocation objects. May be null.</param>
+        </member>
+        <member name="T:Microsoft.Cci.Expression">
+            <summary>
+            An expression results in a value of some type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.Expression.Dispatch(Microsoft.Cci.ICodeVisitor)">
+            <summary>
+            Calls the visitor.Visit(T) method where T is the most derived object model node interface type implemented by the concrete type
+            of the object implementing IDoubleDispatcher. The dispatch method does not invoke Dispatch on any child objects. If child traversal
+            is desired, the implementations of the Visit methods should do the subsequent dispatching.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.Expression.HasErrors">
+            <summary>
+            Checks the expression for errors and returns true if any were found.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Cci.Expression.IsPure">
+            <summary>
+            True if the expression has no observable side effects.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Microsoft.Cci.Expression.Type">
+            <summary>
+            The type of value the expression will evaluate to, as determined at compile time.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Cci.PreNormalizedCodeModelToILConverter.ConvertToIL(Microsoft.Cci.IMethodDefinition,Microsoft.Cci.IBlockStatement)">
+            <summary>
+            Traverses the given block of statements in the context of the given method to produce a list of
+            IL operations, exception information blocks (the locations of handlers, filters and finallies) and any private helper
+            types (for example closure classes) that represent the semantics of the given block of statements.
+            The results of the traversal can be retrieved via the GetOperations, GetOperationExceptionInformation
+            and GetPrivateHelperTypes methods.
+            </summary>
+            <param name="method">A method that provides the context for a block of statments that are to be converted to IL.</param>
+            <param name="body">A block of statements that are to be converted to IL.</param>
+        </member>
+        <member name="M:Microsoft.Cci.PreNormalizedCodeModelToILConverter.GetPrivateHelperTypes">
+            <summary>
+            Returns zero or more types that are used to keep track of information needed to implement
+            the statements that have been converted to IL by this converter. For example, any closure classes
+            needed to compile anonymous delegate expressions (lambdas) will be returned by this method.
+            </summary>
+        </member>
+    </members>
+</doc>
