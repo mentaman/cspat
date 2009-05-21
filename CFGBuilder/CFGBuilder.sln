@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFGBuilder", "CFGBuilder\CFGBuilder.csproj", "{BA8B9E86-B416-4CDA-B760-67FD369367C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFGBuilderTest", "CFGBuilderTest\CFGBuilderTest.csproj", "{9D4DD820-09B6-4964-BC3B-E2CADD6BE39E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFGTestProgram", "CFGTestProgram\CFGTestProgram.csproj", "{C68A09F0-399A-4694-BD3B-58307A0D1D67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA8B9E86-B416-4CDA-B760-67FD369367C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8B9E86-B416-4CDA-B760-67FD369367C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8B9E86-B416-4CDA-B760-67FD369367C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8B9E86-B416-4CDA-B760-67FD369367C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4DD820-09B6-4964-BC3B-E2CADD6BE39E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4DD820-09B6-4964-BC3B-E2CADD6BE39E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4DD820-09B6-4964-BC3B-E2CADD6BE39E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4DD820-09B6-4964-BC3B-E2CADD6BE39E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C68A09F0-399A-4694-BD3B-58307A0D1D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C68A09F0-399A-4694-BD3B-58307A0D1D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C68A09F0-399A-4694-BD3B-58307A0D1D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C68A09F0-399A-4694-BD3B-58307A0D1D67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
