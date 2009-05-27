@@ -11,7 +11,7 @@ namespace CFGTest
         {
 
 
-            int i = 0;
+//            int i = 0;
 //            if (i == 0)
 //            {
 //                Console.WriteLine("1");
@@ -35,25 +35,25 @@ namespace CFGTest
 //            Console.WriteLine("end1");
 //            Console.WriteLine("end1");
 //
-            switch (i)
-            {
-                case 1:
-                    Console.WriteLine("> 1");
-                    Console.WriteLine("> 1");
-                    break;
-                case 2:
-                    Console.WriteLine("> 1");
-                    Console.WriteLine("> 1");
-                    if (i > 10)
-                    {
-                        Console.WriteLine(">10");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("> 1");
-                    Console.WriteLine("> 1");
-                    break;
-            }
+//            switch (i)
+//            {
+//                case 1:
+//                    Console.WriteLine("> 1");
+//                    Console.WriteLine("> 1");
+//                    break;
+//                case 2:
+//                    Console.WriteLine("> 1");
+//                    Console.WriteLine("> 1");
+//                    if (i > 10)
+//                    {
+//                        Console.WriteLine(">10");
+//                    }
+//                    break;
+//                default:
+//                    Console.WriteLine("> 1");
+//                    Console.WriteLine("> 1");
+//                    break;
+//            }
 //
 //            Console.WriteLine("pause");
 //
@@ -90,7 +90,12 @@ namespace CFGTest
 //            {
 //                
 //            }
-           
+            int j = 0;
+            while (j < 10)
+            {
+                Console.WriteLine("j = " + j);
+                j++;
+            }
         }
     }
 }

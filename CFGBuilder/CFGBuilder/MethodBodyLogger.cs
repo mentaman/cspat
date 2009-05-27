@@ -39,7 +39,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogStatement(IStatement statement)
+        public static void LogStatement(IStatement statement)
         {
             Log("Statement Type: " + statement.GetType() + ",is basic block?: " + (statement is BasicBlock));
 
@@ -58,11 +58,11 @@ namespace CFGBuilder
             LogTryCatchStatement(statement);
 
             LogForStatement(statement);
-
+            
             Log("");
         }
 
-        private void LogForStatement(IStatement statement)
+        private static void LogForStatement(IStatement statement)
         {
             if (statement is ForStatement)
             {
@@ -76,7 +76,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogExpressionStatement(IStatement statement)
+        private static void LogExpressionStatement(IStatement statement)
         {
             if (statement is ExpressionStatement)
             {
@@ -85,12 +85,12 @@ namespace CFGBuilder
             }
         }
 
-        private void LogSource(IStatement statement)
+        private static void LogSource(IStatement statement)
         {
 //            statement.Locations.ToList().ForEach(x => Log("statement source: " + ((ISourceLocation) x).Source));
         }
 
-        private void LogTryCatchStatement(IStatement statement)
+        private static void LogTryCatchStatement(IStatement statement)
         {
             if (statement is TryCatchFinallyStatement)
             {
@@ -122,7 +122,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogSwitchStatement(IStatement statement)
+        private static void LogSwitchStatement(IStatement statement)
         {
             if (statement is SwitchStatement)
             {
@@ -147,7 +147,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogExpression(IExpression expression)
+        private static void LogExpression(IExpression expression)
         {
             if (expression is IBoundExpression)
             {
@@ -168,7 +168,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogIfStatement(IStatement statement)
+        private static void LogIfStatement(IStatement statement)
         {
             if (statement is ConditionalStatement)
             {
@@ -185,7 +185,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogBlock(BlockStatement block)
+        private static void LogBlock(BlockStatement block)
         {
             if (block == null)
             {
@@ -196,7 +196,7 @@ namespace CFGBuilder
             Log("}");
         }
 
-        private void LogLabeledStatement(IStatement statement)
+        private static void LogLabeledStatement(IStatement statement)
         {
             if (statement is LabeledStatement)
             {
@@ -207,7 +207,7 @@ namespace CFGBuilder
             }
         }
 
-        private void LogGotoStatement(IStatement statement)
+        private static void LogGotoStatement(IStatement statement)
         {
             if (statement is GotoStatement)
             {
@@ -218,10 +218,10 @@ namespace CFGBuilder
         }
 
         private bool writeToFile = true;
-        private StringBuilder sb = new StringBuilder();
-        private bool logging = true;
+        private static StringBuilder sb = new StringBuilder();
+        private static bool logging = true;
 
-        public void Log(string text)
+        public static void Log(string text)
         {
             if (!logging) return;
 

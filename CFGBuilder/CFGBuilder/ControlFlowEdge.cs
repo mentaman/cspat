@@ -1,3 +1,5 @@
+using System;
+
 namespace CFGBuilder
 {
     public class ControlFlowEdge
@@ -32,6 +34,11 @@ namespace CFGBuilder
         public ControlFlowEdgeLabel Label
         {
             get { return label; }
+        }
+
+        public override string ToString()
+        {
+            return "edge: " + label + " from: " + fromBlock + " to: " + toBlock;
         }
     }
 }
