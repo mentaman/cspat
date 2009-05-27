@@ -248,8 +248,10 @@ namespace CFGBuilder
 
             var falseBlock = conditionalStatement.FalseBranch as BasicBlock;
             var hasFalseBlock = falseBlock != null && falseBlock.Statements.Count > 0;
-            if (hasFalseBlock)
+            var needAddFalseEdge = true;
+            if (hasFalseBlock && !(falseBlock.Statements[0] is EmptyStatement))
             {
+                needAddFalseEdge = false;
                 currentBlock = new ControlFlowBasicBlock(methodDefinition, id++);
                 CreateControlFlowEdge(lastBlock, currentBlock, ControlFlowEdgeLabel.False);
                 var lastFalseBlock = ExtractBasicBlocks(methodDefinition, blocks, ref id, falseBlock.Statements,
@@ -260,7 +262,7 @@ namespace CFGBuilder
             
             currentBlock = new ControlFlowBasicBlock(methodDefinition, id++);
 
-            if (!hasFalseBlock)
+            if (needAddFalseEdge)
             {
                 CreateControlFlowEdge(lastBlock, currentBlock, ControlFlowEdgeLabel.False);
             }

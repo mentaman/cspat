@@ -126,33 +126,37 @@ namespace CFGBuilderTest
             var switchStatement = new SwitchStatement();
             var case1 = new SwitchCase();
             var caseLabel1 = "case1";
-            case1.Body.Add(new GotoStatement() { TargetStatement = new LabeledStatement() { Label = new StubName() { Value = caseLabel1 } } });
+            case1.Body.Add(new GotoStatement()
+                               {TargetStatement = new LabeledStatement() {Label = new StubName() {Value = caseLabel1}}});
             switchStatement.Cases.Add(case1);
 
             var case2 = new SwitchCase();
             var caseLabel2 = "case2";
-            case2.Body.Add(new GotoStatement() { TargetStatement = new LabeledStatement() { Label = new StubName() { Value = caseLabel2 } } });
+            case2.Body.Add(new GotoStatement()
+                               {TargetStatement = new LabeledStatement() {Label = new StubName() {Value = caseLabel2}}});
             switchStatement.Cases.Add(case2);
 
             statements.Add(switchStatement);
             var afterLabel = "after";
 
             // switch case body 1
-            statements.Add(new LabeledStatement(){Label = new StubName(){Value = caseLabel1}});
+            statements.Add(new LabeledStatement() {Label = new StubName() {Value = caseLabel1}});
             statements.Add(new ExpressionStatement());
-            statements.Add(new GotoStatement(){TargetStatement = new LabeledStatement(){Label = new StubName(){Value = afterLabel}}});
+            statements.Add(new GotoStatement()
+                               {TargetStatement = new LabeledStatement() {Label = new StubName() {Value = afterLabel}}});
 
             // switch case body 2
-            statements.Add(new LabeledStatement() { Label = new StubName() { Value = caseLabel2 } });
+            statements.Add(new LabeledStatement() {Label = new StubName() {Value = caseLabel2}});
             statements.Add(new ExpressionStatement());
-            statements.Add(new GotoStatement(){TargetStatement = new LabeledStatement(){Label = new StubName(){Value = afterLabel}}});
+            statements.Add(new GotoStatement()
+                               {TargetStatement = new LabeledStatement() {Label = new StubName() {Value = afterLabel}}});
 
             // default case
             statements.Add(new ExpressionStatement());
             statements.Add(new ExpressionStatement());
 
             // after switch statement 
-            statements.Add(new LabeledStatement() { Label = new StubName() { Value = afterLabel } });
+            statements.Add(new LabeledStatement() {Label = new StubName() {Value = afterLabel}});
             statements.Add(new ExpressionStatement());
 
             var blocks = MethodCFGBuilder.BuildMethodCFG(null, statements);
@@ -294,7 +298,7 @@ namespace CFGBuilderTest
 
             Assert.AreEqual(1, blocks[1].Statements.Count);
             Assert.IsTrue(blocks[1].Statements[0] is ConditionalStatement);
-            Assert.AreEqual(2,blocks[1].OutgoingEdges.Count);
+            Assert.AreEqual(2, blocks[1].OutgoingEdges.Count);
             Assert.AreEqual(blocks[2], blocks[1].OutgoingEdges[0].ToBlock);
             Assert.AreEqual(blocks[5], blocks[1].OutgoingEdges[1].ToBlock);
             Assert.AreEqual(ControlFlowEdgeLabel.True, blocks[1].OutgoingEdges[0].Label);
@@ -331,6 +335,103 @@ namespace CFGBuilderTest
             ifElseConditionalStatement.FalseBranch = falseBranch;
             return ifElseConditionalStatement;
         }
+
+        [Test]
+        public void should_handle_while_loop()
+        {
+            var declarationStatement = new LocalDeclarationStatement();
+            string label1 = "1";
+            var gotoStatement1 = new GotoStatement()
+                                     {
+                                         TargetStatement = new LabeledStatement() {Label = new StubName() {Value = label1}}
+                                     };
+            string label2 = "2";
+            var labelStatement1 = new LabeledStatement() {Label = new StubName() {Value = label1}};
+            var labelStatement2 = new LabeledStatement() {Label = new StubName() {Value = label2}};
+            var expression1 = new ExpressionStatement();
+            var expression2 = new ExpressionStatement();
+            var ifStatement = new ConditionalStatement();
+            var trueBranch = new BasicBlock(0);
+            var gotoStatement2 = new GotoStatement()
+                                     {
+                                         TargetStatement = new LabeledStatement() {Label = new StubName() {Value = label2}}
+                                     };
+            trueBranch.Statements.Add(gotoStatement2);
+            ifStatement.TrueBranch = trueBranch;
+            var falseBranch = new BasicBlock(0);
+            falseBranch.Statements.Add(new EmptyStatement());
+            ifStatement.FalseBranch = falseBranch;
+            var returnStatement = new ReturnStatement();
+
+            statements.Add(declarationStatement);
+            statements.Add(gotoStatement1);
+            statements.Add(labelStatement2);
+            statements.Add(expression1);
+            statements.Add(expression2);
+            statements.Add(labelStatement1);
+            statements.Add(ifStatement);
+            statements.Add(returnStatement);
+
+            var blocks = MethodCFGBuilder.BuildMethodCFG(null, statements);
+
+            PrintBlocks(blocks);
+
+            Assert.AreEqual(7, blocks.Count);
+
+            //block1
+            Assert.AreEqual(2, blocks[1].Statements.Count);
+            Assert.IsTrue(blocks[1].Statements[0] is LocalDeclarationStatement);
+            Assert.IsTrue(blocks[1].Statements[1] is GotoStatement);
+            Assert.AreEqual(1,blocks[1].OutgoingEdges.Count);
+            Assert.AreEqual(blocks[3],blocks[1].OutgoingEdges[0].ToBlock);
+
+            //block2
+            Assert.AreEqual(3, blocks[2].Statements.Count);
+            Assert.IsTrue(blocks[2].Statements[0] is LabeledStatement);
+            Assert.AreEqual(label2, ((LabeledStatement)blocks[2].Statements[0]).Label.Value);
+            Assert.IsTrue(blocks[2].Statements[1] is ExpressionStatement);
+            Assert.IsTrue(blocks[2].Statements[2] is ExpressionStatement);
+            Assert.AreEqual(1, blocks[2].OutgoingEdges.Count);
+            Assert.AreEqual(blocks[3], blocks[2].OutgoingEdges[0].ToBlock);
+
+            //block3
+            Assert.AreEqual(2, blocks[3].Statements.Count);
+            Assert.IsTrue(blocks[3].Statements[0] is LabeledStatement);
+            Assert.AreEqual(label1, ((LabeledStatement)blocks[3].Statements[0]).Label.Value);
+            Assert.IsTrue(blocks[3].Statements[1] is ConditionalStatement);
+            Assert.AreEqual(2, blocks[3].OutgoingEdges.Count);
+            Assert.AreEqual(blocks[4], blocks[3].OutgoingEdges[0].ToBlock);
+            Assert.AreEqual(ControlFlowEdgeLabel.True, blocks[3].OutgoingEdges[0].Label);
+            Assert.AreEqual(blocks[5], blocks[3].OutgoingEdges[1].ToBlock);
+            Assert.AreEqual(ControlFlowEdgeLabel.False, blocks[3].OutgoingEdges[1].Label);
+
+            //block4
+            Assert.AreEqual(1, blocks[4].Statements.Count);
+            Assert.IsTrue(blocks[4].Statements[0] is GotoStatement);
+            Assert.AreEqual(1, blocks[4].OutgoingEdges.Count);
+            Assert.AreEqual(blocks[2], blocks[4].OutgoingEdges[0].ToBlock);
+           
+            //block5
+            Assert.AreEqual(1, blocks[5].Statements.Count);
+            Assert.IsTrue(blocks[5].Statements[0] is ReturnStatement);
+            Assert.AreEqual(1, blocks[5].OutgoingEdges.Count);
+            Assert.AreEqual(blocks[6], blocks[5].OutgoingEdges[0].ToBlock);
+
+          
+        }
+
+        private void PrintBlocks(IList<ControlFlowBasicBlock> blocks)
+        {
+            blocks.ToList().ForEach(x =>
+                                        {
+                                            Console.WriteLine(x);
+                                            x.Statements.ToList().ForEach(MethodBodyLogger.LogStatement);
+                                            x.OutgoingEdges.ToList().ForEach(Console.WriteLine);
+                                            Console.WriteLine("=========");
+                                            Console.WriteLine("");
+                                        });
+        }
+
 
         [Test]
         [Ignore]
@@ -387,7 +488,6 @@ namespace CFGBuilderTest
 
     public class StubName : IName
     {
-
         public int UniqueKey
         {
             get { return 1; }

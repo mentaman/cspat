@@ -57,7 +57,7 @@ namespace CFGBuilder
 
         public override string ToString()
         {
-            return this.GetType() + "<id: " + id + ">";
+            return "Block<id: " + id + ", Statements: "+ statements.Count +">";
         }
     }
 
