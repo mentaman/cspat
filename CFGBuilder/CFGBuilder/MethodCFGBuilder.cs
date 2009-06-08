@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace CFGBuilder
             var outFilePath = "d://out.txt";
             if (File.Exists(outFilePath))
             {
+                Console.WriteLine("delete out.txt");
                 File.Delete(outFilePath);
             }
         }

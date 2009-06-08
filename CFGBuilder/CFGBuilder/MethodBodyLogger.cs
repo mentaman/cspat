@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,15 +22,10 @@ namespace CFGBuilder
 
         public void LogMethodBody()
         {
-            Console.WriteLine("logging " + methodDefinition.Name.Value);
+            sb = new StringBuilder();
+            Log("logging function " + methodDefinition.Name.Value);
             var statements = sourceMethodBody.Block.Statements;
-            Log("sourceMethodBody.Block.Statements.Count(): " + statements.Count());
-            foreach (var statement in statements)
-            {
-                LogStatement(statement);
-                Log("================");
-                Log("");
-            }
+            LogStatements(statements);
             if (writeToFile)
             {
                 using (var file = new StreamWriter("d://out.txt", true))
@@ -39,9 +35,24 @@ namespace CFGBuilder
             }
         }
 
+        private static void LogStatements(IEnumerable<IStatement> statements)
+        {
+            Log("sourceMethodBody.Block.Statements.Count(): " + statements.Count());
+            foreach (var statement in statements)
+            {
+                LogStatement(statement);
+                Log("================");
+                Log("");
+            }
+            
+        }
+
         public static void LogStatement(IStatement statement)
         {
-            Log("Statement Type: " + statement.GetType() + ",is basic block?: " + (statement is BasicBlock));
+            bool isBlock = (statement is BasicBlock);
+            Log("Statement Type: " + statement.GetType() + ",is basic block?: " + isBlock);
+
+            LogBlock(statement as BasicBlock);
 
             LogSource(statement);
 
@@ -58,7 +69,7 @@ namespace CFGBuilder
             LogTryCatchStatement(statement);
 
             LogForStatement(statement);
-            
+
             Log("");
         }
 
@@ -107,7 +118,8 @@ namespace CFGBuilder
                                                                                Log("ExceptionContainer: " +
                                                                                    x.ExceptionContainer.Type + ": " +
                                                                                    x.ExceptionContainer.Name);
-                                                                               Log("ExceptionType: " + x.ExceptionType.GetType());
+                                                                               Log("ExceptionType: " +
+                                                                                   x.ExceptionType.GetType());
                                                                                Log("Exception Body Statements: " +
                                                                                    x.Body.Statements.Count());
                                                                                x.Body.Statements.ToList().ForEach(
@@ -177,10 +189,10 @@ namespace CFGBuilder
                 Log("{");
                 Log("TrueBranch: ");
                 LogStatement(conditionalStatement.TrueBranch);
-                LogBlock(conditionalStatement.TrueBranch as BasicBlock);
+//                LogBlock(conditionalStatement.TrueBranch as BasicBlock);
                 Log("FalseBranch: ");
                 LogStatement(conditionalStatement.FalseBranch);
-                LogBlock(conditionalStatement.FalseBranch as BasicBlock);
+//                LogBlock(conditionalStatement.FalseBranch as BasicBlock);
                 Log("}");
             }
         }
@@ -217,7 +229,7 @@ namespace CFGBuilder
             }
         }
 
-        private bool writeToFile = true;
+        private static bool writeToFile = true;
         private static StringBuilder sb = new StringBuilder();
         private static bool logging = true;
 
