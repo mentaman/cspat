@@ -9,8 +9,6 @@ namespace CFGTest
     {
         public static void Main(string[] args)
         {
-
-
 //            int i = 0;
 //            if (i == 0)
 //            {
@@ -90,12 +88,33 @@ namespace CFGTest
 //            {
 //                
 //            }
-            int j = 0;
-            while (j < 10)
-            {
-                Console.WriteLine("j = " + j);
-                j++;
-            }
+//            Console.WriteLine("start");
+//            for (int i = 0; i < 10; i++)
+//            {
+//                Console.WriteLine("i = "+ i);
+//               
+//            }
+//            Console.WriteLine("start");
+//            Console.WriteLine("start");
+//            Console.WriteLine("start");
+//           
+
+//            var ints = new int[] {1, 2, 3};
+//            foreach (var i in ints)
+//            {
+//                Console.WriteLine(i);
+//            }
+//            Console.WriteLine("start");
+//            Console.WriteLine("start");
+//            Console.WriteLine("start");
+
+//            int i = 0;
+//            do
+//            {
+//                i++;
+//                Console.WriteLine("i = " + i);
+//            } while (i < 10);
+           
         }
     }
 }
