@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Pex.Framework;
+using Microsoft.Pex.Framework.Validation;
 using Xunit;
+using Xunit.Sdk;
 
 namespace pex.tests.xunit
 {
@@ -89,9 +92,43 @@ namespace pex.tests.xunit
 //        }
 
         [PexMethod]
-        public void TestContainsPUTCanFindNullInContainer([PexAssumeUnderTest]List<object> list)
+        [PexAllowedException(typeof(ContainsException))]
+        public void TestContainsPUTCanFindNullInContainer([PexAssumeUnderTest]object[] list, object item)
         {
-            Assert.Contains(null, list);
+            PexAssume.IsNull(item);
+            Assert.Contains(item, list);
+        }
+
+//        public void CanSearchForSubstrings()
+//        {
+//            Assert.Contains("wor", "Hello, world!");
+//        }
+
+        [PexMethod]
+        public void TestContainsPUTCanSearchForSubstring(string subString, string wholeString)
+        {
+            PexAssume.IsNotNull(subString);
+            PexAssume.IsNotNull(wholeString);
+            PexAssume.IsTrue(wholeString.IndexOf(subString) != -1);
+            PexAssume.IsTrue(wholeString.Length > subString.Length);
+            Assert.Contains(subString, wholeString);
+        }
+
+//        [Fact]
+//        public void CanSearchForSubstringsCaseInsensitive()
+//        {
+//            Assert.Contains("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase);
+//        }
+
+        [PexMethod]
+        public void TestContainsPUTCanSearchForSubstringCaseInsensitive(string subString, string wholeString)
+        {
+            PexAssume.IsNotNull(subString);
+            PexAssume.IsNotNull(wholeString);
+            PexAssume.IsTrue(wholeString.Contains("A"));
+            PexAssume.IsTrue(subString.Contains("a"));
+            PexAssume.IsTrue(wholeString.Length > subString.Length);
+            Assert.Contains(subString, wholeString, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
