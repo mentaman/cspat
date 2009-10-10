@@ -1,0 +1,12 @@
+F:\Downloads\xunit-1.5-src\Main\xunit\bin\Debug\xunit.dll.tdnet
+F:\Downloads\xunit-1.5-src\Main\xunit\bin\Debug\xunit.dll
+F:\Downloads\xunit-1.5-src\Main\xunit\bin\Debug\xunit.pdb
+F:\Downloads\xunit-1.5-src\Main\xunit\obj\Debug\ResolveAssemblyReference.cache
+F:\Downloads\xunit-1.5-src\Main\xunit\obj\Debug\xunit.dll
+F:\Downloads\xunit-1.5-src\Main\xunit\obj\Debug\xunit.pdb
+F:\Projects\xunit\xunit\bin\Debug\xunit.dll.tdnet
+F:\Projects\xunit\xunit\bin\Debug\xunit.dll
+F:\Projects\xunit\xunit\bin\Debug\xunit.pdb
+F:\Projects\xunit\xunit\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\xunit\xunit\obj\Debug\xunit.dll
+F:\Projects\xunit\xunit\obj\Debug\xunit.pdb

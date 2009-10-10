@@ -1,0 +1,16 @@
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.dll
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.pdb
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.dll
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.pdb
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.xml
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\obj\Debug\ResolveAssemblyReference.cache
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.dll
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.pdb
+F:\Projects\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.dll
+F:\Projects\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.pdb
+F:\Projects\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.dll
+F:\Projects\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.pdb
+F:\Projects\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.xml
+F:\Projects\xunit\xunit.runner.msbuild\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.dll
+F:\Projects\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.pdb

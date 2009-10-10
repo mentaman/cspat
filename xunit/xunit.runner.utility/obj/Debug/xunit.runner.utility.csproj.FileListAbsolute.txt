@@ -1,0 +1,10 @@
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.utility\bin\Debug\xunit.runner.utility.dll
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.utility\bin\Debug\xunit.runner.utility.pdb
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.utility\obj\Debug\ResolveAssemblyReference.cache
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.utility\obj\Debug\xunit.runner.utility.dll
+F:\Downloads\xunit-1.5-src\Main\xunit.runner.utility\obj\Debug\xunit.runner.utility.pdb
+F:\Projects\xunit\xunit.runner.utility\bin\Debug\xunit.runner.utility.dll
+F:\Projects\xunit\xunit.runner.utility\bin\Debug\xunit.runner.utility.pdb
+F:\Projects\xunit\xunit.runner.utility\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\xunit\xunit.runner.utility\obj\Debug\xunit.runner.utility.dll
+F:\Projects\xunit\xunit.runner.utility\obj\Debug\xunit.runner.utility.pdb

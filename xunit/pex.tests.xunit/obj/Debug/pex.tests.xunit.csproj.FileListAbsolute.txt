@@ -1,0 +1,5 @@
+F:\Projects\xunit\pex.tests.xunit\bin\Debug\pex.tests.xunit.dll
+F:\Projects\xunit\pex.tests.xunit\bin\Debug\pex.tests.xunit.pdb
+F:\Projects\xunit\pex.tests.xunit\obj\Debug\ResolveAssemblyReference.cache
+F:\Projects\xunit\pex.tests.xunit\obj\Debug\pex.tests.xunit.dll
+F:\Projects\xunit\pex.tests.xunit\obj\Debug\pex.tests.xunit.pdb

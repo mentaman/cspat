@@ -1,0 +1,54 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:ResultXmlUtility.cs" caret="0" fromTop="0" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:StubTestRunner.cs" caret="0" fromTop="0" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:StubTransformer.cs" caret="0" fromTop="0" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:AcceptanceTest.cs" caret="0" fromTop="0" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:NotEmptyTests.cs" caret="98" fromTop="5" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/f:ExecutorWrapperTests.cs" caret="665" fromTop="12" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:MockAssembly.cs" caret="0" fromTop="0" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:XmlLoggerAdapterTests.cs" caret="7183" fromTop="12" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryCommandTests.cs" caret="206" fromTop="10" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:MultiAssemblyTestEnvironmentTests.cs" caret="0" fromTop="0" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:MultiAssemblyTestEnvironmentAcceptanceTests.cs" caret="84" fromTop="3" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:TestAssemblyBuilderTests.cs" caret="1032" fromTop="11" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:StackFrameTransformerTests.cs" caret="0" fromTop="0" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestRunner/f:TestRunnerTests.cs" caret="0" fromTop="0" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeAcceptanceTests.cs" caret="748" fromTop="27" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeFacts.cs" caret="150" fromTop="6" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeFacts.cs" caret="270" fromTop="11" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeAcceptanceTests.cs" caret="1081" fromTop="23" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAttributeTests.cs" caret="243" fromTop="11" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAcceptanceTests.cs" caret="623" fromTop="21" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:DataAdapterDataAttributeTests.cs" caret="325" fromTop="12" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:XunitProjectTests.cs" caret="562" fromTop="23" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:ClockFacts.cs" caret="34" fromTop="1" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryCommandTests.cs" caret="206" fromTop="10" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeAcceptanceTests.cs" caret="748" fromTop="27" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeFacts.cs" caret="150" fromTop="6" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:ClockFacts.cs" caret="110" fromTop="5" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeFacts.cs" caret="187" fromTop="7" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeAcceptanceTests.cs" caret="186" fromTop="8" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAttributeTests.cs" caret="243" fromTop="11" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAcceptanceTests.cs" caret="178" fromTop="8" />
+      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:DataAdapterDataAttributeTests.cs" caret="376" fromTop="12" />
+      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:XunitProjectTests.cs" caret="649" fromTop="23" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+</Configuration>
