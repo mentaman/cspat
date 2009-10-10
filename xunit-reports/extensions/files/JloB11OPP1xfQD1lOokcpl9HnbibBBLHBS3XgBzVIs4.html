@@ -1,0 +1,3004 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<!-- saved from url=(0022)http://www.ncover.com/ -->
+    <title>NCover Code Coverage Report - ThreeMain</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+	<link rel="stylesheet" type="text/css" href="../default.css" />
+	
+	<script type="text/javascript" src="../sorttable.js"></script>
+    <script type="text/javascript" src="../prototype.js"></script>
+    <!--[if IE]>
+		<script type="text/javascript" src="../excanvas.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../blech.js"></script>
+    <script type="text/javascript" src="../ncover.js"></script>
+  </head>
+  <body>
+    <div id="hdrbar">
+      <div id="hdrbar_left">
+        <a href="../coveragesummary.html" target="doc">ThreeMain</a>
+      </div>
+    </div>
+    <div id="content">
+      
+
+<div id="page_title">
+  <em>Code Coverage Statistics for Source File</em>
+  <h1>test.xunit.extensions\FreezeClock\ClockFacts.cs</h1>
+</div>
+
+
+
+<div id="page_stats">
+	<div id="left">
+		<p>Symbol Coverage: <span class="highlight covered">100.00%</span> (44 of 44)</p><p>Branch Coverage: <span class="highlight covered">100.00%</span> (11 of 11)</p><p>Cyclomatic Complexity Avg: <span class="highlight">1.18</span> Max:<span class="highlight acceptable">2</span> </p>
+
+<p>
+  Code Lines:
+  <span class="highlight">52</span>
+</p>
+	</div>
+	
+</div>
+<br style="clear: both;" />
+
+
+
+
+<table id="sourceTable" class="source">
+  <tr>
+  <th class="linenum" title="Line #">L</th>
+  <th class="linenum" title="Visit Count">V</th>
+  <th class="sourceline" style="text-align: left;">Source</th>
+  </tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L1">1</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L2">2</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using Xunit;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L3">3</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using Xunit.Extensions;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L4">4</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L5">5</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>public class ClockFact</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L6">6</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>{</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L7">7</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class Freeze</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L8">8</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L9">9</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L10">10</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void DoubleFreezeThrows()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L11">11</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L12">12</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.Freeze();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L13">13</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L14">14</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            try</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L15">15</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L16">16</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.Throws&lt;InvalidOperationException&gt;(() =&gt; Clock.Freeze());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L17">17</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L18">18</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            finally</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L19">19</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L20">20</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L21">21</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L22">22</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L23">23</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L24">24</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L25">25</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class Now</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L26">26</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L27">27</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L28">28</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ConvertsFrozenUtcTimeIntoLocalTime()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L29">29</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L30">30</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Utc);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L31">31</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeUtc(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L32">32</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L33">33</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            try</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L34">34</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L35">35</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">DateTime result = Clock.Now;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L36">36</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L37">37</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.NotEqual(frozenTime, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L38">38</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.Equal(frozenTime.ToLocalTime(), result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L39">39</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L40">40</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            finally</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L41">41</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L42">42</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L43">43</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L44">44</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L45">45</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L46">46</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L47">47</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ReturnsToCurrentTimeAfterThaw()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L48">48</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L49">49</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Local);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L50">50</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeLocal(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L51">51</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L52">52</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L53">53</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime clockNow = Clock.Now;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L54">54</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L55">55</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.NotEqual(frozenTime, clockNow);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L56">56</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L57">57</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L58">58</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L59">59</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void UsesCurrentTimeByDefault()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L60">60</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L61">61</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime now = DateTime.Now;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L62">62</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L63">63</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime result = Clock.Now;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L64">64</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L65">65</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.True((result - now).Milliseconds &lt; 1000);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L66">66</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L67">67</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L68">68</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L69">69</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void UsesFrozenLocalTime()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L70">70</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L71">71</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Local);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L72">72</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeLocal(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L73">73</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L74">74</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            try</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L75">75</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L76">76</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">DateTime result = Clock.Now;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L77">77</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L78">78</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.Equal(frozenTime, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L79">79</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L80">80</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            finally</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L81">81</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L82">82</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L83">83</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L84">84</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L85">85</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L86">86</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L87">87</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class Thaw</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L88">88</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L89">89</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L90">90</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ThawWithoutFreezeThrows()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L91">91</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L92">92</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Throws&lt;InvalidOperationException&gt;(() =&gt; Clock.Thaw());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L93">93</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L94">94</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L95">95</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L96">96</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class UtcNow</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L97">97</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L98">98</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L99">99</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ConvertsFrozenLocalTimeIntoUtcTime()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L100">100</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L101">101</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Local);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L102">102</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeLocal(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L103">103</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L104">104</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            try</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L105">105</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L106">106</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">DateTime result = Clock.UtcNow;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L107">107</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L108">108</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.NotEqual(frozenTime, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L109">109</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.Equal(frozenTime.ToUniversalTime(), result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L110">110</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L111">111</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            finally</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L112">112</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L113">113</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L114">114</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L115">115</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L116">116</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L117">117</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L118">118</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ReturnsToCurrentTimeAfterThaw()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L119">119</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L120">120</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Utc);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L121">121</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeUtc(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L122">122</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L123">123</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L124">124</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime clockNow = Clock.UtcNow;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L125">125</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L126">126</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.NotEqual(frozenTime, clockNow);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L127">127</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L128">128</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L129">129</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L130">130</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void UsesCurrentTimeByDefault()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L131">131</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L132">132</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime now = DateTime.UtcNow;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L133">133</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L134">134</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime result = Clock.UtcNow;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L135">135</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L136">136</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.True((result - now).Milliseconds &lt; 1000);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L137">137</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L138">138</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L139">139</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact, ]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L140">140</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void UsesFrozenUtcTime()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L141">141</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L142">142</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">DateTime frozenTime = DateTime.SpecifyKind(DateTime.Now.AddDays(-1), DateTimeKind.Utc);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L143">143</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Clock.FreezeUtc(frozenTime);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L144">144</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L145">145</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            try</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L146">146</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L147">147</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">DateTime result = Clock.UtcNow;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L148">148</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L149">149</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Assert.Equal(frozenTime, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L150">150</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L151">151</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            finally</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L152">152</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L153">153</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">Clock.Thaw();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L154">154</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L155">155</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L156">156</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L157">157</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>}</pre>
+  </td>
+</tr>
+
+
+
+</table>
+
+<script type="text\\javascript" language="javascript">
+document.getElementById('coveredCheck').checked = false;
+</script>
+    </div>
+    <div id="footer">
+	  Generated By  
+      <a href="http://www.ncover.com" target="_top">NCover</a><br />
+    </div>
+  </body>
+</html>
