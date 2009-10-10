@@ -1,0 +1,2158 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<!-- saved from url=(0022)http://www.ncover.com/ -->
+    <title>NCover Code Coverage Report - ThreeMain</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+	<link rel="stylesheet" type="text/css" href="../default.css" />
+	
+	<script type="text/javascript" src="../sorttable.js"></script>
+    <script type="text/javascript" src="../prototype.js"></script>
+    <!--[if IE]>
+		<script type="text/javascript" src="../excanvas.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../blech.js"></script>
+    <script type="text/javascript" src="../ncover.js"></script>
+  </head>
+  <body>
+    <div id="hdrbar">
+      <div id="hdrbar_left">
+        <a href="../coveragesummary.html" target="doc">ThreeMain</a>
+      </div>
+    </div>
+    <div id="content">
+      
+
+<div id="page_title">
+  <em>Code Coverage Statistics for Source File</em>
+  <h1>test.utility\StubExecutorWrapper.cs</h1>
+</div>
+
+
+
+<div id="page_stats">
+	<div id="left">
+		<p>Symbol Coverage: <span class="highlight uncovered">0.00%</span> (0 of 51)</p><p>Branch Coverage: <span class="highlight uncovered">0.00%</span> (0 of 45)</p><p>Cyclomatic Complexity Avg: <span class="highlight">1.55</span> Max:<span class="highlight acceptable">4</span> </p>
+
+<p>
+  Code Lines:
+  <span class="highlight">43</span>
+</p>
+	</div>
+	
+</div>
+<br style="clear: both;" />
+
+
+
+
+<table id="sourceTable" class="source">
+  <tr>
+  <th class="linenum" title="Line #">L</th>
+  <th class="linenum" title="Visit Count">V</th>
+  <th class="sourceline" style="text-align: left;">Source</th>
+  </tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L1">1</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L2">2</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System.Collections.Generic;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L3">3</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System.Xml;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L4">4</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using Xunit;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L5">5</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L6">6</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>public class StubExecutorWrapper : IExecutorWrapper</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L7">7</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>{</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L8">8</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public bool Dispose__Called;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L9">9</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L10">10</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode EnumerateTests__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L11">11</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L12">12</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public int GetAssemblyTestCount__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L13">13</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L14">14</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">public readonly List&lt;XmlNode&gt; RunAssembly__CallbackNodes = new List&lt;XmlNode&gt;();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L15">15</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public event EventHandler RunAssembly__CallbackEvent;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L16">16</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunAssembly__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L17">17</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L18">18</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string RunClass_Type;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L19">19</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">public List&lt;XmlNode&gt; RunClass__CallbackNodes = new List&lt;XmlNode&gt;();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L20">20</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public event EventHandler RunClass__CallbackEvent;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L21">21</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunClass__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L22">22</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L23">23</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string RunTest_Type;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L24">24</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string RunTest_Method;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L25">25</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">public List&lt;XmlNode&gt; RunTest__CallbackNodes = new List&lt;XmlNode&gt;();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L26">26</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public event EventHandler RunTest__CallbackEvent;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L27">27</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunTest__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L28">28</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L29">29</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string RunTests_Type;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L30">30</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public List&lt;string&gt; RunTests_Methods;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L31">31</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">public List&lt;XmlNode&gt; RunTests__CallbackNodes = new List&lt;XmlNode&gt;();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L32">32</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public event EventHandler RunTests__CallbackEvent;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L33">33</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunTests__Result;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L34">34</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L35">35</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string AssemblyFilename { get; set; }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L36">36</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string ConfigFilename { get; set; }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L37">37</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public string XunitVersion { get; set; }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L38">38</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L39">39</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode EnumerateTests()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L40">40</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L41">41</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return EnumerateTests__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L42">42</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L43">43</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L44">44</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public void Dispose()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L45">45</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L46">46</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">Dispose__Called = true;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L47">47</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L48">48</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L49">49</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public int GetAssemblyTestCount()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L50">50</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L51">51</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return GetAssemblyTestCount__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L52">52</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L53">53</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L54">54</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunAssembly(Predicate&lt;XmlNode&gt; callback)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L55">55</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L56">56</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (callback != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L57">57</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            foreach (<span class="uncovered">XmlNode node in RunAssembly__CallbackNodes)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L58">58</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="uncovered">callback(node);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L59">59</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L60">60</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (RunAssembly__CallbackEvent != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L61">61</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="uncovered">RunAssembly__CallbackEvent(this, EventArgs.Empty);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L62">62</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L63">63</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return RunAssembly__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L64">64</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L65">65</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L66">66</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunClass(string type, Predicate&lt;XmlNode&gt; callback)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L67">67</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L68">68</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">RunClass_Type = type;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L69">69</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L70">70</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (callback != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L71">71</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            foreach (<span class="uncovered">XmlNode node in RunClass__CallbackNodes)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L72">72</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="uncovered">callback(node);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L73">73</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L74">74</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (RunClass__CallbackEvent != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L75">75</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="uncovered">RunClass__CallbackEvent(this, EventArgs.Empty);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L76">76</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L77">77</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return RunClass__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L78">78</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L79">79</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L80">80</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunTest(string type, string method, Predicate&lt;XmlNode&gt; callback)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L81">81</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L82">82</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">RunTest_Type = type;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L83">83</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">RunTest_Method = method;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L84">84</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L85">85</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (callback != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L86">86</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            foreach (<span class="uncovered">XmlNode node in RunTest__CallbackNodes)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L87">87</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="uncovered">callback(node);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L88">88</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L89">89</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (RunTest__CallbackEvent != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L90">90</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="uncovered">RunTest__CallbackEvent(this, EventArgs.Empty);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L91">91</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L92">92</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return RunTest__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L93">93</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L94">94</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L95">95</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public XmlNode RunTests(string type, List&lt;string&gt; methods, Predicate&lt;XmlNode&gt; callback)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L96">96</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L97">97</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">RunTests_Type = type;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L98">98</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">RunTests_Methods = methods;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L99">99</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L100">100</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (callback != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L101">101</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            foreach (<span class="uncovered">XmlNode node in RunTests__CallbackNodes)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L102">102</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="uncovered">callback(node);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L103">103</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L104">104</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">if (RunTests__CallbackEvent != null)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L105">105</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="uncovered">RunTests__CallbackEvent(this, EventArgs.Empty);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L106">106</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L107">107</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="uncovered">return RunTests__Result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="uncoveredLine">
+  
+    <pre><a name="L108">108</a></pre>
+  </td>
+  
+  
+    <td class="uncoveredLine">
+  
+	  <pre title="Visited 0 times"> 0</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>    <span class="uncovered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L109">109</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L110">110</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    internal delegate void Handler();</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L111">111</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>}</pre>
+  </td>
+</tr>
+
+
+
+</table>
+
+<script type="text\\javascript" language="javascript">
+document.getElementById('coveredCheck').checked = false;
+</script>
+    </div>
+    <div id="footer">
+	  Generated By  
+      <a href="http://www.ncover.com" target="_top">NCover</a><br />
+    </div>
+  </body>
+</html>

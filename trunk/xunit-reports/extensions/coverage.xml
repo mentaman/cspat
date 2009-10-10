@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- saved from NCover 3.0 Export url='http://www.ncover.com/' -->
+<coverage profilerVersion="3.2.4.5844" driverVersion="3.2.4" exportversion="3" viewdisplayname="ThreeMain" startTime="2009-10-10T22:09:23.421875Z" measureTime="2009-10-10T22:09:32.953125Z" projectName="ThreeMain" buildid="3fe170a0-1546-4c9b-a69f-e4657ae9f529" coveragenodeid="0" failed="false" satisfactorybranchthreshold="95" satisfactorycoveragethreshold="95" satisfactorycyclomaticcomplexitythreshold="20" satisfactoryfunctionthreshold="80" satisfactoryunvisitedsequencepoints="0" uiviewtype="TreeView" viewguid="ThreeMain" viewfilterstyle="None" viewreportstyle="SequencePointCoveragePercentage" viewsortstyle="Name">
+  <rebasedpaths />
+  <filters />
+  <documents>
+    <doc id="10" excluded="false" url="D:\xunit\test.utility\AcceptanceTest.cs" cs="09D69CCB8279111247C80B66CD4F1C1F" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="13" excluded="false" url="D:\xunit\test.utility\MockAssembly.cs" cs="26EEAC24FB0D1606EA9954D6BD6A7D2C" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="14" excluded="false" url="D:\xunit\test.utility\ResultXmlUtility.cs" cs="56FE87618BD81324F037D4B0C436584B" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="11" excluded="false" url="D:\xunit\test.utility\StubExecutorWrapper.cs" cs="7AEC971ECE499ABFD86E5EA4E4C5AB0C" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="15" excluded="false" url="D:\xunit\test.utility\StubTestRunner.cs" cs="D624C5402A855A963C061FED0840D9A3" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="12" excluded="false" url="D:\xunit\test.utility\StubTransformer.cs" cs="12917FFB5089E8E2008B82BDBE97E948" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="13" nid="0" />
+    <doc id="8" excluded="false" url="D:\xunit\test.xunit.extensions\AssumeIdentity\AssumeIdentityAttributeAcceptanceTests.cs" cs="C1979E85D37F0BC5E6BF7F4790CF750A" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="9" excluded="false" url="D:\xunit\test.xunit.extensions\AssumeIdentity\AssumeIdentityAttributeFacts.cs" cs="7594A1BE297445D28B386823F9829297" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="2" excluded="false" url="D:\xunit\test.xunit.extensions\DataTheories\DataAdapterDataAttributeTests.cs" cs="ACCFFC17DC33C55512126AF46D51B976" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="1" excluded="false" url="D:\xunit\test.xunit.extensions\DataTheories\TheoryAcceptanceTests.cs" cs="00A250E592394A85195FC3CCFC33CD54" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="7" excluded="false" url="D:\xunit\test.xunit.extensions\DataTheories\TheoryAttributeTests.cs" cs="B3A039E54322CC11A43DDAD6F597659C" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="5" excluded="false" url="D:\xunit\test.xunit.extensions\DataTheories\TheoryCommandTests.cs" cs="3CA3E915AC5ED2A1C598E0B602CDB48B" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="3" excluded="false" url="D:\xunit\test.xunit.extensions\FreezeClock\ClockFacts.cs" cs="16D74171A97986D8E313C81B6722172A" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="6" excluded="false" url="D:\xunit\test.xunit.extensions\FreezeClock\FreezeClockAttributeAcceptanceTests.cs" cs="28B0657EE53D53A2F7D52F3C89176C2E" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="4" excluded="false" url="D:\xunit\test.xunit.extensions\FreezeClock\FreezeClockAttributeFacts.cs" cs="48F10AF8ED6230C2BCB2E41308136028" csa="406ea660-64cf-4c82-b6f0-42d48172a799" om="7" nid="0" />
+    <doc id="0" excluded="false" url="None" cs="" csa="00000000-0000-0000-0000-000000000000" om="0" nid="0" />
+  </documents>
+  <module moduleId="35" name="D:\xunit\test.xunit.extensions\bin\Debug\2v0vnpo1.ngq.dll" assembly="2v0vnpo1.ngq" assemblyIdentity="2v0vnpo1.ngq, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="3" nid="0">
+        <seqpnt vc="3" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.Int32 x) : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="43" name="D:\xunit\test.xunit.extensions\bin\Debug\4uqkrol1.aaj.dll" assembly="4uqkrol1.aaj" assemblyIdentity="4uqkrol1.aaj, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="get_MyTestData" signature="get_MyTestData() : System.Collections.Generic.IEnumerable&lt;System.Object[]&gt; [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="9" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.Int32 foo,System.String bar,System.Double baz) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.Stub+&lt;get_MyTestData&gt;d__0" signature="-.Stub+&lt;get_MyTestData&gt;d__0" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor(System.Int32 &lt;&gt;1__state) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="MoveNext" signature="MoveNext() : System.Boolean" excluded="false" instrumented="true" cc="2" vc="2" nid="0">
+        <seqpnt vc="2" o="8" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="56" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="5E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="5F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;.GetEnumerator" signature="System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;.GetEnumerator() : System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;" excluded="false" instrumented="false" cc="3" vc="1" nid="0">
+        <seqpnt vc="1" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="1A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="0" o="2E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="2F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current" signature="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current() : System.Object[]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerable.GetEnumerator" signature="System.Collections.IEnumerable.GetEnumerator() : System.Collections.IEnumerator" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.get_Current" signature="System.Collections.IEnumerator.get_Current() : System.Object" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.Reset" signature="System.Collections.IEnumerator.Reset() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="5" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.IDisposable.Dispose" signature="System.IDisposable.Dispose() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="51" name="D:\xunit\test.xunit.extensions\bin\Debug\5dtemwuj.opw.dll" assembly="5dtemwuj.opw" assemblyIdentity="5dtemwuj.opw, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.MisbehavedDataAttribute" signature="-.MisbehavedDataAttribute" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="GetData" signature="GetData(System.Reflection.MethodInfo method,System.Type[] paramTypes) : System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="5" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.MisbehavingTestClass" signature="-.MisbehavingTestClass" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="TheoryWithMisbehavingData" signature="TheoryWithMisbehavingData(System.String a) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="19" name="D:\xunit\test.xunit.extensions\bin\Debug\c5gwpn3u.1o1.dll" assembly="c5gwpn3u.1o1" assemblyIdentity="c5gwpn3u.1o1, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="TheoryMethod" signature="TheoryMethod(System.Int32 x) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="27" name="D:\xunit\test.xunit.extensions\bin\Debug\cq0g1ofl.11b.dll" assembly="cq0g1ofl.11b" assemblyIdentity="cq0g1ofl.11b, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.Int32 foo,System.String bar,System.Double baz) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.StubData" signature="-.StubData" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="GetEnumerator" signature="GetEnumerator() : System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerable.GetEnumerator" signature="System.Collections.IEnumerable.GetEnumerator() : System.Collections.IEnumerator" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.StubData+&lt;GetEnumerator&gt;d__0" signature="-.StubData+&lt;GetEnumerator&gt;d__0" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor(System.Int32 &lt;&gt;1__state) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="MoveNext" signature="MoveNext() : System.Boolean" excluded="false" instrumented="true" cc="2" vc="2" nid="0">
+        <seqpnt vc="2" o="8" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="56" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="5E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+        <seqpnt vc="1" o="5F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current" signature="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current() : System.Object[]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.get_Current" signature="System.Collections.IEnumerator.get_Current() : System.Object" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.Reset" signature="System.Collections.IEnumerator.Reset() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="5" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="System.IDisposable.Dispose" signature="System.IDisposable.Dispose() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="59" name="D:\xunit\test.xunit.extensions\bin\Debug\czts1bzl.2oi.dll" assembly="czts1bzl.2oi" assemblyIdentity="czts1bzl.2oi, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.String foo) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="67" name="D:\xunit\test.xunit.extensions\bin\Debug\f50mwmqz.ovb.dll" assembly="f50mwmqz.ovb" assemblyIdentity="f50mwmqz.ovb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.Int32 foo,System.String bar,System.Double baz) : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="75" name="D:\xunit\test.xunit.extensions\bin\Debug\f5mk1nyj.fhz.dll" assembly="f5mk1nyj.fhz" assemblyIdentity="f5mk1nyj.fhz, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="3" nid="0">
+        <seqpnt vc="3" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="PassingTestData" signature="PassingTestData(System.Nullable&lt;System.Int32&gt; foo,System.String bar,System.String baz) : void" excluded="false" instrumented="true" cc="1" vc="3" nid="0">
+        <seqpnt vc="3" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="13" name="C:\Documents and Settings\xsxiao\Local Settings\Temp\34331419-98c9-452b-82ab-57c37036f557\34331419-98c9-452b-82ab-57c37036f557\assembly\dl3\f6c2a4c2\be085e15_c949ca01\test.utility.DLL" assembly="test.utility" assemblyIdentity="test.utility, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="TestUtility.AcceptanceTest" signature="TestUtility.AcceptanceTest" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="10" nid="0" />
+      </method>
+      <method name="Execute" signature="Execute(System.String code) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="9" el="9" c="13" ec="40" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="0" o="12" l="10" el="10" c="9" ec="10" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="0" o="13" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="10" nid="0" />
+      </method>
+      <method name="Execute" signature="Execute(System.String code,System.String configFile,System.String[] references) : System.Xml.XmlNode" excluded="false" instrumented="true" cc="2" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="16" el="16" c="20" ec="66" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="9" o="8" l="18" el="18" c="17" ec="56" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="9" o="11" l="19" el="19" c="17" ec="53" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="9" o="21" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="10" nid="0" />
+        <seqpnt vc="9" o="2C" l="21" el="21" c="9" ec="10" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="9" o="2D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="10" nid="0" />
+      </method>
+      <method name="ExecuteWithReferences" signature="ExecuteWithReferences(System.String code,System.String[] references) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="26" el="26" c="13" ec="52" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="0" o="D" l="27" el="27" c="9" ec="10" ex="false" fl="65536" doc="10" nid="0" />
+        <seqpnt vc="0" o="E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="10" nid="0" />
+      </method>
+    </class>
+    <class name="TestUtility.MockAssembly" signature="TestUtility.MockAssembly" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="0" l="17" el="18" c="9" ec="45" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="D" l="18" el="18" c="48" ec="49" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name=".ctor" signature=".ctor(System.String assemblyFileName) : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="0" l="20" el="20" c="9" ec="53" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="8" l="22" el="22" c="13" ec="74" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="23" l="24" el="24" c="13" ec="47" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="2E" l="25" el="25" c="13" ec="76" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="45" l="26" el="26" c="13" ec="87" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="61" l="27" el="27" c="9" ec="10" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="62" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="Compile" signature="Compile(System.String code,System.String[] references) : void" excluded="false" instrumented="true" cc="7" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="52" el="52" c="13" ec="70" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="7" l="53" el="53" c="13" ec="50" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="14" l="54" el="54" c="13" ec="56" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="1C" l="56" el="56" c="13" ec="65" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="2D" l="57" el="57" c="13" ec="63" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="3E" l="58" el="58" c="13" ec="68" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="4F" l="59" el="59" c="13" ec="68" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="60" l="60" el="60" c="13" ec="67" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="71" l="61" el="61" c="13" ec="67" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="83" l="63" el="63" c="13" ec="36" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="8B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="8E" l="64" el="64" c="46" ec="56" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="96" l="64" el="64" c="26" ec="42" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="9D" l="66" el="66" c="21" ec="78" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="A9" l="68" el="68" c="21" ec="52" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="B6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="B8" l="69" el="69" c="25" ec="76" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="C7" l="71" el="71" c="25" ec="72" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="D4" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="DB" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="18" o="DB" l="64" el="64" c="43" ec="45" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="18" o="E7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="E9" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="E9" l="74" el="74" c="13" ec="123" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="105" l="75" el="75" c="13" ec="83" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="10D" l="76" el="76" c="13" ec="92" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="126" l="78" el="78" c="13" ec="43" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="139" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="0" o="13F" l="80" el="80" c="17" ec="58" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="147" l="82" el="82" c="49" ec="63" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="157" l="82" el="82" c="26" ec="45" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="165" l="83" el="83" c="21" ec="157" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="1C2" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="0" o="1C2" l="82" el="82" c="46" ec="48" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="1CD" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="0" o="1E3" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="0" o="1EF" l="85" el="85" c="17" ec="151" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="214" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="215" l="87" el="87" c="9" ec="10" ex="false" fl="65536" doc="13" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="true" cc="2" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="91" el="91" c="13" ec="39" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="11" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="13" l="92" el="92" c="17" ec="39" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="1F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="1F" l="93" el="93" c="9" ec="10" ex="false" fl="65536" doc="13" nid="0" />
+      </method>
+      <method name="get_AssemblyName" signature="get_AssemblyName() : System.Reflection.AssemblyName" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="31" el="31" c="19" ec="39" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="A" l="31" el="31" c="40" ec="41" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="get_BasePath" signature="get_BasePath() : System.String [static]" excluded="false" instrumented="true" cc="1" vc="27" nid="0">
+        <seqpnt vc="27" o="1" l="36" el="36" c="19" ec="109" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="27" o="1D" l="36" el="36" c="110" ec="111" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="27" o="1E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="get_FileName" signature="get_FileName() : System.String" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="41" el="41" c="19" ec="35" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="A" l="41" el="41" c="36" ec="37" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="get_XunitDllFilename" signature="get_XunitDllFilename() : System.String" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="46" el="46" c="19" ec="62" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="13" l="46" el="46" c="63" ec="64" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="14" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="Run" signature="Run() : System.Xml.XmlNode" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="97" el="97" c="13" ec="30" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="B" l="98" el="98" c="9" ec="10" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="0" o="C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="Run" signature="Run(System.String configFile) : System.Xml.XmlNode" excluded="false" instrumented="true" cc="2" vc="9" nid="0">
+        <seqpnt vc="9" o="1" l="102" el="102" c="20" ec="94" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="16" l="104" el="104" c="17" ec="39" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="1D" l="106" el="112" c="17" ec="40" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="30" l="114" el="114" c="17" ec="31" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="3F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+        <seqpnt vc="9" o="4A" l="116" el="116" c="9" ec="10" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="4B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+    </class>
+    <class name="TestUtility.MockAssembly+&lt;&gt;c__DisplayClass2" signature="TestUtility.MockAssembly+&lt;&gt;c__DisplayClass2" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="13" nid="0" />
+      </method>
+      <method name="&lt;Run&gt;b__1" signature="&lt;Run&gt;b__1(System.Xml.XmlNode node) : System.Boolean" excluded="false" instrumented="true" cc="2" vc="46" nid="0">
+        <seqpnt vc="46" o="1" l="108" el="108" c="41" ec="69" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="9" o="18" l="109" el="109" c="45" ec="59" ex="false" fl="65536" doc="13" nid="0" />
+        <seqpnt vc="46" o="1F" l="111" el="111" c="41" ec="53" ex="false" fl="65536" doc="13" nid="0" />
+      </method>
+    </class>
+    <class name="TestUtility.ResultXmlUtility" signature="TestUtility.ResultXmlUtility" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+      <method name="AssertAttribute" signature="AssertAttribute(System.Xml.XmlNode testNode,System.String attributeName,System.String attributeValue) : void [static]" excluded="false" instrumented="true" cc="2" vc="32" nid="0">
+        <seqpnt vc="32" o="1" l="11" el="11" c="13" ec="70" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="32" o="E" l="12" el="12" c="13" ec="32" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="32" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="0" o="19" l="13" el="13" c="17" ec="133" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="0" o="34" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="32" o="35" l="14" el="14" c="13" ec="56" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="32" o="42" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="32" o="42" l="15" el="15" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+      </method>
+      <method name="AssertResult" signature="AssertResult(System.Xml.XmlNode assemblyNode,System.String result,System.String name) : System.Xml.XmlNode [static]" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="1" l="47" el="47" c="13" ec="52" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="8" l="48" el="48" c="13" ec="53" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="15" l="49" el="49" c="13" ec="49" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="22" l="50" el="50" c="13" ec="25" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="26" l="51" el="51" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="27" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+      <method name="GetResult" signature="GetResult(System.Xml.XmlNode assemblyNode,System.Int32 classIndex,System.Int32 testIndex) : System.Xml.XmlNode [static]" excluded="false" instrumented="true" cc="2" vc="14" nid="0">
+        <seqpnt vc="14" o="1" l="31" el="31" c="13" ec="72" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="D" l="32" el="32" c="13" ec="48" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="18" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="0" o="1A" l="33" el="33" c="17" ec="140" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="0" o="4E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="14" o="4F" l="34" el="34" c="13" ec="74" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="5F" l="35" el="35" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="60" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+      <method name="GetResult" signature="GetResult(System.Xml.XmlNode assemblyOrClassNode) : System.Xml.XmlNode [static]" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="1" l="19" el="19" c="13" ec="54" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="B" l="20" el="20" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+      <method name="GetResult" signature="GetResult(System.Xml.XmlNode assemblyOrClassNode,System.Int32 testIndex) : System.Xml.XmlNode [static]" excluded="false" instrumented="true" cc="2" vc="2" nid="0">
+        <seqpnt vc="2" o="1" l="24" el="24" c="13" ec="56" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="16" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="2" o="18" l="25" el="25" c="17" ec="69" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="0" o="23" l="26" el="26" c="13" ec="71" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="2D" l="27" el="27" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="2" o="2E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+      <method name="GetResultFromClass" signature="GetResultFromClass(System.Xml.XmlNode classNode,System.Int32 testIndex) : System.Xml.XmlNode [static]" excluded="false" instrumented="true" cc="2" vc="14" nid="0">
+        <seqpnt vc="14" o="1" l="39" el="39" c="13" ec="67" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="D" l="40" el="40" c="13" ec="46" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="18" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="0" o="1A" l="41" el="41" c="17" ec="135" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="0" o="4E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+        <seqpnt vc="14" o="4F" l="42" el="42" c="13" ec="41" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="59" l="43" el="43" c="9" ec="10" ex="false" fl="65536" doc="14" nid="0" />
+        <seqpnt vc="14" o="5A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="14" nid="0" />
+      </method>
+    </class>
+    <class name="-.StubExecutorWrapper" signature="-.StubExecutorWrapper" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="14" el="14" c="5" ec="84" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="B" l="19" el="19" c="5" ec="72" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="16" l="25" el="25" c="5" ec="71" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="21" l="31" el="31" c="5" ec="72" ex="false" fl="65536" doc="11" nid="0" />
+      </method>
+      <method name="add_RunAssembly__CallbackEvent" signature="add_RunAssembly__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="add_RunClass__CallbackEvent" signature="add_RunClass__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="add_RunTest__CallbackEvent" signature="add_RunTest__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="add_RunTests__CallbackEvent" signature="add_RunTests__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="46" el="46" c="9" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="8" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="8" l="47" el="47" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+      </method>
+      <method name="EnumerateTests" signature="EnumerateTests() : System.Xml.XmlNode" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="41" el="41" c="9" ec="39" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="A" l="42" el="42" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="get_AssemblyFilename" signature="get_AssemblyFilename() : System.String" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="get_ConfigFilename" signature="get_ConfigFilename() : System.String" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="get_XunitVersion" signature="get_XunitVersion() : System.String" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="GetAssemblyTestCount" signature="GetAssemblyTestCount() : System.Int32" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="51" el="51" c="9" ec="45" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="A" l="52" el="52" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="remove_RunAssembly__CallbackEvent" signature="remove_RunAssembly__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="remove_RunClass__CallbackEvent" signature="remove_RunClass__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="remove_RunTest__CallbackEvent" signature="remove_RunTest__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="remove_RunTests__CallbackEvent" signature="remove_RunTests__CallbackEvent(System.EventHandler value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="RunAssembly" signature="RunAssembly(System.Predicate&lt;System.Xml.XmlNode&gt; callback) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="4" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="56" el="56" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="A" l="57" el="57" c="38" ec="64" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="18" l="57" el="57" c="22" ec="34" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="20" l="58" el="58" c="17" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="28" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="28" l="57" el="57" c="35" ec="37" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="31" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="45" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="45" l="60" el="60" c="9" ec="48" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="50" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="52" l="61" el="61" c="13" ec="63" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="64" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="64" l="63" el="63" c="9" ec="36" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="6D" l="64" el="64" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="6E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="RunClass" signature="RunClass(System.String type,System.Predicate&lt;System.Xml.XmlNode&gt; callback) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="4" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="68" el="68" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="8" l="70" el="70" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="11" l="71" el="71" c="38" ec="61" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="1F" l="71" el="71" c="22" ec="34" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="27" l="72" el="72" c="17" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="2F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="2F" l="71" el="71" c="35" ec="37" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="38" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="4C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="4C" l="74" el="74" c="9" ec="45" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="57" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="59" l="75" el="75" c="13" ec="60" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="6B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="6B" l="77" el="77" c="9" ec="33" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="74" l="78" el="78" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="75" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="RunTest" signature="RunTest(System.String type,System.String method,System.Predicate&lt;System.Xml.XmlNode&gt; callback) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="4" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="82" el="82" c="9" ec="29" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="8" l="83" el="83" c="9" ec="33" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="F" l="85" el="85" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="18" l="86" el="86" c="38" ec="60" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="26" l="86" el="86" c="22" ec="34" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="2E" l="87" el="87" c="17" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="36" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="36" l="86" el="86" c="35" ec="37" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="3F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="53" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="53" l="89" el="89" c="9" ec="44" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="5E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="60" l="90" el="90" c="13" ec="59" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="72" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="72" l="92" el="92" c="9" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="7B" l="93" el="93" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="7C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="RunTests" signature="RunTests(System.String type,System.Collections.Generic.List&lt;System.String&gt; methods,System.Predicate&lt;System.Xml.XmlNode&gt; callback) : System.Xml.XmlNode" excluded="false" instrumented="false" cc="4" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="97" el="97" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="8" l="98" el="98" c="9" ec="36" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="F" l="100" el="100" c="9" ec="30" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="18" l="101" el="101" c="38" ec="61" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="26" l="101" el="101" c="22" ec="34" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="2E" l="102" el="102" c="17" ec="32" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="36" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="36" l="101" el="101" c="35" ec="37" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="3F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="53" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="53" l="104" el="104" c="9" ec="45" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="5E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="60" l="105" el="105" c="13" ec="60" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="72" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+        <seqpnt vc="0" o="72" l="107" el="107" c="9" ec="33" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="7B" l="108" el="108" c="5" ec="6" ex="false" fl="65536" doc="11" nid="0" />
+        <seqpnt vc="0" o="7C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="set_AssemblyFilename" signature="set_AssemblyFilename(System.String value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="set_ConfigFilename" signature="set_ConfigFilename(System.String value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+      <method name="set_XunitVersion" signature="set_XunitVersion(System.String value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="11" nid="0" />
+      </method>
+    </class>
+    <class name="TestUtility.StubTestRunner" signature="TestUtility.StubTestRunner" excluded="false" nid="0">
+      <method name=".cctor" signature=".cctor() : void [static]" excluded="false" instrumented="true" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="10" el="10" c="9" ec="74" ex="false" fl="65536" doc="15" nid="0" />
+      </method>
+      <method name=".ctor" signature=".ctor(Xunit.IExecutorWrapper executor) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="12" el="12" c="9" ec="57" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="8" l="14" el="14" c="13" ec="38" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="F" l="15" el="15" c="9" ec="10" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+      <method name="RunAssembly" signature="RunAssembly() : Xunit.TestRunnerResult" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="19" el="19" c="13" ec="49" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+      <method name="RunAssembly" signature="RunAssembly(System.Collections.Generic.IEnumerable&lt;Xunit.IResultXmlTransform&gt; transforms) : Xunit.TestRunnerResult" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="24" el="24" c="13" ec="49" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+      <method name="RunClass" signature="RunClass(System.String type) : Xunit.TestRunnerResult" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="29" el="29" c="13" ec="49" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+      <method name="RunTest" signature="RunTest(System.String type,System.String method) : Xunit.TestRunnerResult" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="34" el="34" c="13" ec="49" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+      <method name="RunTests" signature="RunTests(System.String type,System.Collections.Generic.List&lt;System.String&gt; methods) : Xunit.TestRunnerResult" excluded="false" instrumented="false" cc="2" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="39" el="43" c="13" ec="78" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="2E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+        <seqpnt vc="0" o="36" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+        <seqpnt vc="0" o="5A" l="45" el="45" c="13" ec="44" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="5E" l="46" el="46" c="9" ec="10" ex="false" fl="65536" doc="15" nid="0" />
+        <seqpnt vc="0" o="5F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="15" nid="0" />
+      </method>
+    </class>
+    <class name="-.StubTransformer" signature="-.StubTransformer" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="12" nid="0" />
+      </method>
+      <method name="get_Filename" signature="get_Filename() : System.String" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="10" el="10" c="15" ec="33" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="9" l="10" el="10" c="34" ec="35" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="12" nid="0" />
+      </method>
+      <method name="get_OutputType" signature="get_OutputType() : System.String" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="15" el="15" c="15" ec="36" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="9" l="15" el="15" c="37" ec="38" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="12" nid="0" />
+      </method>
+      <method name="Transform" signature="Transform(System.String xml) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="20" el="20" c="9" ec="34" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="8" l="21" el="21" c="9" ec="29" ex="false" fl="65536" doc="12" nid="0" />
+        <seqpnt vc="0" o="F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="12" nid="0" />
+        <seqpnt vc="0" o="F" l="22" el="22" c="5" ec="6" ex="false" fl="65536" doc="12" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="7" name="C:\Documents and Settings\xsxiao\Local Settings\Temp\34331419-98c9-452b-82ab-57c37036f557\34331419-98c9-452b-82ab-57c37036f557\assembly\dl3\d58617e9\e2bb9772_c949ca01\test.xunit.extensions.DLL" assembly="test.xunit.extensions" assemblyIdentity="test.xunit.extensions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.AssumeIdentityAttributeAcceptanceTests" signature="-.AssumeIdentityAttributeAcceptanceTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="4" nid="0">
+        <seqpnt vc="4" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+      </method>
+      <method name="&lt;CallingSecuredMethodWillThrow&gt;b__0" signature="&lt;CallingSecuredMethodWillThrow&gt;b__0() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="18" el="18" c="48" ec="63" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="&lt;CallingSecuredMethodWithAssumedIdentityPasses&gt;b__2" signature="&lt;CallingSecuredMethodWithAssumedIdentityPasses&gt;b__2() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="30" el="30" c="35" ec="50" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="&lt;CallingSecuredMethodWithWrongIdentityWillThrow&gt;b__1" signature="&lt;CallingSecuredMethodWithWrongIdentityWillThrow&gt;b__1() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="24" el="24" c="48" ec="63" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="AttributeChangesRoleInTestMethod" signature="AttributeChangesRoleInTestMethod() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="12" el="12" c="9" ec="65" ex="false" fl="65536" doc="8" nid="0" />
+        <seqpnt vc="1" o="16" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+        <seqpnt vc="1" o="16" l="13" el="13" c="5" ec="6" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="CallingSecuredMethodWillThrow" signature="CallingSecuredMethodWillThrow() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="18" el="18" c="9" ec="65" ex="false" fl="65536" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="19" el="19" c="5" ec="6" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="CallingSecuredMethodWithAssumedIdentityPasses" signature="CallingSecuredMethodWithAssumedIdentityPasses() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="30" el="30" c="9" ec="52" ex="false" fl="65536" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="31" el="31" c="5" ec="6" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="CallingSecuredMethodWithWrongIdentityWillThrow" signature="CallingSecuredMethodWithWrongIdentityWillThrow() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="24" el="24" c="9" ec="65" ex="false" fl="65536" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+        <seqpnt vc="1" o="13" l="25" el="25" c="5" ec="6" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+      <method name="DefeatVillian" signature="DefeatVillian() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="8" nid="0" />
+        <seqpnt vc="1" o="1" l="34" el="34" c="35" ec="36" ex="false" fl="65536" doc="8" nid="0" />
+      </method>
+    </class>
+    <class name="-.AssumeIdentityAttributeFact" signature="-.AssumeIdentityAttributeFact" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="4" nid="0">
+        <seqpnt vc="4" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+      </method>
+      <method name="&lt;CreatingWithEmptyIdentityThrows&gt;b__2" signature="&lt;CreatingWithEmptyIdentityThrows&gt;b__2() : System.Object [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="18" el="18" c="48" ec="79" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+      <method name="&lt;CreatingWithNullIdentityThrows&gt;b__0" signature="&lt;CreatingWithNullIdentityThrows&gt;b__0() : System.Object [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="12" el="12" c="48" ec="81" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+      <method name="CreatingWithEmptyIdentityThrows" signature="CreatingWithEmptyIdentityThrows() : void" excluded="false" instrumented="true" cc="2" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="18" el="18" c="9" ec="81" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="26" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="26" l="19" el="19" c="5" ec="6" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+      <method name="CreatingWithNullIdentityThrows" signature="CreatingWithNullIdentityThrows() : void" excluded="false" instrumented="true" cc="2" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="12" el="12" c="9" ec="83" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="26" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="26" l="13" el="13" c="5" ec="6" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+      <method name="IdentityIsChangedWithinTest" signature="IdentityIsChangedWithinTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="24" el="24" c="9" ec="75" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="C" l="26" el="26" c="9" ec="27" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="14" l="28" el="28" c="9" ec="62" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="29" l="29" el="29" c="9" ec="26" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="31" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="31" l="30" el="30" c="5" ec="6" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+      <method name="OriginalIdentityIsReinstatedAfterTest" signature="OriginalIdentityIsReinstatedAfterTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="35" el="35" c="9" ec="55" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="7" l="36" el="36" c="9" ec="75" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="12" l="37" el="37" c="9" ec="27" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="1A" l="39" el="39" c="9" ec="26" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="22" l="41" el="41" c="9" ec="57" ex="false" fl="65536" doc="9" nid="0" />
+        <seqpnt vc="1" o="2E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="9" nid="0" />
+        <seqpnt vc="1" o="2E" l="42" el="42" c="5" ec="6" ex="false" fl="65536" doc="9" nid="0" />
+      </method>
+    </class>
+    <class name="-.ClockFact" signature="-.ClockFact" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.ClockFact+Freeze" signature="-.ClockFact+Freeze" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+      </method>
+      <method name="&lt;DoubleFreezeThrows&gt;b__0" signature="&lt;DoubleFreezeThrows&gt;b__0() : void [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="16" el="16" c="64" ec="78" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="DoubleFreezeThrows" signature="DoubleFreezeThrows() : void" excluded="false" instrumented="true" cc="2" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="12" el="12" c="13" ec="28" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="8" l="16" el="16" c="17" ec="80" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="31" l="20" el="20" c="17" ec="30" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="3A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="3A" l="22" el="22" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+    </class>
+    <class name="-.ClockFact+Now" signature="-.ClockFact+Now" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="4" nid="0">
+        <seqpnt vc="4" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+      </method>
+      <method name="ConvertsFrozenUtcTimeIntoLocalTime" signature="ConvertsFrozenUtcTimeIntoLocalTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="30" el="30" c="13" ec="100" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="31" el="31" c="13" ec="41" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="35" el="35" c="17" ec="45" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2C" l="37" el="37" c="17" ec="53" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="34" l="38" el="38" c="17" ec="64" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="46" l="42" el="42" c="17" ec="30" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="4F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="4F" l="44" el="44" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="ReturnsToCurrentTimeAfterThaw" signature="ReturnsToCurrentTimeAfterThaw() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="49" el="49" c="13" ec="102" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="50" el="50" c="13" ec="43" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="25" l="51" el="51" c="13" ec="26" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2B" l="53" el="53" c="13" ec="43" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="31" l="55" el="55" c="13" ec="51" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="39" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="39" l="56" el="56" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="UsesCurrentTimeByDefault" signature="UsesCurrentTimeByDefault() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="61" el="61" c="13" ec="41" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="7" l="63" el="63" c="13" ec="41" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="D" l="65" el="65" c="13" ec="61" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="29" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="29" l="66" el="66" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="UsesFrozenLocalTime" signature="UsesFrozenLocalTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="71" el="71" c="13" ec="102" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="72" el="72" c="13" ec="43" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="76" el="76" c="17" ec="45" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2C" l="78" el="78" c="17" ec="50" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="38" l="82" el="82" c="17" ec="30" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="41" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="41" l="84" el="84" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+    </class>
+    <class name="-.ClockFact+Thaw" signature="-.ClockFact+Thaw" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+      </method>
+      <method name="&lt;ThawWithoutFreezeThrows&gt;b__2" signature="&lt;ThawWithoutFreezeThrows&gt;b__2() : void [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="92" el="92" c="60" ec="72" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="ThawWithoutFreezeThrows" signature="ThawWithoutFreezeThrows() : void" excluded="false" instrumented="true" cc="2" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="92" el="92" c="13" ec="74" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="93" el="93" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+    </class>
+    <class name="-.ClockFact+UtcNow" signature="-.ClockFact+UtcNow" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="4" nid="0">
+        <seqpnt vc="4" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+      </method>
+      <method name="ConvertsFrozenLocalTimeIntoUtcTime" signature="ConvertsFrozenLocalTimeIntoUtcTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="101" el="101" c="13" ec="102" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="102" el="102" c="13" ec="43" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="106" el="106" c="17" ec="48" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2C" l="108" el="108" c="17" ec="53" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="34" l="109" el="109" c="17" ec="68" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="46" l="113" el="113" c="17" ec="30" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="4F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="4F" l="115" el="115" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="ReturnsToCurrentTimeAfterThaw" signature="ReturnsToCurrentTimeAfterThaw() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="120" el="120" c="13" ec="100" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="121" el="121" c="13" ec="41" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="25" l="122" el="122" c="13" ec="26" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2B" l="124" el="124" c="13" ec="46" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="31" l="126" el="126" c="13" ec="51" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="39" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="39" l="127" el="127" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="UsesCurrentTimeByDefault" signature="UsesCurrentTimeByDefault() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="132" el="132" c="13" ec="44" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="7" l="134" el="134" c="13" ec="44" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="D" l="136" el="136" c="13" ec="61" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="29" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="29" l="137" el="137" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+      <method name="UsesFrozenUtcTime" signature="UsesFrozenUtcTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="142" el="142" c="13" ec="100" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="1E" l="143" el="143" c="13" ec="41" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="26" l="147" el="147" c="17" ec="48" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="2C" l="149" el="149" c="17" ec="50" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="38" l="153" el="153" c="17" ec="30" ex="false" fl="65536" doc="3" nid="0" />
+        <seqpnt vc="1" o="41" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="3" nid="0" />
+        <seqpnt vc="1" o="41" l="155" el="155" c="9" ec="10" ex="false" fl="65536" doc="3" nid="0" />
+      </method>
+    </class>
+    <class name="-.DataAdapterDataAttributeTests" signature="-.DataAdapterDataAttributeTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="WillConvertDBNullToNull" signature="WillConvertDBNullToNull() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="12" el="12" c="9" ec="92" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="17" l="14" el="14" c="9" ec="104" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="39" l="16" el="16" c="9" ec="40" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="46" l="17" el="17" c="9" ec="44" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="56" l="18" el="18" c="9" ec="36" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="65" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+        <seqpnt vc="1" o="65" l="19" el="19" c="5" ec="6" ex="false" fl="65536" doc="2" nid="0" />
+      </method>
+      <method name="WillNotThrowWhenGivenInsufficientParameterTypeLength" signature="WillNotThrowWhenGivenInsufficientParameterTypeLength() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="7" l="24" el="24" c="9" ec="92" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="22" l="26" el="26" c="9" ec="88" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="34" l="27" el="27" c="5" ec="6" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="1" o="35" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+    </class>
+    <class name="-.DataAdapterDataAttributeTests+&lt;&gt;c__DisplayClass1" signature="-.DataAdapterDataAttributeTests+&lt;&gt;c__DisplayClass1" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="&lt;WillNotThrowWhenGivenInsufficientParameterTypeLength&gt;b__0" signature="&lt;WillNotThrowWhenGivenInsufficientParameterTypeLength&gt;b__0() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="26" el="26" c="35" ec="86" ex="false" fl="65536" doc="2" nid="0" />
+      </method>
+    </class>
+    <class name="-.FreezeClockAttributeAcceptanceTests" signature="-.FreezeClockAttributeAcceptanceTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="5" nid="0">
+        <seqpnt vc="5" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+      </method>
+      <method name="FrozenWithCurrentTime" signature="FrozenWithCurrentTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="11" el="11" c="9" ec="43" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="7" l="13" el="13" c="9" ec="38" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="D" l="14" el="14" c="9" ec="27" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="15" l="15" el="15" c="9" ec="38" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="1B" l="17" el="17" c="9" ec="40" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="23" l="18" el="18" c="9" ec="64" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="3F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+        <seqpnt vc="1" o="3F" l="19" el="19" c="5" ec="6" ex="false" fl="65536" doc="6" nid="0" />
+      </method>
+      <method name="FrozenWithSpecificDate" signature="FrozenWithSpecificDate() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="24" el="24" c="9" ec="37" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="7" l="26" el="26" c="9" ec="58" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="1C" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+        <seqpnt vc="1" o="1C" l="27" el="27" c="5" ec="6" ex="false" fl="65536" doc="6" nid="0" />
+      </method>
+      <method name="FrozenWithSpecificLocalDateTime" signature="FrozenWithSpecificLocalDateTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="32" el="32" c="9" ec="37" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="7" l="34" el="34" c="9" ec="67" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="1F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+        <seqpnt vc="1" o="1F" l="35" el="35" c="5" ec="6" ex="false" fl="65536" doc="6" nid="0" />
+      </method>
+      <method name="FrozenWithSpecificUTCDateTime" signature="FrozenWithSpecificUTCDateTime() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="40" el="40" c="9" ec="37" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="7" l="42" el="42" c="9" ec="99" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="28" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+        <seqpnt vc="1" o="28" l="43" el="43" c="5" ec="6" ex="false" fl="65536" doc="6" nid="0" />
+      </method>
+      <method name="NotFrozen" signature="NotFrozen() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="48" el="48" c="9" ec="38" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="7" l="49" el="49" c="9" ec="27" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="F" l="50" el="50" c="9" ec="38" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="15" l="52" el="52" c="9" ec="43" ex="false" fl="65536" doc="6" nid="0" />
+        <seqpnt vc="1" o="1D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="6" nid="0" />
+        <seqpnt vc="1" o="1D" l="53" el="53" c="5" ec="6" ex="false" fl="65536" doc="6" nid="0" />
+      </method>
+    </class>
+    <class name="-.FreezeClockAttributeFact" signature="-.FreezeClockAttributeFact" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="4" nid="0">
+        <seqpnt vc="4" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="4" nid="0" />
+      </method>
+      <method name="DateSpecificConstructor" signature="DateSpecificConstructor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="34" el="34" c="9" ec="76" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="10" l="36" el="36" c="9" ec="27" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="19" l="40" el="40" c="13" ec="47" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="1F" l="41" el="41" c="13" ec="41" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="25" l="43" el="43" c="13" ec="48" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="2D" l="44" el="44" c="13" ec="62" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="46" l="48" el="48" c="13" ec="30" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="51" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="4" nid="0" />
+        <seqpnt vc="1" o="51" l="50" el="50" c="5" ec="6" ex="false" fl="65536" doc="4" nid="0" />
+      </method>
+      <method name="DefaultConstructor" signature="DefaultConstructor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="11" el="11" c="9" ec="64" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="7" l="13" el="13" c="9" ec="27" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="10" l="17" el="17" c="13" ec="47" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="16" l="18" el="18" c="13" ec="42" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="1C" l="19" el="19" c="13" ec="31" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="24" l="20" el="20" c="13" ec="42" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="2A" l="22" el="22" c="13" ec="44" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="32" l="23" el="23" c="13" ec="68" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="53" l="27" el="27" c="13" ec="30" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="5E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="4" nid="0" />
+        <seqpnt vc="1" o="5E" l="29" el="29" c="5" ec="6" ex="false" fl="65536" doc="4" nid="0" />
+      </method>
+      <method name="KindSpecificDateTimeConstructor" signature="KindSpecificDateTimeConstructor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="76" el="76" c="9" ec="103" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="14" l="78" el="78" c="9" ec="27" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="1D" l="82" el="82" c="13" ec="47" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="23" l="83" el="83" c="13" ec="41" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="29" l="85" el="85" c="13" ec="48" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="31" l="86" el="86" c="13" ec="103" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="56" l="90" el="90" c="13" ec="30" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="61" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="4" nid="0" />
+        <seqpnt vc="1" o="61" l="92" el="92" c="5" ec="6" ex="false" fl="65536" doc="4" nid="0" />
+      </method>
+      <method name="LocalDateTimeConstructor" signature="LocalDateTimeConstructor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="55" el="55" c="9" ec="85" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="13" l="57" el="57" c="9" ec="27" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="1C" l="61" el="61" c="13" ec="47" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="22" l="62" el="62" c="13" ec="41" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="28" l="64" el="64" c="13" ec="48" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="30" l="65" el="65" c="13" ec="71" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="4C" l="69" el="69" c="13" ec="30" ex="false" fl="65536" doc="4" nid="0" />
+        <seqpnt vc="1" o="57" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="4" nid="0" />
+        <seqpnt vc="1" o="57" l="71" el="71" c="5" ec="6" ex="false" fl="65536" doc="4" nid="0" />
+      </method>
+    </class>
+    <class name="-.TestableDataAdapterDataAttribute" signature="-.TestableDataAdapterDataAttribute" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor(System.Object[] data) : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="0" l="34" el="34" c="5" ec="66" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="8" l="36" el="36" c="9" ec="26" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="F" l="37" el="37" c="5" ec="6" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="get_DataAdapter" signature="get_DataAdapter() : System.Data.IDataAdapter" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="1" l="41" el="41" c="15" ec="50" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="F" l="41" el="41" c="51" ec="52" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+    </class>
+    <class name="-.TestableDataAdapterDataAttribute+InlineDataAdapter" signature="-.TestableDataAdapterDataAttribute+InlineDataAdapter" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor(System.Object[] data) : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="0" l="48" el="48" c="9" ec="48" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="8" l="50" el="50" c="13" ec="30" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="F" l="51" el="51" c="9" ec="10" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="Fill" signature="Fill(System.Data.DataSet dataSet) : System.Int32" excluded="false" instrumented="true" cc="2" vc="2" nid="0">
+        <seqpnt vc="2" o="1" l="60" el="60" c="13" ec="52" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="E" l="62" el="62" c="38" ec="42" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="1A" l="62" el="62" c="22" ec="34" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="1F" l="63" el="63" c="17" ec="53" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="36" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+        <seqpnt vc="4" o="36" l="62" el="62" c="35" ec="37" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="4" o="41" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+        <seqpnt vc="2" o="43" l="65" el="65" c="13" ec="34" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="55" l="66" el="66" c="13" ec="22" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="59" l="67" el="67" c="9" ec="10" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="2" o="5A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="FillSchema" signature="FillSchema(System.Data.DataSet dataSet,System.Data.SchemaType schemaType) : System.Data.DataTable[]" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="55" el="55" c="13" ec="49" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="get_MissingMappingAction" signature="get_MissingMappingAction() : System.Data.MissingMappingAction" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="81" el="81" c="19" ec="55" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="get_MissingSchemaAction" signature="get_MissingSchemaAction() : System.Data.MissingSchemaAction" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="87" el="87" c="19" ec="55" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="get_TableMappings" signature="get_TableMappings() : System.Data.ITableMappingCollection" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="93" el="93" c="19" ec="55" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="GetFillParameters" signature="GetFillParameters() : System.Data.IDataParameter[]" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="71" el="71" c="13" ec="49" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="set_MissingMappingAction" signature="set_MissingMappingAction(System.Data.MissingMappingAction value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="82" el="82" c="19" ec="55" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="set_MissingSchemaAction" signature="set_MissingSchemaAction(System.Data.MissingSchemaAction value) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="88" el="88" c="19" ec="55" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+      <method name="Update" signature="Update(System.Data.DataSet dataSet) : System.Int32" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="76" el="76" c="13" ec="49" ex="false" fl="65536" doc="2" nid="0" />
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="2" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryAcceptanceTests" signature="-.TheoryAcceptanceTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+      </method>
+      <method name="IncorrectParameterCountThrows" signature="IncorrectParameterCountThrows() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="157" el="170" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="172" el="172" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="174" el="174" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="175" el="175" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="176" el="176" c="9" ec="94" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="178" el="178" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="57" l="179" el="179" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="68" l="180" el="180" c="9" ec="97" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="79" l="181" el="181" c="9" ec="69" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="86" l="182" el="182" c="9" ec="117" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="A2" l="184" el="184" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="AC" l="185" el="185" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="BE" l="186" el="186" c="9" ec="94" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="D0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="D0" l="187" el="187" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryViaClassAcceptanceTest" signature="TheoryViaClassAcceptanceTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="90" el="115" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="117" el="117" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="20" l="119" el="119" c="9" ec="116" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="31" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="31" l="120" el="120" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryViaDataAcceptanceTest" signature="TheoryViaDataAcceptanceTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="11" el="23" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="25" el="25" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="27" el="27" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="28" el="28" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="29" el="29" c="9" ec="110" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="31" el="31" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="57" l="32" el="32" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="68" l="33" el="33" c="9" ec="113" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="79" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="79" l="34" el="34" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryViaPropertyAcceptanceTest" signature="TheoryViaPropertyAcceptanceTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="64" el="80" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="82" el="82" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="20" l="84" el="84" c="9" ec="116" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="31" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="31" l="85" el="85" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryViaXlsAcceptanceTest" signature="TheoryViaXlsAcceptanceTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="125" el="136" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="139" el="139" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="141" el="141" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="142" el="142" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="143" el="143" c="9" ec="112" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="145" el="145" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="57" l="146" el="146" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="68" l="147" el="147" c="9" ec="109" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="79" l="149" el="149" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="83" l="150" el="150" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="95" l="151" el="151" c="9" ec="114" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="A7" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="A7" l="152" el="152" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryWithDataAttributesWithNoData" signature="TheoryWithDataAttributesWithNoData() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="218" el="240" c="9" ec="11" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="242" el="242" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="244" el="244" c="9" ec="75" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="245" el="245" c="9" ec="70" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="246" el="246" c="9" ec="81" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="247" el="247" c="9" ec="68" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="5A" l="248" el="248" c="9" ec="117" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="75" l="249" el="249" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="82" l="250" el="250" c="9" ec="119" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="251" el="251" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryWithInlineDataOfSingleNullPassesNullToTestMethod" signature="TheoryWithInlineDataOfSingleNullPassesNullToTestMethod() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="39" el="52" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="54" el="54" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="20" l="56" el="56" c="9" ec="75" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="29" l="57" el="57" c="9" ec="70" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3A" l="58" el="58" c="9" ec="90" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="4B" l="59" el="59" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="TheoryWithNoDataAttributes" signature="TheoryWithNoDataAttributes() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="192" el="202" c="9" ec="15" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="204" el="204" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="206" el="206" c="9" ec="75" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="207" el="207" c="9" ec="70" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="208" el="208" c="9" ec="81" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="209" el="209" c="9" ec="68" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="5A" l="210" el="210" c="9" ec="117" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="75" l="211" el="211" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="82" l="212" el="212" c="9" ec="119" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="213" el="213" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+      <method name="ThrowingDataAttributeAcceptanceTest" signature="ThrowingDataAttributeAcceptanceTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="256" el="279" c="9" ec="11" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="7" l="281" el="281" c="9" ec="76" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="23" l="283" el="283" c="9" ec="75" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="2C" l="284" el="284" c="9" ec="70" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="3D" l="285" el="285" c="9" ec="110" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="4E" l="286" el="286" c="9" ec="68" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="5A" l="287" el="287" c="9" ec="117" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="75" l="288" el="288" c="9" ec="71" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="82" l="289" el="289" c="9" ec="188" ex="false" fl="65536" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="1" nid="0" />
+        <seqpnt vc="1" o="94" l="290" el="290" c="5" ec="6" ex="false" fl="65536" doc="1" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryAttributeTests" signature="-.TheoryAttributeTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="3" nid="0">
+        <seqpnt vc="3" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="TestDataFromOleDb" signature="TestDataFromOleDb() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="14" el="14" c="9" ec="67" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="8" l="18" el="18" c="13" ec="93" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="1D" l="19" el="19" c="13" ec="78" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="29" l="20" el="20" c="13" ec="90" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="3E" l="21" el="21" c="13" ec="117" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="57" l="23" el="23" c="13" ec="115" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="6A" l="25" el="25" c="13" ec="45" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="78" l="26" el="26" c="13" ec="80" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="87" l="27" el="27" c="13" ec="57" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="97" l="28" el="28" c="13" ec="62" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="B4" l="29" el="29" c="13" ec="65" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="C8" l="30" el="30" c="13" ec="65" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="DC" l="31" el="31" c="13" ec="80" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="EB" l="32" el="32" c="13" ec="57" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="FB" l="33" el="33" c="13" ec="63" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="118" l="34" el="34" c="13" ec="66" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="12C" l="35" el="35" c="13" ec="65" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="144" l="39" el="39" c="13" ec="61" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="14E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="1" o="14E" l="41" el="41" c="5" ec="6" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+      <method name="TestDataFromProperty" signature="TestDataFromProperty() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="46" el="46" c="9" ec="89" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="16" l="47" el="47" c="9" ec="113" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="2F" l="49" el="49" c="9" ec="111" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="41" l="51" el="51" c="9" ec="41" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="4E" l="52" el="52" c="9" ec="81" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="5B" l="53" el="53" c="9" ec="58" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="6A" l="54" el="54" c="9" ec="62" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="7E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="1" o="7E" l="55" el="55" c="5" ec="6" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+      <method name="TestDataFromXls" signature="TestDataFromXls() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="60" el="60" c="9" ec="84" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="16" l="61" el="61" c="9" ec="113" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="2F" l="63" el="63" c="9" ec="111" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="41" l="65" el="65" c="9" ec="41" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="4E" l="66" el="66" c="9" ec="76" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="5B" l="67" el="67" c="9" ec="53" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="6A" l="68" el="68" c="9" ec="58" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="86" l="69" el="69" c="9" ec="61" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="99" l="70" el="70" c="9" ec="61" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="AC" l="71" el="71" c="9" ec="76" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="BA" l="72" el="72" c="9" ec="53" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="CA" l="73" el="73" c="9" ec="59" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="E7" l="74" el="74" c="9" ec="62" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="FB" l="75" el="75" c="9" ec="61" ex="false" fl="65536" doc="7" nid="0" />
+        <seqpnt vc="1" o="10F" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="1" o="10F" l="76" el="76" c="5" ec="6" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryAttributeTests+TestMethodCommandClass" signature="-.TheoryAttributeTests+TestMethodCommandClass" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="get_TheoryDataProperty" signature="get_TheoryDataProperty() : System.Collections.Generic.IEnumerable&lt;System.Object[]&gt; [static]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="TestViaOleDb" signature="TestViaOleDb(System.Double x,System.String y,System.String z) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="0" o="1" l="90" el="90" c="46" ec="47" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+      <method name="TestViaProperty" signature="TestViaProperty(System.Int32 x) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="0" o="1" l="93" el="93" c="46" ec="47" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+      <method name="TestViaXls" signature="TestViaXls(System.Double x,System.String y,System.String z) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="0" o="1" l="98" el="98" c="44" ec="45" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryAttributeTests+TestMethodCommandClass+&lt;get_TheoryDataProperty&gt;d__0" signature="-.TheoryAttributeTests+TestMethodCommandClass+&lt;get_TheoryDataProperty&gt;d__0" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor(System.Int32 &lt;&gt;1__state) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="MoveNext" signature="MoveNext() : System.Boolean" excluded="false" instrumented="true" cc="2" vc="2" nid="0">
+        <seqpnt vc="1" o="25" l="82" el="82" c="19" ec="51" ex="false" fl="65536" doc="7" nid="0" />
+      </method>
+      <method name="System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;.GetEnumerator" signature="System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;.GetEnumerator() : System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;" excluded="false" instrumented="false" cc="3" vc="1" nid="0">
+        <seqpnt vc="1" o="10" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="0" o="22" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="1" o="24" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="0" o="38" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+        <seqpnt vc="1" o="3D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current" signature="System.Collections.Generic.IEnumerator&lt;System.Object[]&gt;.get_Current() : System.Object[]" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerable.GetEnumerator" signature="System.Collections.IEnumerable.GetEnumerator() : System.Collections.IEnumerator" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.get_Current" signature="System.Collections.IEnumerator.get_Current() : System.Object" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="A" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="System.Collections.IEnumerator.Reset" signature="System.Collections.IEnumerator.Reset() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="5" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+      <method name="System.IDisposable.Dispose" signature="System.IDisposable.Dispose() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="7" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests" signature="-.TheoryCommandTests" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="9" nid="0">
+        <seqpnt vc="9" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="ExecuteCreatesClassAndRunsTest" signature="ExecuteCreatesClassAndRunsTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="13" el="13" c="9" ec="81" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="16" l="14" el="14" c="9" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="24" l="15" el="15" c="9" ec="41" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="2A" l="16" el="16" c="9" ec="47" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="30" l="18" el="18" c="9" ec="48" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="3C" l="20" el="20" c="9" ec="54" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="48" l="21" el="21" c="9" ec="60" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="54" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="54" l="22" el="22" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce" signature="ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="27" el="27" c="9" ec="79" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="16" l="28" el="28" c="9" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="24" l="29" el="29" c="9" ec="38" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="2A" l="30" el="30" c="9" ec="41" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="30" l="32" el="32" c="9" ec="67" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="3C" l="34" el="34" c="9" ec="45" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="43" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="43" l="35" el="35" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="NotEnoughData" signature="NotEnoughData() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="7" l="40" el="41" c="9" ec="77" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="3D" l="43" el="43" c="9" ec="93" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="4F" l="44" el="44" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="50" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="PassesParametersToTest" signature="PassesParametersToTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="59" el="59" c="9" ec="77" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="16" l="60" el="60" c="9" ec="119" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="4E" l="61" el="61" c="9" ec="33" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="54" l="62" el="62" c="9" ec="35" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="62" l="63" el="63" c="9" ec="36" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="68" l="65" el="65" c="9" ec="50" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="74" l="67" el="67" c="9" ec="47" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="81" l="68" el="68" c="9" ec="49" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="95" l="69" el="69" c="9" ec="50" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="A5" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="A5" l="70" el="70" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="TestMethodReturnPassedResult" signature="TestMethodReturnPassedResult() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="75" el="75" c="9" ec="88" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="16" l="76" el="76" c="9" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="24" l="78" el="78" c="9" ec="77" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="30" l="80" el="80" c="9" ec="45" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="37" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="37" l="81" el="81" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="ThrowsExceptionReturnFailedResult" signature="ThrowsExceptionReturnFailedResult() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="7" l="86" el="86" c="9" ec="93" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="1C" l="87" el="87" c="9" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="2F" l="89" el="89" c="9" ec="103" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="41" l="90" el="90" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="42" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="TooMuchData" signature="TooMuchData() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="7" l="95" el="96" c="9" ec="90" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="56" l="98" el="98" c="9" ec="93" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="68" l="99" el="99" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="69" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="TruncatesVeryLongStrings" signature="TruncatesVeryLongStrings() : void" excluded="false" instrumented="true" cc="2" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="104" el="104" c="9" ec="51" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="C" l="106" el="106" c="14" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="50" o="10" l="107" el="107" c="13" ec="37" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="50" o="1C" l="106" el="106" c="37" ec="42" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="50" o="20" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="51" o="20" l="106" el="106" c="27" ec="35" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="51" o="29" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="2B" l="109" el="110" c="9" ec="92" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="69" l="112" el="112" c="9" ec="67" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="75" l="114" el="114" c="9" ec="45" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="7C" l="115" el="115" c="9" ec="147" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="8D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="8D" l="116" el="116" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="UsesDisplayName" signature="UsesDisplayName() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="49" el="49" c="9" ec="92" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="16" l="51" el="51" c="9" ec="125" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="4A" l="53" el="53" c="9" ec="72" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="5B" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="5B" l="54" el="54" c="5" ec="6" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+&lt;&gt;c__DisplayClass1" signature="-.TheoryCommandTests+&lt;&gt;c__DisplayClass1" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="&lt;NotEnoughData&gt;b__0" signature="&lt;NotEnoughData&gt;b__0() : System.Object" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="43" el="43" c="56" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+&lt;&gt;c__DisplayClass4" signature="-.TheoryCommandTests+&lt;&gt;c__DisplayClass4" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="&lt;ThrowsExceptionReturnFailedResult&gt;b__3" signature="&lt;ThrowsExceptionReturnFailedResult&gt;b__3() : System.Object" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="89" el="89" c="56" ec="101" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+&lt;&gt;c__DisplayClass7" signature="-.TheoryCommandTests+&lt;&gt;c__DisplayClass7" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="&lt;TooMuchData&gt;b__6" signature="&lt;TooMuchData&gt;b__6() : System.Object" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="98" el="98" c="56" ec="91" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+DisposableSpy" signature="-.TheoryCommandTests+DisposableSpy" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="128" el="128" c="9" ec="31" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="8" l="130" el="130" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="14" l="131" el="131" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="135" el="135" c="13" ec="29" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="136" el="136" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="PassedTest" signature="PassedTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="1" l="138" el="138" c="36" ec="37" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+DisposableSpyWithConstructorThrow" signature="-.TheoryCommandTests+DisposableSpyWithConstructorThrow" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="147" el="147" c="9" ec="51" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="8" l="149" el="149" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="14" l="150" el="150" c="13" ec="71" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="1E" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="155" el="155" c="13" ec="29" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="156" el="156" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="PassedTest" signature="PassedTest() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="160" el="160" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="161" el="161" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+DisposableSpyWithDisposeThrow" signature="-.TheoryCommandTests+DisposableSpyWithDisposeThrow" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="170" el="170" c="9" ec="47" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="8" l="172" el="172" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="14" l="173" el="173" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="177" el="177" c="13" ec="29" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="178" el="178" c="13" ec="67" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="PassedTest" signature="PassedTest() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="183" el="183" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="184" el="184" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+DisposableSpyWithTestThrow" signature="-.TheoryCommandTests+DisposableSpyWithTestThrow" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="193" el="193" c="9" ec="44" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="8" l="195" el="195" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="14" l="196" el="196" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Dispose" signature="Dispose() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="200" el="200" c="13" ec="29" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="201" el="201" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="FailedTest" signature="FailedTest() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="205" el="205" c="13" ec="26" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="D" l="206" el="206" c="13" ec="67" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="0" o="17" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+InstrumentedSpy" signature="-.TheoryCommandTests+InstrumentedSpy" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="0" l="215" el="215" c="9" ec="33" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="8" l="217" el="217" c="13" ec="27" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="14" l="218" el="218" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="15" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="PassedTest" signature="PassedTest() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="222" el="222" c="13" ec="33" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="D" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="D" l="223" el="223" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+ParameterSpy" signature="-.TheoryCommandTests+ParameterSpy" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="3" nid="0">
+        <seqpnt vc="3" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Method" signature="Method(System.Int32 x,System.String y) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="1" l="230" el="230" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+SpyWithDataPassed" signature="-.TheoryCommandTests+SpyWithDataPassed" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="Test" signature="Test(System.Int32 x,System.Double y,System.String z) : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="241" el="241" c="13" ec="19" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="7" l="242" el="242" c="13" ec="19" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="D" l="243" el="243" c="13" ec="19" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="13" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="13" l="244" el="244" c="9" ec="10" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+TestClassWithDisplayName" signature="-.TheoryCommandTests+TestClassWithDisplayName" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="TheoryMethod" signature="TheoryMethod(System.Int32 x,System.Double y) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="0" o="1" l="120" el="120" c="53" ec="54" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+    </class>
+    <class name="-.TheoryCommandTests+TestMethodCommandClass" signature="-.TheoryCommandTests+TestMethodCommandClass" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="2" nid="0">
+        <seqpnt vc="2" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+      <method name="TestMethod" signature="TestMethod() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+        <seqpnt vc="1" o="1" l="249" el="249" c="36" ec="37" ex="false" fl="65536" doc="5" nid="0" />
+      </method>
+      <method name="ThrowsException" signature="ThrowsException() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="1" l="253" el="253" c="13" ec="51" ex="false" fl="65536" doc="5" nid="0" />
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="5" nid="0" />
+      </method>
+    </class>
+  </module>
+  <module moduleId="87" name="D:\xunit\test.xunit.extensions\bin\Debug\zh33aoq4.gdc.dll" assembly="zh33aoq4.gdc" assemblyIdentity="zh33aoq4.gdc, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL" nid="0">
+    <class name="-.EmptyTheoryData" signature="-.EmptyTheoryData" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="GetData" signature="GetData(System.Reflection.MethodInfo methodUnderTest,System.Type[] parameterTypes) : System.Collections.Generic.IEnumerable&lt;System.Object[]&gt;" excluded="false" instrumented="true" cc="1" vc="1" nid="0">
+        <seqpnt vc="1" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+    <class name="-.Stub" signature="-.Stub" excluded="false" nid="0">
+      <method name=".ctor" signature=".ctor() : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="6" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+      <method name="TheoryMethod" signature="TheoryMethod(System.Int32 x) : void" excluded="false" instrumented="false" cc="1" vc="0" nid="0">
+        <seqpnt vc="0" o="0" l="0" el="0" c="0" ec="0" ex="false" fl="131072" doc="0" nid="0" />
+      </method>
+    </class>
+  </module>
+</coverage>

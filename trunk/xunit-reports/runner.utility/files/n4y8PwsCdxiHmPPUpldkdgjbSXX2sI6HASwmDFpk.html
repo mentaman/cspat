@@ -1,0 +1,10384 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<!-- saved from url=(0022)http://www.ncover.com/ -->
+    <title>NCover Code Coverage Report - ThreeMain</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+	<link rel="stylesheet" type="text/css" href="../default.css" />
+	
+	<script type="text/javascript" src="../sorttable.js"></script>
+    <script type="text/javascript" src="../prototype.js"></script>
+    <!--[if IE]>
+		<script type="text/javascript" src="../excanvas.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../blech.js"></script>
+    <script type="text/javascript" src="../ncover.js"></script>
+  </head>
+  <body>
+    <div id="hdrbar">
+      <div id="hdrbar_left">
+        <a href="../coveragesummary.html" target="doc">ThreeMain</a>
+      </div>
+    </div>
+    <div id="content">
+      
+
+<div id="page_title">
+  <em>Code Coverage Statistics for Source File</em>
+  <h1>D:\xunit\test.xunit.runner.utility\TestRunner\TestRunnerTests.cs</h1>
+</div>
+
+
+
+<div id="page_stats">
+	<div id="left">
+		<p>Symbol Coverage: <span class="highlight acceptable">99.12%</span> (112 of 113)</p><p>Branch Coverage: <span class="highlight uncovered">92.11%</span> (35 of 38)</p><p>Cyclomatic Complexity Avg: <span class="highlight">1.15</span> Max:<span class="highlight acceptable">2</span> </p>
+
+<p>
+  Code Lines:
+  <span class="highlight">196</span>
+</p>
+	</div>
+	
+</div>
+<br style="clear: both;" />
+
+
+
+
+<table id="sourceTable" class="source">
+  <tr>
+  <th class="linenum" title="Line #">L</th>
+  <th class="linenum" title="Visit Count">V</th>
+  <th class="sourceline" style="text-align: left;">Source</th>
+  </tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L1">1</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L2">2</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System.Collections.Generic;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L3">3</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System.IO;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L4">4</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using System.Xml;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L5">5</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using Xunit;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L6">6</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>using Moq;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L7">7</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L8">8</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>public class TestRunnerTests</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L9">9</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>{</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L10">10</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class RunAssembly</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L11">11</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L12">12</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L13">13</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CallsAssemblyStart()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L14">14</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L15">15</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">var runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L16">16</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L17">17</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L18">18</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L19">19</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.AssemblyStart(runner.Executor.AssemblyFilename,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L20">20</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">runner.Executor.ConfigFilename,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L21">21</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                <span class="covered">runner.Executor.XunitVersion));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L22">22</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L23">23</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L24">24</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L25">25</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CallsAssemblyStartWithConfigFilename()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L26">26</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L27">27</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssemblyWithConfigFile(@&quot;C:\biff\baz.config&quot;);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L28">28</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L29">29</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L30">30</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L31">31</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.AssemblyStart(@&quot;C:\foo\bar.dll&quot;,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L32">32</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                      <span class="covered">@&quot;C:\biff\baz.config&quot;,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L33">33</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                      <span class="covered">@&quot;abcd&quot;));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L34">34</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L35">35</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L36">36</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L37">37</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void PassingAssemblyReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L38">38</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L39">39</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L40">40</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;assembly name='C:\foo\bar.dll' run-date='2008-09-20' run-time='12:34:56' time='0.000' total='1' passed='1' failed='0' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L41">41</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;class time='1.234' name='ThisIsTheType' total='1' passed='1' failed='0' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L42">42</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Pass' time='1.234' /&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L43">43</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/class&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L44">44</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/assembly&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L45">45</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L46">46</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L47">47</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L48">48</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L49">49</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L50">50</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L51">51</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L52">52</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L53">53</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void FailingAssemblyReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L54">54</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L55">55</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L56">56</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;assembly name='C:\foo\bar.dll' run-date='2008-09-20' run-time='12:34:56' time='0.000' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L57">57</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L58">58</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Fail' time='1.234'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L59">59</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L60">60</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>                &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L61">61</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>                &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L62">62</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L63">63</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L64">64</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/class&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L65">65</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/assembly&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L66">66</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L67">67</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L68">68</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L69">69</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L70">70</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L71">71</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L72">72</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L73">73</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L74">74</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void AllSkipAssemblyReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L75">75</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L76">76</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L77">77</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;assembly name='C:\foo\bar.dll' run-date='2008-09-20' run-time='12:34:56' time='0.000' total='1' passed='0' failed='0' skipped='1'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L78">78</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='0' skipped='1'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L79">79</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Skip'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L80">80</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L81">81</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>                &lt;message&gt;&lt;![CDATA[Skip reason]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L82">82</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;/reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L83">83</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L84">84</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/class&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L85">85</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/assembly&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L86">86</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L87">87</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L88">88</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L89">89</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L90">90</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L91">91</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L92">92</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L93">93</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L94">94</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void EmptyAssemblyNodeReturnsNoTests()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L95">95</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L96">96</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;&lt;assembly name='C:\foo\bar.dll' run-date='2008-09-20' run-time='12:34:56' time='0.000' total='0' passed='0' failed='0' skipped='0'/&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L97">97</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L98">98</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L99">99</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L100">100</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L101">101</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.NoTests, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L102">102</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L103">103</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L104">104</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L105">105</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void NullAssemblyReturnsNoTests()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L106">106</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L107">107</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L108">108</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L109">109</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L110">110</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L111">111</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.NoTests, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L112">112</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L113">113</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L114">114</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L115">115</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CurrentDirectoryIsPreserved()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L116">116</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L117">117</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L118">118</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">string currentDirectory = Directory.GetCurrentDirectory();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L119">119</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunAssembly__CallbackEvent += delegate { Directory.SetCurrentDirectory(Path.GetTempPath()); };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L120">120</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L121">121</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L122">122</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L123">123</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(currentDirectory, Directory.GetCurrentDirectory());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L124">124</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L125">125</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L126">126</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L127">127</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ThrownExceptionSentToLoggerAndFailedIsReturned()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L128">128</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L129">129</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L130">130</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Exception exception = new InvalidOperationException();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L131">131</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunAssembly__CallbackEvent += delegate { throw exception; };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L132">132</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L133">133</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L134">134</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L135">135</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.ExceptionThrown(@&quot;C:\foo\bar.dll&quot;, exception));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L136">136</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L137">137</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L138">138</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L139">139</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L140">140</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CallsTransformerWhenAssemblyIsFinished()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L141">141</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L142">142</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L143">143</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">StubTransformer transformer = new StubTransformer();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L144">144</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L145">145</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunAssembly(new IResultXmlTransform[] { transformer });</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L146">146</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L147">147</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.True(transformer.Transform__Called);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L148">148</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(runner.Executor.RunAssembly__Result.OuterXml, transformer.Transform_Xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L149">149</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L150">150</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L151">151</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L152">152</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class RunClass</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L153">153</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L154">154</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L155">155</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void PassingTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L156">156</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L157">157</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L158">158</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='1' failed='0' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L159">159</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Pass' time='1.234' /&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L160">160</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L161">161</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForClass(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L162">162</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L163">163</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L164">164</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L165">165</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L166">166</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L167">167</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L168">168</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L169">169</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void FailingTestReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L170">170</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L171">171</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L172">172</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L173">173</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Fail' time='1.234'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L174">174</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L175">175</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L176">176</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L177">177</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L178">178</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L179">179</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L180">180</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForClass(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L181">181</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L182">182</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L183">183</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L184">184</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L185">185</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L186">186</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L187">187</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L188">188</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void SkippedTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L189">189</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L190">190</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L191">191</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='0' skipped='1'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L192">192</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Skip'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L193">193</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L194">194</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Skip reason]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L195">195</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L196">196</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L197">197</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L198">198</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForClass(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L199">199</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L200">200</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L201">201</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L202">202</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L203">203</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L204">204</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L205">205</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L206">206</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ClassFailureReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L207">207</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L208">208</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L209">209</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='Class.Name' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L210">210</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L211">211</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L212">212</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L213">213</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L214">214</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L215">215</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForClass(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L216">216</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L217">217</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L218">218</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L219">219</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L220">220</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L221">221</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L222">222</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L223">223</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L224">224</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ValuesArePassedToExecutorWrapper()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L225">225</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L226">226</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L227">227</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L228">228</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunClass(&quot;foo&quot;);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L229">229</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L230">230</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(&quot;foo&quot;, runner.Executor.RunClass_Type);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L231">231</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L232">232</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L233">233</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L234">234</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CurrentDirectoryIsPreserved()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L235">235</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L236">236</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L237">237</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">string currentDirectory = Directory.GetCurrentDirectory();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L238">238</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunClass__CallbackEvent += delegate { Directory.SetCurrentDirectory(Path.GetTempPath()); };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L239">239</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L240">240</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L241">241</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L242">242</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(currentDirectory, Directory.GetCurrentDirectory());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L243">243</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L244">244</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L245">245</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L246">246</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ThrownExceptionSentToLoggerAndFailedIsReturned()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L247">247</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L248">248</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L249">249</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Exception exception = new InvalidOperationException();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L250">250</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunClass__CallbackEvent += delegate { throw exception; };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L251">251</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L252">252</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunClass(null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L253">253</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L254">254</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.ExceptionThrown(@&quot;C:\foo\bar.dll&quot;, exception));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L255">255</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L256">256</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L257">257</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L258">258</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L259">259</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class RunTest</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L260">260</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L261">261</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L262">262</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void PassingTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L263">263</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L264">264</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L265">265</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='1' failed='0' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L266">266</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Pass' time='1.234' /&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L267">267</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L268">268</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTest(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L269">269</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L270">270</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L271">271</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L272">272</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L273">273</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L274">274</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L275">275</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L276">276</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void FailingTestReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L277">277</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L278">278</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L279">279</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L280">280</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Fail' time='1.234'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L281">281</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L282">282</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L283">283</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L284">284</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L285">285</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L286">286</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L287">287</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTest(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L288">288</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L289">289</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L290">290</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L291">291</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L292">292</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L293">293</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L294">294</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L295">295</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void SkippedTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L296">296</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L297">297</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L298">298</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='0' skipped='1'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L299">299</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Skip'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L300">300</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L301">301</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Skip reason]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L302">302</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L303">303</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L304">304</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L305">305</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTest(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L306">306</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L307">307</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L308">308</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L309">309</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L310">310</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L311">311</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L312">312</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L313">313</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ClassFailureReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L314">314</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L315">315</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L316">316</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='Class.Name' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L317">317</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L318">318</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L319">319</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L320">320</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L321">321</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L322">322</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTest(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L323">323</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L324">324</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L325">325</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L326">326</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L327">327</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L328">328</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L329">329</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L330">330</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L331">331</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ValuesArePassedToExecutorWrapper()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L332">332</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L333">333</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L334">334</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L335">335</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunTest(&quot;foo&quot;, &quot;bar&quot;);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L336">336</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L337">337</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(&quot;foo&quot;, runner.Executor.RunTest_Type);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L338">338</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(&quot;bar&quot;, runner.Executor.RunTest_Method);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L339">339</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L340">340</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L341">341</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L342">342</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CurrentDirectoryIsPreserved()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L343">343</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L344">344</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L345">345</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">string currentDirectory = Directory.GetCurrentDirectory();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L346">346</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunTest__CallbackEvent += delegate { Directory.SetCurrentDirectory(Path.GetTempPath()); };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L347">347</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L348">348</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L349">349</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L350">350</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(currentDirectory, Directory.GetCurrentDirectory());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L351">351</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L352">352</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L353">353</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L354">354</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ThrownExceptionSentToLoggerAndFailedIsReturned()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L355">355</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L356">356</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L357">357</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Exception exception = new InvalidOperationException();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L358">358</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunTest__CallbackEvent += delegate { throw exception; };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L359">359</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L360">360</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTest(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L361">361</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L362">362</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.ExceptionThrown(@&quot;C:\foo\bar.dll&quot;, exception));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L363">363</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L364">364</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L365">365</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>   }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L366">366</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L367">367</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    public class RunTests</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L368">368</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L369">369</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L370">370</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void PassingTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L371">371</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L372">372</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L373">373</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='1' failed='0' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L374">374</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Pass' time='1.234' /&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L375">375</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L376">376</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTests(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L377">377</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L378">378</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L379">379</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L380">380</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L381">381</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L382">382</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L383">383</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L384">384</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void FailingTestReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L385">385</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L386">386</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L387">387</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L388">388</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Fail' time='1.234'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L389">389</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L390">390</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L391">391</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L392">392</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L393">393</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L394">394</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L395">395</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTests(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L396">396</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L397">397</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L398">398</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L399">399</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L400">400</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L401">401</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L402">402</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L403">403</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void SkippedTestReturnsPassed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L404">404</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L405">405</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L406">406</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='ThisIsTheType' total='1' passed='0' failed='0' skipped='1'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L407">407</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;test name='This is the test name' type='ThisIsTheType' method='ThisIsTheMethod' result='Skip'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L408">408</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L409">409</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            &lt;message&gt;&lt;![CDATA[Skip reason]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L410">410</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;/reason&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L411">411</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/test&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L412">412</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L413">413</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTests(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L414">414</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L415">415</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L416">416</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L417">417</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Passed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L418">418</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L419">419</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L420">420</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L421">421</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ClassFailureReturnsFailed()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L422">422</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L423">423</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>            const string xml = @&quot;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L424">424</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;class time='1.234' name='Class.Name' total='1' passed='0' failed='1' skipped='0'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L425">425</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;failure exception-type='Exception.Type'&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L426">426</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;message&gt;&lt;![CDATA[Failure message]]&gt;&lt;/message&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L427">427</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        &lt;stack-trace&gt;&lt;![CDATA[Stack trace]]&gt;&lt;/stack-trace&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L428">428</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    &lt;/failure&gt;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L429">429</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>&lt;/class&gt;&quot;;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L430">430</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForTests(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L431">431</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L432">432</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L433">433</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L434">434</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L435">435</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L436">436</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L437">437</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L438">438</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ValuesArePassedToExecutorWrapper()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L439">439</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L440">440</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L441">441</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">List&lt;string&gt; testList = new List&lt;string&gt; { &quot;bar&quot;, &quot;baz&quot; };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L442">442</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L443">443</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunTests(&quot;foo&quot;, testList);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L444">444</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L445">445</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(&quot;foo&quot;, runner.Executor.RunTests_Type);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L446">446</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(testList, runner.Executor.RunTests_Methods);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L447">447</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L448">448</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L449">449</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L450">450</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void CurrentDirectoryIsPreserved()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L451">451</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L452">452</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L453">453</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">string currentDirectory = Directory.GetCurrentDirectory();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L454">454</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunTest__CallbackEvent += delegate { </span><span class="uncovered">Directory.SetCurrentDirectory(Path.GetTempPath()); </span><span class="covered">};</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L455">455</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L456">456</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L457">457</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L458">458</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(currentDirectory, Directory.GetCurrentDirectory());</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L459">459</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L460">460</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L461">461</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        [Fact]</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L462">462</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public void ThrownExceptionSentToLoggerAndFailedIsReturned()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L463">463</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L464">464</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner runner = TestableTestRunner.CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L465">465</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Exception exception = new InvalidOperationException();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L466">466</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Executor.RunTests__CallbackEvent += delegate { throw exception; };</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L467">467</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L468">468</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestRunnerResult result = runner.RunTests(null, null);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L469">469</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L470">470</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">runner.Logger.Verify(l =&gt; l.ExceptionThrown(@&quot;C:\foo\bar.dll&quot;, exception));</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L471">471</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Assert.Equal(TestRunnerResult.Failed, result);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L472">472</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L473">473</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L474">474</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L475">475</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    internal class TestableTestRunner : TestRunner</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L476">476</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L477">477</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public readonly StubExecutorWrapper Executor;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L478">478</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public readonly Mock&lt;IRunnerLogger&gt; Logger;</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L479">479</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L480">480</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">private TestableTestRunner(StubExecutorWrapper executor, Mock&lt;IRunnerLogger&gt; logger)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L481">481</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">: base(executor, logger.Object)</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L482">482</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L483">483</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Executor = executor;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L484">484</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Logger = logger;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L485">485</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L486">486</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L487">487</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L488">488</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        private static TestableTestRunner Create()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L489">489</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L490">490</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">Mock&lt;IRunnerLogger&gt; logger = new Mock&lt;IRunnerLogger&gt;();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L491">491</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">StubExecutorWrapper executor = new StubExecutorWrapper</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L492">492</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                                <span class="covered">{</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L493">493</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                                    <span class="covered">AssemblyFilename = @&quot;C:\foo\bar.dll&quot;,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L494">494</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                                    <span class="covered">XunitVersion = &quot;abcd&quot;,</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L495">495</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>                                                <span class="covered">};</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L496">496</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L497">497</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return new TestableTestRunner(executor, logger);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L498">498</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 31 times"> 31</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L499">499</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L500">500</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForAssembly()</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L501">501</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L502">502</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 14 times"> 14</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return CreateForAssembly(@&quot;&lt;assembly name='C:\foo\bar.dll' run-date='2008-09-20' run-time='12:34:56' time='0.000' total='0' passed='0' failed='0' skipped='0'/&gt;&quot;);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L503">503</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 14 times"> 14</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L504">504</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L505">505</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForAssemblyWithConfigFile(string configFilename)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L506">506</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L507">507</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner result = CreateForAssembly();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L508">508</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">result.Executor.ConfigFilename = configFilename;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L509">509</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L510">510</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 1 time"> 1</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L511">511</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L512">512</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForAssembly(string xml)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L513">513</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L514">514</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 19 times"> 19</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner result = Create();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L515">515</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 19 times"> 19</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">XmlNode xmlNode = xml == null ? null : MakeXmlNode(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L516">516</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 19 times"> 19</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">result.Executor.RunAssembly__Result = xmlNode;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L517">517</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 19 times"> 19</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L518">518</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 19 times"> 19</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L519">519</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L520">520</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForClass(string xml)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L521">521</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L522">522</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner result = Create();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L523">523</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">XmlNode xmlNode = xml == null ? null : MakeXmlNode(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L524">524</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">result.Executor.RunClass__Result = xmlNode;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L525">525</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L526">526</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L527">527</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L528">528</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForTest(string xml)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L529">529</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L530">530</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner result = Create();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L531">531</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">XmlNode xmlNode = xml == null ? null : MakeXmlNode(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L532">532</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">result.Executor.RunTest__Result = xmlNode;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L533">533</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L534">534</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L535">535</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L536">536</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static TestableTestRunner CreateForTests(string xml)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L537">537</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L538">538</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">TestableTestRunner result = Create();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L539">539</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">XmlNode xmlNode = xml == null ? null : MakeXmlNode(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L540">540</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">result.Executor.RunTests__Result = xmlNode;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L541">541</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return result;</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L542">542</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 4 times"> 4</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L543">543</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L544">544</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        public static XmlNode MakeXmlNode(string xml)</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L545">545</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>        {</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L546">546</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 30 times"> 30</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">XmlDocument doc = new XmlDocument();</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L547">547</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 30 times"> 30</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">doc.LoadXml(xml);</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L548">548</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 30 times"> 30</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>            <span class="covered">return doc.ChildNodes[0];</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+    <td class="coveredLine">
+  
+    <pre><a name="L549">549</a></pre>
+  </td>
+  
+  
+    <td class="coveredLine">
+  
+	  <pre title="Visited 30 times"> 30</pre>
+    
+  </td>
+  
+  <td class="sourceline">
+    <pre>        <span class="covered">}</span></pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L550">550</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>    }</pre>
+  </td>
+</tr>
+
+
+  <tr>
+  
+     <td>
+  
+    <pre><a name="L551">551</a></pre>
+  </td>
+  
+  
+		<td>
+  
+  </td>
+  
+  <td class="sourceline">
+    <pre>}</pre>
+  </td>
+</tr>
+
+
+
+</table>
+
+<script type="text\\javascript" language="javascript">
+document.getElementById('coveredCheck').checked = false;
+</script>
+    </div>
+    <div id="footer">
+	  Generated By  
+      <a href="http://www.ncover.com" target="_top">NCover</a><br />
+    </div>
+  </body>
+</html>
