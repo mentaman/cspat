@@ -40,7 +40,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContainsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xunit\xunit.csproj">
+      <Project>{09EF9917-4B00-4646-8C3F-96EFACC8BF51}</Project>
+      <Name>xunit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
