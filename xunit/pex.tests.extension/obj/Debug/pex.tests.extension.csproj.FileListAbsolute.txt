@@ -1,5 +1,0 @@
-F:\Projects\xunit\pex.tests.extension\bin\Debug\pex.tests.extension.dll
-F:\Projects\xunit\pex.tests.extension\bin\Debug\pex.tests.extension.pdb
-F:\Projects\xunit\pex.tests.extension\obj\Debug\ResolveAssemblyReference.cache
-F:\Projects\xunit\pex.tests.extension\obj\Debug\pex.tests.extension.dll
-F:\Projects\xunit\pex.tests.extension\obj\Debug\pex.tests.extension.pdb
