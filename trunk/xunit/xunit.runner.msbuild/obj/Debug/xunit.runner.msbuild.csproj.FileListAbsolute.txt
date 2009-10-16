@@ -21,3 +21,11 @@ F:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.pdb
 F:\cspat\xunit\xunit.runner.msbuild\obj\Debug\ResolveAssemblyReference.cache
 F:\cspat\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.dll
 F:\cspat\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.pdb
+D:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.dll
+D:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.msbuild.pdb
+D:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.dll
+D:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.pdb
+D:\cspat\xunit\xunit.runner.msbuild\bin\Debug\xunit.runner.utility.xml
+D:\cspat\xunit\xunit.runner.msbuild\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.dll
+D:\cspat\xunit\xunit.runner.msbuild\obj\Debug\xunit.runner.msbuild.pdb

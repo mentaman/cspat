@@ -30,3 +30,14 @@ F:\cspat\xunit\xunit.console\bin\Debug\xunit.runner.utility.pdb
 F:\cspat\xunit\xunit.console\obj\Debug\ResolveAssemblyReference.cache
 F:\cspat\xunit\xunit.console\obj\Debug\xunit.console.exe
 F:\cspat\xunit\xunit.console\obj\Debug\xunit.console.pdb
+D:\cspat\xunit\xunit.console\bin\Debug\HTML.xslt
+D:\cspat\xunit\xunit.console\bin\Debug\NUnitXml.xslt
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.console.exe.config
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.console.exe
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.console.pdb
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.runner.utility.dll
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.runner.utility.pdb
+D:\cspat\xunit\xunit.console\bin\Debug\xunit.runner.utility.xml
+D:\cspat\xunit\xunit.console\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\xunit.console\obj\Debug\xunit.console.exe
+D:\cspat\xunit\xunit.console\obj\Debug\xunit.console.pdb

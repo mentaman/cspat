@@ -36,3 +36,16 @@ F:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.LoaderForm.resources
 F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.csproj.GenerateResource.Cache
 F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.exe
 F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.pdb
+D:\cspat\xunit\xunit.gui\bin\Debug\xunit.gui.exe
+D:\cspat\xunit\xunit.gui\bin\Debug\xunit.gui.pdb
+D:\cspat\xunit\xunit.gui\bin\Debug\xunit.runner.utility.dll
+D:\cspat\xunit\xunit.gui\bin\Debug\xunit.runner.utility.pdb
+D:\cspat\xunit\xunit.gui\bin\Debug\xunit.runner.utility.xml
+D:\cspat\xunit\xunit.gui\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.ProgressControl.resources
+D:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.Properties.Resources.resources
+D:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.RunnerForm.resources
+D:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.LoaderForm.resources
+D:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.csproj.GenerateResource.Cache
+D:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.exe
+D:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.pdb
