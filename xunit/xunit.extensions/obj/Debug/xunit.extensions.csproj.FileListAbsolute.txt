@@ -16,3 +16,12 @@ F:\Projects\xunit\xunit.extensions\bin\Debug\xunit.xml
 F:\Projects\xunit\xunit.extensions\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects\xunit\xunit.extensions\obj\Debug\xunit.extensions.dll
 F:\Projects\xunit\xunit.extensions\obj\Debug\xunit.extensions.pdb
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.dll.tdnet
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.extensions.dll
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.extensions.pdb
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.dll
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.pdb
+D:\cspat\xunit\xunit.extensions\bin\Debug\xunit.xml
+D:\cspat\xunit\xunit.extensions\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\xunit.extensions\obj\Debug\xunit.extensions.dll
+D:\cspat\xunit\xunit.extensions\obj\Debug\xunit.extensions.pdb

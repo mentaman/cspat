@@ -8,3 +8,8 @@ F:\cspat\xunit\test.pex\bin\Debug\test.pex.pdb
 F:\cspat\xunit\test.pex\obj\Debug\ResolveAssemblyReference.cache
 F:\cspat\xunit\test.pex\obj\Debug\test.pex.dll
 F:\cspat\xunit\test.pex\obj\Debug\test.pex.pdb
+D:\cspat\xunit\test.pex\bin\Debug\test.pex.dll
+D:\cspat\xunit\test.pex\bin\Debug\test.pex.pdb
+D:\cspat\xunit\test.pex\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\test.pex\obj\Debug\test.pex.dll
+D:\cspat\xunit\test.pex\obj\Debug\test.pex.pdb

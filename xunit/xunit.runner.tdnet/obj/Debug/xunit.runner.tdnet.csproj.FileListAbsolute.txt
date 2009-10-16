@@ -16,3 +16,12 @@ F:\Projects\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.utility.xml
 F:\Projects\xunit\xunit.runner.tdnet\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects\xunit\xunit.runner.tdnet\obj\Debug\xunit.runner.tdnet.dll
 F:\Projects\xunit\xunit.runner.tdnet\obj\Debug\xunit.runner.tdnet.pdb
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.tdnet.dll
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.tdnet.pdb
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\TestDriven.Framework.dll
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.utility.dll
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.utility.pdb
+D:\cspat\xunit\xunit.runner.tdnet\bin\Debug\xunit.runner.utility.xml
+D:\cspat\xunit\xunit.runner.tdnet\obj\Debug\ResolveAssemblyReference.cache
+D:\cspat\xunit\xunit.runner.tdnet\obj\Debug\xunit.runner.tdnet.dll
+D:\cspat\xunit\xunit.runner.tdnet\obj\Debug\xunit.runner.tdnet.pdb

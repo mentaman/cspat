@@ -35,7 +35,7 @@ namespace pex.tests.extension
 //        }
 
         //achieve better coverage
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (TargetInvocationException)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteCreatesClassAndRunsTest([PexAssumeUnderTest] TheoryCommand command)
         {
@@ -61,7 +61,7 @@ namespace pex.tests.extension
 //            Assert.IsType<PassedResult>(result);
 //        }
 
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (TargetInvocationException)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(
             [PexAssumeUnderTest] TheoryCommand command)
@@ -85,6 +85,71 @@ namespace pex.tests.extension
 //
 //            Assert.Equal("My display name(42, 24.5)", command.DisplayName);
 //        }
+
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
+         PexAllowedException(typeof (InvalidOperationException))]
+        public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty(
+            [PexAssumeUnderTest] TheoryCommand command)
+        {
+            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
+            PexAssume.IsNull(TheoryCommandFactory.DisplayName);
+            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length > 0);
+            var parameterValues = "";
+            foreach (var parameter in TheoryCommandFactory.Parameters)
+            {
+                object parameterValue = null;
+                if (parameter is string)
+                {
+                    PexAssume.IsTrue((parameter as string).Length <= 50);
+                    parameterValue = "\"" + parameter + "\"";
+                }
+                else
+                {
+                    parameterValue = parameter;
+                }
+                parameterValues += parameterValue + ", ";
+                PexAssume.IsNotInstanceOfType(parameter, typeof (DateTime));
+                PexAssume.IsNotNull(parameter);
+            }
+            parameterValues = parameterValues.Remove(parameterValues.Length - 2);
+            var expected = TheoryCommandFactory.MethodInfo.TypeName + "." + TheoryCommandFactory.MethodInfo.Name + "(" +
+                           parameterValues + ")";
+            PexAssert.AreEqual(expected, command.DisplayName);
+        }
+
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
+         PexAllowedException(typeof (InvalidOperationException))]
+        public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty(
+            [PexAssumeUnderTest] TheoryCommand command)
+        {
+            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
+            PexAssume.IsNull(TheoryCommandFactory.DisplayName);
+            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length > 0);
+            var parameterValues = "";
+            foreach (var parameter in TheoryCommandFactory.Parameters)
+            {
+                PexAssume.IsTrue(parameter is string);
+                var s = (parameter as string);
+                PexAssume.IsTrue(s.Length > 50);
+                var parameterValue = "\"" + s.Substring(0, 50) + "\"...";
+                parameterValues += parameterValue + ", ";
+                PexAssume.IsNotInstanceOfType(parameter, typeof (DateTime));
+                PexAssume.IsNotNull(parameter);
+            }
+            parameterValues = parameterValues.Remove(parameterValues.Length - 2);
+            var expected = TheoryCommandFactory.MethodInfo.TypeName + "." + TheoryCommandFactory.MethodInfo.Name + "(" +
+                           parameterValues + ")";
+            PexAssert.AreEqual(expected, command.DisplayName);
+        }
+
+
+        [PexMethod]
+        public void TestExecutePUTUsesNotNullDisplayName([PexAssumeUnderTest] TheoryCommand command)
+        {
+            PexAssume.IsNotNull(TheoryCommandFactory.DisplayName);
+            PexAssert.AreEqual(TheoryCommandFactory.DisplayName, command.DisplayName);
+        }
+
 //
 //        [Fact, PexMethod]
 //        public void PassesParametersToTest()
@@ -101,6 +166,23 @@ namespace pex.tests.extension
 //            Assert.Equal(24.5, SpyWithDataPassed.Y);
 //            Assert.Equal("foo", SpyWithDataPassed.Z);
 //        }
+        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (Exception)),
+         PexAllowedException(typeof (InvalidOperationException))]
+        public void TestExecutePUTPassesParametersToTest(
+            [PexAssumeUnderTest] TheoryCommand command)
+        {
+            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.TypeName, "pex.tests.extension.SpyWithDataPassed");
+            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.Name, "Test");
+            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
+            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length == 3);
+            SpyWithDataPassed.X = null;
+            SpyWithDataPassed.Y = null;
+            SpyWithDataPassed.Z = null;
+            ITestResult result = command.Execute(new SpyWithDataPassed());
+            PexAssert.AreEqual(TheoryCommandFactory.Parameters[0], SpyWithDataPassed.X);
+            PexAssert.AreEqual(TheoryCommandFactory.Parameters[1], SpyWithDataPassed.Y);
+            PexAssert.AreEqual(TheoryCommandFactory.Parameters[2], SpyWithDataPassed.Z);
+        }
     }
 
     public class InstrumentedSpy
@@ -136,6 +218,20 @@ namespace pex.tests.extension
 
         public void PassedTest()
         {
+        }
+    }
+
+    public class SpyWithDataPassed
+    {
+        public static object X;
+        public static object Y;
+        public static object Z;
+
+        public void Test(object x, object y, object z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
         }
     }
 }
