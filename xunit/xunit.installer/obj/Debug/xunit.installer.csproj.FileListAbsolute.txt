@@ -16,3 +16,12 @@ F:\Projects\xunit\xunit.installer\obj\Debug\Xunit.Installer.ResetDevEnvForm.reso
 F:\Projects\xunit\xunit.installer\obj\Debug\xunit.installer.csproj.GenerateResource.Cache
 F:\Projects\xunit\xunit.installer\obj\Debug\xunit.installer.exe
 F:\Projects\xunit\xunit.installer\obj\Debug\xunit.installer.pdb
+F:\cspat\xunit\xunit.installer\bin\Debug\xunit.installer.exe
+F:\cspat\xunit\xunit.installer\bin\Debug\xunit.installer.pdb
+F:\cspat\xunit\xunit.installer\obj\Debug\ResolveAssemblyReference.cache
+F:\cspat\xunit\xunit.installer\obj\Debug\Xunit.Installer.MainForm.resources
+F:\cspat\xunit\xunit.installer\obj\Debug\Xunit.Installer.Properties.Resources.resources
+F:\cspat\xunit\xunit.installer\obj\Debug\Xunit.Installer.ResetDevEnvForm.resources
+F:\cspat\xunit\xunit.installer\obj\Debug\xunit.installer.csproj.GenerateResource.Cache
+F:\cspat\xunit\xunit.installer\obj\Debug\xunit.installer.exe
+F:\cspat\xunit\xunit.installer\obj\Debug\xunit.installer.pdb

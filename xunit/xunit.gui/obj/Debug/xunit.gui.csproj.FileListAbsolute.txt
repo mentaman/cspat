@@ -24,3 +24,15 @@ F:\Projects\xunit\xunit.gui\obj\Debug\Xunit.Gui.LoaderForm.resources
 F:\Projects\xunit\xunit.gui\obj\Debug\xunit.gui.csproj.GenerateResource.Cache
 F:\Projects\xunit\xunit.gui\obj\Debug\xunit.gui.exe
 F:\Projects\xunit\xunit.gui\obj\Debug\xunit.gui.pdb
+F:\cspat\xunit\xunit.gui\bin\Debug\xunit.gui.exe
+F:\cspat\xunit\xunit.gui\bin\Debug\xunit.gui.pdb
+F:\cspat\xunit\xunit.gui\bin\Debug\xunit.runner.utility.dll
+F:\cspat\xunit\xunit.gui\bin\Debug\xunit.runner.utility.pdb
+F:\cspat\xunit\xunit.gui\obj\Debug\ResolveAssemblyReference.cache
+F:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.ProgressControl.resources
+F:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.Properties.Resources.resources
+F:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.RunnerForm.resources
+F:\cspat\xunit\xunit.gui\obj\Debug\Xunit.Gui.LoaderForm.resources
+F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.csproj.GenerateResource.Cache
+F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.exe
+F:\cspat\xunit\xunit.gui\obj\Debug\xunit.gui.pdb

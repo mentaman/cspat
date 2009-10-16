@@ -1,10 +1,13 @@
 using System;
+using System.Reflection;
 using Microsoft.Pex.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit.Extensions;
+using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.extension
 {
-    [PexClass(typeof (TheoryCommand))]
+    [TestClass,PexClass(typeof (TheoryCommand))]
     public partial class TheoryCommandTests
     {
 //        [Fact, PexMethod]
@@ -22,9 +25,11 @@ namespace pex.tests.extension
 //        }
 
         //achieve better coverage
-        [PexMethod]
-        public void TestExecutePUTExecuteCreatesClassAndRunsTest(TheoryCommand command)
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof(Exception)), PexAllowedException(typeof(InvalidOperationException))]
+        public void TestExecutePUTExecuteCreatesClassAndRunsTest([PexAssumeUnderTest] TheoryCommand command)
         {
+            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.TypeName, "pex.tests.extension.InstrumentedSpy");
+            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.Name, "PassedTest");
             InstrumentedSpy.ctorCounter = 0;
             InstrumentedSpy.passedTestCounter = 0;
             command.Execute(new InstrumentedSpy());
@@ -45,8 +50,9 @@ namespace pex.tests.extension
 //            Assert.IsType<PassedResult>(result);
 //        }
 
-        [PexMethod]
-        public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(TheoryCommand command)
+        [PexMethod, PexAllowedException(typeof (Exception)), PexAllowedException(typeof (InvalidOperationException))]
+        public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(
+            [PexAssumeUnderTest] TheoryCommand command)
         {
             InstrumentedSpy.ctorCounter = 0;
             InstrumentedSpy.passedTestCounter = 0;
@@ -55,38 +61,47 @@ namespace pex.tests.extension
             PexAssert.AreEqual(1, InstrumentedSpy.passedTestCounter);
         }
 
-        public class InstrumentedSpy
+//        [TestMethod]
+//        public void Test()
+//        {
+//            MethodInfo method = Type.GetType("pex.tests.extension.InstrumentedSpy").GetMethod("PassedTest");
+//            Console.WriteLine(method.Name);
+//        }
+    }
+
+    public class InstrumentedSpy
+    {
+        public static int ctorCounter;
+        public static int passedTestCounter;
+
+        public InstrumentedSpy()
         {
-            public static int ctorCounter;
-            public static int passedTestCounter;
-
-            public InstrumentedSpy()
-            {
-                ctorCounter++;
-            }
-
-            public void PassedTest()
-            {
-                passedTestCounter++;
-            }
+            ctorCounter++;
         }
 
-        public class DisposableSpy : IDisposable
+        public void PassedTest()
         {
-            public static int ctorCalled;
-            public static int disposeCalled;
+            passedTestCounter++;
+        }
+    }
 
-            public DisposableSpy()
-            {
-                ctorCalled++;
-            }
+    public class DisposableSpy : IDisposable
+    {
+        public static int ctorCalled;
+        public static int disposeCalled;
 
-            public void Dispose()
-            {
-                disposeCalled++;
-            }
+        public DisposableSpy()
+        {
+            ctorCalled++;
+        }
 
-            public void PassedTest() { }
+        public void Dispose()
+        {
+            disposeCalled++;
+        }
+
+        public void PassedTest()
+        {
         }
     }
 }
