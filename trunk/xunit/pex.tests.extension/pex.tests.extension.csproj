@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ExtendedReflection, Version=0.17.41006.7, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -50,11 +49,18 @@
     <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTExecuteCreatesClassAndRunsTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="TheoryCommandTests.TestExecutePUTPassesParametersToTest.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\pex.utility\pex.utility.csproj">
+      <Project>{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}</Project>
+      <Name>pex.utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xunit.extensions\xunit.extensions.csproj">
       <Project>{737943C1-4301-47F4-932B-A67BE3788C40}</Project>
       <Name>xunit.extensions</Name>

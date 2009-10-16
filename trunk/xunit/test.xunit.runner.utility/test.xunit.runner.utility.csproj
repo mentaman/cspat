@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ExtendedReflection, Version=0.16.40809.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Pex.Framework, Version=0.16.40809.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=3.1.416.3, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\Moq.dll</HintPath>

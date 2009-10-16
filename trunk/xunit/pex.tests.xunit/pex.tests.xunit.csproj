@@ -39,15 +39,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertExceptionTests.cs" />
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsTests.cs" />
     <Compile Include="DoesNotContainTests.cs" />
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForSubstrings.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanUseComparer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringFound.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
+    <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TrueTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\pex.utility\pex.utility.csproj">
+      <Project>{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}</Project>
+      <Name>pex.utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xunit\xunit.csproj">
       <Project>{09EF9917-4B00-4646-8C3F-96EFACC8BF51}</Project>
       <Name>xunit</Name>
