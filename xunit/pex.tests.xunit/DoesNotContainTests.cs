@@ -7,7 +7,7 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
-    [PexClass]
+    [PexClass(typeof(Assert))]
     public partial class DoesNotContainTests
     {
         /*
@@ -19,11 +19,14 @@ namespace pex.tests.xunit
         }
         */
 
-        [PexMethod, PexAllowedException(typeof(ContainsException))]
+        [PexMethod]
+        //Black Box?
         public void TestDoesNotContainPUTCanSearchForNullInContainer([PexAssumeUnderTest]List<object> list, object item)
         {
-            PexAssume.IsNull(item);
-            Assert.Contains(item, list);
+            PexAssume.IsNotNull(item);
+            PexAssume.IsFalse(list.Contains(null) );
+            Assert.DoesNotContain(null, list);
+            PexObserve.Value("test", item);
         }
 
         /*
@@ -33,10 +36,11 @@ namespace pex.tests.xunit
         } 
         */
 
-        [PexMethod, PexAllowedException(typeof(DoesNotContainException))]
+        [PexMethod]
+        //NOT DONE
         public void TestDoesNotContainPUTCanSearchForSubstrings([PexAssumeUnderTest]String i, [PexAssumeUnderTest]String j)
         {
-            PexAssume.IsFalse(i == j);
+            PexAssume.IsFalse(j.Contains(i) || i.Length > j.Length);
             Assert.DoesNotContain(i, j);
         }
 
@@ -49,6 +53,7 @@ namespace pex.tests.xunit
             Assert.DoesNotContain(42, list, new MyComparer());
         }
         */
+
         [PexMethod, PexAllowedException(typeof(DoesNotContainException))]
         public void TestDoesNotContainPUTCanUseComparer([PexAssumeUnderTest] List<int> list, int i)
         {
@@ -72,8 +77,7 @@ namespace pex.tests.xunit
         public void TestDoesNotContainPUTItemInContainer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
-            DoesNotContainException ex =
-                Assert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, list));
+            var ex = Assert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, list));
 
             Assert.Equal("Assert.DoesNotContain() failure: Found: " + i, ex.Message);
         }

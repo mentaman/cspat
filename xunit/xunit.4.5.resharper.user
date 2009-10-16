@@ -12,17 +12,6 @@
   </NAntValidationSettings>
   <RecentFiles>
     <RecentFiles>
-      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:ResultXmlUtility.cs" caret="0" fromTop="0" />
-      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:StubTestRunner.cs" caret="0" fromTop="0" />
-      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:StubTransformer.cs" caret="0" fromTop="0" />
-      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:AcceptanceTest.cs" caret="0" fromTop="0" />
-      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:NotEmptyTests.cs" caret="98" fromTop="5" />
-      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/f:ExecutorWrapperTests.cs" caret="665" fromTop="12" />
-      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:MockAssembly.cs" caret="0" fromTop="0" />
-      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:XmlLoggerAdapterTests.cs" caret="7183" fromTop="12" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryCommandTests.cs" caret="206" fromTop="10" />
-      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:MultiAssemblyTestEnvironmentTests.cs" caret="0" fromTop="0" />
-      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:MultiAssemblyTestEnvironmentAcceptanceTests.cs" caret="84" fromTop="3" />
       <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:TestAssemblyBuilderTests.cs" caret="1032" fromTop="11" />
       <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:Utility/f:StackFrameTransformerTests.cs" caret="0" fromTop="0" />
       <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestRunner/f:TestRunnerTests.cs" caret="0" fromTop="0" />
@@ -35,42 +24,56 @@
       <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:DataAdapterDataAttributeTests.cs" caret="325" fromTop="12" />
       <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:XunitProjectTests.cs" caret="562" fromTop="23" />
       <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:ClockFacts.cs" caret="34" fromTop="1" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="2799" fromTop="12" />
       <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/d:Sdk/d:Commands/d:TestCommands/f:TestCommand.cs" caret="1188" fromTop="29" />
-      <File id="737943C1-4301-47F4-932B-A67BE3788C40/d:DataTheories/f:TheoryCommand.cs" caret="2274" fromTop="12" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.TestExecutePUTUsesDisplayName.g.cs" caret="14839" fromTop="27" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="5240" fromTop="18" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:AssertExceptionTests.cs" caret="274" fromTop="14" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:FactAttribute.cs" caret="68" fromTop="3" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:GlobalAssemblyInfo.cs/l:..?GlobalAssemblyInfo.cs" caret="0" fromTop="0" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:Assert.cs" caret="8694" fromTop="15" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/d:Factories/f:AssertExceptionFactory.cs" caret="482" fromTop="13" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:AssertActualExpectedExceptionTests.cs" caret="0" fromTop="0" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:AcceptanceTest.cs" caret="0" fromTop="0" />
+      <File id="4FEC8604-E544-43C2-979C-F0815B5770E2/f:MockAssembly.cs" caret="1026" fromTop="5" />
+      <File id="737943C1-4301-47F4-932B-A67BE3788C40/d:DataTheories/f:TheoryCommand.cs" caret="1977" fromTop="14" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:ContainsTests.cs" caret="0" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="0" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:TrueTests.cs" caret="0" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="0" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="219" fromTop="5" />
+      <File id="0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A/f:Class1.cs" caret="179" fromTop="9" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="3268" fromTop="22" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="1690" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryCommandTests.cs" caret="206" fromTop="10" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeAcceptanceTests.cs" caret="748" fromTop="27" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeFacts.cs" caret="150" fromTop="6" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:ClockFacts.cs" caret="110" fromTop="5" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:AssumeIdentity/f:AssumeIdentityAttributeFacts.cs" caret="187" fromTop="7" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:FreezeClock/f:FreezeClockAttributeAcceptanceTests.cs" caret="186" fromTop="8" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAttributeTests.cs" caret="243" fromTop="11" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:TheoryAcceptanceTests.cs" caret="178" fromTop="8" />
-      <File id="C0024D99-7260-475B-967A-A1CC894F3C19/d:DataTheories/f:DataAdapterDataAttributeTests.cs" caret="376" fromTop="12" />
-      <File id="BF9A60D8-F67E-4D30-AAB0-F1C9DEDF693F/d:TestObjectModel/f:XunitProjectTests.cs" caret="649" fromTop="23" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="2771" fromTop="12" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="7141" fromTop="11" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="1985" fromTop="10" />
-      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/d:Sdk/d:Commands/d:TestCommands/f:TestCommand.cs" caret="1188" fromTop="28" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="4354" fromTop="5" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="786" fromTop="11" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="2820" fromTop="14" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="1478" fromTop="9" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="7141" fromTop="10" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="5692" fromTop="26" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="786" fromTop="10" />
-      <File id="737943C1-4301-47F4-932B-A67BE3788C40/d:DataTheories/f:TheoryCommand.cs" caret="247" fromTop="1" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="3079" fromTop="18" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="4174" fromTop="10" />
-      <File id="737943C1-4301-47F4-932B-A67BE3788C40/d:DataTheories/f:TheoryCommand.cs" caret="2274" fromTop="12" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="5366" fromTop="24" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="4820" fromTop="18" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="4461" fromTop="18" />
-      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="5239" fromTop="18" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="701" fromTop="26" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="701" fromTop="17" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="1153" fromTop="30" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="1163" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="475" fromTop="10" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="962" fromTop="27" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="930" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2252" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="1361" fromTop="20" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2316" fromTop="20" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="1233" fromTop="19" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="1135" fromTop="13" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="1063" fromTop="13" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2572" fromTop="28" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:FactAttribute.cs" caret="68" fromTop="3" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="1571" fromTop="15" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2095" fromTop="18" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2518" fromTop="23" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="3974" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="4002" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="284" fromTop="12" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="2582" fromTop="13" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="2582" fromTop="11" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="2582" fromTop="9" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="852" fromTop="24" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="667" fromTop="20" />
+      <File id="0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A/f:Class1.cs" caret="459" fromTop="18" />
+      <File id="0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A/f:Class1.cs" caret="179" fromTop="9" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="3328" fromTop="23" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="1871" fromTop="21" />
     </RecentEdits>
   </RecentFiles>
   <UnitTestRunner>
@@ -82,24 +85,54 @@
       <Item value="Name" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Default">
-      <Item value="parameters_os" priority="2" />
-      <Item value="var" priority="1" />
+      <Item value="parameters_os" priority="3" />
+      <Item value="var" priority="2" />
       <Item value="foreach" priority="1" />
       <Item value="parameter" priority="7" />
       <Item value="parameters" priority="3" />
-      <Item value="PexAssume" priority="2" />
-      <Item value="string" priority="2" />
+      <Item value="PexAssume" priority="4" />
+      <Item value="string" priority="5" />
       <Item value="Length" priority="0" />
-      <Item value="typeof" priority="1" />
+      <Item value="typeof" priority="2" />
       <Item value="TargetInvocationException" priority="0" />
       <Item value="TheoryCommandFactory" priority="0" />
       <Item value="parameterValues" priority="4" />
       <Item value="DateTime" priority="0" />
       <Item value="if" priority="0" />
       <Item value="is" priority="1" />
-      <Item value="null" priority="0" />
+      <Item value="null" priority="3" />
       <Item value="else" priority="0" />
       <Item value="parameterValue" priority="0" />
+      <Item value="PexMethodAttribute" priority="0" />
+      <Item value="pex" priority="0" />
+      <Item value="tests" priority="0" />
+      <Item value="xunit" priority="0" />
+      <Item value="PexAttributeBase" priority="0" />
+      <Item value="PexClassAttribute" priority="0" />
+      <Item value="ex" priority="1" />
+      <Item value="new" priority="1" />
+      <Item value="AssertException" priority="1" />
+      <Item value="list" priority="1" />
+      <Item value="i" priority="3" />
+      <Item value="Assert" priority="0" />
+      <Item value="public" priority="2" />
+      <Item value="class" priority="0" />
+      <Item value="IMethodInfo" priority="0" />
+      <Item value="PexChoose" priority="0" />
+      <Item value="call" priority="0" />
+      <Item value="bool" priority="0" />
+      <Item value="return" priority="1" />
+      <Item value="result" priority="0" />
+      <Item value="PexObserve" priority="0" />
+      <Item value="Dictionary" priority="0" />
+      <Item value="object" priority="2" />
+      <Item value="Dictionary&lt;string,object&gt;" priority="0" />
+      <Item value="static" priority="1" />
+      <Item value="void" priority="0" />
+      <Item value="repo" priority="1" />
+      <Item value="value" priority="0" />
+      <Item value="TypeCode" priority="0" />
+      <Item value="PexRepository" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Xunit.Extensions.TheoryCommandFactory">
       <Item value="Parameters" priority="1" />
@@ -109,16 +142,42 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.String">
       <Item value="Remove" priority="1" />
-      <Item value="Length" priority="1" />
+      <Item value="Length" priority="5" />
+      <Item value="Contains" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssume">
-      <Item value="IsNotNull" priority="2" />
-      <Item value="IsTrue" priority="0" />
+      <Item value="IsNotNull" priority="4" />
+      <Item value="IsTrue" priority="1" />
       <Item value="IsInstanceOfType" priority="0" />
       <Item value="IsNotInstanceOfType" priority="0" />
+      <Item value="IsFalse" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.String">
       <Item value="Join" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexClassAttribute">
+      <Item value="GetCustomAttribute" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Xunit.Sdk.AssertException">
+      <Item value="UserMessage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Indexer" priority="0" />
+      <Item value="TrueForAll" priority="0" />
+      <Item value="Contains" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexChoose">
+      <Item value="FromCall" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Pex.Framework.Choices.IPexMethodCallChoiceSession">
+      <Item value="ChooseResult" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexObserve">
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@pex.utility.PexRepository">
+      <Item value="Store" priority="0" />
+      <Item value="Get" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

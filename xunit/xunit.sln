@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pex.tests.xunit", "pex.test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pex.tests.extension", "pex.tests.extension\pex.tests.extension.csproj", "{F632AF19-09D0-4D2E-AEB8-F7280A02BECE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pex.utility", "pex.utility\pex.utility.csproj", "{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = xunit1.vsmdi
@@ -157,6 +159,10 @@ Global
 		{F632AF19-09D0-4D2E-AEB8-F7280A02BECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F632AF19-09D0-4D2E-AEB8-F7280A02BECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F632AF19-09D0-4D2E-AEB8-F7280A02BECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

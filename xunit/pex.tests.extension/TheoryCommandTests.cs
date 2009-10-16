@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using Microsoft.Pex.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using pex.utility;
 using Xunit.Extensions;
 using Microsoft.Pex.Framework.Validation;
 using Xunit.Sdk;
@@ -35,12 +36,12 @@ namespace pex.tests.extension
 //        }
 
         //achieve better coverage
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (TargetInvocationException)),
+        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (TargetInvocationException)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteCreatesClassAndRunsTest([PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.TypeName, "pex.tests.extension.InstrumentedSpy");
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.Name, "PassedTest");
+            PexAssume.AreEqual(PexRepository.Get<string>("typeName"), "pex.tests.extension.InstrumentedSpy");
+            PexAssume.AreEqual(PexRepository.Get<string>("methodName"), "PassedTest");
             InstrumentedSpy.ctorCounter = 0;
             InstrumentedSpy.passedTestCounter = 0;
             command.Execute(new InstrumentedSpy());
