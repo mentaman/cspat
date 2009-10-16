@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Pex.Framework, Version=0.16.40915.5, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -68,11 +68,39 @@
     <Compile Include="DataTheories\DataAdapterDataAttributeTests.cs" />
     <Compile Include="DataTheories\TheoryAttributeTests.cs" />
     <Compile Include="DataTheories\TheoryCommandTests.cs" />
+    <Compile Include="DataTheories\TheoryCommandTests.ExecuteCreatesClassAndRunsTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.NotEnoughData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.PassesParametersToTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.TestMethodReturnPassedResult.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.ThrowsExceptionReturnFailedResult.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.TooMuchData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.TruncatesVeryLongStrings.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataTheories\TheoryCommandTests.UsesDisplayName.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="FreezeClock\ClockFacts.cs" />
     <Compile Include="FreezeClock\FreezeClockAttributeAcceptanceTests.cs" />
     <Compile Include="FreezeClock\FreezeClockAttributeFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataTheories\TheoryAcceptanceTests.cs" />
+    <Compile Include="Properties\PexAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataTheories\AcceptanceTestData.xls">

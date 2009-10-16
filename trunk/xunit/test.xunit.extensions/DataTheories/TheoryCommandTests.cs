@@ -6,7 +6,8 @@ using Xunit;
 using Xunit.Extensions;
 using Xunit.Sdk;
 
-public class TheoryCommandTests
+[PexClass(typeof(TheoryCommand))]
+public partial class TheoryCommandTests
 {
     [Fact, PexMethod]
     public void ExecuteCreatesClassAndRunsTest()

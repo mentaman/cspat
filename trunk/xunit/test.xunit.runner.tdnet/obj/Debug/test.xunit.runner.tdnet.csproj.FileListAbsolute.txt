@@ -28,3 +28,16 @@ F:\Projects\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.runner.tdnet.pdb
 F:\Projects\xunit\test.xunit.runner.tdnet\obj\Debug\ResolveAssemblyReference.cache
 F:\Projects\xunit\test.xunit.runner.tdnet\obj\Debug\test.xunit.runner.tdnet.dll
 F:\Projects\xunit\test.xunit.runner.tdnet\obj\Debug\test.xunit.runner.tdnet.pdb
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.dll.tdnet
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\test.xunit.runner.tdnet.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\test.xunit.runner.tdnet.pdb
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\TestDriven.Framework.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.runner.tdnet.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.runner.utility.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.runner.utility.pdb
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.pdb
+F:\cspat\xunit\test.xunit.runner.tdnet\bin\Debug\xunit.runner.tdnet.pdb
+F:\cspat\xunit\test.xunit.runner.tdnet\obj\Debug\ResolveAssemblyReference.cache
+F:\cspat\xunit\test.xunit.runner.tdnet\obj\Debug\test.xunit.runner.tdnet.dll
+F:\cspat\xunit\test.xunit.runner.tdnet\obj\Debug\test.xunit.runner.tdnet.pdb
