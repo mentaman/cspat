@@ -49,10 +49,16 @@
     <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="TheoryCommandTests.TestExecutePUTExecuteCreatesClassAndRunsTest.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
-    <Compile Include="TheoryCommandTests.TestExecutePUTPassesParametersToTest.g.cs">
+    <Compile Include="TheoryCommandTests.TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTUsesNotNullDisplayName.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
   </ItemGroup>

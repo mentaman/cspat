@@ -75,9 +75,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pex.utility", "pex.utility\pex.utility.csproj", "{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = xunit1.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -189,5 +186,6 @@ Global
 		{C0BFE71F-D22E-43DB-8E6A-4FF210DECBBD} = {9E4770D7-9773-46C3-B9AF-373C9FB6534B}
 		{EC9285B5-C6B0-4BE8-9580-C175D39096B8} = {9E4770D7-9773-46C3-B9AF-373C9FB6534B}
 		{F632AF19-09D0-4D2E-AEB8-F7280A02BECE} = {9E4770D7-9773-46C3-B9AF-373C9FB6534B}
+		{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A} = {9E4770D7-9773-46C3-B9AF-373C9FB6534B}
 	EndGlobalSection
 EndGlobal

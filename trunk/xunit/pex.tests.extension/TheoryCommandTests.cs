@@ -36,12 +36,12 @@ namespace pex.tests.extension
 //        }
 
         //achieve better coverage
-        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (TargetInvocationException)),
+        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteCreatesClassAndRunsTest([PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.AreEqual(PexRepository.Get<string>("typeName"), "pex.tests.extension.InstrumentedSpy");
-            PexAssume.AreEqual(PexRepository.Get<string>("methodName"), "PassedTest");
+            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
+            PexAssume.AreEqual(command.MethodName, "PassedTest");
             InstrumentedSpy.ctorCounter = 0;
             InstrumentedSpy.passedTestCounter = 0;
             command.Execute(new InstrumentedSpy());
@@ -62,13 +62,13 @@ namespace pex.tests.extension
 //            Assert.IsType<PassedResult>(result);
 //        }
 
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (TargetInvocationException)),
+        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(
             [PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.TypeName, "pex.tests.extension.DisposableSpy");
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.Name, "PassedTest");
+            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.DisposableSpy");
+            PexAssume.AreEqual(command.MethodName, "PassedTest");
             DisposableSpy.ctorCalled = 0;
             DisposableSpy.disposeCalled = 0;
             ITestResult result = command.Execute(new DisposableSpy());
@@ -92,11 +92,11 @@ namespace pex.tests.extension
         public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty(
             [PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
-            PexAssume.IsNull(TheoryCommandFactory.DisplayName);
-            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length > 0);
+            PexAssume.IsNotNull(PexRepository.Get<object[]>("parameters"));
+            PexAssume.IsNull(PexRepository.Get<string>("DisplayName"));
+            PexAssume.IsTrue(PexRepository.Get<object[]>("parameters").Length > 0);
             var parameterValues = "";
-            foreach (var parameter in TheoryCommandFactory.Parameters)
+            foreach (var parameter in command.Parameters)
             {
                 object parameterValue = null;
                 if (parameter is string)
@@ -123,11 +123,11 @@ namespace pex.tests.extension
         public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty(
             [PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
-            PexAssume.IsNull(TheoryCommandFactory.DisplayName);
-            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length > 0);
+            PexAssume.IsNotNull(PexRepository.Get<object[]>("parameters"));
+            PexAssume.IsNull(PexRepository.Get<string>("DisplayName"));
+            PexAssume.IsTrue(PexRepository.Get<object[]>("parameters").Length > 0);
             var parameterValues = "";
-            foreach (var parameter in TheoryCommandFactory.Parameters)
+            foreach (var parameter in command.Parameters)
             {
                 PexAssume.IsTrue(parameter is string);
                 var s = (parameter as string);
@@ -144,11 +144,29 @@ namespace pex.tests.extension
         }
 
 
-        [PexMethod]
+        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof(Exception)),
+         PexAllowedException(typeof(InvalidOperationException))]
         public void TestExecutePUTUsesNotNullDisplayName([PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.IsNotNull(TheoryCommandFactory.DisplayName);
-            PexAssert.AreEqual(TheoryCommandFactory.DisplayName, command.DisplayName);
+            PexAssume.IsNotNull(PexRepository.Get<object[]>("parameters"));
+            var displayName = PexRepository.Get<string>("DisplayName");
+            PexAssume.IsNotNull(displayName);
+            PexAssume.IsTrue(PexRepository.Get<object[]>("parameters").Length > 0);
+            var parameterValues = "";
+            foreach (var parameter in command.Parameters)
+            {
+                PexAssume.IsTrue(parameter is string);
+                var s = (parameter as string);
+                PexAssume.IsTrue(s.Length > 50);
+                var parameterValue = "\"" + s.Substring(0, 50) + "\"...";
+                parameterValues += parameterValue + ", ";
+                PexAssume.IsNotInstanceOfType(parameter, typeof(DateTime));
+                PexAssume.IsNotNull(parameter);
+            }
+            parameterValues = parameterValues.Remove(parameterValues.Length - 2);
+            var expected = displayName + "(" +
+                           parameterValues + ")";
+            PexAssert.AreEqual(expected, command.DisplayName);
         }
 
 //
@@ -172,17 +190,17 @@ namespace pex.tests.extension
         public void TestExecutePUTPassesParametersToTest(
             [PexAssumeUnderTest] TheoryCommand command)
         {
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.TypeName, "pex.tests.extension.SpyWithDataPassed");
-            PexAssume.AreEqual(TheoryCommandFactory.MethodInfo.Name, "Test");
-            PexAssume.IsNotNull(TheoryCommandFactory.Parameters);
-            PexAssume.IsTrue(TheoryCommandFactory.Parameters.Length == 3);
+            PexAssume.IsNotNull(PexRepository.Get<object[]>("parameters"));
+            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.SpyWithDataPassed");
+            PexAssume.AreEqual(command.MethodName, "Test");
+            PexAssume.IsTrue(command.Parameters.Length == 3);
             SpyWithDataPassed.X = null;
             SpyWithDataPassed.Y = null;
             SpyWithDataPassed.Z = null;
             ITestResult result = command.Execute(new SpyWithDataPassed());
-            PexAssert.AreEqual(TheoryCommandFactory.Parameters[0], SpyWithDataPassed.X);
-            PexAssert.AreEqual(TheoryCommandFactory.Parameters[1], SpyWithDataPassed.Y);
-            PexAssert.AreEqual(TheoryCommandFactory.Parameters[2], SpyWithDataPassed.Z);
+            PexAssert.AreEqual(command.Parameters[0], SpyWithDataPassed.X);
+            PexAssert.AreEqual(command.Parameters[1], SpyWithDataPassed.Y);
+            PexAssert.AreEqual(command.Parameters[2], SpyWithDataPassed.Z);
         }
     }
 
