@@ -47,9 +47,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TheoryCommandTests.cs" />
-    <Compile Include="TheoryCommandTests.TestExecutePUTExecuteCreatesClassAndRunsTest.g.cs">
-      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\xunit.extensions\xunit.extensions.csproj">
