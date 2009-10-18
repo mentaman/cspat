@@ -51,8 +51,6 @@ namespace pex.tests.xunit
         [PexMethod, PexAllowedException(typeof(EqualException))]
         public void TestEqualPUTArrayTests([PexAssumeUnderTest]string[] i, [PexAssumeUnderTest]string[] j)
         {
-            PexAssume.AreElementsNotNull(i);
-            PexAssume.AreElementsNotNull(j);
             Assert.Equal(i, j);
         }
 
@@ -212,17 +210,7 @@ namespace pex.tests.xunit
             }
         }
 
-        public class GenericComparableObject : IComparable<GenericComparableObject>
-        {
-            public bool CompareCalled;
-
-            public int CompareTo(GenericComparableObject other)
-            {
-                CompareCalled = true;
-                return 0;
-            }
-        }
-        
+       
         //End
 
         //EquatableObjectTests Begin
