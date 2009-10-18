@@ -5,7 +5,7 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
-    [PexClass]
+    [PexClass(typeof(Assert))]
     public partial class AssertExceptionTests
     {
         /*

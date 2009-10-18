@@ -20,13 +20,11 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Black Box?
-        public void TestDoesNotContainPUTCanSearchForNullInContainer([PexAssumeUnderTest]List<object> list, object item)
+        
+        public void TestDoesNotContainPUTCanSearchForNullInContainer([PexAssumeUnderTest]List<object> list)
         {
-            PexAssume.IsNotNull(item);
             PexAssume.IsFalse(list.Contains(null) );
             Assert.DoesNotContain(null, list);
-            PexObserve.Value("test", item);
         }
 
         /*
@@ -37,11 +35,28 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //NOT DONE
+        //Stop at the 6th run
         public void TestDoesNotContainPUTCanSearchForSubstrings([PexAssumeUnderTest]String i, [PexAssumeUnderTest]String j)
         {
-            PexAssume.IsFalse(j.Contains(i) || i.Length > j.Length);
+            PexAssume.IsFalse(j.Contains(i) || i.Length >= j.Length);
             Assert.DoesNotContain(i, j);
+        }
+
+        /*
+        [Fact]
+        public void CanSearchForSubstringsCaseInsensitive()
+        {
+            Assert.Throws<DoesNotContainException>(
+                () => Assert.DoesNotContain("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase));
+        } 
+         */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive()
+        {
+            Assert.Throws<DoesNotContainException>(
+                () => Assert.DoesNotContain("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase));
         }
 
         /*
@@ -112,6 +127,21 @@ namespace pex.tests.xunit
         {
             PexAssume.IsTrue(list.Contains(null));
             Assert.DoesNotContain(i, list);
+        }
+
+        /*
+        [Fact]
+        public void SubstringDoesNotContainIsCaseSensitiveByDefault()
+        {
+            Assert.DoesNotContain("WORLD", "Hello, world!");
+        }
+        */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault()
+        {
+            Assert.DoesNotContain("WORLD", "Hello, world!");
         }
 
         /*

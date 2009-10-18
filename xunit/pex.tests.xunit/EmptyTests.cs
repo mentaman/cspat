@@ -7,21 +7,21 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
-    [PexClass]
+    [PexClass(typeof(Assert))]
     public partial class EmptyTests
     {
         /*
         public void IsEmpty()
         {
             List<int> list = new List<int>();
-
             Assert.Empty(list);
         }
         */
 
-        [PexMethod, PexAllowedException(typeof(EmptyException))]
-        public void TestemptyPUTIsEmpty([PexAssumeUnderTest]List<int> list)
+        [PexMethod]
+        public void TestEmptyPUTIsEmpty([PexAssumeUnderTest]List<int> list)
         {
+            list.Clear();
             Assert.Empty(list);
         }
 
@@ -38,14 +38,57 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        public void TestemptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list, int i)
+        public void TestEmptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list, int i)
         {
             list.Add(i);
-            EmptyException ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
-
+            var ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
             Assert.Equal("Assert.Empty() failure", ex.Message);
         }
 
+        /*
+         public void NullIsNotEmpty()
+        {
+            Assert.Throws<ArgumentNullException>(() => Assert.Empty(null));
+        }
+        */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestEmptyPUTNullIsNotEmpty()
+        {
+            Assert.Throws<ArgumentNullException>(() => Assert.Empty(null));
+        }
+
+        /*
+        public void IsEmpty()
+        {
+            Assert.Empty("");
+        }
+         */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestEmptyPUTStringIsEmpty()
+        {
+            Assert.Empty("");
+        }
+
+        /*
+         public void IsNotEmpty()
+        {
+            EmptyException ex = Assert.Throws<EmptyException>(() => Assert.Empty("Foo"));
+
+            Assert.Equal("Assert.Empty() failure", ex.Message);
+        }
+         */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestEmptyPUTStringIsNotEmpty()
+        {
+            var ex = Assert.Throws<EmptyException>(() => Assert.Empty("Foo"));
+            Assert.Equal("Assert.Empty() failure", ex.Message);
+        }
     }
 
 }

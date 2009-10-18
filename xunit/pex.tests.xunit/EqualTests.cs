@@ -8,9 +8,11 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
-    [PexClass]
+    [PexClass(typeof(Assert))]
     public partial class EqualTests
     {
+        //ArrayTests Begin
+        
         /*
         public class ArrayTests
         {
@@ -53,6 +55,10 @@ namespace pex.tests.xunit
             PexAssume.AreElementsNotNull(j);
             Assert.Equal(i, j);
         }
+
+        //End
+
+        //ComparableTests Begin
 
         /*
          public void ObjectWithComparable()
@@ -111,6 +117,671 @@ namespace pex.tests.xunit
             Assert.Equal(obj1, obj2);
             Assert.True(obj1.CompareCalled);
         }
+
+        /*
+        public void ObjectWithoutIComparable()
+        {
+            NonComparableObject nco1 = new NonComparableObject();
+            NonComparableObject nco2 = new NonComparableObject();
+
+            Assert.Equal(nco1, nco2);
+        }
+         */
+
+
+
+        //End
+
+        //DoubleInfinityTests Begin
+        /*
+        public void DoubleNegativeInfinityEqualsNegativeInfinity()
+        {
+            Assert.Equal(Double.NegativeInfinity, Double.NegativeInfinity);
+        }
+         */
+
+
+
+        /*
+         public void DoubleNegativeInfinityNotEquals()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(1.23, Double.NegativeInfinity));
+        }
+         */
+
+
+
+        /*
+         public void DoublePositiveInfinityEqualsPositiveInfinity()
+        {
+            Assert.Equal(Double.PositiveInfinity, Double.PositiveInfinity);
+        }
+         */
+
+
+
+        /*
+         public void DoublePositiveInfinityNotEquals()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(1.23, Double.PositiveInfinity));
+        }
+         */
+
+
+
+        /*
+         public void DoublePositiveInfinityNotEqualsNegativeInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
+        }
+         */
+
+        //End
+
+        //EnumerableTests Begin
+        class IntGenerator
+        {
+            public static IEnumerable<int> Range(int start, int end)
+            {
+                for (int i = start; i <= end; i++)
+                    yield return i;
+            }
+        }
+
+        /*
+        public void Select_should_equal_Select()
+        {
+            IEnumerable<int> items = IntGenerator.Range(1, 12);
+            IEnumerable<int> others = IntGenerator.Range(1, 12);
+
+            Assert.Equal(items, others);
+        }
+         */
+
+        public class EquatableObject : IEquatable<EquatableObject>
+        {
+            public bool Equals__Called;
+            public EquatableObject Equals_Other;
+
+            public bool Equals(EquatableObject other)
+            {
+                Equals__Called = true;
+                Equals_Other = other;
+
+                return true;
+            }
+        }
+
+        public class GenericComparableObject : IComparable<GenericComparableObject>
+        {
+            public bool CompareCalled;
+
+            public int CompareTo(GenericComparableObject other)
+            {
+                CompareCalled = true;
+                return 0;
+            }
+        }
+        
+        //End
+
+        //EquatableObjectTests Begin
+
+        /*
+        public void CallsIEquatable()
+        {
+            EquatableObject obj1 = new EquatableObject();
+            EquatableObject obj2 = new EquatableObject();
+
+            Assert.Equal(obj1, obj2);
+
+            Assert.True(obj1.Equals__Called);
+            Assert.Same(obj2, obj1.Equals_Other);
+        }
+         */
+
+        //End
+
+        //NaNTests Begin
+
+        /*
+         public void EqualsNaNFails()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(Double.NaN, 1.234));
+        }
+         */
+
+
+
+        /*
+         public void NanEqualsFails()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(1.234, Double.NaN));
+        }
+
+         */
+
+
+
+        /*
+         public void NanEqualsNaNSucceeds()
+        {
+            Assert.Equal(Double.NaN, Double.NaN);
+        }
+         */
+
+
+        //End
+
+        public class NonComparableObject
+        {
+            public override bool Equals(object obj)
+            {
+                return true;
+            }
+
+            public override int GetHashCode()
+            {
+                return 42;
+            }
+        }
+
+        //NullTests Begin
+
+        /*
+         public void EqualsNull()
+        {
+            Assert.Equal<object>(null, null);
+        }
+         */
+
+
+
+        /*
+         public void FailsWhenActualIsNullExpectedIsNot()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(new object(), null));
+        }
+         */
+
+
+
+        /*
+         public void FailsWhenExpectedIsNullActualIsNot()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(null, new object()));
+        }
+         */
+
+        //End
+
+        //NumericTests Begin
+
+        /*
+         public void DecimalEqualsFails()
+        {
+            decimal expected = 25;
+            decimal actual = 42;
+
+            Assert.Throws<EqualException>(() => Assert.Equal(expected, actual));
+        }
+         */
+
+
+
+        /*
+         public void DoubleEqualsFails()
+        {
+            double expected = 25.3;
+            double actual = 42.0;
+
+            Assert.Throws<EqualException>(() => Assert.Equal(expected, actual));
+        }
+         */
+
+
+
+        /*
+         public void EqualsByte()
+        {
+            byte valueType = 35;
+            Byte referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<byte>(valueType, 35);
+            Assert.Equal<byte>(referenceValue, 35);
+        }
+
+         */
+
+
+
+        /*
+         public void EqualsDecimal()
+        {
+            decimal valueType = 35;
+            Decimal referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<decimal>(valueType, 35);
+            Assert.Equal(valueType, 35M);
+            Assert.Equal<decimal>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsInt16()
+        {
+            short valueType = 35;
+            Int16 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<short>(valueType, 35);
+            Assert.Equal<short>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsInt32()
+        {
+            int valueType = 35;
+            Int32 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal(valueType, 35);
+            Assert.Equal(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsInt64()
+        {
+            long valueType = 35;
+            Int64 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<long>(valueType, 35);
+            Assert.Equal<long>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsSByte()
+        {
+            sbyte valueType = 35;
+            SByte referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<sbyte>(valueType, 35);
+            Assert.Equal<sbyte>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsUInt16()
+        {
+            ushort valueType = 35;
+            UInt16 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<ushort>(valueType, 35);
+            Assert.Equal<ushort>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsUInt32()
+        {
+            uint valueType = 35;
+            UInt32 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<uint>(valueType, 35);
+            Assert.Equal<uint>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void EqualsUInt64()
+        {
+            ulong valueType = 35;
+            UInt64 referenceValue = 35;
+
+            Assert.True(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<ulong>(valueType, 35);
+            Assert.Equal<ulong>(referenceValue, 35);
+        }
+         */
+
+
+
+        /*
+         public void Int32Int64Comparison()
+        {
+            long l64 = 0;
+            int i32 = 0;
+            Assert.Equal<long>(l64, i32);
+        }
+         */
+
+
+
+        /*
+         public void IntegerLongComparison()
+        {
+            Assert.Equal<long>(1L, 1);
+            Assert.Equal<long>(1, 1L);
+        }
+
+         */
+
+
+
+        /*
+         public void LongEquals()
+        {
+            Assert.Equal(2L, 2L);
+        }
+         */
+
+
+
+        /*
+         public void LongEqualsFails()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(3L, 2L));
+        }
+         */
+
+
+
+        /*
+         public void UInt64EqualsFails()
+        {
+            UInt64 expected = 25;
+            UInt64 actual = 42;
+
+            Assert.Throws<EqualException>(() => Assert.Equal(expected, actual));
+        }
+         */
+
+
+
+
+        //SingleInfinityTests Begin
+
+        /*
+         public void SingleNegativeInfinityEqualsNegativeInfinity()
+        {
+            Assert.Equal(Single.NegativeInfinity, Single.NegativeInfinity);
+        }
+         */
+
+
+
+        /*
+         public void SingleNumberNotEqualNegativeInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.NegativeInfinity));
+        }
+         */
+
+
+
+        /*
+         public void SingleNumberNotEqualPositiiveInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.PositiveInfinity));
+        }
+
+         */
+
+
+
+        /*
+         public void SinglePositiveInfinityEqualsPositiveInfinity()
+        {
+            Assert.Equal(Single.PositiveInfinity, Single.PositiveInfinity);
+        }
+
+         */
+
+
+
+        /*
+         public void SinglePositiveInfinityNotEqualNegativeInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(Single.NegativeInfinity, Single.PositiveInfinity));
+        }
+         */
+
+        //End
+
+        //StringTests Begin
+
+        /*
+         public void EqualsFail()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal("expected", "actual"));
+        }
+         */
+
+
+
+        /*
+         public void EqualsString()
+        {
+            string testString = "Test String";
+            string expected = testString;
+            string actual = testString;
+
+            Assert.True(actual == expected);
+            Assert.Equal(expected, actual);
+        }
+         */
+
+
+
+        /*
+         public void EqualsStringIgnoreCase()
+        {
+            string expected = "TestString";
+            string actual = "testString";
+
+            Assert.False(actual == expected);
+            Assert.NotEqual(expected, actual);
+            Assert.Equal(expected, actual, StringComparer.CurrentCultureIgnoreCase);
+        }
+         */
+
+
+
+        /*
+         [Fact]
+        public void String()
+        {
+            string s1 = "test";
+            string s2 = new StringBuilder(s1).ToString();
+
+            Assert.True(s1.Equals(s2));
+            Assert.Equal(s2, s1);
+        }
+         */
+
+        //End
+
+        //NullableValueTypesTests Begin
+
+        /*
+         public void NullableValueTypesCanBeNull()
+        {
+            DateTime? dt1 = null;
+            DateTime? dt2 = null;
+
+            Assert.Equal(dt1, dt2);
+        }
+         */
+
+        //End
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */
+
+
+
+        /*
+         
+         */ 
     }
 
 }
