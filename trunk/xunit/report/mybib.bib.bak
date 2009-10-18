@@ -1,0 +1,163 @@
+% This file was created with JabRef 2.5.
+% Encoding: Cp1252
+
+@INPROCEEDINGS{klee,
+  author = {Cristian Cadar and Daniel Dunbar and Dawson R. Engler},
+  title = {KLEE: Unassisted and Automatic Generation of High-Coverage Tests
+	for Complex Systems Programs},
+  booktitle = {OSDI},
+  year = {2008},
+  pages = {209-224},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/osdi/2008},
+  ee = {http://www.usenix.org/events/osdi08/tech/full_papers/cadar/cadar.pdf},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{CadarGPDE06,
+  author = {Cristian Cadar and Vijay Ganesh and Peter M. Pawlowski and David
+	L. Dill and Dawson R. Engler},
+  title = {EXE: automatically generating inputs of death},
+  booktitle = {ACM Conference on Computer and Communications Security},
+  year = {2006},
+  pages = {322-335},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/ccs/2006usa},
+  ee = {http://doi.acm.org/10.1145/1180405.1180445},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{stp,
+  author = {Vijay Ganesh and David L. Dill},
+  title = {A Decision Procedure for Bit-Vectors and Arrays},
+  booktitle = {CAV},
+  year = {2007},
+  pages = {519-531},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/cav/2007},
+  ee = {http://dx.doi.org/10.1007/978-3-540-73368-3_52},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{GodefroidKS05,
+  author = {Patrice Godefroid and Nils Klarlund and Koushik Sen},
+  title = {DART: directed automated random testing},
+  booktitle = {PLDI},
+  year = {2005},
+  pages = {213-223},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/pldi/2005},
+  ee = {http://doi.acm.org/10.1145/1065010.1065036},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{SenMA05,
+  author = {Koushik Sen and Darko Marinov and Gul Agha},
+  title = {CUTE: a concolic unit testing engine for C},
+  booktitle = {ESEC/SIGSOFT FSE},
+  year = {2005},
+  pages = {263-272},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/sigsoft/2005},
+  ee = {http://doi.acm.org/10.1145/1081706.1081750},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@BOOK{testbook,
+  title = {Introduction to Software Testing},
+  publisher = {Cambridge University Press},
+  year = {2008},
+  author = {Ammann, Paul and Offutt, Jeff},
+  address = {New York, NY, USA},
+  isbn = {0521880386, 9780521880381},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@BOOK{stateCovBook,
+  title = {Software testing techniques (2nd ed.)},
+  publisher = {Van Nostrand Reinhold Co.},
+  year = {1990},
+  author = {Beizer, Boris},
+  address = {New York, NY, USA},
+  isbn = {0-442-20672-0},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{HalleuxT08,
+  author = {Jonathan de Halleux and Nikolai Tillmann},
+  title = {Parameterized Unit Testing with Pex},
+  booktitle = {TAP},
+  year = {2008},
+  pages = {171-181},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.1007/978-3-540-79124-9_12},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@ARTICLE{branch,
+  author = {Ntafos, S. C.},
+  title = {A Comparison of Some Structural Testing Strategies},
+  journal = {IEEE Trans. Softw. Eng.},
+  year = {1988},
+  volume = {14},
+  pages = {868--874},
+  number = {6},
+  address = {Piscataway, NJ, USA},
+  doi = {http://dx.doi.org/10.1109/32.6165},
+  issn = {0098-5589},
+  owner = {xsxiao},
+  publisher = {IEEE Press},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{TillmannH08,
+  author = {Nikolai Tillmann and Jonathan de Halleux},
+  title = {Pex-White Box Test Generation for .NET},
+  booktitle = {TAP},
+  year = {2008},
+  pages = {134-153},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.1007/978-3-540-79124-9_10},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{PUT,
+  author = {Nikolai Tillmann and Wolfram Schulte},
+  title = {Parameterized unit tests},
+  booktitle = {ESEC/SIGSOFT FSE},
+  year = {2005},
+  pages = {253-262},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://doi.acm.org/10.1145/1081706.1081749},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@article{mock,
+ author = {Mackinnon, Tim and Freeman, Steve and Craig, Philip},
+ title = {Endo-testing: unit testing with mock objects},
+ book = {Extreme programming examined},
+ year = {2001},
+ isbn = {0-201-71040-4},
+ pages = {287--301},
+ publisher = {Addison-Wesley Longman Publishing Co., Inc.},
+ address = {Boston, MA, USA},
+ }
+
+@comment{jabref-meta: selector_publisher:}
+
+@comment{jabref-meta: selector_author:}
+
+@comment{jabref-meta: selector_journal:}
+
+@comment{jabref-meta: selector_keywords:}
+
