@@ -44,7 +44,10 @@
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
-    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
+    <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTSelectShouldEqualSelect.g.cs">
       <DependentUpon>EqualTests.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />

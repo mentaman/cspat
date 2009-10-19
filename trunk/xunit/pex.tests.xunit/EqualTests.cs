@@ -126,7 +126,11 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        public void TestEqualPUTObjectWithoutIComparable([PexAssumeUnderTest]GenericComparableObject obj1, [PexAssumeUnderTest]GenericComparableObject obj2)
+        {
+            Assert.Equal(obj1, obj2);
+        }
 
         //End
 
@@ -138,7 +142,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        //Don't need PUT
+        public void TestEqualPUTDoubleNegativeInfinityEqualsNegativeInfinity()
+        {
+            Assert.Equal(Double.NegativeInfinity, Double.NegativeInfinity);
+        }
 
         /*
          public void DoubleNegativeInfinityNotEquals()
@@ -147,7 +156,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
+        {
+            PexAssume.IsTrue(i > 0);
+            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
+        }
 
         /*
          public void DoublePositiveInfinityEqualsPositiveInfinity()
@@ -156,7 +170,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        //Don't need PUT
+        public void TestEqualPUTDoublePositiveInfinityEqualsPositiveInfinity()
+        {
+            Assert.Equal(Double.PositiveInfinity, Double.PositiveInfinity);
+        }
 
         /*
          public void DoublePositiveInfinityNotEquals()
@@ -165,7 +184,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
+        {
+            PexAssume.IsTrue(i < Double.PositiveInfinity);
+            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.PositiveInfinity));
+        }
 
         /*
          public void DoublePositiveInfinityNotEqualsNegativeInfinity()
@@ -174,9 +198,17 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Don't need PUT
+        public void TestEqualPUTDoublePositiveInfinityNotEqualsNegativeInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
+        }
+
         //End
 
         //EnumerableTests Begin
+
         class IntGenerator
         {
             public static IEnumerable<int> Range(int start, int end)
@@ -195,6 +227,12 @@ namespace pex.tests.xunit
             Assert.Equal(items, others);
         }
          */
+
+        [PexMethod]
+        public void TestEqualPUTSelectShouldEqualSelect([PexAssumeUnderTest]IEnumerable<int> items, [PexAssumeUnderTest]IEnumerable<int> others)
+        {
+            Assert.Equal(items, others);
+        }
 
         public class EquatableObject : IEquatable<EquatableObject>
         {
@@ -227,6 +265,15 @@ namespace pex.tests.xunit
             Assert.Same(obj2, obj1.Equals_Other);
         }
          */
+
+        [PexMethod]
+        public void TestEqualPUTCallsIEquatable([PexAssumeUnderTest]EquatableObject obj1, [PexAssumeUnderTest]EquatableObject obj2)
+        {
+            Assert.Equal(obj1, obj2);
+
+            Assert.True(obj1.Equals__Called);
+            Assert.Same(obj2, obj1.Equals_Other);
+        }
 
         //End
 
