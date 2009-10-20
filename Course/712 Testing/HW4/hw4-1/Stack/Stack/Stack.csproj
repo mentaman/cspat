@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEF384B1-8589-474F-88D6-0E33B2DF3B2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Stack</RootNamespace>
+    <AssemblyName>Stack</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Pex.Framework, Version=0.16.40915.5, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factories\UIntStackFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIntStack.cs" />
+    <Compile Include="UIntStackPexBasicTest.cs" />
+    <Compile Include="UIntStackPexBasicTestPUT.cs" />
+    <Compile Include="UIntStackPexBasicTestPUT.TestEmptyPUTCheckEmptyAfterPopOnNearEmpty.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestEmptyPUTCheckEmptyAfterPopOnNotNearEmpty.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestEmptyPUTCheckEmptyAfterPush.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPop.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPushOnNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPushOnNotNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestGetNumberOfElementsPUTCheckNumberAfterPushDuplicatedInt.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestGetNumberOfElementsPUTCheckNumberAfterPushOnNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestGetNumberOfElementsPUTCheckNumberAfterPushOnNotNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestMaxPUTCheckMaxAfterPush.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestMemberPUTCheckMemberAfterPop.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestMemberPUTCheckMemberAfterPush.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPopPUTCheckNumberAfterPopOnEmpty.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPopPUTCheckNumberAndMemberAfterPop.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPushPUTCheckNumberAfterPushDuplicateNumber.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPushPUTCheckNumberAndTopAfterPushDuplicateFirstIntOnFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPushPUTCheckNumberAndTopAfterPushOnFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestPushPUTCheckNumberAndTopAfterPushOnNotNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestTopPUTCheckTopAfterPushOnFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestTopPUTCheckTopAfterPushOnNotNearFull.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexBasicTestPUT.TestTopPUTCheckTopOnEmpty.g.cs">
+      <DependentUpon>UIntStackPexBasicTestPUT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIntStackPexTest.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
