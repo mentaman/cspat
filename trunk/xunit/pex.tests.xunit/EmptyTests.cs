@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Xunit;
 using Xunit.Sdk;
 using Microsoft.Pex.Framework;
-using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {

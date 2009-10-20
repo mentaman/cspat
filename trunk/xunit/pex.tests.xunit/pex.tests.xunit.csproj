@@ -44,13 +44,9 @@
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
-    <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
-      <DependentUpon>EqualTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EqualTests.TestEqualPUTSelectShouldEqualSelect.g.cs">
-      <DependentUpon>EqualTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />
+    <Compile Include="FalseTests.cs" />
+    <Compile Include="InRangeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TrueTests.cs" />

@@ -284,11 +284,7 @@ namespace pex.tests.xunit
         {
             Assert.Throws<EqualException>(() => Assert.Equal(Double.NaN, 1.234));
         }
-         */
 
-
-
-        /*
          public void NanEqualsFails()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.234, Double.NaN));
@@ -296,7 +292,13 @@ namespace pex.tests.xunit
 
          */
 
-
+        [PexMethod]
+        //Not include i = NaN && j = NaN?
+        public void TestEqualPUTEqualsFails([PexAssumeUnderTest]Double i, [PexAssumeUnderTest]Double j)
+        {
+            PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
 
         /*
          public void NanEqualsNaNSucceeds()
@@ -305,6 +307,12 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Don't need PUT
+        public void TestEqualPUTNanEqualsNaNSucceeds()
+        {
+            Assert.Equal(Double.NaN, Double.NaN);
+        }
 
         //End
 
@@ -330,8 +338,6 @@ namespace pex.tests.xunit
         }
          */
 
-
-
         /*
          public void FailsWhenActualIsNullExpectedIsNot()
         {
@@ -347,6 +353,12 @@ namespace pex.tests.xunit
             Assert.Throws<EqualException>(() => Assert.Equal(null, new object()));
         }
          */
+
+        [PexMethod(MaxRuns = 100)]
+        public void TestEqualPUTNullTests(object i, object j)
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
 
         //End
 
@@ -564,7 +576,7 @@ namespace pex.tests.xunit
          */
 
 
-
+        //End
 
         //SingleInfinityTests Begin
 
