@@ -21,6 +21,7 @@ namespace pex.tests.xunit
 
         [PexMethod]
         [PexAllowedException(typeof(ContainsException))]
+		//Pattern 2.6 2.10
         public void TestContainsPUTCanFindNullInContainer([PexAssumeUnderTest]object[] list, object item)
         {
             PexAssume.IsNull(item);
@@ -33,6 +34,7 @@ namespace pex.tests.xunit
 //        }
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTCanSearchForSubstring(string subString, string wholeString)
         {
             PexAssume.IsNotNull(subString);
@@ -49,6 +51,7 @@ namespace pex.tests.xunit
 //        }
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTCanSearchForSubstringCaseInsensitive(string subString, string wholeString)
         {
             PexAssume.IsNotNull(subString);
@@ -68,6 +71,7 @@ namespace pex.tests.xunit
         //        }
 
         [PexMethod, PexAllowedException(typeof(ContainsException))]
+		//Pattern ??
         public void TestContainsPUTCanUseComparer(int x, [PexAssumeNotNull]int[] y)
         {
             var call = PexChoose.FromCall(this);
@@ -86,6 +90,7 @@ namespace pex.tests.xunit
         //        }
 
         [PexMethod]
+		//2.6
         public void TestContainsPUTItemInContainer( int item, List<int> container)
         {
             PexAssume.IsNotNull(container);
@@ -106,6 +111,7 @@ namespace pex.tests.xunit
         //
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTItemNotInContainer(int item, List<int> container)
         {
             PexAssume.IsNotNull(container);
@@ -124,6 +130,7 @@ namespace pex.tests.xunit
         //
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTNullsAllowedInContainer(int x, object[] container )
         {
             PexAssume.IsNotNull(container);
@@ -153,6 +160,7 @@ namespace pex.tests.xunit
         //
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTSubstringContainsIsCaseSensitiveByDefault(string substring, string wholeString)
         {
             PexAssume.IsNotNull(substring);
@@ -172,6 +180,7 @@ namespace pex.tests.xunit
         //
 
         [PexMethod]
+		//Pattern 2.2
         public void TestContainsPUTSubstringNotFound(string substring, string wholeString)
         {
             PexAssume.IsNotNull(substring);

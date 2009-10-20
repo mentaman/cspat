@@ -49,6 +49,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(EqualException))]
+		//Pattern 2.2, 2.10
         public void TestEqualPUTArrayTests([PexAssumeUnderTest]string[] i, [PexAssumeUnderTest]string[] j)
         {
             Assert.Equal(i, j);
@@ -81,6 +82,7 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTObjectWithComparable([PexAssumeUnderTest]ComparableObject obj1, [PexAssumeUnderTest]ComparableObject obj2)
         {
             Assert.Equal(obj1, obj2);
@@ -110,6 +112,7 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTObjectWithGenericComparable([PexAssumeUnderTest]GenericComparableObject obj1, [PexAssumeUnderTest]GenericComparableObject obj2)
         {
             Assert.Equal(obj1, obj2);
@@ -127,6 +130,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTObjectWithoutIComparable([PexAssumeUnderTest]GenericComparableObject obj1, [PexAssumeUnderTest]GenericComparableObject obj2)
         {
             Assert.Equal(obj1, obj2);
@@ -157,6 +161,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i > 0);
@@ -185,6 +190,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i < Double.PositiveInfinity);
@@ -229,6 +235,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTSelectShouldEqualSelect([PexAssumeUnderTest]IEnumerable<int> items, [PexAssumeUnderTest]IEnumerable<int> others)
         {
             Assert.Equal(items, others);
@@ -267,6 +274,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTCallsIEquatable([PexAssumeUnderTest]EquatableObject obj1, [PexAssumeUnderTest]EquatableObject obj2)
         {
             Assert.Equal(obj1, obj2);
@@ -294,6 +302,7 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Not include i = NaN && j = NaN?
+		//Pattern 2.2
         public void TestEqualPUTEqualsFails([PexAssumeUnderTest]Double i, [PexAssumeUnderTest]Double j)
         {
             PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
@@ -355,6 +364,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod(MaxRuns = 100)]
+		//Pattern 2.1
         public void TestEqualPUTNullTests(object i, object j)
         {
             Assert.Throws<EqualException>(() => Assert.Equal(i, j));

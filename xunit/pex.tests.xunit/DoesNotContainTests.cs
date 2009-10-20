@@ -20,7 +20,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        
+        //Pattern 2.2
         public void TestDoesNotContainPUTCanSearchForNullInContainer([PexAssumeUnderTest]List<object> list)
         {
             PexAssume.IsFalse(list.Contains(null) );
@@ -36,6 +36,7 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Stop at the 6th run
+		//Pattern 2.2
         public void TestDoesNotContainPUTCanSearchForSubstrings([PexAssumeUnderTest]String i, [PexAssumeUnderTest]String j)
         {
             PexAssume.IsFalse(j.Contains(i) || i.Length >= j.Length);
@@ -70,6 +71,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(DoesNotContainException))]
+		//Pattern 2.2, 2.10
         public void TestDoesNotContainPUTCanUseComparer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
@@ -89,6 +91,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestDoesNotContainPUTItemInContainer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
@@ -107,6 +110,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestDoesNotContainPUTItemNotInContainer([PexAssumeUnderTest] List<int> list, int i)
         {
             PexAssume.IsFalse(list.Contains(i));
@@ -123,6 +127,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.6
         public void TestDoesNotContainPUTNullsAllowedInContainer([PexAssumeUnderTest]List<object> list, int i)
         {
             PexAssume.IsTrue(list.Contains(null));
@@ -152,6 +157,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestDoesNotContainPUTSubstringFound([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j, [PexAssumeUnderTest]string k)
         {
             PexAssume.IsTrue(i == j + k );

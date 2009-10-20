@@ -18,6 +18,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.6
         public void TestEmptyPUTIsEmpty([PexAssumeUnderTest]List<int> list)
         {
             list.Clear();
@@ -37,6 +38,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEmptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list, int i)
         {
             list.Add(i);

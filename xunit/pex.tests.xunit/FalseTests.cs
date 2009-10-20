@@ -31,6 +31,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
+		//Pattern 2.2
         public void TestEqualPUTFalseTests([PexAssumeUnderTest]bool i)
         {
             try
