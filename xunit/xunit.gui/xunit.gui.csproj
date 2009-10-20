@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{380A0890-48E0-405A-9E3F-45A69EEE8E01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -112,6 +112,7 @@
     <EmbeddedResource Include="Resources\Skipped.ico" />
     <EmbeddedResource Include="Views\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
