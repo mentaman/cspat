@@ -27,6 +27,7 @@ namespace pex.tests.xunit
 
         [PexMethod]
         [PexAllowedException(typeof(TrueException))]
+		//Pattern 2.1 2.10
         public void TestTruePUTAssert(bool item )
         {
             Assert.True(item);

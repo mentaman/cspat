@@ -65,12 +65,14 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(InRangeException))]
+		//Pattern 2.1 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroActual(int i, int j)
         {
             Assert.InRange(0, i, j);
         }
 
         [PexMethod, PexAllowedException(typeof(InRangeException))]
+		//Pattern 2.1 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroMinimum(int i, int j)
         {
             Assert.InRange(i, 0, j);
