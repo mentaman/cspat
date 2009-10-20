@@ -1,0 +1,15 @@
+For program xxiao21.java, just run it with the classpath pointing to jdbc library classes12.jar.
+
+When the program starts, it will ask you the budget and you just input a number of budget, like 500, 3000 or so on.
+
+And then it will ask for the minimum speed, you just type 3.0, 3.2 or so on.
+
+Finally the program will print out the model satisfying the condition and the total price of them.
+
+For program xxiao22.java, again run it with the classpath pointing to jdbc library classes12.jar.
+
+When the program starts, it will ask you to input the manufacter, model, speed, ram, size of hard disk and price. If the model you enter exists, it will print out the error message. Otherwise it will print out the details of the sql and the successful message.
+
+
+
+

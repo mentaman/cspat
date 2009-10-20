@@ -1,0 +1,93 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexTest.cs" caret="249" fromTop="10" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPushOnNotNearFull.g.cs" caret="855" fromTop="21" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPop.g.cs" caret="640" fromTop="0" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStack.cs" caret="1125" fromTop="12" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/d:Factories/f:UIntStackFactory.cs" caret="2336" fromTop="12" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTest.cs" caret="4422" fromTop="23" />
+      <File id="d:Miscellaneous Files/f:UIntStackPexBasicTestPUT.cs/l:C!?Documents and Settings?xsxiao?Local Settings?Temp?Rar$DI00.781?UIntStackPexBasicTestPUT.cs" caret="8515" fromTop="15" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11393" fromTop="15" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="7396" fromTop="25" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="8446" fromTop="31" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="7916" fromTop="15" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="8462" fromTop="8" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="7212" fromTop="12" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="7741" fromTop="11" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11039" fromTop="29" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11119" fromTop="29" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11422" fromTop="28" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11398" fromTop="21" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="11766" fromTop="21" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="12543" fromTop="9" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="12968" fromTop="16" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="13954" fromTop="23" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="14556" fromTop="31" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="13637" fromTop="16" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="13046" fromTop="13" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="14530" fromTop="29" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="14125" fromTop="17" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="307" fromTop="12" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="2859" fromTop="29" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPushOnNotNearFull.g.cs" caret="855" fromTop="21" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="14566" fromTop="7" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.TestFullPUTCheckFullAfterPop.g.cs" caret="640" fromTop="16" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="10045" fromTop="30" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="10760" fromTop="24" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="10328" fromTop="24" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="9270" fromTop="7" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="10032" fromTop="27" />
+      <File id="CEF384B1-8589-474F-88D6-0E33B2DF3B2E/f:UIntStackPexBasicTestPUT.cs" caret="9555" fromTop="24" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="pex" priority="10" />
+      <Item value="PexAssumeUnderTest" priority="8" />
+      <Item value="UIntStack" priority="7" />
+      <Item value="int" priority="12" />
+      <Item value="numbers" priority="41" />
+      <Item value="PexAssert" priority="8" />
+      <Item value="PexAssume" priority="10" />
+      <Item value="PexAssumeAttributeBase" priority="0" />
+      <Item value="i" priority="2" />
+      <Item value="maxSize" priority="0" />
+      <Item value="size" priority="1" />
+      <Item value="number" priority="1" />
+      <Item value="numberOfElements" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sample.UIntStack">
+      <Item value="Push" priority="9" />
+      <Item value="IsEmpty" priority="1" />
+      <Item value="GetNumberOfElements" priority="11" />
+      <Item value="MaxSize" priority="10" />
+      <Item value="IsMember" priority="7" />
+      <Item value="Pop" priority="1" />
+      <Item value="Top" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssert">
+      <Item value="IsTrue" priority="6" />
+      <Item value="AreEqual" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssume">
+      <Item value="IsTrue" priority="8" />
+      <Item value="AreNotEqual" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

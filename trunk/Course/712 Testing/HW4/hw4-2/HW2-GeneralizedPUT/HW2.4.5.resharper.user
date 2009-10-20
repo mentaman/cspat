@@ -1,0 +1,152 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="d:Miscellaneous Files/f:EcommerceTestSuite.java/l:D!?NCSU?Course?712 Testing?HW2?junitprimer_src?EcommerceTestSuite.java" caret="0" fromTop="0" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ProductNotFoundException.cs" caret="124" fromTop="7" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.TestGetBalanceWithNegativeNumber.g.cs" caret="0" fromTop="0" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.TestEmpty.g.cs" caret="516" fromTop="12" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:Product.cs" caret="756" fromTop="14" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTest.cs" caret="1468" fromTop="29" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCart.cs" caret="157" fromTop="0" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/d:Factories/f:ShoppingCartFactory.cs" caret="1022" fromTop="26" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.cs" caret="4622" fromTop="2" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="3618" fromTop="19" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6855" fromTop="18" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="3160" fromTop="13" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/d:Factories/f:ShoppingCartFactory.cs" caret="830" fromTop="16" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="3934" fromTop="19" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="5184" fromTop="29" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="5145" fromTop="24" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="4930" fromTop="21" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="5184" fromTop="18" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCart.cs" caret="1139" fromTop="24" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="5205" fromTop="28" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCart.cs" caret="157" fromTop="8" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="5847" fromTop="8" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6855" fromTop="1" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6855" fromTop="13" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6855" fromTop="13" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6272" fromTop="23" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6272" fromTop="25" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6272" fromTop="11" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6480" fromTop="10" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="6814" fromTop="18" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="213" fromTop="8" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.cs" caret="261" fromTop="4" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.cs" caret="593" fromTop="13" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartPexPexTest.cs" caret="1006" fromTop="25" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/d:Factories/f:ShoppingCartFactory.cs" caret="388" fromTop="10" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/d:Factories/f:ShoppingCartFactory.cs" caret="954" fromTop="22" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="4936" fromTop="12" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="3604" fromTop="19" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="3955" fromTop="17" />
+      <File id="C1DE7773-CE06-472C-BCEF-C40C55213B9C/f:ShoppingCartTestPUT.cs" caret="4463" fromTop="17" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="Assert" priority="0" />
+      <Item value="TestMethod" priority="0" />
+      <Item value="PexClass" priority="2" />
+      <Item value="PexMethod" priority="0" />
+      <Item value="typeof" priority="4" />
+      <Item value="ShoppingCart" priority="5" />
+      <Item value="Product" priority="8" />
+      <Item value="pex" priority="8" />
+      <Item value="cart" priority="23" />
+      <Item value="PexAssume" priority="21" />
+      <Item value="PexAssumeUnderTest" priority="4" />
+      <Item value="PexAssert" priority="3" />
+      <Item value="product" priority="14" />
+      <Item value="double" priority="2" />
+      <Item value="originalPrice" priority="0" />
+      <Item value="originalBalance" priority="0" />
+      <Item value="newBalance" priority="0" />
+      <Item value="int" priority="11" />
+      <Item value="originalItemCount" priority="0" />
+      <Item value="return" priority="0" />
+      <Item value="ShoppingCartFactory" priority="1" />
+      <Item value="String" priority="0" />
+      <Item value="titles" priority="4" />
+      <Item value="Length" priority="6" />
+      <Item value="prices" priority="2" />
+      <Item value="for" priority="3" />
+      <Item value="var" priority="0" />
+      <Item value="shoppingCart" priority="0" />
+      <Item value="count" priority="1" />
+      <Item value="balance" priority="1" />
+      <Item value="item" priority="3" />
+      <Item value="public" priority="1" />
+      <Item value="static" priority="1" />
+      <Item value="string" priority="0" />
+      <Item value="ShoppingCartNewFactory" priority="8" />
+      <Item value="using" priority="0" />
+      <Item value="System" priority="0" />
+      <Item value="Linq" priority="0" />
+      <Item value="Contains" priority="1" />
+      <Item value="Products" priority="0" />
+      <Item value="new" priority="0" />
+      <Item value="Prices" priority="0" />
+      <Item value="i" priority="7" />
+      <Item value="foreach" priority="2" />
+      <Item value="title" priority="2" />
+      <Item value="PexAllowedException" priority="0" />
+      <Item value="Sum" priority="0" />
+      <Item value="sum" priority="1" />
+      <Item value="if" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.VisualStudio.TestTools.UnitTesting.Assert">
+      <Item value="AreEqual" priority="0" />
+      <Item value="Fail" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sample.ShoppingCart">
+      <Item value="empty" priority="0" />
+      <Item value="getItemCount" priority="11" />
+      <Item value="addItem" priority="3" />
+      <Item value="getBalance" priority="6" />
+      <Item value="removeItem" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssume">
+      <Item value="IsNotNull" priority="4" />
+      <Item value="IsTrue" priority="14" />
+      <Item value="AreElementsNotNull" priority="0" />
+      <Item value="AreEqual" priority="0" />
+      <Item value="AreNotEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssert">
+      <Item value="AreEqual" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Sample.Product">
+      <Item value="getPrice" priority="3" />
+      <Item value="getTitle" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Sample.ShoppingCartNewFactory">
+      <Item value="Titles" priority="5" />
+      <Item value="Products" priority="0" />
+      <Item value="Prices" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Equals" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="MaxValue" priority="0" />
+      <Item value="MinValue" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>
