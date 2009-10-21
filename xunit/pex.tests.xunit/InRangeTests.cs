@@ -29,17 +29,22 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Don't Need PUT
-        public void TestInRangePUTDoubleNotWithinRange()
+        //Need PUT, double limitation
+        public void TestInRangePUTDoubleNotWithinRange(double i, double j, double value)
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange(1.50, .75, 1.25));
+            PexAssume.IsTrue(i < j);
+            PexAssume.IsTrue(value < i ||  value > j);
+            Assert.Throws<InRangeException>(() => Assert.InRange(value, i, j));
         }
 
         [PexMethod]
-        //Don't Need PUT
-        public void TestInRangePUTDoubleValueWithinRange()
+        // Need PUT, double limitation
+        public void TestInRangePUTDoubleValueWithinRange(double i,double j, double value)
         {
-            Assert.InRange(1.0, .75, 1.25);
+            PexAssume.IsTrue(i < j);
+            PexAssume.IsTrue(value >= i && value <= j);
+
+            Assert.InRange(value,i,j);
         }
 
         /*
@@ -69,6 +74,7 @@ namespace pex.tests.xunit
 		//Pattern 2.1 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroActual(int i, int j)
         {
+            PexAssume.IsTrue(i < j);
             Assert.InRange(0, i, j);
         }
 
@@ -76,14 +82,17 @@ namespace pex.tests.xunit
 		//Pattern 2.1 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroMinimum(int i, int j)
         {
+            PexAssume.IsTrue(j > 0);
             Assert.InRange(i, 0, j);
         }
 
         [PexMethod]
-        //Don't need PUT
-        public void TestInRangePUTIntValueWithinRange()
+        // need PUT
+        public void TestInRangePUTIntValueWithinRange(int i, int j,int value)
         {
-            Assert.InRange(2, 1, 3);
+            PexAssume.IsTrue(i < j);
+            PexAssume.IsTrue(value >= i && value <= j);
+            Assert.InRange(value, i, j);
         }
 
 
