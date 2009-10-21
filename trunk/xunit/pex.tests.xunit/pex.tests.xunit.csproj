@@ -42,10 +42,22 @@
     <Compile Include="AssertExceptionTests.cs" />
     <Compile Include="ContainsTests.cs" />
     <Compile Include="DoesNotContainTests.cs" />
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringFound.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
+    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
+    <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
+      <DependentUpon>FalseTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="InRangeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />

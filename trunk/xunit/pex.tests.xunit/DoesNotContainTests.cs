@@ -36,11 +36,11 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Stop at the 6th run
 		//Pattern 2.2
         public void TestDoesNotContainPUTCanSearchForSubstrings([PexAssumeUnderTest]String i, [PexAssumeUnderTest]String j)
         {
-            PexAssume.IsFalse(j.Contains(i) || i.Length >= j.Length);
+            PexAssume.IsFalse(j.Contains(i));
+            PexAssume.IsTrue(i.Length < j.Length);
             Assert.DoesNotContain(i, j);
         }
 
@@ -57,7 +57,7 @@ namespace pex.tests.xunit
         //Don't need PUT
         public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive()
         {
-            Assert.Throws<DoesNotContainException>(
+            PexAssert.Throws<DoesNotContainException>(
                 () => Assert.DoesNotContain("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase));
         }
 
@@ -96,9 +96,9 @@ namespace pex.tests.xunit
         public void TestDoesNotContainPUTItemInContainer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
-            var ex = Assert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, list));
+            var ex = PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, list));
 
-            Assert.Equal("Assert.DoesNotContain() failure: Found: " + i, ex.Message);
+            PexAssert.AreEqual("Assert.DoesNotContain() failure: Found: " + i, ex.Message);
         }
 
         /*
@@ -162,7 +162,7 @@ namespace pex.tests.xunit
         public void TestDoesNotContainPUTSubstringFound([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j, [PexAssumeUnderTest]string k)
         {
             PexAssume.IsTrue(i == j + k );
-            Assert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(j, i));
+            PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(j, i));
         }
 
     }
