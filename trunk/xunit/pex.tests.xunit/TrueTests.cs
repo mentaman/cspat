@@ -5,6 +5,8 @@ using Xunit.Sdk;
 
 namespace pex.tests.xunit
 {
+
+    // generalize 2 tests
     [PexClass(typeof(Assert))]
     public partial class TrueTests
     {

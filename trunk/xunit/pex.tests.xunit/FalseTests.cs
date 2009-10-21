@@ -6,6 +6,7 @@ using Microsoft.Pex.Framework;
 
 namespace pex.tests.xunit
 {
+    //generalize 2 tests
     [PexClass(typeof(Assert))]
     public partial class FalseTests
     {
