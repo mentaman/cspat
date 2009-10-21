@@ -7,6 +7,7 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
+    // generalize 7 tests
     [PexClass(typeof(Assert))]
     public partial class InRangeTests
     {

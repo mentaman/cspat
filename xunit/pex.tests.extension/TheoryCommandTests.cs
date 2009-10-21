@@ -9,6 +9,7 @@ using Xunit.Sdk;
 
 namespace pex.tests.extension
 {
+    // generalize 9 tests
     [TestClass, PexClass(typeof(TheoryCommand))]
     public partial class TheoryCommandTests
     {

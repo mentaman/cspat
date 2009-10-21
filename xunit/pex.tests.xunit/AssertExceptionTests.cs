@@ -5,6 +5,7 @@ using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
+    // generalize 2 tests
     [PexClass(typeof(Assert))]
     public partial class AssertExceptionTests
     {

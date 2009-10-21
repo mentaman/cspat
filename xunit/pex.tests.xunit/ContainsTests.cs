@@ -8,7 +8,7 @@ using Xunit.Sdk;
 namespace pex.tests.xunit
 {
 
-
+    // generalize 9 tests
     [PexClass(typeof(Assert))]
     public partial class ContainsTests
     {
