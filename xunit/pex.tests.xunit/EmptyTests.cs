@@ -44,7 +44,7 @@ namespace pex.tests.xunit
         {
             list.Add(i);
             var ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
-            Assert.Equal("Assert.Empty() failure", ex.Message);
+            PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
 
         /*
@@ -58,7 +58,7 @@ namespace pex.tests.xunit
         //Don't need PUT
         public void TestEmptyPUTNullIsNotEmpty()
         {
-            Assert.Throws<ArgumentNullException>(() => Assert.Empty(null));
+            PexAssert.Throws<ArgumentNullException>(() => Assert.Empty(null));
         }
 
         /*
@@ -85,11 +85,11 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Don't need PUT
+        //2.1
         public void TestEmptyPUTStringIsNotEmpty()
         {
             var ex = Assert.Throws<EmptyException>(() => Assert.Empty("Foo"));
-            Assert.Equal("Assert.Empty() failure", ex.Message);
+            PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
     }
 

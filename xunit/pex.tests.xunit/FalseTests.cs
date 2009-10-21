@@ -41,7 +41,7 @@ namespace pex.tests.xunit
             }
             catch (AssertException exception)
             {
-                Assert.Equal("Assert.False() Failure", exception.UserMessage);
+                PexAssert.AreEqual("Assert.False() Failure", exception.UserMessage);
             }
         }
 

@@ -116,8 +116,8 @@ namespace pex.tests.xunit
         {
             PexAssume.IsNotNull(container);
             PexAssume.IsFalse(container.Contains(item));
-            ContainsException ex = Assert.Throws<ContainsException>(() => Assert.Contains(item, container));
-            Assert.Equal("Assert.Contains() failure: Not found: " + item, ex.Message);
+            ContainsException ex = PexAssert.Throws<ContainsException>(() => Assert.Contains(item, container));
+            PexAssert.AreEqual("Assert.Contains() failure: Not found: " + item, ex.Message);
         }
 
         //        [Fact]
@@ -170,7 +170,7 @@ namespace pex.tests.xunit
             PexAssume.IsTrue(wholeString.Contains("a"));
             PexAssume.IsTrue(substring.Contains("a"));
             PexAssume.IsTrue(wholeString.IndexOf(substring) != -1);
-            Assert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString.ToUpper()));
+            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString.ToUpper()));
         }
         //        [Fact]
         //        public void SubstringNotFound()
@@ -188,7 +188,7 @@ namespace pex.tests.xunit
             PexAssume.IsTrue(wholeString.Length > substring.Length);
             PexAssume.IsTrue(substring.Length > 0);
             PexAssume.IsTrue(wholeString.IndexOf(substring) == -1);
-            Assert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString));
+            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString));
         }
     }
 
