@@ -19,7 +19,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Round trip
+        //Constructor Pattern
         public void TestAssertExceptionPUTPreservesUserMessage()
         {
             var ex = new AssertException("UserMessage");
