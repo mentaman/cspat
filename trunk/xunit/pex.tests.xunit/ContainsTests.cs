@@ -77,7 +77,7 @@ namespace pex.tests.xunit
             var call = PexChoose.FromCall(this);
             var comparer = call.ChooseResult<IComparer<int>>();
             PexAssume.IsNotNull(comparer);
-            Assert.Contains(x, y, comparer);
+            Assert.Contains(x, y, new MyComparer());
         }
 
         //
