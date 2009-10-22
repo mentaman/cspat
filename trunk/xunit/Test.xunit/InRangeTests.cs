@@ -1,56 +1,51 @@
+using Microsoft.Pex.Framework;
 using Xunit;
 using Xunit.Sdk;
 
-public class InRangeTests
+[PexClass(typeof(Assert))]
+public partial class InRangeTests
 {
-    public class RangeForDoubles
-    {
-        [Fact]
+        [Fact, PexMethod]
         public void DoubleNotWithinRange()
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange(1.50, .75, 1.25));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange(1.50, .75, 1.25));
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void DoubleValueWithinRange()
         {
             Assert.InRange(1.0, .75, 1.25);
         }
-    }
-
-    public class RangeForInts
-    {
-        [Fact]
+ 
+        [Fact, PexMethod]
         public void IntNotWithinRangeWithZeroActual()
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange(0, 1, 2));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange(0, 1, 2));
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void IntNotWithinRangeWithZeroMinimum()
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange(2, 0, 1));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange(2, 0, 1));
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void IntValueWithinRange()
         {
             Assert.InRange(2, 1, 3);
         }
-    }
+    
 
-    public class RangeForStrings
-    {
-        [Fact]
+        [Fact, PexMethod]
         public void StringNotWithinRange()
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void StringValueWithinRange()
         {
             Assert.InRange("bob", "adam", "scott");
         }
-    }
+    
 }

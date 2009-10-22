@@ -19,8 +19,8 @@ public partial class TheoryCommandTests
 
         command.Execute(new InstrumentedSpy());
 
-        Assert.Equal(1, InstrumentedSpy.ctorCounter);
-        Assert.Equal(1, InstrumentedSpy.passedTestCounter);
+        PexAssert.AreEqual(1, InstrumentedSpy.ctorCounter);
+        PexAssert.AreEqual(1, InstrumentedSpy.passedTestCounter);
     }
 
     [Fact, PexMethod]
@@ -33,7 +33,7 @@ public partial class TheoryCommandTests
 
         ITestResult result = command.Execute(new DisposableSpy());
 
-        Assert.IsType<PassedResult>(result);
+        PexAssert.IsInstanceOfType(result,typeof(PassedResult));
     }
 
     [Fact, PexMethod]
@@ -42,7 +42,7 @@ public partial class TheoryCommandTests
         TheoryCommand command = new TheoryCommand(Reflector.Wrap(typeof(ParameterSpy).GetMethod("Method")),
                                                   null, new object[] { 2 });
 
-        Assert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
+        PexAssert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
     }
 
     [Fact, PexMethod]
@@ -52,7 +52,7 @@ public partial class TheoryCommandTests
 
         TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), "My display name", new object[] { 42, 24.5 });
 
-        Assert.Equal("My display name(42, 24.5)", command.DisplayName);
+        PexAssert.AreEqual("My display name(42, 24.5)", command.DisplayName);
     }
 
     [Fact, PexMethod]
@@ -66,9 +66,9 @@ public partial class TheoryCommandTests
 
         command.Execute(new SpyWithDataPassed());
 
-        Assert.Equal(42, SpyWithDataPassed.X);
-        Assert.Equal(24.5, SpyWithDataPassed.Y);
-        Assert.Equal("foo", SpyWithDataPassed.Z);
+        PexAssert.AreEqual(42, SpyWithDataPassed.X);
+        PexAssert.AreEqual(24.5, SpyWithDataPassed.Y);
+        PexAssert.AreEqual("foo", SpyWithDataPassed.Z);
     }
 
     [Fact, PexMethod]
@@ -79,7 +79,7 @@ public partial class TheoryCommandTests
 
         MethodResult result = command.Execute(new TestMethodCommandClass());
 
-        Assert.IsType<PassedResult>(result);
+        PexAssert.IsInstanceOfType(result, typeof(PassedResult));
     }
 
     [Fact, PexMethod]
@@ -88,7 +88,7 @@ public partial class TheoryCommandTests
         MethodInfo methodInfo = typeof(TestMethodCommandClass).GetMethod("ThrowsException");
         TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, null);
 
-        Assert.Throws<InvalidOperationException>(() => command.Execute(new TestMethodCommandClass()));
+        PexAssert.Throws<InvalidOperationException>(() => command.Execute(new TestMethodCommandClass()));
     }
 
     [Fact, PexMethod]
@@ -97,7 +97,7 @@ public partial class TheoryCommandTests
         TheoryCommand command = new TheoryCommand(Reflector.Wrap(typeof(ParameterSpy).GetMethod("Method")),
                                                   null, new object[] { 2, "foo", 3.14 });
 
-        Assert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
+        PexAssert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
     }
 
     [Fact, PexMethod]
@@ -113,8 +113,8 @@ public partial class TheoryCommandTests
 
         MethodResult result = command.Execute(new ParameterSpy());
 
-        Assert.IsType<PassedResult>(result);
-        Assert.Equal(@"TheoryCommandTests+ParameterSpy.Method(2, ""----=----|----=----|----=----|----=----|----=----|""...)", result.DisplayName);
+        PexAssert.IsInstanceOfType(result, typeof(PassedResult));
+        PexAssert.AreEqual(@"TheoryCommandTests+ParameterSpy.Method(2, ""----=----|----=----|----=----|----=----|----=----|""...)", result.DisplayName);
     }
 
     internal class TestClassWithDisplayName

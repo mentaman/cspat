@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C32639C0-50EB-49AB-9681-C3334E5DEAE7}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -50,6 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -66,7 +67,104 @@
     <Compile Include="AcceptanceTests\ApartmentAcceptanceTests.cs" />
     <Compile Include="AcceptanceTests\FactMethodWithArgumentsTests.cs" />
     <Compile Include="AcceptanceTests\FixtureDataAcceptanceTests.cs" />
+    <Compile Include="AssertExceptionTests.PreservesUserMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssertExceptionTests.UserMessageIsTheMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Containers.IsEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Containers.IsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Containers.NullIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Containers.StringIsEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Containers.StringIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.CanFindNullInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.CanSearchForSubstrings.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.CanSearchForSubstringsCaseInsensitive.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.CanUseComparer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.ItemInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.ItemNotInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.NullsAllowedInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.SubstringContainsIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.SubstringNotFound.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.CanSearchForNullInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.CanSearchForSubstrings.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.CanSearchForSubstringsCaseInsensitive.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.CanUseComparer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.ItemInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.ItemNotInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.NullsAllowedInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.SubstringDoesNotContainIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.SubstringFound.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="FactAttributeTests.cs" />
+    <Compile Include="InRangeTests.DoubleNotWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.DoubleValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.IntNotWithinRangeWithZeroActual.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.IntNotWithinRangeWithZeroMinimum.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.IntValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.StringNotWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.StringValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="Sdk\Commands\TestCommands\OutputCaptureCommandTests.cs" />
     <Compile Include="AcceptanceTests\StaticTestAcceptanceTests.cs" />
     <Compile Include="AcceptanceTests\ConstructorTests.cs" />

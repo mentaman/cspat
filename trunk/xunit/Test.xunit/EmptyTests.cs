@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 using Xunit.Sdk;
+using Microsoft.Pex.Framework;
 
-public class EmptyTests
-{
-    public class Containers
+
+    [PexClass(typeof(Assert))]
+//84.62%
+public partial class Containers
     {
-        [Fact]
+        [Fact, PexMethod]
         public void IsEmpty()
         {
             List<int> list = new List<int>();
@@ -15,7 +17,7 @@ public class EmptyTests
             Assert.Empty(list);
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void IsNotEmpty()
         {
             List<int> list = new List<int>();
@@ -23,30 +25,26 @@ public class EmptyTests
 
             EmptyException ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
 
-            Assert.Equal("Assert.Empty() failure", ex.Message);
+            PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
 
-        [Fact]
+        [Fact, PexMethod]
         public void NullIsNotEmpty()
         {
             Assert.Throws<ArgumentNullException>(() => Assert.Empty(null));
         }
-    }
 
-    public class Strings
-    {
-        [Fact]
-        public void IsEmpty()
+        [Fact, PexMethod]
+        public void StringIsEmpty()
         {
             Assert.Empty("");
         }
 
-        [Fact]
-        public void IsNotEmpty()
+        [Fact, PexMethod]
+        public void StringIsNotEmpty()
         {
             EmptyException ex = Assert.Throws<EmptyException>(() => Assert.Empty("Foo"));
 
-            Assert.Equal("Assert.Empty() failure", ex.Message);
+            PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
     }
-}
