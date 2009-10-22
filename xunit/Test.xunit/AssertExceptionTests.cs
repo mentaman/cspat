@@ -1,9 +1,12 @@
 using Xunit;
 using Xunit.Sdk;
+using Microsoft.Pex.Framework;
 
-public class AssertExceptionTests
+[PexClass(typeof(AssertException))]
+//100%
+public partial class AssertExceptionTests
 {
-    [Fact]
+    [Fact, PexMethod]
     public void PreservesUserMessage()
     {
         AssertException ex = new AssertException("UserMessage");
@@ -11,7 +14,7 @@ public class AssertExceptionTests
         Assert.Equal("UserMessage", ex.UserMessage);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void UserMessageIsTheMessage()
     {
         AssertException ex = new AssertException("UserMessage");

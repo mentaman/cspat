@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 using Xunit.Sdk;
+using Microsoft.Pex.Framework;
 
-public class ContainsTests
+[PexClass(typeof(Assert))]
+public partial class ContainsTests
 {
-    [Fact]
+    [Fact, PexMethod]
     public void CanFindNullInContainer()
     {
         List<object> list = new List<object> { 16, null, "Hi there" };
@@ -13,19 +15,19 @@ public class ContainsTests
         Assert.Contains(null, list);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void CanSearchForSubstrings()
     {
         Assert.Contains("wor", "Hello, world!");
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void CanSearchForSubstringsCaseInsensitive()
     {
         Assert.Contains("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void CanUseComparer()
     {
         List<int> list = new List<int> { 42 };
@@ -33,7 +35,7 @@ public class ContainsTests
         Assert.Contains(43, list, new MyComparer());
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void ItemInContainer()
     {
         List<int> list = new List<int> { 42 };
@@ -41,17 +43,17 @@ public class ContainsTests
         Assert.Contains(42, list);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void ItemNotInContainer()
     {
         List<int> list = new List<int>();
 
-        ContainsException ex = Assert.Throws<ContainsException>(() => Assert.Contains(42, list));
+        ContainsException ex = PexAssert.Throws<ContainsException>(() => Assert.Contains(42, list));
 
-        Assert.Equal("Assert.Contains() failure: Not found: 42", ex.Message);
+        PexAssert.AreEqual("Assert.Contains() failure: Not found: 42", ex.Message);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void NullsAllowedInContainer()
     {
         List<object> list = new List<object> { null, 16, "Hi there" };
@@ -59,16 +61,16 @@ public class ContainsTests
         Assert.Contains("Hi there", list);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void SubstringContainsIsCaseSensitiveByDefault()
     {
-        Assert.Throws<ContainsException>(() => Assert.Contains("WORLD", "Hello, world!"));
+        PexAssert.Throws<ContainsException>(() => Assert.Contains("WORLD", "Hello, world!"));
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void SubstringNotFound()
     {
-        Assert.Throws<ContainsException>(() => Assert.Contains("hey", "Hello, world!"));
+        PexAssert.Throws<ContainsException>(() => Assert.Contains("hey", "Hello, world!"));
     }
 
     class MyComparer : IComparer<int>
