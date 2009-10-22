@@ -167,7 +167,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i > 0);
-            PexAssert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
+            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
         }
 
         /*
@@ -196,7 +196,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i < Double.PositiveInfinity);
-            PexAssert.Throws<EqualException>(() => Assert.Equal(i, Double.PositiveInfinity));
+            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.PositiveInfinity));
         }
 
         /*
@@ -210,7 +210,7 @@ namespace pex.tests.xunit
         //Don't need PUT
         public void TestEqualPUTDoublePositiveInfinityNotEqualsNegativeInfinity()
         {
-            PexAssert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
+            Assert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
         }
 
         //End
@@ -308,7 +308,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTEqualsFails([PexAssumeUnderTest]Double i, [PexAssumeUnderTest]Double j)
         {
             PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
-            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         /*
@@ -369,7 +369,7 @@ namespace pex.tests.xunit
 		//Pattern 2.1
         public void TestEqualPUTNullTests(object i, object j)
         {
-            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         //End
@@ -386,7 +386,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.1 2.10
+        public void TestEqualPUTDecimalEqualsFails(decimal i, decimal j)
+        {
+            Assert.Equal(i, j);
+        }
 
         /*
          public void DoubleEqualsFails()
@@ -398,7 +403,12 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.1
+        public void TestEqualPUTDoubleEqualsFails(double i, double j)
+        {
+            Assert.Equal(i, j);
+        }
 
         /*
          public void EqualsByte()
@@ -414,7 +424,20 @@ namespace pex.tests.xunit
 
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsByte(byte i, Byte j)
+        {
+            PexAssume.IsTrue(i == j);
+            
+            var valueType = i;
+            var referenceValue = j;
 
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<byte>(valueType, i);
+            Assert.Equal<byte>(referenceValue, j);
+        }
 
         /*
          public void EqualsDecimal()
@@ -430,7 +453,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsDecimal(decimal i, Decimal j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal(valueType, i);
+            Assert.Equal(referenceValue, j);
+        }
 
         /*
          public void EqualsInt16()
@@ -445,7 +481,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsInt16(short i, Int16 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<short>(valueType, i);
+            Assert.Equal<short>(referenceValue, j);
+        }
 
         /*
          public void EqualsInt32()
@@ -460,7 +509,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsInt32(int i, Int32 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal(valueType, i);
+            Assert.Equal(referenceValue, j);
+        }
 
         /*
          public void EqualsInt64()
@@ -475,7 +537,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsInt64(long i, Int64 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<long>(valueType, i);
+            Assert.Equal<long>(referenceValue, j);
+        }
 
         /*
          public void EqualsSByte()
@@ -490,7 +565,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsSByte(sbyte i, SByte j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<sbyte>(valueType, i);
+            Assert.Equal<sbyte>(referenceValue, j);
+        }
 
         /*
          public void EqualsUInt16()
@@ -505,7 +593,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsUInt16(ushort i, UInt16 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<ushort>(valueType, i);
+            Assert.Equal<ushort>(referenceValue, j);
+        }
 
         /*
          public void EqualsUInt32()
@@ -520,7 +621,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsUInt32(uint i, UInt32 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<uint>(valueType, i);
+            Assert.Equal<uint>(referenceValue, j);
+        }
 
         /*
          public void EqualsUInt64()
@@ -535,7 +649,20 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsUInt64(ulong i, UInt64 j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            var valueType = i;
+            var referenceValue = j;
+
+            PexAssert.IsTrue(valueType == referenceValue);
+            Assert.Equal(referenceValue, valueType);
+            Assert.Equal<ulong>(valueType, i);
+            Assert.Equal<ulong>(referenceValue, j);
+        }
 
         /*
          public void Int32Int64Comparison()
@@ -546,7 +673,14 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTInt32Int64Comparison(long i, int j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            Assert.Equal<long>(i, j);
+        }
 
         /*
          public void IntegerLongComparison()
@@ -554,10 +688,16 @@ namespace pex.tests.xunit
             Assert.Equal<long>(1L, 1);
             Assert.Equal<long>(1, 1L);
         }
-
          */
 
-
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTIntegerLongComparison(long i, int j)
+        {
+            PexAssume.IsTrue(i == j);
+            Assert.Equal<long>(i, j);
+            Assert.Equal<long>(j, i);
+        }
 
         /*
          public void LongEquals()
@@ -566,7 +706,14 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTLongEquals(long i, long j)
+        {
+            PexAssume.IsTrue(i == j);
 
+            Assert.Equal(j, i);
+        }
 
         /*
          public void LongEqualsFails()
@@ -575,7 +722,14 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTLongEqualsFails(long i, long j)
+        {
+            PexAssume.IsFalse(i == j);
 
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
 
         /*
          public void UInt64EqualsFails()
@@ -587,6 +741,14 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTLongEqualsFails(UInt64 i, UInt64 j)
+        {
+            PexAssume.IsFalse(i == j);
+
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
 
         //End
 
@@ -597,18 +759,19 @@ namespace pex.tests.xunit
         {
             Assert.Equal(Single.NegativeInfinity, Single.NegativeInfinity);
         }
-         */
 
-
-
-        /*
          public void SingleNumberNotEqualNegativeInfinity()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.NegativeInfinity));
         }
          */
 
-
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.1 2.10
+        public void TestEqualPUTSingleNegativeInfinity(double i)
+        {
+            Assert.Equal(i, Single.NegativeInfinity);
+        }
 
         /*
          public void SingleNumberNotEqualPositiiveInfinity()
@@ -616,19 +779,18 @@ namespace pex.tests.xunit
             Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.PositiveInfinity));
         }
 
-         */
-
-
-
-        /*
          public void SinglePositiveInfinityEqualsPositiveInfinity()
         {
             Assert.Equal(Single.PositiveInfinity, Single.PositiveInfinity);
         }
-
          */
 
-
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.1 2.10
+        public void TestEqualPUTSinglePositiveInfinity(double i)
+        {
+            Assert.Equal(i, Single.PositiveInfinity);
+        }
 
         /*
          public void SinglePositiveInfinityNotEqualNegativeInfinity()
@@ -636,6 +798,13 @@ namespace pex.tests.xunit
             Assert.Throws<EqualException>(() => Assert.Equal(Single.NegativeInfinity, Single.PositiveInfinity));
         }
          */
+
+        [PexMethod]
+        //Don't need PUT
+        public void TestEqualPUTSinglePositiveInfinityNotEqualNegativeInfinity()
+        {
+            Assert.Throws<EqualException>(() => Assert.Equal(Single.NegativeInfinity, Single.PositiveInfinity));
+        }
 
         //End
 
@@ -648,7 +817,13 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTStringEqualsFail(string i, string j)
+        {
+            PexAssume.IsFalse(i == j);
+            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
 
         /*
          public void EqualsString()
@@ -662,7 +837,14 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTEqualsString(string i, string j)
+        {
+            PexAssume.IsTrue(i == j);
+            Assert.True(i == j);
+            Assert.Equal(i, j);
+        }
 
         /*
          public void EqualsStringIgnoreCase()
@@ -676,7 +858,15 @@ namespace pex.tests.xunit
         }
          */
 
-
+        [PexMethod]
+        //Pattern 2.2 got problem
+        public void TestEqualPUTEqualsStringIgnoreCase([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j)
+        {
+            PexAssume.IsFalse(i == j);
+            Assert.False(j == i);
+            Assert.NotEqual(i, j);
+            Assert.Equal(i, j, StringComparer.CurrentCultureIgnoreCase);
+        }
 
         /*
          [Fact]
@@ -689,6 +879,16 @@ namespace pex.tests.xunit
             Assert.Equal(s2, s1);
         }
          */
+
+        [PexMethod]
+        //Pattern 2.4 Round Trip?
+        public void TestEqualPUTString([PexAssumeUnderTest]string s1)
+        {
+            string s2 = new StringBuilder(s1).ToString();
+            Assert.True(s1.Equals(s2));
+            Assert.Equal(s2, s1);
+        }
+
 
         //End
 
@@ -704,143 +904,15 @@ namespace pex.tests.xunit
         }
          */
 
+        [PexMethod]
+        //Pattern 2.2
+        public void TestEqualPUTNullableValueTypesCanBeNull(DateTime? dt1, DateTime? dt2)
+        {
+            PexAssume.IsTrue(dt1 == dt2);
+            Assert.Equal(dt1, dt2);
+        }
+
         //End
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */
-
-
-
-        /*
-         
-         */ 
     }
 
 }

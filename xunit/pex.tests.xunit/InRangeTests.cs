@@ -29,7 +29,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Need PUT, double limitation
+        //2.2
         public void TestInRangePUTDoubleNotWithinRange(double i, double j, double value)
         {
             PexAssume.IsTrue(i < j);
@@ -38,7 +38,7 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
-        // Need PUT, double limitation
+        // 2.2
         public void TestInRangePUTDoubleValueWithinRange(double i,double j, double value)
         {
             PexAssume.IsTrue(i < j);
@@ -71,7 +71,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(InRangeException))]
-		//Pattern 2.1 2.10
+		//Pattern 2.2 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroActual(int i, int j)
         {
             PexAssume.IsTrue(i < j);
@@ -79,7 +79,7 @@ namespace pex.tests.xunit
         }
 
         [PexMethod, PexAllowedException(typeof(InRangeException))]
-		//Pattern 2.1 2.10
+		//Pattern 2.2 2.10
         public void TestInRangePUTIntNotWithinRangeWithZeroMinimum(int i, int j)
         {
             PexAssume.IsTrue(j > 0);
@@ -87,7 +87,7 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
-        // need PUT
+        // 2.2
         public void TestInRangePUTIntValueWithinRange(int i, int j,int value)
         {
             PexAssume.IsTrue(i < j);
