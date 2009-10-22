@@ -19,7 +19,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-		//Pattern 2.6
+		//Pattern 2.2
         public void TestEmptyPUTIsEmpty([PexAssumeUnderTest]List<int> list)
         {
             list.Clear();

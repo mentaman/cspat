@@ -881,7 +881,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.4 Round Trip?
+        //Pattern 2.5
         public void TestEqualPUTString([PexAssumeUnderTest]string s1)
         {
             string s2 = new StringBuilder(s1).ToString();
