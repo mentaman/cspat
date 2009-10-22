@@ -167,7 +167,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i > 0);
-            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
         }
 
         /*
@@ -196,7 +196,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i < Double.PositiveInfinity);
-            Assert.Throws<EqualException>(() => Assert.Equal(i, Double.PositiveInfinity));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, Double.PositiveInfinity));
         }
 
         /*
@@ -210,7 +210,7 @@ namespace pex.tests.xunit
         //Don't need PUT
         public void TestEqualPUTDoublePositiveInfinityNotEqualsNegativeInfinity()
         {
-            Assert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(Double.NegativeInfinity, Double.PositiveInfinity));
         }
 
         //End
@@ -308,7 +308,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTEqualsFails([PexAssumeUnderTest]Double i, [PexAssumeUnderTest]Double j)
         {
             PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
-            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         /*
@@ -369,7 +369,7 @@ namespace pex.tests.xunit
 		//Pattern 2.1
         public void TestEqualPUTNullTests(object i, object j)
         {
-            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         //End
@@ -728,7 +728,7 @@ namespace pex.tests.xunit
         {
             PexAssume.IsFalse(i == j);
 
-            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         /*
@@ -747,7 +747,7 @@ namespace pex.tests.xunit
         {
             PexAssume.IsFalse(i == j);
 
-            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         //End
@@ -803,7 +803,7 @@ namespace pex.tests.xunit
         //Don't need PUT
         public void TestEqualPUTSinglePositiveInfinityNotEqualNegativeInfinity()
         {
-            Assert.Throws<EqualException>(() => Assert.Equal(Single.NegativeInfinity, Single.PositiveInfinity));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(Single.NegativeInfinity, Single.PositiveInfinity));
         }
 
         //End
@@ -822,7 +822,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTStringEqualsFail(string i, string j)
         {
             PexAssume.IsFalse(i == j);
-            Assert.Throws<EqualException>(() => Assert.Equal(i, j));
+            PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
         /*
@@ -842,7 +842,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTEqualsString(string i, string j)
         {
             PexAssume.IsTrue(i == j);
-            Assert.True(i == j);
+//            PexAssert.IsTrue(i == j);
             Assert.Equal(i, j);
         }
 
@@ -863,7 +863,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTEqualsStringIgnoreCase([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j)
         {
             PexAssume.IsFalse(i == j);
-            Assert.False(j == i);
+//            Assert.False(j == i);
             Assert.NotEqual(i, j);
             Assert.Equal(i, j, StringComparer.CurrentCultureIgnoreCase);
         }
@@ -885,7 +885,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTString([PexAssumeUnderTest]string s1)
         {
             string s2 = new StringBuilder(s1).ToString();
-            Assert.True(s1.Equals(s2));
+            PexAssert.IsTrue(s1.Equals(s2));
             Assert.Equal(s2, s1);
         }
 

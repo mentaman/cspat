@@ -33,7 +33,7 @@ public partial class TheoryCommandTests
 
         ITestResult result = command.Execute(new DisposableSpy());
 
-        PexAssert.IsInstanceOfType(result,typeof(PassedResult));
+        PexAssert.IsInstanceOfType(result, typeof(PassedResult));
     }
 
     [Fact, PexMethod]

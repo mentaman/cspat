@@ -73,11 +73,14 @@ public partial class ContainsTests
         PexAssert.Throws<ContainsException>(() => Assert.Contains("hey", "Hello, world!"));
     }
 
-    class MyComparer : IComparer<int>
+    public class MyComparer : IComparer<int>
     {
         public int Compare(int x, int y)
         {
-            return 0;
+            var call = PexChoose.FromCall(this);
+            var compare = call.ChooseResult<int>();
+            PexAssume.IsTrue(compare == -1 || compare == 0 || compare == 1);
+            return compare;
         }
     }
 }

@@ -24,6 +24,7 @@ namespace pex.tests.xunit
         //Pattern 2.2
         public void TestDoesNotContainPUTCanSearchForNullInContainer([PexAssumeUnderTest]List<object> list)
         {
+            PexAssume.IsTrue(list.Count > 0);
             PexAssume.IsFalse(list.Contains(null) );
             Assert.DoesNotContain(null, list);
         }
@@ -55,10 +56,12 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Pattern 2.2
-        public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive()
+        public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive([PexAssumeNotNull]string i, [PexAssumeNotNull]string j)
         {
+            PexAssume.IsTrue(i.Length > 0 && j.Length > 0);
+            PexAssume.IsTrue(j.Contains(i));
             PexAssert.Throws<DoesNotContainException>(
-                () => Assert.DoesNotContain("WORLD", "Hello, world!", StringComparison.InvariantCultureIgnoreCase));
+                () => Assert.DoesNotContain(i.ToUpper(), j, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /*
@@ -71,12 +74,12 @@ namespace pex.tests.xunit
         }
         */
 
-        [PexMethod, PexAllowedException(typeof(DoesNotContainException))]
+        [PexMethod]
 		//Pattern 2.2, 2.10
         public void TestDoesNotContainPUTCanUseComparer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
-            Assert.DoesNotContain(i, list, new MyComparer());
+            PexAssert.Throws<DoesNotContainException>(()=>Assert.DoesNotContain(i, list, new MyComparer()));
         }
 
         /*
@@ -93,9 +96,9 @@ namespace pex.tests.xunit
 
         [PexMethod]
 		//Pattern 2.2
-        public void TestDoesNotContainPUTItemInContainer([PexAssumeUnderTest] List<int> list, int i)
+        public void TestDoesNotContainPUTItemInContainer([PexAssumeUnderTest] List<int> list,int i)
         {
-            list.Add(i);
+            PexAssume.IsTrue(list.Contains(i));
             var ex = PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, list));
 
             PexAssert.AreEqual("Assert.DoesNotContain() failure: Found: " + i, ex.Message);
@@ -127,11 +130,23 @@ namespace pex.tests.xunit
         } 
         */
 
-        [PexMethod]
+        [PexMethod(MaxRunsWithoutNewTests = 200)]
 		//Pattern 2.2
-        public void TestDoesNotContainPUTNullsAllowedInContainer([PexAssumeUnderTest]List<object> list, int i)
+        public void TestDoesNotContainPUTNullsAllowedInContainer([PexAssumeUnderTest]object[] list, int i)
         {
-            PexAssume.IsTrue(list.Contains(null));
+            PexAssume.IsTrue(list.Length > 2);
+            PexAssume.IsTrue(list[0] == null);
+            PexAssume.IsTrue(list[1] is string);
+            PexAssume.IsTrue(list[2] is int);
+            bool found = false;
+            foreach (var o in list)
+            {
+                if (o is int && (int)o == i)
+                {
+                    found = true;
+                }
+            }
+            PexAssume.IsFalse(found);
             Assert.DoesNotContain(i, list);
         }
 
@@ -145,9 +160,12 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Pattern 2.2
-        public void TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault()
+        public void TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault([PexAssumeNotNull]string i, [PexAssumeNotNull]string j)
         {
-            Assert.DoesNotContain("WORLD", "Hello, world!");
+            PexAssume.IsTrue(i.Length > 0 && j.Length > 0);
+            PexAssume.IsTrue(j.Contains(i));
+            PexAssume.IsTrue(j.Contains("a")&&i.Contains("a"));
+            Assert.DoesNotContain(i.ToUpper(), j);
         }
 
         /*
@@ -159,10 +177,11 @@ namespace pex.tests.xunit
 
         [PexMethod]
 		//Pattern 2.2
-        public void TestDoesNotContainPUTSubstringFound([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j, [PexAssumeUnderTest]string k)
+        public void TestDoesNotContainPUTSubstringFound([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j)
         {
-            PexAssume.IsTrue(i == j + k );
-            PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(j, i));
+            PexAssume.IsTrue(j.Contains(i));
+            PexAssume.IsTrue(j.Length > 0 && i.Length > 0);
+            PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain(i, j));
         }
 
     }
