@@ -54,7 +54,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Don't need PUT
+        //Pattern 2.2
         public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive()
         {
             PexAssert.Throws<DoesNotContainException>(
@@ -128,7 +128,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-		//Pattern 2.6
+		//Pattern 2.2
         public void TestDoesNotContainPUTNullsAllowedInContainer([PexAssumeUnderTest]List<object> list, int i)
         {
             PexAssume.IsTrue(list.Contains(null));
@@ -144,7 +144,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Don't need PUT
+        //Pattern 2.2
         public void TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault()
         {
             Assert.DoesNotContain("WORLD", "Hello, world!");

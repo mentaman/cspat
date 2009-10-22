@@ -29,7 +29,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //2.2
+        //2.10
         public void TestInRangePUTDoubleNotWithinRange(double i, double j, double value)
         {
             PexAssume.IsTrue(i < j);
@@ -114,14 +114,14 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //Don't need PUT
+        //2.10
         public void TestInRangePUTStringNotWithinRange()
         {
             Assert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
         }
 
         [PexMethod]
-        //Don't need PUT
+        //2.2
         public void TestInRangePUTStringValueWithinRange()
         {
             Assert.InRange("bob", "adam", "scott");

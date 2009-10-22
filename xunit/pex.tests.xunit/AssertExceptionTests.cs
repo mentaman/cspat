@@ -20,9 +20,8 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Constructor Pattern 2.3
-        public void TestAssertExceptionPUTPreservesUserMessage()
+        public void TestAssertExceptionPUTPreservesUserMessage(string usermessage)
         {
-            var usermessage = "UserMessage";
             var ex = new AssertException(usermessage);
             PexAssert.AreEqual(usermessage, ex.UserMessage);
         }
@@ -37,7 +36,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.3
+        //Pattern 2.6
         public void TestAssertExceptionPUTUserMessageIsTheMessage([PexAssumeUnderTest]AssertException ex)
         {
             PexAssume.IsTrue(ex.UserMessage != null);
