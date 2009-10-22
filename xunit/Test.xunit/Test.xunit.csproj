@@ -67,12 +67,6 @@
     <Compile Include="AcceptanceTests\ApartmentAcceptanceTests.cs" />
     <Compile Include="AcceptanceTests\FactMethodWithArgumentsTests.cs" />
     <Compile Include="AcceptanceTests\FixtureDataAcceptanceTests.cs" />
-    <Compile Include="AssertExceptionTests.PreservesUserMessage.g.cs">
-      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AssertExceptionTests.UserMessageIsTheMessage.g.cs">
-      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="FactAttributeTests.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="Sdk\Commands\TestCommands\OutputCaptureCommandTests.cs" />

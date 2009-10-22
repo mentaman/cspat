@@ -76,7 +76,7 @@ public partial class DoesNotContainTests
         PexAssert.Throws<DoesNotContainException>(() => Assert.DoesNotContain("world", "Hello, world!"));
     }
 
-    class MyComparer : IComparer<int>
+    public class MyComparer : IComparer<int>
     {
         public int Compare(int x, int y)
         {

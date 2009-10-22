@@ -10,7 +10,7 @@ namespace pex.tests.xunit
     // generalize 7 tests
     [PexClass(typeof(Assert))]
     public partial class InRangeTests
-    {
+    {//43.06%
         /*
         public class RangeForDoubles
         {
@@ -34,7 +34,7 @@ namespace pex.tests.xunit
         {
             PexAssume.IsTrue(i < j);
             PexAssume.IsTrue(value < i ||  value > j);
-            Assert.Throws<InRangeException>(() => Assert.InRange(value, i, j));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange(value, i, j));
         }
 
         [PexMethod]
@@ -117,7 +117,7 @@ namespace pex.tests.xunit
         //2.10
         public void TestInRangePUTStringNotWithinRange()
         {
-            Assert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
+            PexAssert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
         }
 
         [PexMethod]
