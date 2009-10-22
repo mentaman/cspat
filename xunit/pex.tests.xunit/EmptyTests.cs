@@ -22,7 +22,7 @@ namespace pex.tests.xunit
 		//Pattern 2.2
         public void TestEmptyPUTIsEmpty([PexAssumeUnderTest]List<int> list)
         {
-            list.Clear();
+//            list.Clear();
             Assert.Empty(list);
         }
 

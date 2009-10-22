@@ -46,7 +46,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TheoryCommandTests.cs" />
+    <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="TheoryCommandTests.TestExecutePUTExecuteCreatesClassAndRunsTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTNotEnoughData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTPassesParametersToTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTTestMethodReturnPassedResult.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTTooMuchData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTTruncatesVeryLongStrings.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTUsesNotNullDisplayName.g.cs">
       <DependentUpon>TheoryCommandTests.cs</DependentUpon>
     </Compile>
   </ItemGroup>
