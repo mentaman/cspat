@@ -85,10 +85,11 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //2.1
-        public void TestEmptyPUTStringIsNotEmpty()
+        //2.2
+        public void TestEmptyPUTStringIsNotEmpty([PexAssumeUnderTest]string i)
         {
-            var ex = Assert.Throws<EmptyException>(() => Assert.Empty("Foo"));
+            PexAssume.IsTrue(i.Length > 0);
+            var ex = Assert.Throws<EmptyException>(() => Assert.Empty(i));
             PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
     }
