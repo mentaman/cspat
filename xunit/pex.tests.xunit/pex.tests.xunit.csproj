@@ -40,8 +40,62 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTUserMessageIsTheMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsTests.cs" />
+    <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstring.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstringCaseInsensitive.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanUseComparer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTItemInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTItemNotInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTNullsAllowedInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoesNotContainTests.cs" />
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForSubstrings.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanUseComparer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemNotInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTNullsAllowedInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringFound.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
     <Compile Include="Factories\AssertExceptionFactory.cs" />
