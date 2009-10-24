@@ -12,7 +12,7 @@ namespace pex.tests.xunit
     public partial class EqualTests
     {
         //ArrayTests Begin
-        
+
         /*
         public class ArrayTests
         {
@@ -49,7 +49,7 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(EqualException))]
-		//Pattern 2.2, 2.10
+        //Pattern 2.2, 2.10
         public void TestEqualPUTArrayTests([PexAssumeUnderTest]string[] i, [PexAssumeUnderTest]string[] j)
         {
             PexAssume.IsTrue(i.Length > 0);
@@ -88,15 +88,26 @@ namespace pex.tests.xunit
             public int CompareTo(object obj)
             {
                 CompareCalled = true;
-                return 0;
+                var call = PexChoose.FromCall(this);
+                var result = call.ChooseResult<int>();
+                PexAssume.IsTrue(result == -1 || result == 0 || result == 1);
+                return result;
             }
         }
 
         [PexMethod]
-		//Pattern 2.2
+        //Pattern 2.2
         public void TestEqualPUTObjectWithComparable([PexAssumeUnderTest]ComparableObject obj1, [PexAssumeUnderTest]ComparableObject obj2)
         {
-            Assert.Equal(obj1, obj2);
+            try
+            {
+                Assert.Equal(obj1, obj2);
+            }
+            catch (Exception)
+            {
+
+            }
+
             PexAssert.IsTrue(obj1.CompareCalled);
         }
 
@@ -118,15 +129,26 @@ namespace pex.tests.xunit
             public int CompareTo(GenericComparableObject other)
             {
                 CompareCalled = true;
-                return 0;
+                var call = PexChoose.FromCall(this);
+                var result = call.ChooseResult<int>();
+                PexAssume.IsTrue(result == -1 || result == 0 || result == 1);
+                return result;
             }
         }
 
         [PexMethod]
-		//Pattern 2.2
+        //Pattern 2.2
         public void TestEqualPUTObjectWithGenericComparable([PexAssumeUnderTest]GenericComparableObject obj1, [PexAssumeUnderTest]GenericComparableObject obj2)
         {
-            Assert.Equal(obj1, obj2);
+            try
+            {
+                Assert.Equal(obj1, obj2);
+            }
+            catch (Exception)
+            {
+
+            }
+
             PexAssert.IsTrue(obj1.CompareCalled);
         }
 
@@ -140,9 +162,9 @@ namespace pex.tests.xunit
         }
          */
 
-        [PexMethod]
-		//Pattern 2.2
-        public void TestEqualPUTObjectWithoutIComparable([PexAssumeUnderTest]GenericComparableObject obj1, [PexAssumeUnderTest]GenericComparableObject obj2)
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.2 2.10
+        public void TestEqualPUTObjectWithoutIComparable([PexAssumeUnderTest]NonComparableObject obj1, [PexAssumeUnderTest]NonComparableObject obj2)
         {
             Assert.Equal(obj1, obj2);
         }
@@ -172,10 +194,10 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-		//Pattern 2.2
+        //Pattern 2.2
         public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
         {
-            PexAssume.IsTrue(i > 0);
+            PexAssume.IsTrue(i != Double.NegativeInfinity);
             PexAssert.Throws<EqualException>(() => Assert.Equal(i, Double.NegativeInfinity));
         }
 
@@ -201,7 +223,7 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-		//Pattern 2.2
+        //Pattern 2.2
         public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i < Double.PositiveInfinity);
@@ -246,9 +268,14 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-		//Pattern 2.2
-        public void TestEqualPUTSelectShouldEqualSelect([PexAssumeUnderTest]IEnumerable<int> items, [PexAssumeUnderTest]IEnumerable<int> others)
+        //Pattern 2.2 
+        public void TestEqualPUTSelectShouldEqualSelect([PexAssumeUnderTest]int[] items, [PexAssumeUnderTest]int[] others)
         {
+            PexAssume.IsTrue(items.Length == others.Length);
+            for (int i = 0; i < items.Length; i++)
+            {
+                PexAssume.IsTrue(items[i] == others[i]);
+            }
             Assert.Equal(items, others);
         }
 
@@ -262,11 +289,13 @@ namespace pex.tests.xunit
                 Equals__Called = true;
                 Equals_Other = other;
 
-                return true;
+                var call = PexChoose.FromCall(this);
+                var result = call.ChooseResult<bool>();
+                return result;
             }
         }
 
-       
+
         //End
 
         //EquatableObjectTests Begin
@@ -284,8 +313,8 @@ namespace pex.tests.xunit
         }
          */
 
-        [PexMethod]
-		//Pattern 2.2
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.2 2.10
         public void TestEqualPUTCallsIEquatable([PexAssumeUnderTest]EquatableObject obj1, [PexAssumeUnderTest]EquatableObject obj2)
         {
             Assert.Equal(obj1, obj2);
@@ -313,7 +342,7 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Not include i =  j = NaN
-		//Pattern 2.2
+        //Pattern 2.2
         public void TestEqualPUTEqualsFails([PexAssumeUnderTest]Double i, [PexAssumeUnderTest]Double j)
         {
             PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
@@ -340,7 +369,9 @@ namespace pex.tests.xunit
         {
             public override bool Equals(object obj)
             {
-                return true;
+                var call = PexChoose.FromCall(this);
+                var result = call.ChooseResult<bool>();
+                return result;
             }
 
             public override int GetHashCode()
@@ -352,20 +383,11 @@ namespace pex.tests.xunit
         //NullTests Begin
 
         /*
-         public void EqualsNull()
-        {
-            Assert.Equal<object>(null, null);
-        }
-         */
-
-        /*
          public void FailsWhenActualIsNullExpectedIsNot()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(new object(), null));
         }
          */
-
-
 
         /*
          public void FailsWhenExpectedIsNullActualIsNot()
@@ -375,10 +397,24 @@ namespace pex.tests.xunit
          */
 
         [PexMethod(MaxRuns = 100)]
-		//Pattern 2.1
+        //Pattern 2.2
         public void TestEqualPUTNullTests(object i, object j)
         {
+            PexAssume.IsTrue(i == null || j == null);
             PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
+        }
+
+
+//        public void EqualsNull()
+//        {
+//            Assert.Equal<object>(null, null);
+//        }
+
+        [PexMethod]
+        // Do not need PUT
+        public void TestEqualPUTBothNullTests()
+        {
+            Assert.Equal<object>(null, null);
         }
 
         //End
@@ -438,7 +474,7 @@ namespace pex.tests.xunit
         public void TestEqualPUTEqualsByte(byte i, Byte j)
         {
             PexAssume.IsTrue(i == j);
-            
+
             var valueType = i;
             var referenceValue = j;
 
@@ -848,10 +884,11 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Pattern 2.2
-        public void TestEqualPUTEqualsString(string i, string j)
+        public void TestEqualPUTEqualsString([PexAssumeNotNull]string i, [PexAssumeNotNull]string j)
         {
             PexAssume.IsTrue(i == j);
-//            PexAssert.IsTrue(i == j);
+            PexAssume.IsTrue(i.Length > 0);
+            //            PexAssert.IsTrue(i == j);
             Assert.Equal(i, j);
         }
 
@@ -868,13 +905,14 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2 got problem
+        //Pattern 2.2 
         public void TestEqualPUTEqualsStringIgnoreCase([PexAssumeUnderTest]string i, [PexAssumeUnderTest]string j)
         {
-            PexAssume.IsFalse(i == j);
-//            Assert.False(j == i);
-            Assert.NotEqual(i, j);
-            Assert.Equal(i, j, StringComparer.CurrentCultureIgnoreCase);
+            PexAssume.IsTrue(i == j);
+            PexAssume.IsTrue(i.Contains("a"));
+            //            Assert.False(j == i);
+            Assert.NotEqual(i.ToUpper(), j);
+            Assert.Equal(i.ToUpper(), j, StringComparer.CurrentCultureIgnoreCase);
         }
 
         /*
