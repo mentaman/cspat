@@ -109,7 +109,7 @@ namespace pex.tests.extension
         //            Assert.IsType<PassedResult>(result);
         //        }
 
-        // 2.2
+        // 2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(
@@ -135,7 +135,7 @@ namespace pex.tests.extension
         //            Assert.Equal("My display name(42, 24.5)", command.DisplayName);
         //        }
 
-        // 2.2
+        // 2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty(
@@ -167,7 +167,7 @@ namespace pex.tests.extension
             PexAssert.AreEqual(expected, command.DisplayName);
         }
 
-        // 2.2
+        // 2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty(
@@ -193,7 +193,7 @@ namespace pex.tests.extension
             PexAssert.AreEqual(expected, command.DisplayName);
         }
 
-        // 2.2
+        // 2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTUsesNotNullDisplayName([PexAssumeUnderTest] TheoryCommand command)
@@ -241,7 +241,7 @@ namespace pex.tests.extension
         //            Assert.Equal("foo", SpyWithDataPassed.Z);
         //        }
 
-        //2.2
+        //2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 800), PexAllowedException(typeof (Exception)),
          PexAllowedException(typeof (InvalidOperationException))]
         public void TestExecutePUTPassesParametersToTest(
@@ -310,7 +310,7 @@ namespace pex.tests.extension
         //            Assert.Equal(@"TheoryCommandTests+ParameterSpy.Method(2, ""----=----|----=----|----=----|----=----|----=----|""...)", result.DisplayName);
         //        }
 
-        //2.2
+        //2.2 2.10
         [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (Exception))]
         public void TestExecutePUTTruncatesVeryLongStrings([PexAssumeUnderTest] TheoryCommand command)
         {

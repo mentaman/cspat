@@ -20,11 +20,13 @@ namespace pex.tests.xunit
 //        }
 
         [PexMethod]
-        [PexAllowedException(typeof(ContainsException))]
-		//Pattern 2.6 2.10
+		//Pattern 2.2
         public void TestContainsPUTCanFindNullInContainer([PexAssumeUnderTest]object[] list, object item)
         {
             PexAssume.IsNull(item);
+            PexAssume.IsTrue(list.Length > 1);
+            PexAssume.IsTrue(list[0] == null);
+            PexAssume.IsTrue(list[1] != null);
             Assert.Contains(item, list);
         }
 
@@ -71,12 +73,9 @@ namespace pex.tests.xunit
         //        }
 
         [PexMethod, PexAllowedException(typeof(ContainsException))]
-		//Pattern ??
+		//Pattern 2.2 2.10
         public void TestContainsPUTCanUseComparer(int x, [PexAssumeNotNull]int[] y)
         {
-            var call = PexChoose.FromCall(this);
-            var comparer = call.ChooseResult<IComparer<int>>();
-            PexAssume.IsNotNull(comparer);
             Assert.Contains(x, y, new pex.tests.xunit.MyComparer());
         }
 
@@ -90,7 +89,7 @@ namespace pex.tests.xunit
         //        }
 
         [PexMethod]
-		//2.6
+		//2.2
         public void TestContainsPUTItemInContainer( int item, List<int> container)
         {
             PexAssume.IsNotNull(container);

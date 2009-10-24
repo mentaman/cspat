@@ -59,6 +59,7 @@ namespace pex.tests.xunit
         public void TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive([PexAssumeNotNull]string i, [PexAssumeNotNull]string j)
         {
             PexAssume.IsTrue(i.Length > 0 && j.Length > 0);
+            PexAssume.IsTrue(i.Contains("a"));
             PexAssume.IsTrue(j.Contains(i));
             PexAssert.Throws<DoesNotContainException>(
                 () => Assert.DoesNotContain(i.ToUpper(), j, StringComparison.InvariantCultureIgnoreCase));
@@ -74,12 +75,12 @@ namespace pex.tests.xunit
         }
         */
 
-        [PexMethod]
+        [PexMethod, PexAllowedException(typeof(DoesNotContainException))]
 		//Pattern 2.2, 2.10
         public void TestDoesNotContainPUTCanUseComparer([PexAssumeUnderTest] List<int> list, int i)
         {
             list.Add(i);
-            PexAssert.Throws<DoesNotContainException>(()=>Assert.DoesNotContain(i, list, new MyComparer()));
+            Assert.DoesNotContain(i, list, new MyComparer());
         }
 
         /*

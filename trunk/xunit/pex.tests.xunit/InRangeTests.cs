@@ -29,21 +29,10 @@ namespace pex.tests.xunit
         */
 
         [PexMethod]
-        //2.10
-        public void TestInRangePUTDoubleNotWithinRange(double i, double j, double value)
+        // 2.2 2.10
+        public void TestInRangePUTDoubleValueInRange(double i,double j, double value)
         {
             PexAssume.IsTrue(i < j);
-            PexAssume.IsTrue(value < i ||  value > j);
-            PexAssert.Throws<InRangeException>(() => Assert.InRange(value, i, j));
-        }
-
-        [PexMethod]
-        // 2.2
-        public void TestInRangePUTDoubleValueWithinRange(double i,double j, double value)
-        {
-            PexAssume.IsTrue(i < j);
-            PexAssume.IsTrue(value >= i && value <= j);
-
             Assert.InRange(value,i,j);
         }
 
@@ -71,27 +60,11 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof(InRangeException))]
-		//Pattern 2.2 2.10
-        public void TestInRangePUTIntNotWithinRangeWithZeroActual(int i, int j)
+        // 2.2 2.10
+        public void TestInRangePUTIntValue(int i, int j,int value)
         {
             PexAssume.IsTrue(i < j);
-            Assert.InRange(0, i, j);
-        }
-
-        [PexMethod, PexAllowedException(typeof(InRangeException))]
-		//Pattern 2.2 2.10
-        public void TestInRangePUTIntNotWithinRangeWithZeroMinimum(int i, int j)
-        {
-            PexAssume.IsTrue(j > 0);
-            Assert.InRange(i, 0, j);
-        }
-
-        [PexMethod]
-        // 2.2
-        public void TestInRangePUTIntValueWithinRange(int i, int j,int value)
-        {
-            PexAssume.IsTrue(i < j);
-            PexAssume.IsTrue(value >= i && value <= j);
+            PexAssume.IsTrue(i == 0 || j == 0 || value == 0 || (i != 0 && j != 0 && value != 0));
             Assert.InRange(value, i, j);
         }
 
@@ -113,18 +86,19 @@ namespace pex.tests.xunit
         }
         */
 
-        [PexMethod]
-        //2.10
-        public void TestInRangePUTStringNotWithinRange()
-        {
-            PexAssert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
-        }
+//        [PexMethod]
+//        //2.10
+//        public void TestInRangePUTStringNotWithinRange()
+//        {
+//            PexAssert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));
+//        }
 
-        [PexMethod]
-        //2.2
-        public void TestInRangePUTStringValueWithinRange()
+        [PexMethod, PexAllowedException(typeof(InRangeException))]
+        //2.2 2.10
+        public void TestInRangePUTStringValueWithinRange([PexAssumeNotNull]string value, [PexAssumeNotNull]string i, [PexAssumeNotNull]string j)
         {
-            Assert.InRange("bob", "adam", "scott");
+            PexAssume.IsTrue(i.CompareTo(j) == -1);
+            Assert.InRange(value, i, j);
         }
     }
 }

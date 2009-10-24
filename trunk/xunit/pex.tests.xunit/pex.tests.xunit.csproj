@@ -103,6 +103,9 @@
       <DependentUpon>DoesNotContainTests.cs</DependentUpon>
     </Compile>
     <Compile Include="EmptyTests.cs" />
+    <Compile Include="EmptyTests.TestEmptyPUTIsEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EqualTests.cs" />
     <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
@@ -110,22 +113,7 @@
       <DependentUpon>FalseTests.cs</DependentUpon>
     </Compile>
     <Compile Include="InRangeTests.cs" />
-    <Compile Include="InRangeTests.TestInRangePUTDoubleNotWithinRange.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InRangeTests.TestInRangePUTDoubleValueWithinRange.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InRangeTests.TestInRangePUTIntNotWithinRangeWithZeroActual.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InRangeTests.TestInRangePUTIntNotWithinRangeWithZeroMinimum.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InRangeTests.TestInRangePUTIntValueWithinRange.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InRangeTests.TestInRangePUTStringNotWithinRange.g.cs">
+    <Compile Include="InRangeTests.TestInRangePUTIntValue.g.cs">
       <DependentUpon>InRangeTests.cs</DependentUpon>
     </Compile>
     <Compile Include="InRangeTests.TestInRangePUTStringValueWithinRange.g.cs">
