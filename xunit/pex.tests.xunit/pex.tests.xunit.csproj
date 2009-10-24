@@ -104,12 +104,6 @@
     </Compile>
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
-    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
-      <DependentUpon>EqualTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EqualTests.TestNotEqualPUTArrayTests.g.cs">
-      <DependentUpon>EqualTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
     <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
