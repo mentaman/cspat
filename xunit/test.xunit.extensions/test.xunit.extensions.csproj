@@ -68,6 +68,9 @@
     <Compile Include="DataTheories\DataAdapterDataAttributeTests.cs" />
     <Compile Include="DataTheories\TheoryAttributeTests.cs" />
     <Compile Include="DataTheories\TheoryCommandTests.cs" />
+    <Compile Include="DataTheories\TheoryCommandTests.UsesDisplayName.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="FreezeClock\ClockFacts.cs" />
     <Compile Include="FreezeClock\FreezeClockAttributeAcceptanceTests.cs" />
     <Compile Include="FreezeClock\FreezeClockAttributeFacts.cs" />
