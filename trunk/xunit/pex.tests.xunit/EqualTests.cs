@@ -57,6 +57,15 @@ namespace pex.tests.xunit
             Assert.Equal(i, j);
         }
 
+        [PexMethod, PexAllowedException(typeof(NotEqualException))]
+        //Pattern 2.2, 2.10
+        public void TestNotEqualPUTArrayTests([PexAssumeUnderTest]string[] i, [PexAssumeUnderTest]string[] j)
+        {
+            PexAssume.IsTrue(i.Length > 0);
+            PexAssume.IsTrue(j.Length > 0);
+            Assert.NotEqual(i, j);
+        }
+
         //End
 
         //ComparableTests Begin

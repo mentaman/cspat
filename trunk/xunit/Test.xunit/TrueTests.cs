@@ -1,19 +1,21 @@
+using Microsoft.Pex.Framework;
 using Xunit;
 using Xunit.Sdk;
 
-public class TrueTests
+[PexClass(typeof(Assert))]
+public partial class TrueTests
 {
-    [Fact]
+    [Fact, PexMethod]
     public void AssertTrue()
     {
         Assert.True(true);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void AssertTrueThrowsExceptionWhenFalse()
     {
-        TrueException exception = Assert.Throws<TrueException>(() => Assert.True(false));
+        TrueException exception = PexAssert.Throws<TrueException>(() => Assert.True(false));
 
-        Assert.Equal("Assert.True() Failure", exception.UserMessage);
+        PexAssert.AreEqual("Assert.True() Failure", exception.UserMessage);
     }
 }

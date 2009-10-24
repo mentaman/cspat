@@ -68,6 +68,12 @@
     <Compile Include="ContainsTests.TestContainsPUTNullsAllowedInContainer.g.cs">
       <DependentUpon>ContainsTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTSubstringContainsIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTSubstringNotFound.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
       <DependentUpon>DoesNotContainTests.cs</DependentUpon>
@@ -98,13 +104,46 @@
     </Compile>
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
+    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestNotEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
+    <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
+      <DependentUpon>FalseTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="InRangeTests.cs" />
+    <Compile Include="InRangeTests.TestInRangePUTDoubleNotWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTDoubleValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTIntNotWithinRangeWithZeroActual.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTIntNotWithinRangeWithZeroMinimum.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTIntValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTStringNotWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTStringValueWithinRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TrueTests.cs" />
+    <Compile Include="TrueTests.TestTruePUTAssert.g.cs">
+      <DependentUpon>TrueTests.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pex.utility\pex.utility.csproj">

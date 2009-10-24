@@ -1,15 +1,17 @@
+using Microsoft.Pex.Framework;
 using Xunit;
 using Xunit.Sdk;
 
-public class FalseTests
+[PexClass(typeof(Assert))]
+public partial class FalseTests
 {
-    [Fact]
+    [Fact,PexMethod]
     public void AssertFalse()
     {
         Assert.False(false);
     }
 
-    [Fact]
+    [Fact, PexMethod]
     public void AssertFalseThrowsExceptionWhenTrue()
     {
         try
@@ -18,7 +20,7 @@ public class FalseTests
         }
         catch (AssertException exception)
         {
-            Assert.Equal("Assert.False() Failure", exception.UserMessage);
+            PexAssert.AreEqual("Assert.False() Failure", exception.UserMessage);
         }
     }
 }
