@@ -40,9 +40,9 @@ namespace pex.tests.xunit
 
         [PexMethod]
 		//Pattern 2.2
-        public void TestEmptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list, int i)
+        public void TestEmptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list)
         {
-            list.Add(i);
+            PexAssume.IsTrue(list.Count > 0);
             var ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
             PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
