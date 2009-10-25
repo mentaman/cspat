@@ -104,6 +104,9 @@
       <DependentUpon>EmptyTests.cs</DependentUpon>
     </Compile>
     <Compile Include="EqualTests.cs" />
+    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
       <DependentUpon>EqualTests.cs</DependentUpon>
     </Compile>
