@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsTests.cs" />
     <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
       <DependentUpon>ContainsTests.cs</DependentUpon>
@@ -113,12 +116,14 @@
     <Compile Include="EqualTests.TestEqualPUTNullableValueTypesCanBeNull.g.cs">
       <DependentUpon>EqualTests.cs</DependentUpon>
     </Compile>
-    <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
     <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
       <DependentUpon>FalseTests.cs</DependentUpon>
     </Compile>
     <Compile Include="InRangeTests.cs" />
+    <Compile Include="InRangeTests.TestInRangePUTDoubleValueInRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="InRangeTests.TestInRangePUTIntValue.g.cs">
       <DependentUpon>InRangeTests.cs</DependentUpon>
     </Compile>
