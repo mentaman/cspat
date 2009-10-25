@@ -106,7 +106,13 @@
     <Compile Include="EmptyTests.TestEmptyPUTIsEmpty.g.cs">
       <DependentUpon>EmptyTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmptyTests.TestEmptyPUTIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EqualTests.cs" />
+    <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />
     <Compile Include="FalseTests.cs" />
     <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
