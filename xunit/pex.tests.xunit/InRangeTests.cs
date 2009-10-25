@@ -87,7 +87,6 @@ namespace pex.tests.xunit
         */
 
 //        [PexMethod]
-//        //2.10
 //        public void TestInRangePUTStringNotWithinRange()
 //        {
 //            PexAssert.Throws<InRangeException>(() => Assert.InRange("adam", "bob", "scott"));

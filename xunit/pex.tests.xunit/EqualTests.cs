@@ -906,7 +906,6 @@ namespace pex.tests.xunit
         {
             PexAssume.IsTrue(i == j);
             PexAssume.IsTrue(i.Length > 0);
-            //            PexAssert.IsTrue(i == j);
             Assert.Equal(i, j);
         }
 
@@ -928,7 +927,6 @@ namespace pex.tests.xunit
         {
             PexAssume.IsTrue(i == j);
             PexAssume.IsTrue(i.Contains("a"));
-            //            Assert.False(j == i);
             Assert.NotEqual(i.ToUpper(), j);
             Assert.Equal(i.ToUpper(), j, StringComparer.CurrentCultureIgnoreCase);
         }
@@ -969,11 +967,11 @@ namespace pex.tests.xunit
         }
          */
 
-        [PexMethod]
-        //Pattern 2.2
+        [PexMethod, PexAllowedException(typeof(EqualException))]
+        //Pattern 2.2 2.10
         public void TestEqualPUTNullableValueTypesCanBeNull(DateTime? dt1, DateTime? dt2)
         {
-            PexAssume.IsTrue(dt1 == dt2);
+//            PexAssume.IsTrue(dt1 == dt2);
             Assert.Equal(dt1, dt2);
         }
 
