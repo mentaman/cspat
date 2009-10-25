@@ -40,12 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
-    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
-      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTUserMessageIsTheMessage.g.cs">
-      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContainsTests.cs" />
     <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
       <DependentUpon>ContainsTests.cs</DependentUpon>
@@ -111,6 +105,9 @@
     </Compile>
     <Compile Include="EqualTests.cs" />
     <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTNullableValueTypesCanBeNull.g.cs">
       <DependentUpon>EqualTests.cs</DependentUpon>
     </Compile>
     <Compile Include="Factories\AssertExceptionFactory.cs" />

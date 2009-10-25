@@ -28,19 +28,69 @@ namespace pex.tests.extension
         //            Assert.Equal(1, InstrumentedSpy.passedTestCounter);
         //        }
 
+
+        //        [Fact, PexMethod]
+        //        public void ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce()
+        //        {
+        //            MethodInfo methodInfo = typeof(DisposableSpy).GetMethod("PassedTest");
+        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, null);
+        //            DisposableSpy.ctorCalled = 0;
+        //            DisposableSpy.disposeCalled = 0;
+        //
+        //            ITestResult result = command.Execute(new DisposableSpy());
+        //
+        //            Assert.IsType<PassedResult>(result);
+        //        }
+
+        //
+        //        [Fact, PexMethod]
+        //        public void PassesParametersToTest()
+        //        {
+        //            MethodInfo methodInfo = typeof(SpyWithDataPassed).GetMethod("Test");
+        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, new object[] { 42, 24.5, "foo" });
+        //            SpyWithDataPassed.X = 0;
+        //            SpyWithDataPassed.Y = 0.0;
+        //            SpyWithDataPassed.Z = null;
+        //
+        //            command.Execute(new SpyWithDataPassed());
+        //
+        //            Assert.Equal(42, SpyWithDataPassed.X);
+        //            Assert.Equal(24.5, SpyWithDataPassed.Y);
+        //            Assert.Equal("foo", SpyWithDataPassed.Z);
+        //        }
+
+        //        [Fact, PexMethod]
+        //        public void TestMethodReturnPassedResult()
+        //        {
+        //            MethodInfo methodInfo = typeof(TestMethodCommandClass).GetMethod("TestMethod");
+        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, null);
+        //
+        //            MethodResult result = command.Execute(new TestMethodCommandClass());
+        //
+        //            Assert.IsType<PassedResult>(result);
+        //        }
+        //
+
         //achieve better coverage 2.2 2.10
-        [PexMethod(MaxRunsWithoutNewTests = 400), PexAllowedException(typeof (Exception))]
+        [PexMethod(MaxRunsWithoutNewTests = 1000), PexAllowedException(typeof (Exception))]
         public void TestExecutePUTExecuteCreatesClassAndRunsTest([PexAssumeUnderTest] TheoryCommand command)
         {
             var parameters = PexRepository.Get<object[]>("parameters");
+            PexAssume.IsNotNull(parameters);
             PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
             PexAssume.AreEqual(command.MethodName, "PassedTest");
-            PexAssume.AreEqual(parameters.Length, 0);
-            InstrumentedSpy.ctorCounter = 0;
-            InstrumentedSpy.passedTestCounter = 0;
-            command.Execute(new InstrumentedSpy());
-            PexAssert.AreEqual(1, InstrumentedSpy.ctorCounter);
-            PexAssert.AreEqual(1, InstrumentedSpy.passedTestCounter);
+            PexAssume.AreEqual(parameters.Length, 1);
+//            InstrumentedSpy.ctorCounter = 0;
+//            InstrumentedSpy.passedTestCounter = 0;
+//            InstrumentedSpy.X = null;
+
+            var instrumentedSpy = new InstrumentedSpy();
+            var result = command.Execute(instrumentedSpy);
+
+            PexAssert.AreEqual(1, instrumentedSpy.ctorCounter);
+            PexAssert.AreEqual(1, instrumentedSpy.passedTestCounter);
+            PexAssert.IsInstanceOfType(result,typeof(PassedResult));
+            PexAssert.AreEqual(parameters[0], instrumentedSpy.X);
         }
 
 
@@ -61,7 +111,7 @@ namespace pex.tests.extension
         //            Assert.Throws<InvalidOperationException>(() => command.Execute(new TestMethodCommandClass()));
         //        }
 
-        // 2.10
+        // 2.2
         [PexMethod(MaxRunsWithoutNewTests = 400)]
         public void TestExecutePUTTooMuchData([PexAssumeUnderTest] TheoryCommand command)
         {
@@ -69,7 +119,7 @@ namespace pex.tests.extension
             PexAssume.IsNotNull(parameters);
             PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
             PexAssume.AreEqual(command.MethodName, "PassedTest");
-            PexAssume.IsTrue(parameters.Length > 0);
+            PexAssume.IsTrue(parameters.Length > 1);
             PexAssert.Throws<InvalidOperationException>(() => command.Execute(new InstrumentedSpy()));
         }
 
@@ -84,47 +134,19 @@ namespace pex.tests.extension
         //            Assert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
         //        }
 
-        //2.10
+        //2.2
         [PexMethod(MaxRunsWithoutNewTests = 400)]
         public void TestExecutePUTNotEnoughData([PexAssumeUnderTest] TheoryCommand command)
         {
             var parameters = PexRepository.Get<object[]>("parameters");
             PexAssume.IsNotNull(parameters);
-            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.SpyWithDataPassed");
-            PexAssume.AreEqual(command.MethodName, "Test");
-            PexAssume.IsTrue(parameters.Length < 3);
-            PexAssert.Throws<InvalidOperationException>(() => command.Execute(new SpyWithDataPassed()));
-        }
-
-        //        [Fact, PexMethod]
-        //        public void ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce()
-        //        {
-        //            MethodInfo methodInfo = typeof(DisposableSpy).GetMethod("PassedTest");
-        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, null);
-        //            DisposableSpy.ctorCalled = 0;
-        //            DisposableSpy.disposeCalled = 0;
-        //
-        //            ITestResult result = command.Execute(new DisposableSpy());
-        //
-        //            Assert.IsType<PassedResult>(result);
-        //        }
-
-        // 2.2 2.10
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
-         PexAllowedException(typeof (InvalidOperationException))]
-        public void TestExecutePUTExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce(
-            [PexAssumeUnderTest] TheoryCommand command)
-        {
-            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.DisposableSpy");
+            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
             PexAssume.AreEqual(command.MethodName, "PassedTest");
-            DisposableSpy.ctorCalled = 0;
-            DisposableSpy.disposeCalled = 0;
-            ITestResult result = command.Execute(new DisposableSpy());
-            PexAssert.IsInstanceOfType(result, typeof (PassedResult));
+            PexAssume.IsTrue(parameters.Length == 0);
+            PexAssert.Throws<InvalidOperationException>(() => command.Execute(new InstrumentedSpy()));
         }
 
-
-        //
+      //
         //        [Fact, PexMethod]
         //        public void UsesDisplayName()
         //        {
@@ -224,75 +246,6 @@ namespace pex.tests.extension
             PexAssert.AreEqual(expected, command.DisplayName);
         }
 
-        //
-        //        [Fact, PexMethod]
-        //        public void PassesParametersToTest()
-        //        {
-        //            MethodInfo methodInfo = typeof(SpyWithDataPassed).GetMethod("Test");
-        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, new object[] { 42, 24.5, "foo" });
-        //            SpyWithDataPassed.X = 0;
-        //            SpyWithDataPassed.Y = 0.0;
-        //            SpyWithDataPassed.Z = null;
-        //
-        //            command.Execute(new SpyWithDataPassed());
-        //
-        //            Assert.Equal(42, SpyWithDataPassed.X);
-        //            Assert.Equal(24.5, SpyWithDataPassed.Y);
-        //            Assert.Equal("foo", SpyWithDataPassed.Z);
-        //        }
-
-        //2.2 2.10
-        [PexMethod(MaxRunsWithoutNewTests = 800), PexAllowedException(typeof (Exception)),
-         PexAllowedException(typeof (InvalidOperationException))]
-        public void TestExecutePUTPassesParametersToTest(
-            [PexAssumeUnderTest] TheoryCommand command)
-        {
-            var parameters = PexRepository.Get<object[]>("parameters");
-            PexAssume.IsNotNull(parameters);
-            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.SpyWithDataPassed");
-            PexAssume.AreEqual(command.MethodName, "Test");
-            PexAssume.IsTrue(parameters.Length == 3);
-            SpyWithDataPassed.X = null;
-            SpyWithDataPassed.Y = null;
-            SpyWithDataPassed.Z = null;
-            ITestResult result = command.Execute(new SpyWithDataPassed());
-            PexAssert.AreEqual(command.Parameters[0], SpyWithDataPassed.X);
-            PexAssert.AreEqual(command.Parameters[1], SpyWithDataPassed.Y);
-            PexAssert.AreEqual(command.Parameters[2], SpyWithDataPassed.Z);
-        }
-
-        //        [Fact, PexMethod]
-        //        public void TestMethodReturnPassedResult()
-        //        {
-        //            MethodInfo methodInfo = typeof(TestMethodCommandClass).GetMethod("TestMethod");
-        //            TheoryCommand command = new TheoryCommand(Reflector.Wrap(methodInfo), null, null);
-        //
-        //            MethodResult result = command.Execute(new TestMethodCommandClass());
-        //
-        //            Assert.IsType<PassedResult>(result);
-        //        }
-        //
-
-
-        // 2.2 2.10
-        [PexMethod(MaxRunsWithoutNewTests = 200), PexAllowedException(typeof (Exception)),
-         PexAllowedException(typeof (InvalidOperationException))]
-        public void TestExecutePUTTestMethodReturnPassedResult([PexAssumeUnderTest] TheoryCommand command)
-        {
-            var parameters = PexRepository.Get<object[]>("parameters");
-            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
-            PexAssume.AreEqual(command.MethodName, "PassedTest");
-            //            PexAssume.IsNotNull(PexRepository.Get<object[]>("parameters"));
-            //            PexAssume.AreEqual(PexRepository.Get<object[]>("parameters").Length, 0);
-            PexAssume.AreEqual(0, parameters.Length);
-            var result = command.Execute(new InstrumentedSpy());
-            PexAssert.IsInstanceOfType(result, typeof (PassedResult));
-        }
-
-
-      
-
-        //
         //        [Fact, PexMethod]
         //        public void TruncatesVeryLongStrings()
         //        {
@@ -321,71 +274,39 @@ namespace pex.tests.extension
             PexAssume.IsTrue(parameters[0] is string);
             var s = (parameters[0] as string);
             PexAssume.IsTrue(s.Length > 50);
-            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.SpyWithDataPassed");
-            PexAssume.AreEqual(command.MethodName, "TestOne");
+            PexAssume.AreEqual(command.TypeName, "pex.tests.extension.InstrumentedSpy");
+            PexAssume.AreEqual(command.MethodName, "PassedTest");
             var parameterValue = "\"" + s.Substring(0, 50) + "\"...";
             var expected = command.TypeName + "." + command.MethodName + "(" +
                            parameterValue + ")";
-            MethodResult result = command.Execute(new SpyWithDataPassed());
+            MethodResult result = command.Execute(new InstrumentedSpy());
             PexAssert.IsInstanceOfType(result, typeof (PassedResult));
             PexAssert.AreEqual(expected, result.DisplayName);
         }
     }
 
-    public class InstrumentedSpy
+    public class InstrumentedSpy:IDisposable
     {
-        public static int ctorCounter;
-        public static int passedTestCounter;
+        public int ctorCounter;
+        public int passedTestCounter;
+        public int disposeCalled;
+        public object X;
 
         public InstrumentedSpy()
         {
             ctorCounter++;
         }
 
-        public void PassedTest()
+        public void PassedTest(object x)
         {
+            X = x;
             passedTestCounter++;
-        }
-    }
-
-    public class DisposableSpy : IDisposable
-    {
-        public static int ctorCalled;
-        public static int disposeCalled;
-
-        public DisposableSpy()
-        {
-            ctorCalled++;
         }
 
         public void Dispose()
         {
             disposeCalled++;
         }
-
-        public void PassedTest()
-        {
-        }
     }
 
-    public class SpyWithDataPassed
-    {
-        public static object X;
-        public static object Y;
-        public static object Z;
-
-        public void Test(object x, object y, object z)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-        }
-
-        public void TestOne(object x)
-        {
-            X = x;
-            Y = null;
-            Z = null;
-        }
-    }
-}
+ }
