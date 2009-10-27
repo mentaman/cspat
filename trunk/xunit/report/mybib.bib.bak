@@ -1,73 +1,6 @@
 % This file was created with JabRef 2.5.
 % Encoding: Cp1252
 
-@INPROCEEDINGS{klee,
-  author = {Cristian Cadar and Daniel Dunbar and Dawson R. Engler},
-  title = {KLEE: Unassisted and Automatic Generation of High-Coverage Tests
-	for Complex Systems Programs},
-  booktitle = {OSDI},
-  year = {2008},
-  pages = {209-224},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  crossref = {DBLP:conf/osdi/2008},
-  ee = {http://www.usenix.org/events/osdi08/tech/full_papers/cadar/cadar.pdf},
-  owner = {xsxiao},
-  timestamp = {2009.10.17}
-}
-
-@INPROCEEDINGS{CadarGPDE06,
-  author = {Cristian Cadar and Vijay Ganesh and Peter M. Pawlowski and David
-	L. Dill and Dawson R. Engler},
-  title = {EXE: automatically generating inputs of death},
-  booktitle = {ACM Conference on Computer and Communications Security},
-  year = {2006},
-  pages = {322-335},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  crossref = {DBLP:conf/ccs/2006usa},
-  ee = {http://doi.acm.org/10.1145/1180405.1180445},
-  owner = {xsxiao},
-  timestamp = {2009.10.17}
-}
-
-@INPROCEEDINGS{stp,
-  author = {Vijay Ganesh and David L. Dill},
-  title = {A Decision Procedure for Bit-Vectors and Arrays},
-  booktitle = {CAV},
-  year = {2007},
-  pages = {519-531},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  crossref = {DBLP:conf/cav/2007},
-  ee = {http://dx.doi.org/10.1007/978-3-540-73368-3_52},
-  owner = {xsxiao},
-  timestamp = {2009.10.17}
-}
-
-@INPROCEEDINGS{GodefroidKS05,
-  author = {Patrice Godefroid and Nils Klarlund and Koushik Sen},
-  title = {DART: directed automated random testing},
-  booktitle = {PLDI},
-  year = {2005},
-  pages = {213-223},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  crossref = {DBLP:conf/pldi/2005},
-  ee = {http://doi.acm.org/10.1145/1065010.1065036},
-  owner = {xsxiao},
-  timestamp = {2009.10.17}
-}
-
-@INPROCEEDINGS{SenMA05,
-  author = {Koushik Sen and Darko Marinov and Gul Agha},
-  title = {CUTE: a concolic unit testing engine for C},
-  booktitle = {ESEC/SIGSOFT FSE},
-  year = {2005},
-  pages = {263-272},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
-  crossref = {DBLP:conf/sigsoft/2005},
-  ee = {http://doi.acm.org/10.1145/1081706.1081750},
-  owner = {xsxiao},
-  timestamp = {2009.10.17}
-}
-
 @BOOK{testbook,
   title = {Introduction to Software Testing},
   publisher = {Cambridge University Press},
@@ -77,6 +10,18 @@
   isbn = {0521880386, 9780521880381},
   owner = {xsxiao},
   timestamp = {2009.10.17}
+}
+
+@ARTICLE{tdd,
+  author = {Charles Ashbacher},
+  title = {"Test-Driven Development: By Example" by Kent Beck (Review)},
+  journal = {Journal of Object Technology},
+  year = {2003},
+  volume = {2},
+  pages = {203-204},
+  number = {2},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://www.jot.fm/books/review7}
 }
 
 @BOOK{stateCovBook,
@@ -90,16 +35,85 @@
   timestamp = {2009.10.17}
 }
 
-@INPROCEEDINGS{HalleuxT08,
+@INPROCEEDINGS{klee,
+  author = {Cristian Cadar and Daniel Dunbar and Dawson R. Engler},
+  title = {KLEE: Unassisted and Automatic Generation of High-Coverage Tests
+	for Complex Systems Programs},
+  booktitle = {OSDI},
+  year = {2008},
+  pages = {209-224},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://www.usenix.org/events/osdi08/tech/full_papers/cadar/cadar.pdf},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{CadarGPDE06,
+  author = {Cristian Cadar and Vijay Ganesh and Peter M. Pawlowski and David
+	L. Dill and Dawson R. Engler},
+  title = {EXE: automatically generating inputs of death},
+  booktitle = {ACM Conference on Computer and Communications Security},
+  year = {2006},
+  pages = {322-335},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://doi.acm.org/10.1145/1180405.1180445},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{stp,
+  author = {Vijay Ganesh and David L. Dill},
+  title = {A Decision Procedure for Bit-Vectors and Arrays},
+  booktitle = {CAV},
+  year = {2007},
+  pages = {519-531},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dx.doi.org/10.1007/978-3-540-73368-3_52},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{dart,
+  author = {Patrice Godefroid and Nils Klarlund and Koushik Sen},
+  title = {DART: directed automated random testing},
+  booktitle = {PLDI},
+  year = {2005},
+  pages = {213-223},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://doi.acm.org/10.1145/1065010.1065036},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{pex,
   author = {Jonathan de Halleux and Nikolai Tillmann},
   title = {Parameterized Unit Testing with Pex},
   booktitle = {TAP},
   year = {2008},
   pages = {171-181},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
   ee = {http://dx.doi.org/10.1007/978-3-540-79124-9_12},
   owner = {xsxiao},
   timestamp = {2009.10.17}
+}
+
+@TECHREPORT{patterns,
+  author = {P. de Halleux and N. Tillmann},
+  title = {P. de Halleux and N. Tillmann},
+  institution = {Microsoft Research Technical Report},
+  year = {2008},
+  owner = {xsxiao},
+  timestamp = {2009.10.26}
+}
+
+@ARTICLE{mock,
+  author = {Mackinnon, Tim and Freeman, Steve and Craig, Philip},
+  title = {Endo-testing: unit testing with mock objects},
+  year = {2001},
+  pages = {287--301},
+  address = {Boston, MA, USA},
+  book = {Extreme programming examined},
+  isbn = {0-201-71040-4},
+  publisher = {Addison-Wesley Longman Publishing Co., Inc.}
 }
 
 @ARTICLE{branch,
@@ -118,13 +132,24 @@
   timestamp = {2009.10.17}
 }
 
-@INPROCEEDINGS{TillmannH08,
+@INPROCEEDINGS{cute,
+  author = {Koushik Sen and Darko Marinov and Gul Agha},
+  title = {CUTE: a concolic unit testing engine for C},
+  booktitle = {ESEC/SIGSOFT FSE},
+  year = {2005},
+  pages = {263-272},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://doi.acm.org/10.1145/1081706.1081750},
+  owner = {xsxiao},
+  timestamp = {2009.10.17}
+}
+
+@INPROCEEDINGS{pex08,
   author = {Nikolai Tillmann and Jonathan de Halleux},
   title = {Pex-White Box Test Generation for .NET},
   booktitle = {TAP},
   year = {2008},
   pages = {134-153},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
   ee = {http://dx.doi.org/10.1007/978-3-540-79124-9_10},
   owner = {xsxiao},
   timestamp = {2009.10.17}
@@ -136,22 +161,57 @@
   booktitle = {ESEC/SIGSOFT FSE},
   year = {2005},
   pages = {253-262},
-  bibsource = {DBLP, http://dblp.uni-trier.de},
   ee = {http://doi.acm.org/10.1145/1081706.1081749},
   owner = {xsxiao},
   timestamp = {2009.10.17}
 }
 
-@article{mock,
- author = {Mackinnon, Tim and Freeman, Steve and Craig, Philip},
- title = {Endo-testing: unit testing with mock objects},
- book = {Extreme programming examined},
- year = {2001},
- isbn = {0-201-71040-4},
- pages = {287--301},
- publisher = {Addison-Wesley Longman Publishing Co., Inc.},
- address = {Boston, MA, USA},
- }
+@ELECTRONIC{jtest,
+  year = {2008},
+  title = {Parasoft Jtest},
+  url = {http://www.parasoft.com/jsp/products/home.jsp?product=Jtest},
+  owner = {xsxiao},
+  timestamp = {2009.10.26}
+}
+
+@ELECTRONIC{nmock,
+  year = {2008},
+  title = {NMock},
+  url = {http://www.nmock.org/},
+  owner = {xsxiao},
+  timestamp = {2009.10.26}
+}
+
+@ELECTRONIC{xunit,
+  year = {2007},
+  title = {xUnit},
+  url = {http://www.codeplex.com/xunit},
+  owner = {xsxiao},
+  timestamp = {2009.10.26}
+}
+
+@ARTICLE{DBLP:journals/software/X00f,
+  title = {In the News - New Air Traffic Control Software Takes an Incremental
+	Approach},
+  journal = {IEEE Software},
+  year = {2000},
+  volume = {17},
+  number = {4},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dlib.computer.org/so/books/so2000/pdf/s4108.pdf}
+}
+
+@ARTICLE{xp,
+  title = {Bookshelf - Adaptive Software Development: A Collaborative Approach
+	to Managing Complex Systems eXtreme Programming Explained: Embrace
+	Change, Software Process Quality: Management and Control},
+  journal = {IEEE Software},
+  year = {2000},
+  volume = {17},
+  number = {4},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://dlib.computer.org/so/books/so2000/pdf/s4112.pdf}
+}
 
 @comment{jabref-meta: selector_publisher:}
 
