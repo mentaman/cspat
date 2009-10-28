@@ -13,7 +13,7 @@ namespace pex.tests.xunit
     {
         //ArrayTests Begin
 
-        /*
+        /* 2.2
         public class ArrayTests
         {
             [Fact]
@@ -25,7 +25,7 @@ namespace pex.tests.xunit
                 Assert.Equal(expected, actual);
                 Assert.Throws<NotEqualException>(() => Assert.NotEqual(expected, actual));
             }
-
+        2.2
             [Fact]
             public void ArraysOfDifferentLengthsAreNotEqual()
             {
@@ -35,7 +35,7 @@ namespace pex.tests.xunit
                 Assert.Throws<EqualException>(() => Assert.Equal(expected, actual));
                 Assert.NotEqual(expected, actual);
             }
-
+        2.2
             [Fact]
             public void ArrayValuesAreDifferentNotEqual()
             {
@@ -49,7 +49,6 @@ namespace pex.tests.xunit
         */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.2, 2.10
         public void TestEqualPUTArrayTests([PexAssumeUnderTest] string[] i, [PexAssumeUnderTest] string[] j)
         {
             PexAssume.IsTrue(i.Length > 0);
@@ -58,7 +57,6 @@ namespace pex.tests.xunit
         }
 
         [PexMethod, PexAllowedException(typeof (NotEqualException))]
-        //Pattern 2.2, 2.10
         public void TestNotEqualPUTArrayTests([PexAssumeUnderTest] string[] i, [PexAssumeUnderTest] string[] j)
         {
             PexAssume.IsTrue(i.Length > 0);
@@ -69,7 +67,7 @@ namespace pex.tests.xunit
         //End
 
         //ComparableTests Begin
-
+        //Pattern 2.2
         /*
          public void ObjectWithComparable()
         {
@@ -96,7 +94,6 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
-        //Pattern 2.2 3.2
         public void TestEqualPUTObjectWithComparable([PexAssumeUnderTest] ComparableObject obj1,
                                                      [PexAssumeUnderTest] ComparableObject obj2)
         {
@@ -115,6 +112,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         // pattern 2.2
          public void ObjectWithGenericComparable()
         {
             GenericComparableObject obj1 = new GenericComparableObject();
@@ -140,7 +138,6 @@ namespace pex.tests.xunit
         }
 
         [PexMethod]
-        //Pattern 2.2 3.2
         public void TestEqualPUTObjectWithGenericComparable([PexAssumeUnderTest] GenericComparableObject obj1,
                                                             [PexAssumeUnderTest] GenericComparableObject obj2)
         {
@@ -159,6 +156,8 @@ namespace pex.tests.xunit
         }
 
         /*
+        //Pattern 2.2
+
         public void ObjectWithoutIComparable()
         {
             NonComparableObject nco1 = new NonComparableObject();
@@ -169,7 +168,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.2 2.10
         public void TestEqualPUTObjectWithoutIComparable([PexAssumeUnderTest] NonComparableObject obj1,
                                                          [PexAssumeUnderTest] NonComparableObject obj2)
         {
@@ -193,7 +191,8 @@ namespace pex.tests.xunit
             Assert.Equal(Double.NegativeInfinity, Double.NegativeInfinity);
         }
 
-        /*
+        /* 
+         * //Pattern 2.10
          public void DoubleNegativeInfinityNotEquals()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.23, Double.NegativeInfinity));
@@ -201,7 +200,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTDoubleNegativeInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i != Double.NegativeInfinity);
@@ -223,6 +221,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         *         //Pattern 2.2
          public void DoublePositiveInfinityNotEquals()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.23, Double.PositiveInfinity));
@@ -230,7 +229,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTDoublePositiveInfinityNotEquals(Double i)
         {
             PexAssume.IsTrue(i < Double.PositiveInfinity);
@@ -265,6 +263,8 @@ namespace pex.tests.xunit
         }
 
         /*
+         *         //Pattern 2.2
+
         public void Select_should_equal_Select()
         {
             IEnumerable<int> items = IntGenerator.Range(1, 12);
@@ -275,7 +275,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2 
         public void TestEqualPUTSelectShouldEqualSelect([PexAssumeUnderTest] int[] items,
                                                         [PexAssumeUnderTest] int[] others)
         {
@@ -309,6 +308,7 @@ namespace pex.tests.xunit
         //EquatableObjectTests Begin
 
         /*
+         *         //Pattern 2.2 
         public void CallsIEquatable()
         {
             EquatableObject obj1 = new EquatableObject();
@@ -322,7 +322,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2 3.2
         public void TestEqualPUTCallsIEquatable([PexAssumeUnderTest] EquatableObject obj1,
                                                 [PexAssumeUnderTest] EquatableObject obj2)
         {
@@ -345,12 +344,13 @@ namespace pex.tests.xunit
 
         //NaNTests Begin
 
-        /*
+        /* 2.10
          public void EqualsNaNFails()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(Double.NaN, 1.234));
         }
-
+         
+         * 2.10
          public void NanEqualsFails()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.234, Double.NaN));
@@ -360,7 +360,6 @@ namespace pex.tests.xunit
 
         [PexMethod]
         //Not include i =  j = NaN
-        //Pattern 2.2
         public void TestEqualPUTEqualsFails([PexAssumeUnderTest] Double i, [PexAssumeUnderTest] Double j)
         {
             PexAssume.IsTrue(Double.IsNaN(i) || Double.IsNaN(j));
@@ -401,6 +400,7 @@ namespace pex.tests.xunit
         //NullTests Begin
 
         /*
+         * 2.10
          public void FailsWhenActualIsNullExpectedIsNot()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(new object(), null));
@@ -408,6 +408,7 @@ namespace pex.tests.xunit
          */
 
         /*
+         * 2.10
          public void FailsWhenExpectedIsNullActualIsNot()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(null, new object()));
@@ -415,7 +416,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod(MaxRuns = 100)]
-        //Pattern 2.2
         public void TestEqualPUTNullTests(object i, object j)
         {
             PexAssume.IsTrue(i == null || j == null);
@@ -440,6 +440,7 @@ namespace pex.tests.xunit
         //NumericTests Begin
 
         /*
+         * 2.10
          public void DecimalEqualsFails()
         {
             decimal expected = 25;
@@ -450,13 +451,13 @@ namespace pex.tests.xunit
          */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.1 2.10
         public void TestEqualPUTDecimalEqualsFails(decimal i, decimal j)
         {
             Assert.Equal(i, j);
         }
 
         /*
+         * 2.10
          public void DoubleEqualsFails()
         {
             double expected = 25.3;
@@ -467,13 +468,13 @@ namespace pex.tests.xunit
          */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.1
         public void TestEqualPUTDoubleEqualsFails(double i, double j)
         {
             Assert.Equal(i, j);
         }
 
-        /*
+        /* 
+         * 2.2
          public void EqualsByte()
         {
             byte valueType = 35;
@@ -488,7 +489,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsByte(byte i, Byte j)
         {
             PexAssume.IsTrue(i == j);
@@ -503,6 +503,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsDecimal()
         {
             decimal valueType = 35;
@@ -517,7 +518,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsDecimal(decimal i, Decimal j)
         {
             PexAssume.IsTrue(i == j);
@@ -532,6 +532,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsInt16()
         {
             short valueType = 35;
@@ -545,7 +546,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsInt16(short i, Int16 j)
         {
             PexAssume.IsTrue(i == j);
@@ -560,6 +560,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsInt32()
         {
             int valueType = 35;
@@ -573,7 +574,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsInt32(int i, Int32 j)
         {
             PexAssume.IsTrue(i == j);
@@ -588,6 +588,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsInt64()
         {
             long valueType = 35;
@@ -601,7 +602,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsInt64(long i, Int64 j)
         {
             PexAssume.IsTrue(i == j);
@@ -616,6 +616,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsSByte()
         {
             sbyte valueType = 35;
@@ -629,7 +630,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsSByte(sbyte i, SByte j)
         {
             PexAssume.IsTrue(i == j);
@@ -644,6 +644,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsUInt16()
         {
             ushort valueType = 35;
@@ -657,7 +658,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsUInt16(ushort i, UInt16 j)
         {
             PexAssume.IsTrue(i == j);
@@ -672,6 +672,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsUInt32()
         {
             uint valueType = 35;
@@ -685,7 +686,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsUInt32(uint i, UInt32 j)
         {
             PexAssume.IsTrue(i == j);
@@ -700,6 +700,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsUInt64()
         {
             ulong valueType = 35;
@@ -713,7 +714,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsUInt64(ulong i, UInt64 j)
         {
             PexAssume.IsTrue(i == j);
@@ -728,6 +728,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void Int32Int64Comparison()
         {
             long l64 = 0;
@@ -737,7 +738,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTInt32Int64Comparison(long i, int j)
         {
             PexAssume.IsTrue(i == j);
@@ -746,6 +746,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void IntegerLongComparison()
         {
             Assert.Equal<long>(1L, 1);
@@ -754,7 +755,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTIntegerLongComparison(long i, int j)
         {
             PexAssume.IsTrue(i == j);
@@ -762,7 +762,7 @@ namespace pex.tests.xunit
             Assert.Equal<long>(j, i);
         }
 
-        /*
+        /* 2.2
          public void LongEquals()
         {
             Assert.Equal(2L, 2L);
@@ -770,7 +770,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTLongEquals(long i, long j)
         {
             PexAssume.IsTrue(i == j);
@@ -778,7 +777,7 @@ namespace pex.tests.xunit
             Assert.Equal(j, i);
         }
 
-        /*
+        /* 2.10
          public void LongEqualsFails()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(3L, 2L));
@@ -786,7 +785,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTLongEqualsFails(long i, long j)
         {
             PexAssume.IsFalse(i == j);
@@ -794,7 +792,7 @@ namespace pex.tests.xunit
             PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
-        /*
+        /* 2.10
          public void UInt64EqualsFails()
         {
             UInt64 expected = 25;
@@ -805,7 +803,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTLongEqualsFails(UInt64 i, UInt64 j)
         {
             PexAssume.IsFalse(i == j);
@@ -817,12 +814,12 @@ namespace pex.tests.xunit
 
         //SingleInfinityTests Begin
 
-        /*
+        /* 2.1
          public void SingleNegativeInfinityEqualsNegativeInfinity()
         {
             Assert.Equal(Single.NegativeInfinity, Single.NegativeInfinity);
         }
-
+            2.10
          public void SingleNumberNotEqualNegativeInfinity()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.NegativeInfinity));
@@ -830,18 +827,18 @@ namespace pex.tests.xunit
          */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.1 2.10
         public void TestEqualPUTSingleNegativeInfinity(double i)
         {
             Assert.Equal(i, Single.NegativeInfinity);
         }
 
-        /*
+        /* 2.10
          public void SingleNumberNotEqualPositiiveInfinity()
         {
             Assert.Throws<EqualException>(() => Assert.Equal(1.23f, Single.PositiveInfinity));
         }
-
+         
+         * 2.1
          public void SinglePositiveInfinityEqualsPositiveInfinity()
         {
             Assert.Equal(Single.PositiveInfinity, Single.PositiveInfinity);
@@ -849,7 +846,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod, PexAllowedException(typeof (EqualException))]
-        //Pattern 2.1 2.10
         public void TestEqualPUTSinglePositiveInfinity(double i)
         {
             Assert.Equal(i, Single.PositiveInfinity);
@@ -874,6 +870,7 @@ namespace pex.tests.xunit
         //StringTests Begin
 
         /*
+         * 2.10
          public void EqualsFail()
         {
             Assert.Throws<EqualException>(() => Assert.Equal("expected", "actual"));
@@ -881,14 +878,13 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTStringEqualsFail(string i, string j)
         {
             PexAssume.IsFalse(i == j);
             PexAssert.Throws<EqualException>(() => Assert.Equal(i, j));
         }
 
-        /*
+        /* 2.2
          public void EqualsString()
         {
             string testString = "Test String";
@@ -901,7 +897,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2
         public void TestEqualPUTEqualsString([PexAssumeNotNull] string i, [PexAssumeNotNull] string j)
         {
             PexAssume.IsTrue(i == j);
@@ -910,6 +905,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.2
          public void EqualsStringIgnoreCase()
         {
             string expected = "TestString";
@@ -922,7 +918,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.2 
         public void TestEqualPUTEqualsStringIgnoreCase([PexAssumeUnderTest] string i, [PexAssumeUnderTest] string j)
         {
             PexAssume.IsTrue(i == j);
@@ -932,6 +927,7 @@ namespace pex.tests.xunit
         }
 
         /*
+         * 2.5
          [Fact]
         public void String()
         {
@@ -944,7 +940,6 @@ namespace pex.tests.xunit
          */
 
         [PexMethod]
-        //Pattern 2.5
         public void TestEqualPUTString([PexAssumeUnderTest] string s1)
         {
             string s2 = new StringBuilder(s1).ToString();
@@ -957,7 +952,7 @@ namespace pex.tests.xunit
 
         //NullableValueTypesTests Begin
 
-        /*
+        /* 2.2
          public void NullableValueTypesCanBeNull()
         {
             DateTime? dt1 = null;
@@ -967,11 +962,10 @@ namespace pex.tests.xunit
         }
          */
 
-        [PexMethod, PexAllowedException(typeof(EqualException))]
-        //Pattern 2.2 2.10
+        [PexMethod]
         public void TestEqualPUTNullableValueTypesCanBeNull(DateTime? dt1, DateTime? dt2)
         {
-//            PexAssume.IsTrue(dt1 == dt2);
+            PexAssume.IsTrue(dt1 == dt2);
             Assert.Equal(dt1, dt2);
         }
 
