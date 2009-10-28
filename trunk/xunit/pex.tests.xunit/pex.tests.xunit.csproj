@@ -40,9 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
-    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
-      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContainsTests.cs" />
     <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
       <DependentUpon>ContainsTests.cs</DependentUpon>
@@ -121,9 +118,6 @@
       <DependentUpon>FalseTests.cs</DependentUpon>
     </Compile>
     <Compile Include="InRangeTests.cs" />
-    <Compile Include="InRangeTests.TestInRangePUTDoubleValueInRange.g.cs">
-      <DependentUpon>InRangeTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="InRangeTests.TestInRangePUTIntValue.g.cs">
       <DependentUpon>InRangeTests.cs</DependentUpon>
     </Compile>

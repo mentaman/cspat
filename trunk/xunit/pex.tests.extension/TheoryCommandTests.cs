@@ -14,6 +14,7 @@ namespace pex.tests.extension
     [TestClass, PexClass(typeof (TheoryCommand), Timeout = Int32.MaxValue, MaxRuns = 10000)]
     public partial class TheoryCommandTests
     {
+        // pattern 2.2
         //        [Fact, PexMethod]
         //        public void ExecuteCreatesClassAndRunsTest()
         //        {
@@ -28,7 +29,7 @@ namespace pex.tests.extension
         //            Assert.Equal(1, InstrumentedSpy.passedTestCounter);
         //        }
 
-
+        // pattern 2.2
         //        [Fact, PexMethod]
         //        public void ExecuteStubTestFixtureVerifyBeforeAfterTestCalledOnce()
         //        {
@@ -42,6 +43,7 @@ namespace pex.tests.extension
         //            Assert.IsType<PassedResult>(result);
         //        }
 
+        // pattern 2.2
         //
         //        [Fact, PexMethod]
         //        public void PassesParametersToTest()
@@ -59,6 +61,7 @@ namespace pex.tests.extension
         //            Assert.Equal("foo", SpyWithDataPassed.Z);
         //        }
 
+        // pattern 2.2
         //        [Fact, PexMethod]
         //        public void TestMethodReturnPassedResult()
         //        {
@@ -93,7 +96,7 @@ namespace pex.tests.extension
             PexAssert.AreEqual(parameters[0], instrumentedSpy.X);
         }
 
-
+        // pattern 2.10
         //        [Fact, PexMethod]
         //        public void TooMuchData()
         //        {
@@ -102,6 +105,8 @@ namespace pex.tests.extension
         //
         //            Assert.Throws<InvalidOperationException>(() => command.Execute(new ParameterSpy()));
         //        }
+
+        // pattern 2.10
         //        [Fact, PexMethod]
         //        public void ThrowsExceptionReturnFailedResult()
         //        {
@@ -124,7 +129,7 @@ namespace pex.tests.extension
         }
 
 
-        //
+        // pattern 2.10
         //        [Fact, PexMethod]
         //        public void NotEnoughData()
         //        {
@@ -146,7 +151,7 @@ namespace pex.tests.extension
             PexAssert.Throws<InvalidOperationException>(() => command.Execute(new InstrumentedSpy()));
         }
 
-      //
+      // pattern 2.2
         //        [Fact, PexMethod]
         //        public void UsesDisplayName()
         //        {
@@ -246,6 +251,7 @@ namespace pex.tests.extension
             PexAssert.AreEqual(expected, command.DisplayName);
         }
 
+        // pattern 2.2
         //        [Fact, PexMethod]
         //        public void TruncatesVeryLongStrings()
         //        {
