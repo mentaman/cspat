@@ -1,0 +1,204 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:InRangeTests.cs" caret="130" fromTop="6" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:EmptyTests.cs" caret="673" fromTop="27" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:Record.cs" caret="540" fromTop="13" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:ThrowsTests.cs" caret="1163" fromTop="12" />
+      <File id="C32639C0-50EB-49AB-9681-C3334E5DEAE7/f:EqualTests.cs" caret="834" fromTop="0" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/f:Assert.cs" caret="9066" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:DoesNotContainTests.cs" caret="2472" fromTop="15" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:AssertExceptionTests.cs" caret="1128" fromTop="8" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EmptyTests.cs" caret="2491" fromTop="30" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Properties/f:PexAssemblyInfo.cs" caret="778" fromTop="14" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:ContainsTests.cs" caret="2053" fromTop="0" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/d:Sdk/d:Exceptions/f:EqualException.cs" caret="150" fromTop="5" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/d:Sdk/d:Exceptions/f:AssertException.cs" caret="173" fromTop="8" />
+      <File id="09EF9917-4B00-4646-8C3F-96EFACC8BF51/d:Sdk/d:Exceptions/f:AssertActualExpectedException.cs" caret="4648" fromTop="17" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/d:Factories/f:TheoryCommandFactory.cs" caret="3121" fromTop="19" />
+      <File id="737943C1-4301-47F4-932B-A67BE3788C40/d:DataTheories/f:TheoryCommand.cs" caret="391" fromTop="14" />
+      <File id="F632AF19-09D0-4D2E-AEB8-F7280A02BECE/f:TheoryCommandTests.cs" caret="13476" fromTop="0" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:InRangeTests.cs" caret="2349" fromTop="13" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="1521" fromTop="12" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="20356" fromTop="13" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="20795" fromTop="11" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="21182" fromTop="25" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="21624" fromTop="14" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="21825" fromTop="24" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22210" fromTop="19" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22024" fromTop="11" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22435" fromTop="8" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22565" fromTop="16" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22910" fromTop="29" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="22738" fromTop="11" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="23129" fromTop="10" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="23383" fromTop="21" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="24110" fromTop="23" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="23843" fromTop="15" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="24270" fromTop="10" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="24729" fromTop="23" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="23661" fromTop="12" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="24477" fromTop="18" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="25453" fromTop="13" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="25634" fromTop="21" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="25855" fromTop="5" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="26177" fromTop="18" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="26448" fromTop="7" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="26826" fromTop="20" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="27211" fromTop="8" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="27488" fromTop="21" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="27800" fromTop="12" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="28018" fromTop="22" />
+      <File id="EC9285B5-C6B0-4BE8-9580-C175D39096B8/f:EqualTests.cs" caret="28239" fromTop="24" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="PexAssumeUnderTest" priority="0" />
+      <Item value="AssertException" priority="0" />
+      <Item value="usermessage" priority="0" />
+      <Item value="PexAssume" priority="19" />
+      <Item value="ex" priority="0" />
+      <Item value="parameterValue" priority="0" />
+      <Item value="typeof" priority="4" />
+      <Item value="DateTime" priority="0" />
+      <Item value="parameters" priority="2" />
+      <Item value="PexClass" priority="0" />
+      <Item value="pex" priority="1" />
+      <Item value="new" priority="0" />
+      <Item value="ThrowsDelegate" priority="0" />
+      <Item value="public" priority="5" />
+      <Item value="void" priority="0" />
+      <Item value="if" priority="2" />
+      <Item value="var" priority="0" />
+      <Item value="PexChoose" priority="1" />
+      <Item value="class" priority="0" />
+      <Item value="call" priority="2" />
+      <Item value="DelegateHolder" priority="0" />
+      <Item value="private" priority="0" />
+      <Item value="bool" priority="3" />
+      <Item value="methodCalled" priority="0" />
+      <Item value="true" priority="1" />
+      <Item value="holder" priority="0" />
+      <Item value="result" priority="5" />
+      <Item value="try" priority="1" />
+      <Item value="NonComparableObject" priority="0" />
+      <Item value="Double" priority="0" />
+      <Item value="int" priority="1" />
+      <Item value="IntPtr" priority="0" />
+      <Item value="foreach" priority="1" />
+      <Item value="for" priority="0" />
+      <Item value="items" priority="2" />
+      <Item value="Length" priority="8" />
+      <Item value="others" priority="1" />
+      <Item value="i" priority="9" />
+      <Item value="null" priority="3" />
+      <Item value="PexAssumeNotNull" priority="1" />
+      <Item value="list" priority="3" />
+      <Item value="value" priority="1" />
+      <Item value="string" priority="3" />
+      <Item value="PexAssert" priority="5" />
+      <Item value="PexAllowedException" priority="0" />
+      <Item value="comparer" priority="0" />
+      <Item value="NotEqualException" priority="0" />
+      <Item value="Assert" priority="0" />
+      <Item value="TestClass" priority="0" />
+      <Item value="Console" priority="5" />
+      <Item value="valueObject" priority="1" />
+      <Item value="else" priority="1" />
+      <Item value="obj1" priority="3" />
+      <Item value="obj2" priority="0" />
+      <Item value="finally" priority="3" />
+      <Item value="CompareResult" priority="0" />
+      <Item value="EqualException" priority="1" />
+      <Item value="ComapreResult" priority="1" />
+      <Item value="catch" priority="0" />
+      <Item value="Exception" priority="0" />
+      <Item value="e" priority="0" />
+      <Item value="IDisposable" priority="0" />
+      <Item value="object" priority="2" />
+      <Item value="X" priority="0" />
+      <Item value="x" priority="0" />
+      <Item value="PassedResult" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssume">
+      <Item value="IsTrue" priority="14" />
+      <Item value="IsNotInstanceOfType" priority="0" />
+      <Item value="IsNotNull" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Xunit.Sdk.AssertException">
+      <Item value="UserMessage" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexChoose">
+      <Item value="FromCall" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Pex.Framework.Choices.IPexMethodCallChoiceSession">
+      <Item value="ChooseThrowException" priority="0" />
+      <Item value="ChooseException" priority="0" />
+      <Item value="ChooseResult" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:pex.tests.xunit.DelegateHolder">
+      <Item value="MockThrowsDelegate" priority="0" />
+      <Item value="MethodCalled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Double">
+      <Item value="NegativeInfinity" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Length" priority="0" />
+      <Item value="ToUpper" priority="1" />
+      <Item value="Contains" priority="1" />
+      <Item value="CompareTo" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Count" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.Pex.Framework.PexAssert">
+      <Item value="IsFalse" priority="0" />
+      <Item value="Throws" priority="1" />
+      <Item value="Case" priority="0" />
+      <Item value="IsTrue" priority="0" />
+      <Item value="IsInstanceOfType" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:pex.tests.xunit.MyComparer">
+      <Item value="Compare" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Xunit.Assert">
+      <Item value="NotEqual" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:pex.tests.xunit.EqualTests+EquatableObject">
+      <Item value="Equals" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:pex.tests.xunit.EqualTests+ComparableObject">
+      <Item value="CompareResult" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Pex.Framework.PexAssert+ICaseAsserter">
+      <Item value="Implies" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@pex.tests.extension.InstrumentedSpy">
+      <Item value="disposeCalled" priority="1" />
+      <Item value="X" priority="0" />
+      <Item value="Y" priority="0" />
+      <Item value="Z" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

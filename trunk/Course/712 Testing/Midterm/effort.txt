@@ -1,0 +1,17 @@
+We both share 50% of the efforts for this project.
+
+Tasks:
+
+Xusheng Xiao: 
+PUT: ContainsTests.cs, TheoryCommandTests.cs 
+
+Paper: Introduction, Example (Factory method and Mock section), Open source project under test, Benefits,  Test Categorization (mock), 
+Helper techniques, Limitation (Insufficient information for issues), Conclusion
+
+
+
+Di Lu: 
+
+PUT: EqualTests.cs, AssertExceptionTests.cs, DoesNotContainTest.cs, EmptyTests.cs, FalseTests.cs, InRangeTests.cs, TrueTests.cs
+
+Paper: Abstract, Example, Test Categorization, Limitation
