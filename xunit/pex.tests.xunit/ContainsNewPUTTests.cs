@@ -10,31 +10,31 @@ namespace pex.tests.xunit
     public partial class ContainsNewPUTTests
     {
         [PexMethod, PexAllowedException(typeof (ContainsException))]
-        public void TestIEquable(EquatableObject x, EquatableObject[] list)
+        public void TestIEquable(EquatableObject x, [PexAssumeNotNull]EquatableObject[] list)
         {
             Assert.Contains(x, list);
         }
 
         [PexMethod, PexAllowedException(typeof (ContainsException))]
-        public void TestIEnumerable(int[] x, int[][] list)
+        public void TestIEnumerable(int[] x, [PexAssumeNotNull]int[][] list)
         {
             Assert.Contains(x, list);
         }
 
         [PexMethod, PexAllowedException(typeof(ContainsException))]
-        public void TestIComparable(ComparableObject x, ComparableObject[] list)
+        public void TestIComparable(ComparableObject x, [PexAssumeNotNull]ComparableObject[] list)
         {
             Assert.Contains(x, list);
         }
 
         [PexMethod, PexAllowedException(typeof(ContainsException))]
-        public void TestIComparable2(ComparableObject2 x, ComparableObject2[] list)
+        public void TestIComparable2(ComparableObject2 x, [PexAssumeNotNull]ComparableObject2[] list)
         {
             Assert.Contains(x, list);
         }
 
         [PexMethod, PexAllowedException(typeof (ContainsException))]
-        public void TestTypeNotEqual(object x, object[] list)
+        public void TestTypeNotEqual(object x, [PexAssumeNotNull]object[] list)
         {
             Assert.Contains(x, list);
         }
