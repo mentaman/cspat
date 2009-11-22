@@ -31,63 +31,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Pex.Framework, Version=0.19.41025.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
     <Compile Include="ContainsNewPUTTests.cs" />
-    <Compile Include="ContainsNewPUTTests.TestIComparable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIComparable2.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIEnumerable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIEquable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestTypeNotEqual.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContainsTests.cs" />
-    <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstring.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstringCaseInsensitive.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTCanUseComparer.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTItemInContainer.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTItemNotInContainer.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTNullsAllowedInContainer.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTSubstringContainsIsCaseSensitiveByDefault.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsTests.TestContainsPUTSubstringNotFound.g.cs">
-      <DependentUpon>ContainsTests.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DoesNotContainNewPUTTests.cs" />
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="EmptyTests.cs" />
     <Compile Include="EqualTests.cs" />
     <Compile Include="FalseTests.cs" />
+    <Compile Include="InRangeNewPUTTests.cs" />
     <Compile Include="InRangeTests.cs" />
     <Compile Include="MyComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
