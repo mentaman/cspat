@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Xunit;
 using Xunit.Sdk;
 using Microsoft.Pex.Framework;
+using Microsoft.Pex.Framework.Validation;
 
 namespace pex.tests.xunit
 {
-    // generalize 5 tests
+    // generalize 5 tests 
+    //Modified TestEmptyPUTIsNotEmpty, 100% coverage achieved
+
     [PexClass(typeof(Assert))]
     public partial class EmptyTests
     {
@@ -38,11 +41,11 @@ namespace pex.tests.xunit
         }
         */
 
-        [PexMethod]
+        [PexMethod, PexAllowedException(typeof(ThrowsException))]
 		//Pattern 2.2
-        public void TestEmptyPUTIsNotEmpty([PexAssumeUnderTest]List<int> list)
+        public void TestEmptyPUTIsNotEmpty(List<int> list)
         {
-            PexAssume.IsTrue(list.Count > 0);
+            //PexAssume.IsTrue(list.Count > 0);
             var ex = Assert.Throws<EmptyException>(() => Assert.Empty(list));
             PexAssert.AreEqual("Assert.Empty() failure", ex.Message);
         }
