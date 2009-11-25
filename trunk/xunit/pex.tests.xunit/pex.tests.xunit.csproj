@@ -31,7 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Pex.Framework, Version=0.18.41014.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Pex.Framework, Version=0.19.41025.0, Culture=neutral, PublicKeyToken=76a274db078248c8, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -42,20 +42,290 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertExceptionTests.cs" />
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsNewPUTTests.cs" />
+    <Compile Include="ContainsNewPUTTests.TestContainsPUTCanSearchForSubstring.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestContainsPUTCanSearchForSubstringCaseInsensitive.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestContainsPUTSubstringContainsIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestContainsPUTSubstringNotFound.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIComparable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIComparable2.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIEnumerable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIEquable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestTypeNotEqual.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsTests.cs" />
+    <Compile Include="ContainsTests.TestContainsPUTCanFindNullInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstring.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanSearchForSubstringCaseInsensitive.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTCanUseComparer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTItemInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTItemNotInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTNullsAllowedInContainer.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTSubstringContainsIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsTests.TestContainsPUTSubstringNotFound.g.cs">
+      <DependentUpon>ContainsTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoesNotContainNewPUTTests.cs" />
+    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTCanSearchForSubstrings.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable2.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIEnumerable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIEquable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestTypeNotEqual.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoesNotContainTests.cs" />
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForSubstrings.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanUseComparer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTItemNotInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTNullsAllowedInContainer.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainTests.TestDoesNotContainPUTSubstringFound.g.cs">
+      <DependentUpon>DoesNotContainTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmptyTests.cs" />
+    <Compile Include="EmptyTests.TestEmptyPUTIsEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmptyTests.TestEmptyPUTIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmptyTests.TestEmptyPUTNullIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmptyTests.TestEmptyPUTStringIsEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmptyTests.TestEmptyPUTStringIsNotEmpty.g.cs">
+      <DependentUpon>EmptyTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="EqualTests.cs" />
+    <Compile Include="EqualTests.TestEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTBothNullTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTCallsIEquatable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDecimalEqualsFails.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoubleEqualsFails.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoubleNegativeInfinityEqualsNegativeInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoubleNegativeInfinityNotEquals.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoublePositiveInfinityEqualsPositiveInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoublePositiveInfinityNotEquals.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTDoublePositiveInfinityNotEqualsNegativeInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsByte.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsDecimal.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsFails.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsInt16.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsInt32.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsInt64.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsSByte.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsString.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsStringIgnoreCase.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsUInt16.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsUInt32.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTEqualsUInt64.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTInt32Int64Comparison.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTIntegerLongComparison.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTLongEquals.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTLongEqualsFails.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTNanEqualsNaNSucceeds.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTNullableValueTypesCanBeNull.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTNullTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTObjectWithComparable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTObjectWithGenericComparable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTObjectWithoutIComparable.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTSelectShouldEqualSelect.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTSingleNegativeInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTSinglePositiveInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTSinglePositiveInfinityNotEqualNegativeInfinity.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTString.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestEqualPUTStringEqualsFail.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EqualTests.TestNotEqualPUTArrayTests.g.cs">
+      <DependentUpon>EqualTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="FalseTests.cs" />
+    <Compile Include="FalseTests.TestEqualPUTFalseTests.g.cs">
+      <DependentUpon>FalseTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="InRangeNewPUTTests.cs" />
+    <Compile Include="InRangeNewPUTTests.InRangeTestComparable.g.cs">
+      <DependentUpon>InRangeNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeNewPUTTests.InRangeTestComparable2.g.cs">
+      <DependentUpon>InRangeNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeNewPUTTests.InRangeTestEnumerable.g.cs">
+      <DependentUpon>InRangeNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeNewPUTTests.InRangeTestEquable.g.cs">
+      <DependentUpon>InRangeNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeNewPUTTests.InRangeTestObject.g.cs">
+      <DependentUpon>InRangeNewPUTTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="InRangeTests.cs" />
+    <Compile Include="InRangeTests.TestInRangePUTDoubleValueInRange.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InRangeTests.TestInRangePUTIntValue.g.cs">
+      <DependentUpon>InRangeTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="ThrowsTests.cs" />
+    <Compile Include="ThrowsTests.TestDoesNotThrowPUTDoesNotThrowException.g.cs">
+      <DependentUpon>ThrowsTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrueTests.cs" />
+    <Compile Include="TrueTests.TestTruePUTAssert.g.cs">
+      <DependentUpon>TrueTests.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pex.utility\pex.utility.csproj">
