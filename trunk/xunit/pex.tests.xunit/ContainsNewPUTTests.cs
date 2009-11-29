@@ -39,54 +39,54 @@ namespace pex.tests.xunit
             Assert.Contains(x, list);
         }
 
-        [PexMethod]
-        //Pattern 2.2
-        public void TestContainsPUTCanSearchForSubstring(string subString, string wholeString)
-        {
-            PexAssume.IsNotNull(subString);
-            PexAssume.IsNotNull(wholeString);
-            PexAssume.IsTrue(wholeString.IndexOf(subString) != -1);
-            PexAssume.IsTrue(wholeString.Length > subString.Length);
-            Assert.Contains(subString, wholeString);
-        }
-
-        [PexMethod]
-        //Pattern 2.2
-        public void TestContainsPUTCanSearchForSubstringCaseInsensitive(string subString, string wholeString)
-        {
-            PexAssume.IsNotNull(subString);
-            PexAssume.IsNotNull(wholeString);
-            PexAssume.IsTrue(wholeString.Contains("A"));
-            PexAssume.IsTrue(subString.Contains("a"));
-            PexAssume.IsTrue(wholeString.Length > subString.Length);
-            Assert.Contains(subString, wholeString, StringComparison.InvariantCultureIgnoreCase);
-        }
-
-        [PexMethod]
-        //Pattern 2.2
-        public void TestContainsPUTSubstringNotFound(string substring, string wholeString)
-        {
-            PexAssume.IsNotNull(substring);
-            PexAssume.IsNotNull(wholeString);
-            PexAssume.IsTrue(wholeString.Length > substring.Length);
-            PexAssume.IsTrue(substring.Length > 0);
-            PexAssume.IsTrue(wholeString.IndexOf(substring) == -1);
-            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString));
-        }
-
-        [PexMethod]
-        //Pattern 2.2
-        public void TestContainsPUTSubstringContainsIsCaseSensitiveByDefault(string substring, string wholeString)
-        {
-            PexAssume.IsNotNull(substring);
-            PexAssume.IsNotNull(wholeString);
-            PexAssume.IsTrue(wholeString.Length > substring.Length);
-            PexAssume.IsTrue(substring.Length > 0);
-            PexAssume.IsTrue(wholeString.Contains("a"));
-            PexAssume.IsTrue(substring.Contains("a"));
-            PexAssume.IsTrue(wholeString.IndexOf(substring) != -1);
-            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString.ToUpper()));
-        }
+//        [PexMethod]
+//        //Pattern 2.2
+//        public void TestContainsPUTCanSearchForSubstring(string subString, string wholeString)
+//        {
+//            PexAssume.IsNotNull(subString);
+//            PexAssume.IsNotNull(wholeString);
+//            PexAssume.IsTrue(wholeString.IndexOf(subString) != -1);
+//            PexAssume.IsTrue(wholeString.Length > subString.Length);
+//            Assert.Contains(subString, wholeString);
+//        }
+//
+//        [PexMethod]
+//        //Pattern 2.2
+//        public void TestContainsPUTCanSearchForSubstringCaseInsensitive(string subString, string wholeString)
+//        {
+//            PexAssume.IsNotNull(subString);
+//            PexAssume.IsNotNull(wholeString);
+//            PexAssume.IsTrue(wholeString.Contains("A"));
+//            PexAssume.IsTrue(subString.Contains("a"));
+//            PexAssume.IsTrue(wholeString.Length > subString.Length);
+//            Assert.Contains(subString, wholeString, StringComparison.InvariantCultureIgnoreCase);
+//        }
+//
+//        [PexMethod]
+//        //Pattern 2.2
+//        public void TestContainsPUTSubstringNotFound(string substring, string wholeString)
+//        {
+//            PexAssume.IsNotNull(substring);
+//            PexAssume.IsNotNull(wholeString);
+//            PexAssume.IsTrue(wholeString.Length > substring.Length);
+//            PexAssume.IsTrue(substring.Length > 0);
+//            PexAssume.IsTrue(wholeString.IndexOf(substring) == -1);
+//            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString));
+//        }
+//
+//        [PexMethod]
+//        //Pattern 2.2
+//        public void TestContainsPUTSubstringContainsIsCaseSensitiveByDefault(string substring, string wholeString)
+//        {
+//            PexAssume.IsNotNull(substring);
+//            PexAssume.IsNotNull(wholeString);
+//            PexAssume.IsTrue(wholeString.Length > substring.Length);
+//            PexAssume.IsTrue(substring.Length > 0);
+//            PexAssume.IsTrue(wholeString.Contains("a"));
+//            PexAssume.IsTrue(substring.Contains("a"));
+//            PexAssume.IsTrue(wholeString.IndexOf(substring) != -1);
+//            PexAssert.Throws<ContainsException>(() => Assert.Contains(substring, wholeString.ToUpper()));
+//        }
 
 
     }
