@@ -18,6 +18,8 @@ namespace pex.tests.xunit
         [PexMethod, PexAllowedException(typeof (ContainsException))]
         public void TestIEnumerable(int[] x, [PexAssumeNotNull]int[][] list)
         {
+            Console.WriteLine("compare: " + "ab".CompareTo(null));
+            
             Assert.Contains(x, list);
         }
 
@@ -95,18 +97,28 @@ namespace pex.tests.xunit
     {
         public int CompareTo(ComparableObject other)
         {
+            if (other == null)
+            {
+                return 1;
+            }
             var call = PexChoose.FromCall(this);
             var result = call.ChooseResult<int>();
+            PexAssume.IsTrue(result == -1 || result == 0 || result == 1);
             return result;
         }
     }
 
     public class ComparableObject2 : IComparable
     {
-        public int CompareTo(object obj)
+        public int CompareTo(object other)
         {
+            if (other == null)
+            {
+                return 1;
+            }
             var call = PexChoose.FromCall(this);
             var result = call.ChooseResult<int>();
+            PexAssume.IsTrue(result == -1 || result == 0 || result == 1);
             return result;
         }
     }

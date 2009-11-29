@@ -46,31 +46,7 @@
       <DependentUpon>AssertExceptionTests.cs</DependentUpon>
     </Compile>
     <Compile Include="ContainsNewPUTTests.cs" />
-    <Compile Include="ContainsNewPUTTests.TestContainsPUTCanSearchForSubstring.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestContainsPUTCanSearchForSubstringCaseInsensitive.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestContainsPUTSubstringContainsIsCaseSensitiveByDefault.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestContainsPUTSubstringNotFound.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIComparable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIComparable2.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="ContainsNewPUTTests.TestIEnumerable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestIEquable.g.cs">
-      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ContainsNewPUTTests.TestTypeNotEqual.g.cs">
       <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
     </Compile>
     <Compile Include="ContainsTests.cs" />
@@ -102,30 +78,6 @@
       <DependentUpon>ContainsTests.cs</DependentUpon>
     </Compile>
     <Compile Include="DoesNotContainNewPUTTests.cs" />
-    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTCanSearchForSubstrings.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTCanSearchForSubstringsCaseInsensitive.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestDoesNotContainPUTSubstringDoesNotContainIsCaseSensitiveByDefault.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable2.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestIEnumerable.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestIEquable.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DoesNotContainsNewPUTTests.TestTypeNotEqual.g.cs">
-      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
       <DependentUpon>DoesNotContainTests.cs</DependentUpon>
