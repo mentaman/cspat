@@ -1,0 +1,21 @@
+We both share 50% of the efforts for the final paper.
+
+Tasks:
+
+Xusheng Xiao: 
+
+* PUT: ContainsNewPUTTests.cs
+
+* Paper: Show code for the defect; Add 4.2 Benefits of New PUTs; Add comparison of LOC for generalized PUTs and CUT; Modify Abstract, Introduction and Conclusion
+
+* Create Project web.
+
+Di Lu: 
+
+* PUT: DoesNotContainNewPUTTest.cs, EmptyTests.cs, InRangeNewPUTTests.cs
+
+* Paper: Add 5.3 New PUTs
+
+* Prepare PPT
+
+* Collect LOC for generalized PUTs and CUTs
