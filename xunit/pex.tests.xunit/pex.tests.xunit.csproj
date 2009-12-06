@@ -41,12 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertExceptionFactory.cs" />
     <Compile Include="AssertExceptionTests.cs" />
     <Compile Include="AssertExceptionTests.TestAssertExceptionPUTPreservesUserMessage.g.cs">
       <DependentUpon>AssertExceptionTests.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssertExceptionTests.TestAssertExceptionPUTUserMessageIsTheMessage.g.cs">
+      <DependentUpon>AssertExceptionTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsNewPUTTests.cs" />
+    <Compile Include="ContainsNewPUTTests.TestIComparable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIComparable2.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContainsNewPUTTests.TestIEnumerable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestIEquable.g.cs">
+      <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainsNewPUTTests.TestTypeNotEqual.g.cs">
       <DependentUpon>ContainsNewPUTTests.cs</DependentUpon>
     </Compile>
     <Compile Include="ContainsTests.cs" />
@@ -78,6 +94,21 @@
       <DependentUpon>ContainsTests.cs</DependentUpon>
     </Compile>
     <Compile Include="DoesNotContainNewPUTTests.cs" />
+    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIComparable2.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIEnumerable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestIEquable.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoesNotContainsNewPUTTests.TestTypeNotEqual.g.cs">
+      <DependentUpon>DoesNotContainNewPUTTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoesNotContainTests.cs" />
     <Compile Include="DoesNotContainTests.TestDoesNotContainPUTCanSearchForNullInContainer.g.cs">
       <DependentUpon>DoesNotContainTests.cs</DependentUpon>

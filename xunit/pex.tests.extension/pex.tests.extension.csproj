@@ -46,25 +46,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
     <Compile Include="TheoryCommandNewTests.cs" />
-    <Compile Include="TheoryCommandNewTests.TestConstructor.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TheoryCommandNewTests.TestExecute.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TheoryCommandNewTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TheoryCommandNewTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TheoryCommandNewTests.TestExecutePUTUsesNotNullDisplayName.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TheoryCommandNewTests.TestParameterIsNull.g.cs">
-      <DependentUpon>TheoryCommandNewTests.cs</DependentUpon>
-    </Compile>
     <Compile Include="TheoryCommandTests.cs" />
+    <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthGreaterThanFifty.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTDisplayNameUseTypeNameAndMethodNameOfLengthLessThanFifty.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTExecuteCreatesClassAndRunsTest.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTNotEnoughData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTTooMuchData.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTTruncatesVeryLongStrings.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryCommandTests.TestExecutePUTUsesNotNullDisplayName.g.cs">
+      <DependentUpon>TheoryCommandTests.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\pex.utility\pex.utility.csproj">
