@@ -311,6 +311,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Codeplex\Covana\seqex\Seqex\Seqex.csproj">
+      <Project>{A55E89F3-FB71-4104-85EA-F5984BCFC848}</Project>
+      <Name>Seqex</Name>
+    </ProjectReference>
     <ProjectReference Include="..\pex.utility\pex.utility.csproj">
       <Project>{0F2B2A64-F8C9-4951-AF7D-E24D9C6F922A}</Project>
       <Name>pex.utility</Name>
