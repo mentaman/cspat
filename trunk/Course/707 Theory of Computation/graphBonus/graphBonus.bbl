@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{knight}
+New knight's tour puzzles and graphs.
+\newblock \url{http://www.archimedes-lab.org/knight_tour.html}.
+
+\bibitem{cpm}
+Cpm - critical path method, 2002.
+
+\bibitem{path}
+Solving a hamiltonian path problem with a bacterial computer, 2009.
+\newblock \url{http://www.jbioleng.org/content/3/1/11}.
+
+\end{thebibliography}
