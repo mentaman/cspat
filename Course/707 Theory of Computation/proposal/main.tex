@@ -1,0 +1,49 @@
+\documentclass[times, 10pt,onecolumn]{article} 
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{url}
+%\usepackage{amsfonts, amsthm}
+
+\title{Project Proposal}
+\author{
+Xusheng Xiao\\
+\small{xxiao2@ncsu.edu}\\
+\and
+Xi Ge\\
+\small{xge@ncsu.edu}\\
+\and
+Da Young Lee\\
+\small{sthumma@ncsu.edu}
+}
+\date{January 27, 2010}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+\textbf{Project Topic:}\end{flushleft} Symbolic Execution in Software Engineering.\\
+
+\begin{flushleft}
+\textbf{Goal:}\end{flushleft}In this project, we will provide a study of how symbolic execution can be used to generate test data and test cases in software testing. We will also provide a theoretical rationale of choosing a model for testing a software under test and present the pros and cons of the chosen model. Additionally, we will discuss the chief contributions made to the field of model-based testing in software.\\
+
+\begin{flushleft}
+\textbf{Project Description}:\end{flushleft}Model-based testing is a type of testing that derives test cases based on a behavioral model of the system under test~\cite{Utting2006}. In this project, we intend to study different models that can be used for model-based testing in software. We intend to provide a detailed survey of the existing tools and techniques and the issues associated with the models and the techniques in software testing.
+
+
+\begin{enumerate}
+\item{\textbf{Finite State Automaton: Generate Test Cases.} 
+}
+
+\item{\textbf{Context-Free Grammar: Generate Test Data.} }
+
+\item{\textbf{Computability and Computation Complexity: Exploration Of Program and Model.} To generate test cases or test data respectively, a state-of-art technique known as dynamic symbolic execution (DSE)~\cite{dart,exe,cute}, is adopted by automatic test case generation tool to explore the feasible paths of the program under test and generate test cases to achieve high coverage. Dynamic symbolic execution (DSE) is a variation of static symbolic execution~\cite{static}. DSE performs a symbolic execution of the program by assigning symbolic variables to each program input and executes the program starting with arbitrary inputs. During the execution, DSE collects symbolic constraints on inputs obtained from predicates in branch statements along the execution. Then a constraint solver is used to compute new inputs in order to execute the program along different execution paths. In this way, all feasible execution paths will be exercised eventually through such iterations of input or path variations. A program under test can be modeled as a control flow graph (CFG)~\cite{testbook}, whose nodes represent simple primitive statements (such as input, output, and assignment) and edges represent the flow of control. An execution path of the program is a path on CFG from the starting node, entry of the program, to the exit node, exit of the program. Thus, to explore all paths of the program under test, i.e. achieving 100\% path coverage, is to enumerate all paths between two nodes in a graph, which is well known as a NP-hard problem. To alleviate this path explosion problem and to reduce the computation complexity, different techniques has been proposed, such as performing symbolic execution compositionally~\cite{compositional}, selective symbolic execution~\cite{selective} and fitness-guided path exploration~\cite{fitness}. In our project, we plan to discuss these techniques and provide example issues that can be solved using these techniques. Additionally, we plan to discuss the existing issues that are still not solved in the area of symbolic execution.}
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
