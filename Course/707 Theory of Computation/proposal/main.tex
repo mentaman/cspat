@@ -36,10 +36,17 @@ Da Young Lee\\
 
 
 \begin{enumerate}
-\item{\textbf{Finite State Automaton: Generate Test Cases.} 
-}
+\item{\textbf{Finite State Automaton: assisting symbolic execution.} }
+Existing dynamic symbolic execution techniques can effectively generate highcovering
+test inputs for various programs. However, when dealing with the programms that use regular expression operations, the logic complexity makes it of  great difficulty for the DSE engine to generate test inputs to achieve high branch coverage of the program under test within limited time and resources.With the help of finite state automaton, DSE is guided to achieve satisfactory branch coverage rate~\cite{reggae}.
 
-\item{\textbf{Context-Free Grammar: Generate Test Data.} }
+\item{\textbf{Context-Free Grammar: Generate Test Cases.} }
+
+Many automatic testing, analysis, and verification techniques for
+programs can be effectively reduced to a constraint-generation
+phase followed by a constraint-solving phase. Therefore, the efficient off-the-shelf constraint solver for string manipulation program is necessary. In \cite{hampi}, the writer designed a string constraints solver over fixed-size string variables. Hampi constraints express membership in regular and fixed-size context-free languages. Given a set of constraints over a string variable, Hampi will output a string that satisfies all the constraints or reports the constraints are unsatisfiable. Hampi could be integrated in testing tools to generate test cases. 
+
+
 
 \item{\textbf{Computability and Computation Complexity: Exploration Of Program and Model.} To generate test cases or test data respectively, a state-of-art technique known as dynamic symbolic execution (DSE)~\cite{dart,exe,cute}, is adopted by automatic test case generation tool to explore the feasible paths of the program under test and generate test cases to achieve high coverage. Dynamic symbolic execution (DSE) is a variation of static symbolic execution~\cite{static}. DSE performs a symbolic execution of the program by assigning symbolic variables to each program input and executes the program starting with arbitrary inputs. During the execution, DSE collects symbolic constraints on inputs obtained from predicates in branch statements along the execution. Then a constraint solver is used to compute new inputs in order to execute the program along different execution paths. In this way, all feasible execution paths will be exercised eventually through such iterations of input or path variations. A program under test can be modeled as a control flow graph (CFG)~\cite{testbook}, whose nodes represent simple primitive statements (such as input, output, and assignment) and edges represent the flow of control. An execution path of the program is a path on CFG from the starting node, entry of the program, to the exit node, exit of the program. Thus, to explore all paths of the program under test, i.e. achieving 100\% path coverage, is to enumerate all paths between two nodes in a graph, which is well known as a NP-hard problem. To alleviate this path explosion problem and to reduce the computation complexity, different techniques has been proposed, such as performing symbolic execution compositionally~\cite{compositional}, selective symbolic execution~\cite{selective} and fitness-guided path exploration~\cite{fitness}. In our project, we plan to discuss these techniques and provide example issues that can be solved using these techniques. Additionally, we plan to discuss the existing issues that are still not solved in the area of symbolic execution.}
 \end{enumerate}
