@@ -24,16 +24,16 @@ Class=CLatexEdit
 Document=main.tex
 
 [Frame0_Row0]
-cyCur=533
+cyCur=402
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1173
+cxCur=1053
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=40
-Cursor.column=446
+Cursor.row=32
+Cursor.column=395
 TopSubLine=29
 
 [Frame1]
@@ -61,7 +61,7 @@ cxCur=1011
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=71
+Cursor.row=172
+Cursor.column=18
+TopSubLine=164
 
