@@ -1,11 +1,21 @@
 \begin{thebibliography}{1}
 
+\bibitem{Mobile}
+An approximate algorithm for solving shortest path problems for mobile robots
+  or driver assistance.
+\newblock \url{http://www.mi.auckland.ac.nz/tech-reports/MItech-TR-37.pdf}.
+
 \bibitem{knight}
 New knight's tour puzzles and graphs.
 \newblock \url{http://www.archimedes-lab.org/knight_tour.html}.
 
 \bibitem{cpm}
 Cpm - critical path method, 2002.
+
+\bibitem{Vertex}
+Vertex cover problem studied by cavity method: Analytics and population
+  dynamics, 2003.
+\newblock \url{http://www.springerlink.com/content/tlr4nqx01ae6m33f/}.
 
 \bibitem{path}
 Solving a hamiltonian path problem with a bacterial computer, 2009.

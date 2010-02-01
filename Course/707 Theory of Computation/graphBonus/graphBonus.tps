@@ -24,7 +24,7 @@ Class=CLatexEdit
 Document=graphBonus.tex
 
 [Frame0_Row0]
-cyCur=304
+cyCur=303
 cyMin=10
 
 [Frame0_Col0]
@@ -32,9 +32,9 @@ cxCur=1156
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=27
-Cursor.column=0
-TopSubLine=13
+Cursor.row=31
+Cursor.column=247
+TopSubLine=30
 
 [Frame1]
 Columns=1
@@ -61,7 +61,7 @@ cxCur=1033
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=17
-Cursor.column=60
-TopSubLine=0
+Cursor.row=26
+Cursor.column=12
+TopSubLine=17
 
