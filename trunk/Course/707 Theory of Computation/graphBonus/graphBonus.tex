@@ -4,68 +4,129 @@
 \usepackage{url}
 %\usepackage{amsfonts, amsthm}
 
-\title{Graph Bonus}
-\author{
-Xusheng Xiao\\
-\small{xxiao2@ncsu.edu}\\
-\and
-Xi Ge\\
-\small{xge@ncsu.edu}\\
-\and
-Da Young Lee\\
-\small{dlee10@ncsu.edu}
-}
-\date{January 27, 2010}
-
-
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-
 \begin{document}
-\maketitle
-
 \begin{flushleft}
-\textbf{Clique:}\end{flushleft} 
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Bonus Homework}: Bonus points assignment\\
+\textbf{Author}: Xusheng Xiao(\small{xxiao2@ncsu.edu}), Xi Ge(\small{xge@ncsu.edu}), Da Young Lee(\small{dlee10@ncsu.edu})\\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} Both LaTeX and PDF\\
+\end{flushleft}
 
-\begin{flushleft}
-\textbf{Vertex Cover:}\end{flushleft} We study the vertex cover problem on finite connectivity random graphs by zero-temperature cavity method. The minimum vertex cover corresponds to the ground state(s) of a proposed Ising spin model.\cite{Vertex}
-
-\begin{flushleft}
-\textbf{Independent Set:}\end{flushleft} 
-
-\begin{flushleft}
-\textbf{Dominating Set:}\end{flushleft} 
-
-\begin{flushleft}
-\textbf{Hamiltonian Path}:\end{flushleft} To tour the 10 biggest cities in the UK, starting in London (number 1) and finishing in Bristol (number 10)is an example of finding a Hamilton Path.~\cite{path}
-
-\begin{flushleft}
-\textbf{Hamiltonian Cycle}:\end{flushleft} The ``Knight's Tour''~\cite{knight} is a sequence of moves done by a knight on a chessboard. The knight is placed on an empty chessboard and, following the rules of chess, must visit each square exactly once. The Knight's Tour problem is an instance of the more general Hamiltonian path problem in graph theory. This problem of getting a closed Knight's Tour is similarly an instance of the Hamiltonian cycle problem.
-
-\begin{flushleft}
-\textbf{Shortest Path:}\end{flushleft} Shortest Path is used to identify where shortest paths need to be calculated, for example communications, transportation, and electronics problems or the 3D space ~\cite{Mobile}. 
-
-\begin{flushleft}
-\textbf{Longest Path:}\end{flushleft} Longest path is used to identify critical path in Critical Path Method~\cite{cpm}, a project management method.  is to address the challenge of shutting down chemical plants for maintainance and then restarting the plants once the maintainance had been completed. 
-
-The steps in CPM project planning includes: 
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 AM, Monday, Feb 2nd, 2010}}\\
+\end{center}
+\noindent{\hrulefill}
 \begin{enumerate}
-	\item Specify the individual activities.
-	\item Determine the sequence of those activities.
-	\item Draw a network diagram.
-	\item Estimate the completion time for each activity.
-	\item Identify the critical path (\textbf{longest path through the network})
-	\item Update the CPM diagram as the project progresses.
-\end{enumerate}
+\item \textbf{Clique:}
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:} 
+   \item \textbf{Identification of the corresponding graph problem:} 
+   \item \textbf{Description of the reduction from real to graph problem:} 
+  \end{enumerate}
+  
+\item \textbf{Vertex Cover:}
+  \begin{enumerate}
+   \item \textbf{Description of real-world problem:}\\
+    We study the vertex cover problem on finite connectivity random graphs by zero-temperature cavity method. The minimum vertex cover
+    corresponds to the ground state(s) of a proposed Ising spin model.\cite{Vertex}
+   \item \textbf{Identification of the corresponding graph problem:}\\
+    $VC = \{\langle G,k $ \rangle | $ a graph $G$ has a vertex cover of size $k\}$ \\
+   \item \textbf{Description of the reduction from real to graph problem:} 
+  \end{enumerate}
 
-The critical path is the longest-duration path through the network. The significance of the critical path is that the activities lie on it cannot be delayed without delaying the project.
+\item \textbf{Independent Set:}
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:} 
+   \item \textbf{Identification of the corresponding graph problem:} 
+   \item \textbf{Description of the reduction from real to graph problem:} 
+  \end{enumerate}
+  
+\item \textbf{Dominating Set:}
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:} 
+   \item \textbf{Identification of the corresponding graph problem:} 
+   \item \textbf{Description of the reduction from real to graph problem:} 
+  \end{enumerate}
+  
+\item \textbf{Hamiltonian Path:} 
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:}\\
+    To tour the 10 biggest cities in the UK, starting in London (number 1) and finishing in Bristol (number 10)is an example of finding a
+    Hamilton Path.~\cite{path}
+   \item \textbf{Identification of the corresponding graph problem:} 
+   \item \textbf{Description of the reduction from real to graph problem:} 
+  \end{enumerate}
+  
+\item \textbf{Hamiltonian Cycle:} 
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:}\\
+    The `Knight's Tour'~\cite{knight} is a sequence of moves done by a knight on a chessboard. The knight is placed on an empty chessboard
+    and, following the rules of chess, must visit each square exactly once. The Knight's Tour problem is an instance of the more general
+    Hamiltonian path problem in graph theory. This problem of getting a closed Knight's Tour is similarly an instance of the Hamiltonian
+    cycle problem.
+   \item \textbf{Identification of the corresponding graph problem:} 
+   \item \textbf{Description of the reduction from real to graph problem:} 
+ \end{enumerate}
+
+\item \textbf{Shortest Path:} 
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:}\\
+    Shortest Path is used to identify where shortest paths need to be calculated, for example communications, transportation, and electronics
+    problems or the 3D space ~\cite{Mobile}.
+   \item \textbf{Identification of the corresponding graph problem:}\\
+    The shortest path problem is the problem of finding a path between two nodes such that the sum of the weights of its constituent edges
+    is minimized
+   \item \textbf{Description of the reduction from real to graph problem:}\\   
+  \end{enumerate}
+ 
+\item \textbf{Longest Path:} 
+ \begin{enumerate}
+   \item \textbf{Description of real-world problem:}\\
+    Longest path is used to identify critical path in Critical Path Method~\cite{cpm}, a project
+    management method. It is to address the challenge of shutting down chemical plants for maintainance and then restarting the plants once
+    the maintainance had been completed. 
+   \item \textbf{Identification of the corresponding graph problem:}\\
+    The longest path problem is the problem of finding a simple path of maximum length in a given graph.
+   \item \textbf{Description of the reduction from real to graph problem:}\\
+    The steps in CPM project planning includes: 
+    \begin{enumerate}
+	    \item Specify the individual activities.
+	    \item Determine the sequence of those activities.
+	    \item Draw a network diagram.
+	    \item Estimate the completion time for each activity.
+	    \item Identify the critical path (\textbf{longest path through the network})
+	    \item Update the CPM diagram as the project progresses.
+    \end{enumerate}
+    The critical path is the longest-duration path through the network. The significance of the critical path is that the activities lie on
+    it cannot be delayed without delaying the project.
+ \end{enumerate}
+\end{enumerate}
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+
+%\title{Graph Bonus}
+%\author{
+%Xusheng Xiao\\
+%\small{xxiao2@ncsu.edu}\\
+%\and
+%Xi Ge\\
+%\small{xge@ncsu.edu}\\
+%\and
+%Da Young Lee\\
+%\small{dlee10@ncsu.edu}
+%}
+%\date{January 27, 2010}
+%\maketitle
+%\newcommand{\N}{\mathbb{N}}
+%\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\R}{\mathbb{R}}
+%\begin{document}
+%\maketitle
 
 %\begin{flushleft}
 %\textbf{Hamilton Path}:\end{flushleft} To tour the 10 biggest cities in the UK, starting in London (number 1) and finishing in Bristol (number 10)is an example of finding a Hamilton Path.~\cite{path}
 %
 %\begin{flushleft}
 %\textbf{Hamilton Cycle}:\end{flushleft} The ``Knight's Tour''~\cite{knight} is a sequence of moves done by a knight on a chessboard. The knight is placed on an empty chessboard and, following the rules of chess, must visit each square exactly once. The Knight's Tour problem is an instance of the more general Hamiltonian path problem in graph theory. This problem of getting a closed Knight's Tour is similarly an instance of the Hamiltonian cycle problem.
-\bibliographystyle{plain}
-\bibliography{references}
-\end{document}
