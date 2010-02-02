@@ -6,7 +6,7 @@ Version=4
 MainFile=graphBonus.tex
 UseBibTeX=1
 UseMakeIndex=1
-ActiveProfile=LaTeX => PS => PDF
+ActiveProfile=LaTeX => DVI
 ProjectLanguage=
 ProjectDialect=
 
