@@ -32,13 +32,25 @@
 \item \textbf{Vertex Cover:}
   \begin{enumerate}
    \item \textbf{Description of real-world problem:}\\
-    We study the vertex cover problem on finite connectivity random graphs by zero-temperature cavity method. The minimum vertex cover
-    corresponds to the ground state(s) of a proposed Ising spin model.\cite{Vertex}
-   \item \textbf{Identification of the corresponding graph problem:}\\
-    $VC$ = $\{\langle $G,k $ \rangle | $ a graph $G$ has a vertex cover of size $k\}$
+   We study the group of people in a party to find people who
+   know all other people in the party. The minimum vertex cover problem
+   is to find the minimum number of people who know all other people.
+   
+      \item \textbf{Identification of the corresponding graph problem:}\\
+    $VC$ = $\{\langle $G,k $ \rangle | $ a graph $G$ has a vertex cover of size $k\}$. 
+    Given a graph, a vertex cover is a set $S$ of vertices and every edge (of the graph) should be incident to at least one vertex $v$ ($v$ $\in$ $S$).
    \item \textbf{Description of the reduction from real to graph problem:}\\
+       The steps in resolving the vertex cover problem to find people who know all other people includes: 
+    \begin{enumerate}
+	    \item Specify vertices, each of which represents an individual person.
+	    \item Specify edges, each of which represents relation of two persons such that one person knows another person.
+	    \item Given vertices and edges, draw a relation diagram.
+	    \item Given a graph, resolve the vertex cover problem to find a set of people who know all the people in the party.
+    \end{enumerate}
+    Given the preceding example, the vertex cover problem may help a party organizer
+    find people who know all the other people.
   \end{enumerate}
-
+  
 \item \textbf{Independent Set:}
 \begin{enumerate}
  		\item\textbf{Description of real-world problem:} \\
@@ -87,18 +99,31 @@
     A Hamiltonian cycle (or Hamiltonian circuit) is a cycle in an undirected graph which visits each vertex exactly once and also returns to the starting vertex.
    \item \textbf{Description of the reduction from real to graph problem:}\\
     Give a chess borad, we can draw a graph from the path of a Knight's Tour: each vertex of the graph represents a square of the board and each edge represents a knight's move. The way to visit each square and have the knight finishing on a square which is just a move away from the starting square create a tour that is described as 're-entrant' or 'closed'. Such a tour is a Hamiltonian Cycle.
-  \end{enumerate}  
+  \end{enumerate}
+  
+  
 \item \textbf{Shortest Path:} 
 \begin{enumerate}   
    \item \textbf{Description of real-world problem:}\\
-    The shortest Path is used to find where shortest paths between two places, etc. That application field is communications,transportation,
-    ,electronics and 2D or 3D space. Specially, we introduce this problem to find the the shortest path between two places is of significant
-    for mobile robots,also to identify unique paths in a given surrounding region in 3D space~\cite{Mobile}.
+    The shortest path problem is often used to find the shortest path between two locations (e.g., cities).
+    Consider a map includes multiple cities and some of these cities are connected with roads.
+    Given two cities over the map, there could be many paths between the two cites.
+    A navigation system calculates which path is the shortest path (among all the possible paths) to help
+    guide the best path in terms of length.    
+
    \item \textbf{Identification of the corresponding graph problem:}\\
-    To find the shortest path in a graph from one nodes(or vertex) to another. The "Shortest" meaning is the least number of edges, least
-    total weight.    
+    To find the shortest path is to find a path least with
+    total weight (of edges) from one vertex to another vertex in a given graph.
    \item \textbf{Description of the reduction from real to graph problem:}\\
-    In this problem, we are used 
+    The steps in resolving the shortest path problem between two locations (e.g., cities) includes: 
+    \begin{enumerate}
+	    \item Specify vertices representing locations.
+	    \item Specify edges with weights, each of which represents length of roads of connected locations (i.e., vertices).
+	    \item Given vertices and edges, draw a location diagram.
+	    \item Given two locations, find the shortest path of the two locations over a location diagram.
+    \end{enumerate}
+    The shortest path is the shortest-length path through the diagram. The significance of the shortest path problem is that a user
+    can move from one location to another location through the shorted path, which is a path with least length of roads.
    
 \end{enumerate}
  
