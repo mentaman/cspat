@@ -16,26 +16,56 @@
 \end{center}
 \noindent{\hrulefill}
 \begin{enumerate}
-\item \textbf{Clique:}\textbf{Description of real-world problem:}\\ 
+\item \textbf{Clique:}
+	\begin{enumerate}
+	\item\textbf{Description of real-world problem:}\\ 
    we study the people in a party to find out groups that every two persons in a group know each other. 
-  
+  \item \textbf{Identification of the corresponding graph problem:}\\
+  $CKIQUE$=$\{\langle $G,k $ \rangle | $ a graph $G$ has a clique of size $k\}$ 
+  \item \textbf{Description of the reduction from real to graph problem:}
+  	\begin{enumerate}
+		\item represent each person as a vertex in graph.
+		\item if two people know each other create an edge between them.
+		\item the group that each two persons know each other could be reduced to the clique in this graph.
+		\end{enumerate}
+	\end{enumerate}	  
 \item \textbf{Vertex Cover:}
   \begin{enumerate}
    \item \textbf{Description of real-world problem:}\\
     We study the vertex cover problem on finite connectivity random graphs by zero-temperature cavity method. The minimum vertex cover
     corresponds to the ground state(s) of a proposed Ising spin model.\cite{Vertex}
    \item \textbf{Identification of the corresponding graph problem:}\\
-    $VC$ = $\{\langle $G,k $ \rangle | $ a graph $G$ has a vertex cover of size $k\}$ \\
+    $VC$ = $\{\langle $G,k $ \rangle | $ a graph $G$ has a vertex cover of size $k\}$
    \item \textbf{Description of the reduction from real to graph problem:}\\
   \end{enumerate}
 
 \item \textbf{Independent Set:}
- 	\textbf{Description of real-world problem:} \\
-   	We study the people in the party to find out group that no two people in it know each other.
-  
-\item \textbf{Dominating Set:} \textbf{Description of real-world problem:}\\ 
-   We study the group of people in a party that every people in the party knows at least one people in the group. 
-  
+\begin{enumerate}
+ 		\item\textbf{Description of real-world problem:} \\
+   		We study the people in the party to find out group that no two people in it know each other.
+  	\item\textbf{Identification of the corresponding graph problem:}\\
+  		$IS$=$\{\langle $G,k $ \rangle | $ a graph $G$ has an independent set of size $k\}$
+  	\item \textbf{Description of the reduction from real to graph problem:}	
+  		\begin{enumerate}
+			\item represent each person as a vertex.
+			\item if two people know each other, draw a edge between them.
+			\item finding the group that no two people know each other could be reduced to finding the independent set of this graph.
+			\end{enumerate}
+  	
+\end{enumerate}
+\item \textbf{Dominating Set:} 
+	\begin{enumerate}
+		\item\textbf{Description of real-world problem:}\\ 
+   		We study the group of people in a party that every people in the party knows at least one people in the group. 
+  	\item\textbf{Identification of the corresponding graph problem:}\\
+  		$DS$=$\{\langle $G,k $ \rangle | $ a graph $G$ has a dominating set of size $k\}$
+  	\item
+  		\begin{enumerate}
+				\item represent each person as a vertex in a graph.
+				\item if two people know each other, creat an edge between these two nodes.
+				\item finding the group that everyone in the party knows at least one people in the group could be reduced to finding the dominating set of the graph.
+			\end{enumerate}
+	\end{enumerate}
 \item \textbf{Hamiltonian Path:} 
 \begin{enumerate}
 	\item \textbf{Description of real-world problem:}\\
