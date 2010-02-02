@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.15)  1 FEB 2010 20:19
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2010.1.15)  1 FEB 2010 20:28
 entering extended mode
-**graphBonus.tex
-("C:\Documents and Settings\Xi Ge\Desktop\707\graphBonus\graphBonus.tex"
+**C:/Documents*and*Settings/Xi*Ge/Desktop/707/graphBonus/graphBonus.tex
+("C:/Documents and Settings/Xi Ge/Desktop/707/graphBonus/graphBonus.tex"
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman, ngerman, german-x-2009-06-19, ngerman-x-2009-06-19, french, loaded.
@@ -57,24 +57,19 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 9.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 36.
+(Font)              <7> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 36.
+(Font)              <5> on input line 28.
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--37
+Underfull \hbox (badness 10000) in paragraph at lines 27--29
 
  []
 
 [1
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
-
- []
-
+{C:/Documents and Settings/All Users.WINDOWS/Application Data/MiKTeX/2.8/pdftex
+/config/pdftex.map}]
 ("C:\Documents and Settings\Xi Ge\Desktop\707\graphBonus\graphBonus.bbl"
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
@@ -85,12 +80,22 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )) [2]
 ("C:\Documents and Settings\Xi Ge\Desktop\707\graphBonus\graphBonus.aux") ) 
 Here is how much of TeX's memory you used:
- 391 strings out of 495286
- 5184 string characters out of 3180363
+ 395 strings out of 495285
+ 5197 string characters out of 3180340
  53486 words of memory out of 3000000
- 3652 multiletter control sequences out of 15000+200000
- 7778 words of font info for 23 fonts, out of 3000000 for 9000
+ 3650 multiletter control sequences out of 15000+200000
+ 11928 words of font info for 27 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 23i,5n,19p,193b,253s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,5n,19p,248b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
+{d:/
+Program Files/MiKTeX 2.8/fonts/enc/dvips/fontname/8r.enc}<d:/Program Files/MiKT
+eX 2.8/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/Program Files/MiKTeX 2.8/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><d:/Program Files/MiKTeX 2.8/fonts/typ
+e1/urw/courier/ucrr8a.pfb><d:/Program Files/MiKTeX 2.8/fonts/type1/urw/times/ut
+mb8a.pfb><d:/Program Files/MiKTeX 2.8/fonts/type1/urw/times/utmr8a.pfb>
+Output written on graphBonus.pdf (2 pages, 68420 bytes).
+PDF statistics:
+ 30 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on graphBonus.dvi (2 pages, 10888 bytes).
