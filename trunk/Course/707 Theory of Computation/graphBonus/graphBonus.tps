@@ -33,6 +33,6 @@ cxMin=10
 
 [Frame0_View0,0]
 Cursor.row=33
-Cursor.column=81
+Cursor.column=16
 TopSubLine=23
 
