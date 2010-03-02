@@ -1,0 +1,7 @@
+Please use ant to build the source files first. Compilation requires the support of Java 5 or later version.
+
+ice9 is the shell to start my program.
+
+You can use my program like this: "ice9 < bsort.9.txt".
+
+The program output nothing when the input pass the parsing and output error messages when lexer or parser reports errors.
