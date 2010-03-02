@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<project name="ice9" default="compile" basedir=".">
+
+	<property name="src" value="src" />
+	<property name="build" value="build" />
+
+	<target name="init">
+		<delete dir="${build}" />
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<!-- Compile the java code -->
+
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+</project>

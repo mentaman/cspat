@@ -1,0 +1,68 @@
+ /**
+ * JavaCC file
+ */options{  JDK_VERSION = "1.5";}PARSER_BEGIN(Ice9Parser)public class Ice9Parser{  public static boolean isDebug = false;  public static void debug(String text)  {    if (isDebug)    {      System.out.println(text);    }  }  public static void debug()  {    System.out.println();  }  public static void main(String args []) throws ParseException, java.io.IOException  {    Ice9Parser parser = null;    try    {      parser = new Ice9Parser(System.in);      //      System.out.println("Reading from file " + "dice/test1.9");
+      parser.program();      //      System.out.println("successfully");    }    //    catch (java.io.FileNotFoundException e)    //    {    //      System.out.println("Ice9 Parser:  File not found.");    //      return;    //    }    catch (TokenMgrError e)    {      //      System.out.println(e.getMessage());
+      String message = e.getMessage();      int lineIndex = message.indexOf("line");      int commaIndex = message.indexOf(",");      int quoteIndex = message.indexOf("\"");      int lineNbr = Integer.parseInt(message.substring(lineIndex + 5, commaIndex));      String t = message.substring(quoteIndex + 1, message.length() - 1);      System.out.println("line " + lineNbr + ": illegal character (" + t + ")");    }    catch (ParseException e)    {      Token t = e.currentToken;      int line = t.next.beginLine;      String value = t.image;      if (value == null)      {        value = "";      }      System.out.println("line " + line + ": syntax error near " + value);      //      System.out.println(e.getMessage());    }    catch (Exception e)    {      System.out.println(e.getMessage());    }    catch (Error e)    {      System.out.println(e.getMessage());    }    //    for (int i = 1; i <= 5; i++)    //    {    //      try    //      {    //        System.out.println("parsing " + "Project1_TestCases/lv_" + i + ".9");    //        parser.ReInit(new java.io.FileInputStream("Project1_TestCases/lv_" + i + ".9"));    //        parser.program();    //        System.out.println("successfully");    //      }    //      catch (java.io.FileNotFoundException e)    //      {    //        System.out.println("Ice9 Parser:  File not found.");    //        return;    //      }    //      catch (TokenMgrError e)    //      {    //        //      System.out.println(e.getMessage());    //        String message = e.getMessage();    //        int lineIndex = message.indexOf("line");    //        int commaIndex = message.indexOf(",");    //        int quoteIndex = message.indexOf("\"");    //        int lineNbr = Integer.parseInt(message.substring(lineIndex + 5, commaIndex));    //        String t = message.substring(quoteIndex + 1, message.length() - 1);    //        System.out.println("line " + lineNbr + ": illegal character (" + t + ")");    //        System.out.println(message);    //      }    //      catch (ParseException e)    //      {    //        Token t = e.currentToken;    //        int line = t.next.beginLine;    //        String value = t.image;    //        if (value == null)    //        {    //          value = "";    //        }    //        System.out.println("line " + line + ": syntax error near " + value);    //        //        System.out.println(e.getMessage());    //      }    //      catch (Exception e)    //      {    //        System.out.println(e.getMessage());    //      }    //      catch (Error e)    //      {    //        System.out.println(e.getMessage());    //      }  }}PARSER_END(Ice9Parser)SKIP :{  " "| "\r"| "\t"| "\n"| "\r\n"}SPECIAL_TOKEN :{  < SINGLE_LINE_COMMENT :    "#" (~[ "\n", "\r" ])*    (      "\n"    | "\r"    | "\r\n"    )? >}TOKEN :{  < VAR : "var" >| < PROC : "proc" >| < END : "end" >| < RETURN : "return" >| < READ : "read" >| < WRITE : "write" >| < WRITES : "writes" >| < FORWARD : "forward" >| < TYPE : "type" >| < RARROW : "->" >}TOKEN : /*if*/{  < IF : "if" >| < ELSE : "else" >| < FI : "fi" >| < LR : "[]" >}TOKEN : /*do*/{  < DO : "do" >| < OD : "od" >}TOKEN : /*fa*/{  < FA : "fa" >| < AF : "af" >| < TO : "to" >}TOKEN : /*stm*/{  < BREAK : "break" >| < EXIT : "exit" >}TOKEN :{  < TRUE : "true" >| < FALSE : "false" >}/*
+id	-> [A-Za-z][A-Za-z0-9_]*
+int	-> [0-9]+
+string  -> "[^"\n]*" 		# double-quoted string: any char but " and \n
+	-> '[^'\n]*'            # single-quoted string: any char but ' and \n
+*/TOKEN : /* Three complex tokens */{  < ID :    < LETTER >    (      < LETTER >    | < UNDERSCORE >    | < DIGIT >    )* >| < INT : (< DIGIT >)+ >| < STRING :    "\"" (~[ "\"", "\n" ])* "\""  | "'" (~[ "'", "\n" ])* "'" >| < #DIGIT : [ "0"-"9" ] >| < #LETTER : [ "a"-"z", "A"-"Z" ] >| < #UNDERSCORE : "_" >}TOKEN : /* OPERATORS */{  < PLUS : "+" >| < MINUS : "-" >| < MULTIPLY : "*" >| < DIVIDE : "/" >| < MOD : "%" >| < EQUAL : "=" >| < NOTEQUAL : "!=" >| < GREATERTHAN : ">" >| < LESSTHAN : "<" >| < NOTLESSTHAN : ">=" >| < NOTGREATERTHAN : "<=" >}TOKEN :{  < COLON : ":" >| < ASSIGN : ":=" >| < COMMA : "," >| < LBRACE : "[" >| < RBRACE : "]" >| < LPAREN : "(" >| < RPAREN : ")" >| < QUESTION : "?" >| < SEMICOLON : ";" >}/*
+program	-> {var|type|forward|proc} stms
+*/void program() :{}{  (    var()  | type()  | forward()  | proc()  )*  stms()  { //System.out.println("successfully!");
+  }  < EOF >}void tokenTest() :{  Token t;}{  t = < STRING >  {    debug("parsing string: " + t.image);  }  < EOF >}void typeid() :{  debug("in type id");}{  < ID >}String op() :{  debug("in op");  Token t;}{  (    t = < PLUS >  | t = < MINUS >  | t = < MULTIPLY >  | t = < DIVIDE >  | t = < MOD >  )  {    return t.image;  }}/*idlist  -> id { ',' id}*/void idlist() :{  debug("in IdList");}{  < ID > (< COMMA > < ID >)*}/*
+stms	-> stm { stm }		# there is at least one stm
+
+stm	-> if | do | fa | 'break' ';' | 'exit' ';'
+	-> 'return' ';'
+	-> 'write' exp ';' | 'writes' exp ';'
+	-> exp ';'		# any exp is valid
+	-> ';'			# the "empty" statement
+*/void stms() :{}{  (    stm()  )+}void stm() :{}{  otherstm()| ifstm()}void otherstm() :{  debug("in other");}{  dostm()| fa()| < BREAK > < SEMICOLON >| < EXIT > < SEMICOLON >| < RETURN > < SEMICOLON >| < WRITE > noAssignExp() < SEMICOLON >| < WRITES > noAssignExp() < SEMICOLON >| exp() < SEMICOLON > // any exp is valid
+| < SEMICOLON > // the "empty" statement
+}/*
+if	-> 'if' exp '->' stms { '[]' exp '->' stms } 'fi'
+	-> 'if' exp '->' stms { '[]' exp '->' stms } '[]' 'else' '->' stms 'fi'
+*/void ifstm() :{  debug("if()");}{  < IF > noAssignExp() < RARROW > stms()  (    LOOKAHEAD(2)    < LR > noAssignExp() < RARROW > stms()  )*  [    LOOKAHEAD(2)    < LR > < ELSE > < RARROW > stms()  ]  < FI >}/*
+do	-> 'do' exp '->' stms 'od'
+*/void dostm() :{  debug("do()");}{  < DO > noAssignExp() < RARROW > stms() < OD >}/*
+fa	-> 'fa' id ':=' exp 'to' exp '->' stms 'af'
+*/void fa() :{  debug("fa()");}{  < FA > < ID > < ASSIGN > noAssignExp() < TO > noAssignExp() < RARROW > stms() < AF >}/*
+proc	-> 'proc' id '(' declist ')'
+		{type|var} {stm} 'end'
+	-> 'proc' id '(' declist ')' ':' typeid 
+		{type|var} {stm} 'end'
+*/void proc() :{  debug("proc()");}{  < PROC > < ID > < LPAREN > declist() < RPAREN > [ < COLON > typeid() ]  (    type()  | var()  )*  (    stm()  )*  < END >}/*var	-> 'var' varlist
+varlist  -> idlist ':' typeid { '[' int ']' } { ',' varlist}*/void varlist() :{  debug("varlist()");}{  idlist() < COLON > typeid() (< LBRACE > < INT > < RBRACE >)*  (    LOOKAHEAD(2)    < COMMA > varlist()  )*}void var() :{  debug("var()");}{  < VAR > varlist()}/*
+forward -> 'forward' id '(' declist ')'
+	-> 'forward' id '(' declist ')' ':' typeid
+declist	-> idlist ':' typeid { ',' declist }
+	->			# empty
+*/void declist() :{  debug("declist()");}{  idlist() < COLON > typeid()  (    LOOKAHEAD(2)    < COMMA > declist()  )*|  {}}void forward() :{  debug("forward()");}{  < FORWARD > < ID > < LPAREN > declist() < RPAREN > [ ":" typeid() ]}/* type	-> 'type' id '=' typeid { '[' int ']' } */void type() :{  debug("type()");}{  < TYPE > < ID > < EQUAL > typeid() (< LBRACE > < INT > < RBRACE >)*}/*
+lvalue	-> id | lvalue '[' exp ']'
+*/void lvalue() :{  debug("lvalue()");}{  < ID >  (    < LBRACE > noAssignExp() < RBRACE >  )*}/*
+exp	-> lvalue
+	-> lvalue ':=' exp
+	-> int				# integer literal
+	-> 'true'			# boolean literal
+	-> 'false'			# boolean literal
+	-> string
+	-> 'read'
+	-> '-' exp
+	-> '?' exp
+	-> id '(' ')'			# procedure call
+	-> id '(' exp { ',' exp } ')'	# procedure call
+	-> exp '+' exp
+	-> exp '-' exp
+	-> exp '*' exp
+	-> exp '/' exp
+	-> exp '%' exp
+	-> exp '=' exp
+	-> exp '!=' exp
+	-> exp '>' exp
+	-> exp '<' exp
+	-> exp '>=' exp
+	-> exp '<=' exp
+	-> '(' exp ')'
+*/void compareOp() :{}{  < EQUAL >| < NOTEQUAL >| < GREATERTHAN >| < LESSTHAN >| < NOTGREATERTHAN >| < NOTLESSTHAN >}void Additive() :{}{  Times()  (    LOOKAHEAD(2)    (      < PLUS >    | < MINUS >    | < MOD >    )    Times()  )*}void Times() :{}{  PrefixExp()  (    LOOKAHEAD(2)    (      < MULTIPLY >    | < DIVIDE >    )    PrefixExp()  )*}void PrefixExp() :{}{  Unary()| PrimaryExp()}void Unary() :{}{  (    < MINUS >  | < QUESTION >  )  PrimaryExp()}void PrimaryExp() :{}{  < INT >| < TRUE >| < FALSE >| < STRING >| < READ >| < LPAREN > noAssignExp() < RPAREN >| LOOKAHEAD(procedureCall())  procedureCall()| lvalue()}void procedureCall() :{}{  < ID > < LPAREN >  [    noAssignExp()    (      < COMMA > noAssignExp()    )*  ]  < RPAREN >}void associateExp() :{}{  //  (  //    < INT >  //  | < TRUE >  //  | < FALSE >  //  | < STRING >  //  | < READ >  //  | < MINUS > exp()  //  | < QUESTION > exp()  //  | < LPAREN > exp() < RPAREN >  //  | < ID >  //    (  //      < LPAREN >  //      [  //        exp()  //        (  //          < COMMA > exp()  //        )*  //      ]  //      < RPAREN >  //    |  //      (  //        < LBRACE > exp() < RBRACE >  //      )*  //      [ < ASSIGN > exp() ]  //    )  //  )  //  (  //    LOOKAHEAD(2)  //    op() exp()  //  )*
+  Additive()}void exp() :{  debug("exp()");}{  LOOKAHEAD(lvalue() < ASSIGN > noAssignExp())  lvalue() < ASSIGN > noAssignExp()| noAssignExp()}void noAssignExp() :{}{  associateExp() [ compareOp() associateExp() ]}
