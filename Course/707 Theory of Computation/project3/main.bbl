@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{prune}
 S\'{e}bastien Bardin and Philippe Herrmann.
@@ -19,6 +19,11 @@ Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
 \newblock Exe: automatically generating inputs of death.
 \newblock In {\em CCS '06: Proceedings of the 13th ACM conference on Computer
   and communications security}, pages 322--335, New York, NY, USA, 2006. ACM.
+
+\bibitem{peephole}
+V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
+\newblock {Peephole Partial Order Reduction}.
+\newblock In {\em TACAS}, 2008.
 
 \bibitem{compositional}
 Patrice Godefroid.
@@ -46,6 +51,21 @@ B.~Marre N.~Williams and P.~Mouy.
 M.~Y.~Levin P.~Godefroid and D.Molnar.
 \newblock {Automated Whitebox Fuzz Testing}.
 \newblock In {\em NDSS}, 2008.
+
+\bibitem{allpath}
+N.Williams P.Mouy, B.Marre and P.~Le Gall.
+\newblock {Generation of All-Paths Unit Test with Function Calls.}
+\newblock In {\em ICST}, 2008.
+
+\bibitem{demand}
+P.~Godefroid S.~Anand and N.~Tillmann.
+\newblock {Demand-Driven Compositional Symbolic Execution}.
+\newblock In {\em TACAS}, 2008.
+
+\bibitem{distribute}
+K.~Sen and G.~Agha.
+\newblock {Automated Systematic Testing of Open Distributed Programs}.
+\newblock In {\em FASE}, 2006.
 
 \bibitem{cute}
 Koushik Sen, Darko Marinov, and Gul Agha.
