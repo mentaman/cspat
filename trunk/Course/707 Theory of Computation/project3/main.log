@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2010.3.9)  9 MAR 2010 23:01
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2010.3.9)  9 MAR 2010 23:06
 entering extended mode
 **main.tex
 (main.tex
@@ -64,16 +64,16 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 
-(introduction.tex) (prune.tex) (main.bbl [1
+(introduction.tex) (prune.tex) (fitness.tex) (main.bbl [1
 
 ]) [2] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 382 strings out of 95305
- 3992 string characters out of 1183098
+ 385 strings out of 95305
+ 4017 string characters out of 1183098
  52458 words of memory out of 1500000
  3635 multiletter control sequences out of 110000
  10834 words of font info for 32 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  23i,7n,19p,931b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.dvi (2 pages, 4864 bytes).
+Output written on main.dvi (2 pages, 5420 bytes).
