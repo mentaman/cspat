@@ -1,0 +1,16 @@
+\section{Pruning Search Space of Symbolic Execution}
+Recent and impressive progress in constraint solvers as well as the combination of both concrete and symbolic execution (referred as concolic execution~\cite{cute,compositional} or mixed execution~\cite{mixed}) make it possible to perform automatic path-based testing on large scale programs. However, these technologies are still suffering from two major bottlenecks: efficient constraint solving and the path explosion phenomenon. S\'{e}bastien Bardin and Philippe Herrmann~\cite{prune} focus on the second issue and propose three complementary heuristics geared toward lowering path explosion. All these heuristics deal with different distinct sources of path explosion. 
+
+To cover all paths of a program is not the primarily objective of current testing practices. Often the case, it is only required to fully cover a class of structural artifacts of the program code source, such as statements, branches or atomic predicates. In the rest of the section, we denote these three classes of artifacts as structural coverage. There is an obvious mismatch between path-based approaches and such item coverage goals: while each new test data does cover a new path, it may hit no new item. Thus, path-based testing methods tend to waste a lot of time trying to compute irrelevant test data, i.e. test data exercising no new structural coverage. To address the path explosion issue in path-based testing with item coverage objectives, they provide three heuristics to discard irrelevant paths as much as possible, reducing of the number of solver calls and the whole computation time. 
+
+\subsection{Look-Ahead heuristic}
+The key idea of the Look-Ahead heuristic (LA) is to perform a reachability analysis in terms of reachable items in the CFG, and decide whether the current
+path must be expanded based on the reachability analysis. If no new items can be reached, then exploration along the current path is stopped.
+
+\subsection{Max-CallDepth (MCD) heuristic}
+Function calls, and especially nested function calls, are a major source of path explosion. It is all the more embarrassing when only the top-level function is of
+interest. For example, it may be the case that the procedure explores alternative (long) paths due to backtrack in deep callees while a simple backtrack at top-level would be sufficient. Running example of figure 3 gives such a behaviour.
+
+
+
+\subsection{Solve-First (SF) heuristic}
