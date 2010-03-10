@@ -3,9 +3,7 @@
 \bibitem{prune}
 S\'{e}bastien Bardin and Philippe Herrmann.
 \newblock {Pruning the Search Space in Path-Based Test Generation}.
-\newblock In {\em ICST '09: Proceedings of the 2009 International Conference on
-  Software Testing Verification and Validation}, pages 240--249, Washington,
-  DC, USA, 2009. IEEE Computer Society.
+\newblock In {\em ICST}, 2009.
 
 \bibitem{mixed}
 Cristian Cadar and Dawson Engler.
@@ -17,8 +15,7 @@ Cristian Cadar and Dawson Engler.
 Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
   Engler.
 \newblock Exe: automatically generating inputs of death.
-\newblock In {\em CCS '06: Proceedings of the 13th ACM conference on Computer
-  and communications security}, pages 322--335, New York, NY, USA, 2006. ACM.
+\newblock In {\em CCS}, 2006.
 
 \bibitem{peephole}
 V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
@@ -28,9 +25,7 @@ V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
 \bibitem{compositional}
 Patrice Godefroid.
 \newblock {Compositional Dynamic Test Generation}.
-\newblock In {\em POPL '07: Proceedings of the 34th annual ACM SIGPLAN-SIGACT
-  symposium on Principles of programming languages}, pages 47--54, New York,
-  NY, USA, 2007. ACM.
+\newblock In {\em POPL}, 2007.
 
 \bibitem{dart}
 Patrice Godefroid, Nils Klarlund, and Koushik Sen.
@@ -70,9 +65,6 @@ K.~Sen and G.~Agha.
 \bibitem{cute}
 Koushik Sen, Darko Marinov, and Gul Agha.
 \newblock Cute: a concolic unit testing engine for c.
-\newblock In {\em ESEC/FSE-13: Proceedings of the 10th European software
-  engineering conference held jointly with 13th ACM SIGSOFT international
-  symposium on Foundations of software engineering}, pages 263--272, New York,
-  NY, USA, 2005. ACM.
+\newblock In {\em ESEC/FSE}, 2005.
 
 \end{thebibliography}
