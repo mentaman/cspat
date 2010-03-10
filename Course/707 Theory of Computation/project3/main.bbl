@@ -13,12 +13,39 @@ Cristian Cadar and Dawson Engler.
   Itself}.
 \newblock In {\em SPIN}, 2005.
 
+\bibitem{exe}
+Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
+  Engler.
+\newblock Exe: automatically generating inputs of death.
+\newblock In {\em CCS '06: Proceedings of the 13th ACM conference on Computer
+  and communications security}, pages 322--335, New York, NY, USA, 2006. ACM.
+
 \bibitem{compositional}
 Patrice Godefroid.
 \newblock {Compositional Dynamic Test Generation}.
 \newblock In {\em POPL '07: Proceedings of the 34th annual ACM SIGPLAN-SIGACT
   symposium on Principles of programming languages}, pages 47--54, New York,
   NY, USA, 2007. ACM.
+
+\bibitem{dart}
+Patrice Godefroid, Nils Klarlund, and Koushik Sen.
+\newblock Dart: directed automated random testing.
+\newblock In {\em PLDI}, pages 213--223, 2005.
+
+\bibitem{hybrid}
+R.~Majumdar and K.~Sen.
+\newblock {Hybrid Concolic Testing}.
+\newblock In {\em ICSE}, 2007.
+
+\bibitem{onthefly}
+B.~Marre N.~Williams and P.~Mouy.
+\newblock {On-the-Fly Generation of K-Path Tests for C Functions}.
+\newblock In {\em ASE}, 2004.
+
+\bibitem{fuzz}
+M.~Y.~Levin P.~Godefroid and D.Molnar.
+\newblock {Automated Whitebox Fuzz Testing}.
+\newblock In {\em NDSS}, 2008.
 
 \bibitem{cute}
 Koushik Sen, Darko Marinov, and Gul Agha.
