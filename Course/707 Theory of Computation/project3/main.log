@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2010.3.9)  9 MAR 2010 23:39
+This is pdfTeX, Version 3.1415926-1.40.9 (MiKTeX 2.7) (preloaded format=latex 2010.3.9)  9 MAR 2010 23:41
 entering extended mode
 **main.tex
 (main.tex
@@ -99,14 +99,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 19.
 File: fig/mcd.eps Graphic file (type eps)
  <fig/mcd.eps>) (fitness.tex)
-(main.bbl [2]) [3] (main.aux) ) 
+(selective.tex) (main.bbl [2]) [3] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 706 strings out of 95305
- 7718 string characters out of 1183098
+ 709 strings out of 95305
+ 7749 string characters out of 1183098
  56954 words of memory out of 1500000
  3935 multiletter control sequences out of 110000
  10834 words of font info for 32 fonts, out of 3000000 for 5000
  14 hyphenation exceptions out of 8191
  25i,7n,19p,714b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.dvi (3 pages, 8696 bytes).
+Output written on main.dvi (3 pages, 8748 bytes).
