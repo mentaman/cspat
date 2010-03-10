@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{prune}
+S\'{e}bastien Bardin and Philippe Herrmann.
+\newblock {Pruning the Search Space in Path-Based Test Generation}.
+\newblock In {\em ICST '09: Proceedings of the 2009 International Conference on
+  Software Testing Verification and Validation}, pages 240--249, Washington,
+  DC, USA, 2009. IEEE Computer Society.
+
+\bibitem{mixed}
+Cristian Cadar and Dawson Engler.
+\newblock {Execution Generated Test Cases: How to Make Systems Code Crash
+  Itself}.
+\newblock In {\em SPIN}, 2005.
+
+\bibitem{compositional}
+Patrice Godefroid.
+\newblock {Compositional Dynamic Test Generation}.
+\newblock In {\em POPL '07: Proceedings of the 34th annual ACM SIGPLAN-SIGACT
+  symposium on Principles of programming languages}, pages 47--54, New York,
+  NY, USA, 2007. ACM.
+
+\bibitem{cute}
+Koushik Sen, Darko Marinov, and Gul Agha.
+\newblock Cute: a concolic unit testing engine for c.
+\newblock In {\em ESEC/FSE-13: Proceedings of the 10th European software
+  engineering conference held jointly with 13th ACM SIGSOFT international
+  symposium on Foundations of software engineering}, pages 263--272, New York,
+  NY, USA, 2005. ACM.
+
+\end{thebibliography}
