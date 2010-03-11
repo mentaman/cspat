@@ -8,7 +8,7 @@ The second issue is related to symbolic execution interacting with environments 
 
 Ideally, testers often try to achieve covering all or specific paths of a system. However, in practice, covering such paths is not trivial due to limited scalability caused by path explosion. To address the issue, Chipounov et al.~\cite{selective} propose selective symbolic execution technique. The main idea of this technique, called selective symbolic execution (S$^2$E), combines both symbolic execution and concrete execution. More specifically, users specify portions (in a system) of interest. For example, portions of interest could be program related to CPU or memory usage to detect deadlock or memory leakage. S$^2$E explores such portions (of interest) symbolically (i.e., in-scope executions) and the remaining portions (of non-interest) concretely (i.e., out-scope executions). Therefore, execution of a program under test is back and forth between the symbolic and concrete executions based on which portions are executed.
 
-S$^2$E can be practical since the authors observe that developers often focus on only small portion of code in a system (e.g., kernel module or newly added feature) instead of testing a whole system. S2E can be useful for many important software development tasks as follows.
+S$^2$E can be practical since the authors observe that developers often focus on only small portion of code in a system (e.g., kernel module or newly added feature) instead of testing a whole system. S$^2$E can be useful for many important software development tasks as follows.
 
 \begin{figure}
 \centering
