@@ -25,6 +25,12 @@ S\'{e}bastien Bardin and Philippe Herrmann.
 \newblock {Pruning the Search Space in Path-Based Test Generation}.
 \newblock In {\em ICST}, 2009.
 
+\bibitem{select}
+Robert~S. Boyer, Bernard Elspas, and Karl~N. Levitt.
+\newblock {SELECT--a formal system for testing and debugging programs by
+  symbolic execution.}
+\newblock In {\em ICRS}, 1975.
+
 \bibitem{mixed}
 Cristian Cadar and Dawson Engler.
 \newblock {Execution Generated Test Cases: How to Make Systems Code Crash
@@ -42,6 +48,11 @@ Vitaly Chipounov, Vlad Georgescu, Cristian Zamfir, and George Candea.
 \newblock Selective {S}ymbolic {E}xecution.
 \newblock In {\em Proceedings of the 5th {W}orkshop on {H}ot {T}opics in
   {S}ystem {D}ependability ({H}ot{D}ep)}, 2009.
+
+\bibitem{test76}
+Lori~A. Clarke.
+\newblock {A System to Generate Test Data and Symbolically Execute Programs}.
+\newblock {\em TSE}, 1976.
 
 \bibitem{peephole}
 V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
