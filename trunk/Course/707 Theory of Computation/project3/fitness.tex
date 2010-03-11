@@ -11,21 +11,17 @@
 \indent There are several other type of searching strategies besides random searching. DART and CUTE adoped the depth-first searching strategy and EXE provide either depth-first search strategy and the mixture of best-first and depth-first strategy based on the code coverage heuristics. A generational search that explores only a very limited horizon are usd by SAGE.The drawbacks of all the searching strategies are biased nature that favor particular control flow points, e.g, the depth-first searching favors the final branches and the width-first searching strategy favors the first branches. None of these ways are capable of reaching target test stated in the example method efficientlly.\\
 \indent To enhance the efficiency of DSE in achieving higher code coverage, the authors has proposed a novel way to guide DSE called fitnex, which is a searching strategy that uses state-dependent fitness values to guide path exploration. Through the fitness-guided path exploration, the full code coverage in cases like the example method under test will be more easily achieved. The procedure to use Fitnex strategy on the example method showed in figure 1 will be presented as follows:
 \indent \textbf{Fitness computation for a path.} The fitness values are used to decide which branch's flipping would be more helpful in covering the target statement. Extracted from predicate of the conditions in executing test target, fitness functions are used to compute the fitness value, reflecting how close a path's execution is to the covering of the test target. The exploration then honors the fittest path which is the closest to the covering of the test target. The fitness function for the example method is $f(x)=|110-x|$. The smaller the fitness function value, the closer the path's execution is to cover the target. Considering the following 5 execution path,\\ 
-\noindent Test 0:\\
-\hspace*{0.1in}TestLoop(0, new int[] {0});\\
-\hspace*{0.3in}Path 0: 1F\\
-Test 1:\\
-\hspace*{0.1in}TestLoop(90, new int[] {0});\\
-\hspace*{0.3in}Path 1: 1T, 2T, 3F, 2F, 5F\\
-Test 2:\\
-\hspace*{0.1in}TestLoop(90, new int[] {15});\\
-\hspace*{0.3in}Path 2: 1T, 2T, 3T, 2F, 5F\\
-Test 3:\\
-\hspace*{0.1in}TestLoop(90, new int[] {15, 0});\\
-\hspace*{0.3in}Path 3: 1T, 2T, 3T, 2T, 3F, 2F, 5F\\
-Test 4:\\
-\hspace*{0.1in}TestLoop(90, new int[] {15, 15});\\
-\hspace*{0.3in}Path 4: 1T, 2T, 3T, 2T, 3T, 2F, 5F\\
+\begin{center}
+\begin{tabular}{|c|c|c|}\hline
+Test & procedure & Path \\\hline
+0 & TestLoop(0, new int[] {0}); & Path 0: 1F\\\hline
+1 & TestLoop(90, new int[] {0}); & Path 1: 1T, 2T, 3F, 2F, 5F\\\hline
+2 & TestLoop(90, new int[] {15}); &Path 2: 1T, 2T, 3T, 2F, 5F\\\hline
+3 & TestLoop(90, new int[] {15, 0}); & Path 3: 1T, 2T, 3T, 2T, 3F, 2F, 5F\\\hline
+4 & TestLoop(90, new int[] {15, 15});& Path 4: 1T, 2T, 3T, 2T, 3T, 2F, 5F\\\hline
+\end{tabular}\\
+Form 1. Several explored paths
+\end{center}
 Their fitness values for these paths are NA (for that the target test is not even reached), 20($|110 - 90|$), 19($|110 - 91|$), 19($|110 - 91|$), and 18(|110 - 92|) respectively. According to the proposed algorithm, the path 4 will be prefered since it the smallest value among all the paths which means that Path 4 is the closest path to the target test. Using symbolic value to compare fitness values may not to be a good idea since the comparison between symbolic values is quite expensive due to the invoking of constraint solver and the pairwise comparison is needed. Therefore, the concrete values are computed and compared. In general,  the predicate can be used to generate fitness functions to calculate how close a execution path to target test. The follwing form shows several instances, column 1 shows the predicate of the target test, column 2 shows the fitness function derived from it.\\
 \begin{center}
 \begin{tabular}{|c|c|}\hline
@@ -36,7 +32,7 @@ $F(a>=b)$ & $(b-a)$ \\\hline
 $F(a<b)$ & $(a-b)+k$ \\\hline
 $F(a<=b)$ & $(a-b)$ \\\hline
 \end{tabular}\\
-Form 1. Predicates and fitness function.
+Form 2. Predicates and fitness function.
 \end{center}
 Besides the kind of predicates listed above, there is another category of target test that are guarded with boolean value rather than number value. In that case, deriving the fitness function will be much harder and no strategy has been proposed.
 \indent\textbf{Fitness-gain computation for a branch.} Selecting branch node in a path to flip in order to approach the target test could be reduced to selecting a branch node that (1)has at least one new branch that has not been covered yet,(2)has the best potential to improve the fitness value of the current path. The fitness gain is defined as the decreasement of the fitness value before and after the flipping of a branch. The fitness gain could be used to prioritize the flipping of various branches. For example, the fitness-gain of flipping the branch in line 3 for path 1 is 1; The flipping of same branch in Path 3 will result in fitness-gain of same degree. Intuitively, not all the flipping will result in desirable fitness-gain. For example, the flip from true to false of line 3 in path 3 will cause the fitness-gain of -1.\\
