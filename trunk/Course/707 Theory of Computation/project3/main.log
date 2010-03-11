@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.15)  10 MAR 2010 22:30
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.15)  10 MAR 2010 22:33
 entering extended mode
 **main.tex
 ("C:\Documents and Settings\Xi Ge\My Documents\707\project3\main.tex"
@@ -108,9 +108,9 @@ File: fig/mcd2.eps Graphic file (type eps)
 File: fig/sf.eps Graphic file (type eps)
  <fig/sf.eps> [3])
 ("C:\Documents and Settings\Xi Ge\My Documents\707\project3\fitness.tex"
-File: XiFitnessEPS.eps Graphic file (type eps)
+File: fig/XiFitnessEPS.eps Graphic file (type eps)
 
-<XiFitnessEPS.eps>
+<fig/XiFitnessEPS.eps>
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 9.
  ("d:\Program Files\MiKTeX 2.8\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
@@ -135,11 +135,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 [7] ("C:\Documents and Settings\Xi Ge\My Documents\707\project3\main.aux") ) 
 Here is how much of TeX's memory you used:
  764 strings out of 495286
- 10268 string characters out of 3180363
+ 10272 string characters out of 3180363
  63982 words of memory out of 3000000
  3978 multiletter control sequences out of 15000+200000
  11353 words of font info for 33 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  25i,7n,19p,1446b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.dvi (7 pages, 37544 bytes).
+Output written on main.dvi (7 pages, 37548 bytes).
