@@ -1,0 +1,7 @@
+if 6 > 5 ->
+write 1;
+[] 7 > 6 ->
+write 2;
+[] else ->
+write 0;
+fi
