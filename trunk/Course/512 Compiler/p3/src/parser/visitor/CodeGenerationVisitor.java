@@ -2,6 +2,7 @@ package parser.visitor;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import parser.*;
 import parser.generator.TMCodeGenerator;
@@ -95,6 +96,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} else if (type.equals(TypeRecord.boolType)) {
 			code.emitOUTB(RegisterConstant.AC, lineNbr++, "write boolean");
 		} else if (type.equals(TypeRecord.strType)) {
+			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
+			code.emitOUTC(RegisterConstant.AC2, lineNbr++, "write char");
+			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+					lineNbr++, "decrease length of remaining string");
+			code.emitJNE(RegisterConstant.AC, -5, RegisterConstant.PC,
+					lineNbr++, "continue print if not yet finish");
 		}
 
 		if (node.getFirstToken().image.equals("write")) {
@@ -113,13 +120,26 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	@Override
 	public Object visit(ASTreadTerm node, Object data) {
 		debug("token: " + node.getFirstToken());
-		code.emitIN(RegisterConstant.AC, lineNbr++, "read integer from stdin");		
+		code.emitIN(RegisterConstant.AC, lineNbr++, "read integer from stdin");
 		return super.visit(node, data);
 	}
 
 	@Override
 	public Object visit(ASTstringTerm node, Object data) {
 		debug("token: " + node.getFirstToken());
+		String original = node.getFirstToken().image;
+		String content = original.substring(1, original.length() - 1);
+		debug("content: " + content);
+		for (int i = content.length() - 1; i >= 0; i--) {
+			int value = content.charAt(i) - 0;
+			code.emitLDC(RegisterConstant.AC, value, RegisterConstant.ZERO,
+					lineNbr++, "load char in ASCii: " + value);
+			lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+					"push char into stack");
+		}
+		code.emitLDC(RegisterConstant.AC, content.length(),
+				RegisterConstant.ZERO, lineNbr++, "load string length "
+						+ content.length());
 		return super.visit(node, data);
 	}
 
@@ -185,12 +205,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} else if (operator.equals("/")) {
 			code.emitDIV(RegisterConstant.AC, RegisterConstant.AC2,
 					RegisterConstant.AC, lineNbr++, "divide two children");
-		}
-		else if (operator.equals("%")) {
+		} else if (operator.equals("%")) {
 			code.emitDIV(RegisterConstant.AC3, RegisterConstant.AC2,
 					RegisterConstant.AC, lineNbr++, "divide two children");
 			code.emitMUL(RegisterConstant.AC, RegisterConstant.AC3,
-					RegisterConstant.AC, lineNbr++, "multiply quotient and divisor");
+					RegisterConstant.AC, lineNbr++,
+					"multiply quotient and divisor");
 			code.emitSUB(RegisterConstant.AC, RegisterConstant.AC2,
 					RegisterConstant.AC, lineNbr++, "compute mod");
 		}
@@ -276,13 +296,43 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTifstm node, Object data) {
-		debug("if children count: " + node.jjtGetNumChildren());
-		for(int i =0;i<node.jjtGetNumChildren();i++){
+		int childrenCount = node.jjtGetNumChildren();
+		debug("if children count: " + childrenCount);
+		for (int i = 0; i < childrenCount; i++) {
 			debug("child " + i + ": " + node.jjtGetChild(i));
 		}
-		return super.visit(node, data);
+
+		boolean hasElse = false;
+		if (childrenCount > 2) {
+			hasElse = true;
+		}
+
+		int saveLineNbr = 0;
+		ArrayList<Integer> saveJumpToAfterIf = new ArrayList<Integer>();
+		for (int i = 0; i + 1< childrenCount; i += 2) {
+			node.jjtGetChild(i).jjtAccept(this, data); // generate expression
+			saveLineNbr = lineNbr;
+			lineNbr++;
+			node.jjtGetChild(i+1).jjtAccept(this, data); // generate stms
+			if (hasElse) { // save line number for jump to the end
+				saveJumpToAfterIf.add(lineNbr);
+				lineNbr++;
+			}
+			code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
+					RegisterConstant.PC, saveLineNbr, "if expr not true");
+		}
+
+		if (hasElse) {
+			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate else stms
+		}
+
+		for (int i = 0; i < saveJumpToAfterIf.size(); i++) {
+			int distance = lineNbr - saveJumpToAfterIf.get(i) - 1;
+			code.emitLDA(RegisterConstant.PC, distance, RegisterConstant.PC,
+					saveJumpToAfterIf.get(i), "Jump to the end of if");
+		}
+
+		return data;
 	}
-	
-	
 
 }
