@@ -357,7 +357,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		SimpleNode exp = (SimpleNode) node.jjtGetChild(1);
 		TypeRecord expType = (TypeRecord) exp.jjtGetValue();
 		int currentOffset = currentTable.variableTable.get(id).offset;
-
+		System.out.println("currentTable: " + currentTable);
 		if (lvalue.isArray) { // array
 			System.out.println("original type: " + lvalue.originalType);
 			int offset = currentOffset;
@@ -399,14 +399,15 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			code.emitST(RegisterConstant.AC, 0, RegisterConstant.AC2,
 					lineNbr++, "store value into static data");
 
-			type.offset = offset;
-			currentTable.variableTable.put(id, type);
 			if (currentOffset == 0) {
+				lvalue.originalType.offset = offset;
+				currentTable.variableTable.put(id, lvalue.originalType);
 				dataPointer += TypeRecord.arraySize(lvalue.originalType);
 			}
 
 		} else {
 			exp.jjtAccept(this, data);
+			System.out.println("currentoffset: " + currentOffset);
 			if (type.equals(TypeRecord.intType)) {
 
 				if (currentOffset == 0) {

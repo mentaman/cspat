@@ -1,3 +1,21 @@
 var a:int[3][4]
+var b:int
+var c:bool
+var d:str
 
+a[0][0] := 1000;
+a[0][1] := 1001;
+a[1][0] := 1002;
 a[1][2] := 2;
+
+b := 100;
+
+write b;
+
+c := true;
+
+if c ->
+write "yes";
+[] else ->
+write "no";
+fi
