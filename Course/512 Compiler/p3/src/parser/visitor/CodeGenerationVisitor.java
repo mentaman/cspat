@@ -357,7 +357,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		SimpleNode exp = (SimpleNode) node.jjtGetChild(1);
 		TypeRecord expType = (TypeRecord) exp.jjtGetValue();
 		int currentOffset = currentTable.variableTable.get(id).offset;
-		System.out.println("currentTable: " + currentTable);
+		// debug("currentTable: " + currentTable);
 		if (lvalue.isArray) { // array
 			System.out.println("original type: " + lvalue.originalType);
 			int offset = currentOffset;
@@ -570,6 +570,25 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			}
 
 		}
+		return data;
+	}
+
+	@Override
+	public Object visit(ASTdostm node, Object data) {
+		System.out.println("do children: " + node.jjtGetNumChildren());
+		SimpleNode exp = (SimpleNode) node.jjtGetChild(0);
+		int loopstartLine = lineNbr;
+		System.out.println("loopstart: " + loopstartLine);
+		exp.jjtAccept(this, data);
+		int saveLineNbr = lineNbr;
+		lineNbr++;
+
+		SimpleNode stms = (SimpleNode) node.jjtGetChild(1);
+		stms.jjtAccept(this, data);
+		code.emitLDA(RegisterConstant.PC, -(lineNbr - loopstartLine + 1), RegisterConstant.PC, lineNbr++, "jump back to loop start");
+
+		code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
+				RegisterConstant.PC, saveLineNbr, "jump out of the do loop");
 		return data;
 	}
 
