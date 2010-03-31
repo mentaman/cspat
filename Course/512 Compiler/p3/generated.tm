@@ -104,43 +104,96 @@
 103: LD    1, 0(6)  pop final offset
 104: LDA   6, 1(6)  pop final offset
 105: ST    0, 0(1)  store value into static data
-106: LDC   0, 100(5)  load integer 100
-107: ST    0, 13(5)  store int into static data
-108: LD    0, 13(5)  load from static data
-109: OUT   0, 0, 0  write integer
-110: OUTNL 0, 0, 0  write new line
-111: LDC   0, 1(5)  load booleantrue
-112: ST    0, 14(5)  store bool into static data
-113: LD    0, 14(5)  load from static data
-115: LDC   0, 115(5)  load char in ASCii: 115
-116: LDA   6, -1(6)  push char into stack
-117: ST    0, 0(6)  push char into stack
-118: LDC   0, 101(5)  load char in ASCii: 101
-119: LDA   6, -1(6)  push char into stack
-120: ST    0, 0(6)  push char into stack
-121: LDC   0, 121(5)  load char in ASCii: 121
-122: LDA   6, -1(6)  push char into stack
-123: ST    0, 0(6)  push char into stack
-124: LDC   0, 3(5)  load string length 3
-125: LD    1, 0(6)  pop char
-126: LDA   6, 1(6)  pop char
-127: OUTC   1, 1, 1  write char
-128: LDA   0, -1(0)  decrease length of remaining string
-129: JNE   0, -5(7)  continue print if not yet finish
-130: OUTNL 0, 0, 0  write new line
-114: JEQ   0, 17(7)  if expr not true
-132: LDC   0, 111(5)  load char in ASCii: 111
-133: LDA   6, -1(6)  push char into stack
-134: ST    0, 0(6)  push char into stack
-135: LDC   0, 110(5)  load char in ASCii: 110
-136: LDA   6, -1(6)  push char into stack
-137: ST    0, 0(6)  push char into stack
-138: LDC   0, 2(5)  load string length 2
-139: LD    1, 0(6)  pop char
-140: LDA   6, 1(6)  pop char
-141: OUTC   1, 1, 1  write char
-142: LDA   0, -1(0)  decrease length of remaining string
-143: JNE   0, -5(7)  continue print if not yet finish
-144: OUTNL 0, 0, 0  write new line
-131: LDA   7, 13(7)  Jump to the end of if
-145: HALT  0, 0, 0  program ends
+106: LDC   0, 0(5)  load integer 0
+107: LDA   6, -1(6)  push array index
+108: ST    0, 0(6)  push array index
+109: LDC   0, 0(5)  load integer 0
+110: LDA   6, -1(6)  push array index
+111: ST    0, 0(6)  push array index
+112: LDC   0, 2(5)  push array dimension
+113: LDC   0, 0(5)  load 0 to ac
+114: LD    1, 0(6)  pop index
+115: LDA   6, 1(6)  pop index
+116: LDC   2, 4(5)  load size of subarray
+117: MUL   1, 1, 2  compute 0 dim
+118: ADD   0, 0, 1  add result
+119: LD    1, 0(6)  pop index
+120: LDA   6, 1(6)  pop index
+121: LDC   2, 1(5)  load size of subarray
+122: MUL   1, 1, 2  compute 1 dim
+123: ADD   0, 0, 1  add result
+124: LDC   1, 1(5)  load offset into ac2
+125: ADD   0, 0, 1  compute final offset
+126: LD    0, 0(0)  load data from array
+127: OUT   0, 0, 0  write integer
+128: OUTNL 0, 0, 0  write new line
+129: LDC   0, 1(5)  load integer 1
+130: LDA   6, -1(6)  push array index
+131: ST    0, 0(6)  push array index
+132: LDC   0, 0(5)  load integer 0
+133: LDA   6, -1(6)  push array index
+134: ST    0, 0(6)  push array index
+135: LDC   0, 2(5)  push array dimension
+136: LDC   0, 0(5)  load 0 to ac
+137: LD    1, 0(6)  pop index
+138: LDA   6, 1(6)  pop index
+139: LDC   2, 4(5)  load size of subarray
+140: MUL   1, 1, 2  compute 0 dim
+141: ADD   0, 0, 1  add result
+142: LD    1, 0(6)  pop index
+143: LDA   6, 1(6)  pop index
+144: LDC   2, 1(5)  load size of subarray
+145: MUL   1, 1, 2  compute 1 dim
+146: ADD   0, 0, 1  add result
+147: LDC   1, 1(5)  load offset into ac2
+148: ADD   0, 0, 1  compute final offset
+149: LD    0, 0(0)  load data from array
+150: OUT   0, 0, 0  write integer
+151: OUTNL 0, 0, 0  write new line
+152: LDC   0, 0(5)  load integer 0
+153: LDA   6, -1(6)  push array index
+154: ST    0, 0(6)  push array index
+155: LDC   0, 1(5)  load integer 1
+156: LDA   6, -1(6)  push array index
+157: ST    0, 0(6)  push array index
+158: LDC   0, 2(5)  push array dimension
+159: LDC   0, 0(5)  load 0 to ac
+160: LD    1, 0(6)  pop index
+161: LDA   6, 1(6)  pop index
+162: LDC   2, 4(5)  load size of subarray
+163: MUL   1, 1, 2  compute 0 dim
+164: ADD   0, 0, 1  add result
+165: LD    1, 0(6)  pop index
+166: LDA   6, 1(6)  pop index
+167: LDC   2, 1(5)  load size of subarray
+168: MUL   1, 1, 2  compute 1 dim
+169: ADD   0, 0, 1  add result
+170: LDC   1, 1(5)  load offset into ac2
+171: ADD   0, 0, 1  compute final offset
+172: LD    0, 0(0)  load data from array
+173: OUT   0, 0, 0  write integer
+174: OUTNL 0, 0, 0  write new line
+175: LDC   0, 2(5)  load integer 2
+176: LDA   6, -1(6)  push array index
+177: ST    0, 0(6)  push array index
+178: LDC   0, 1(5)  load integer 1
+179: LDA   6, -1(6)  push array index
+180: ST    0, 0(6)  push array index
+181: LDC   0, 2(5)  push array dimension
+182: LDC   0, 0(5)  load 0 to ac
+183: LD    1, 0(6)  pop index
+184: LDA   6, 1(6)  pop index
+185: LDC   2, 4(5)  load size of subarray
+186: MUL   1, 1, 2  compute 0 dim
+187: ADD   0, 0, 1  add result
+188: LD    1, 0(6)  pop index
+189: LDA   6, 1(6)  pop index
+190: LDC   2, 1(5)  load size of subarray
+191: MUL   1, 1, 2  compute 1 dim
+192: ADD   0, 0, 1  add result
+193: LDC   1, 1(5)  load offset into ac2
+194: ADD   0, 0, 1  compute final offset
+195: LD    0, 0(0)  load data from array
+196: OUT   0, 0, 0  write integer
+197: OUTNL 0, 0, 0  write new line
+198: HALT  0, 0, 0  program ends

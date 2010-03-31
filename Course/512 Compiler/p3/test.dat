@@ -8,14 +8,7 @@ a[0][1] := 1001;
 a[1][0] := 1002;
 a[1][2] := 2;
 
-b := 100;
-
-write b;
-
-c := true;
-
-if c ->
-write "yes";
-[] else ->
-write "no";
-fi
+write a[0][0];
+write a[0][1];
+write a[1][0];
+write a[1][2];
