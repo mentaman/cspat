@@ -1,4 +1,15 @@
-var a:int
+var d:str
+var e:str
 
-a := 10;
-write a + 2;
+
+d := "xiao";
+e := "chenling";
+
+if true ->
+write d;
+write e;
+
+fi
+
+e:= "change";
+write e;

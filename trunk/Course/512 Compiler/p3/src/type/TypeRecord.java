@@ -11,10 +11,13 @@ public class TypeRecord {
 	public int offset;
 	public int length; // for string
 
+
+
 	@Override
 	public String toString() {
-		return "TypeRecord [baseType=" + baseType + ", notAssignable="
-				+ notAssignable + ", underType=" + underType + "]";
+		return "TypeRecord [baseType=" + baseType + ", length=" + length
+				+ ", notAssignable=" + notAssignable + ", offset=" + offset
+				+ ", underType=" + underType + "]";
 	}
 
 	public TypeRecord() {
