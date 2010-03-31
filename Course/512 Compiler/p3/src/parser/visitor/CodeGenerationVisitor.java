@@ -332,8 +332,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		if (hasElse) {
 			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
-			// else
-			// stms
+			// else stms
 		}
 
 		for (int i = 0; i < saveJumpToAfterIf.size(); i++) {
@@ -349,61 +348,129 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	public Object visit(ASTassignExp node, Object data) {
 		ASTlvalue lvalue = (ASTlvalue) node.jjtGetChild(0);
 		lvalue.isAssignment = true;
-		super.visit(node, data);
+		// super.visit(node, data);
 
 		String id = lvalue.getFirstToken().image;
 		TypeRecord type = (TypeRecord) lvalue.jjtGetValue();
+		lvalue.jjtAccept(this, data);
+
 		SimpleNode exp = (SimpleNode) node.jjtGetChild(1);
 		TypeRecord expType = (TypeRecord) exp.jjtGetValue();
+		int currentOffset = currentTable.variableTable.get(id).offset;
 
-		if (type.equals(TypeRecord.intType)) {
-			code.emitST(RegisterConstant.AC, dataPointer,
-					RegisterConstant.ZERO, lineNbr++,
-					"store int into static data");
-			TypeRecord newTypeRecord = new TypeRecord(BasicType.INT);
-			newTypeRecord.offset = dataPointer;
-			currentTable.variableTable.put(id, newTypeRecord);
-			dataPointer++;
-		} else if (type.equals(TypeRecord.boolType)) {
-			code.emitST(RegisterConstant.AC, dataPointer,
-					RegisterConstant.ZERO, lineNbr++,
-					"store bool into static data");
-			TypeRecord newTypeRecord = new TypeRecord(BasicType.BOOL);
-			newTypeRecord.offset = dataPointer;
-			currentTable.variableTable.put(id, newTypeRecord);
-			dataPointer++;
-		} else if (type.equals(TypeRecord.strType)) {
-			int offset = dataPointer;
-			System.out.println("datapointer: " + dataPointer);
-			code.emitST(RegisterConstant.AC, dataPointer,
-					RegisterConstant.ZERO, lineNbr++,
-					"store str length into static data");
-			dataPointer++;
+		if (lvalue.isArray) { // array
+			System.out.println("original type: " + lvalue.originalType);
+			int offset = currentOffset;
+			if (currentOffset == 0) {
+				offset = dataPointer;
+			}
+			int totalSize = TypeRecord.arraySize(type);
+			TypeRecord currentRecord = lvalue.originalType;
+			code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
+					lineNbr++, "load 0 to ac");
+			for (int i = 0; i < lvalue.jjtGetNumChildren(); i++) {
+				int sizeOfSubArray = TypeRecord
+						.arraySize(currentRecord.underType);
+				System.out.println("subarray size: " + sizeOfSubArray);
+				lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
+						"pop index");
+				code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
+						RegisterConstant.ZERO, lineNbr++,
+						"load size of subarray");
+				code.emitMUL(RegisterConstant.AC2, RegisterConstant.AC2,
+						RegisterConstant.AC3, lineNbr++, "compute " + i
+								+ " dim");
+				code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+						RegisterConstant.AC2, lineNbr++, "add result");
 
-			code.emitLDC(RegisterConstant.AC3, dataPointer,
-					RegisterConstant.ZERO, lineNbr++,
-					"store datapointer into ac3");
+				currentRecord = currentRecord.underType;
+			}
 
-			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
-			code.emitST(RegisterConstant.AC2, 0, RegisterConstant.AC3,
-					lineNbr++, "save char into static data");
-			code.emitLDA(RegisterConstant.AC3, 1, RegisterConstant.AC3,
-					lineNbr++, "increase datapointer");
-			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
-					lineNbr++, "decrease length of remaining string");
-			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
-					lineNbr++, "continue print if not yet finish");
+			code.emitLDC(RegisterConstant.AC2, offset, RegisterConstant.ZERO,
+					lineNbr++, "load offset into ac2");
+			code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+					RegisterConstant.AC2, lineNbr++, "compute final offset");
+			lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+					"push final offset");
 
-			TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
-			newTypeRecord.offset = offset;
-			newTypeRecord.length = expType.length;
-			currentTable.variableTable.put(id, newTypeRecord);
-			dataPointer += expType.length;
-			System.out.println("length: " + expType.length);
-			System.out.println("dp: " + dataPointer);
-			System.out.println("offset: " + offset);
+			exp.jjtAccept(this, data);
+			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
+					"pop final offset");
+			code.emitST(RegisterConstant.AC, 0, RegisterConstant.AC2,
+					lineNbr++, "store value into static data");
+
+			type.offset = offset;
+			currentTable.variableTable.put(id, type);
+			if (currentOffset == 0) {
+				dataPointer += TypeRecord.arraySize(lvalue.originalType);
+			}
+
+		} else {
+			exp.jjtAccept(this, data);
+			if (type.equals(TypeRecord.intType)) {
+
+				if (currentOffset == 0) {
+					code.emitST(RegisterConstant.AC, dataPointer,
+							RegisterConstant.ZERO, lineNbr++,
+							"store int into static data");
+					TypeRecord newTypeRecord = new TypeRecord(BasicType.INT);
+					newTypeRecord.offset = dataPointer;
+					currentTable.variableTable.put(id, newTypeRecord);
+					dataPointer++;
+				} else {
+					code.emitST(RegisterConstant.AC, currentOffset,
+							RegisterConstant.ZERO, lineNbr++,
+							"store int into previous used static data");
+				}
+
+			} else if (type.equals(TypeRecord.boolType)) {
+				if (currentOffset == 0) {
+					code.emitST(RegisterConstant.AC, dataPointer,
+							RegisterConstant.ZERO, lineNbr++,
+							"store bool into static data");
+					TypeRecord newTypeRecord = new TypeRecord(BasicType.BOOL);
+					newTypeRecord.offset = dataPointer;
+					currentTable.variableTable.put(id, newTypeRecord);
+					dataPointer++;
+				} else {
+					code.emitST(RegisterConstant.AC, currentOffset,
+							RegisterConstant.ZERO, lineNbr++,
+							"store bool into previous used static data");
+				}
+			} else if (type.equals(TypeRecord.strType)) {
+				int offset = dataPointer;
+				type.length = expType.length;
+				System.out.println("datapointer: " + dataPointer);
+				code.emitST(RegisterConstant.AC, dataPointer,
+						RegisterConstant.ZERO, lineNbr++,
+						"store str length into static data");
+				dataPointer++;
+
+				code.emitLDC(RegisterConstant.AC3, dataPointer,
+						RegisterConstant.ZERO, lineNbr++,
+						"store datapointer into ac3");
+
+				lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
+						"pop char");
+				code.emitST(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+						lineNbr++, "save char into static data");
+				code.emitLDA(RegisterConstant.AC3, 1, RegisterConstant.AC3,
+						lineNbr++, "increase datapointer");
+				code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+						lineNbr++, "decrease length of remaining string");
+				code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+						lineNbr++, "continue print if not yet finish");
+
+				TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
+				newTypeRecord.offset = offset;
+				newTypeRecord.length = expType.length;
+				currentTable.variableTable.put(id, newTypeRecord);
+				dataPointer += expType.length;
+				System.out.println("length: " + expType.length);
+				System.out.println("dp: " + dataPointer);
+				System.out.println("offset: " + offset);
+			}
 		}
-
 		return data;
 	}
 
@@ -412,42 +479,65 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		String id = node.getFirstToken().image;
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
+		if (node.isArray) { // array
+			debug("original type: " + node.originalType);
+			debug("original type dim: " + node.originalType.getDimension());
+			for (int i = node.jjtGetNumChildren() - 1; i >= 0; i--) {
+				SimpleNode exp = (SimpleNode) node.jjtGetChild(i);
+				exp.jjtAccept(this, data);
+				lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+						"push array index");
+			}
+			code.emitLDC(RegisterConstant.AC, node.originalType.getDimension(),
+					RegisterConstant.ZERO, lineNbr++, "push array dimension");
+
+		}
+
 		if (currentTable.variableTable.containsKey(id) && !node.isAssignment) {
 			TypeRecord idType = currentTable.variableTable.get(id);
 			if (idType.offset != 0) {
-				if (type.equals(TypeRecord.intType)
-						|| type.equals(TypeRecord.boolType)) {
-					code.emitLD(RegisterConstant.AC, idType.offset,
-							RegisterConstant.ZERO, lineNbr++,
-							"load from static data");
-				} else if (type.equals(TypeRecord.strType)) {
-					code.emitLD(RegisterConstant.AC, idType.offset,
-							RegisterConstant.ZERO, lineNbr++,
-							"load str length from static data");
+				if (node.isArray) { // array
 
-					code.emitLDC(RegisterConstant.AC3, idType.offset
-							+ idType.length, RegisterConstant.ZERO, lineNbr++,
-							"load offset into ac3");
+				} else {
+					if (type.equals(TypeRecord.intType)
+							|| type.equals(TypeRecord.boolType)) {
+						code.emitLD(RegisterConstant.AC, idType.offset,
+								RegisterConstant.ZERO, lineNbr++,
+								"load from static data");
+					} else if (type.equals(TypeRecord.strType)) {
+						code.emitLD(RegisterConstant.AC, idType.offset,
+								RegisterConstant.ZERO, lineNbr++,
+								"load str length from static data");
 
-					code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
-							lineNbr++, "load char into ac2");
-					lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr,
-							"push char");
-					code.emitLDA(RegisterConstant.AC3, -1,
-							RegisterConstant.AC3, lineNbr++, "increase ac3");
-					code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
-							lineNbr++, "decrease str length");
-					code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
-							lineNbr++, "jump back if str not yet finish");
-					code.emitLD(RegisterConstant.AC, idType.offset,
-							RegisterConstant.ZERO, lineNbr++,
-							"load str length from static data");
+						code.emitLDC(RegisterConstant.AC3, idType.offset
+								+ idType.length, RegisterConstant.ZERO,
+								lineNbr++, "load offset into ac3");
+
+						code.emitLD(RegisterConstant.AC2, 0,
+								RegisterConstant.AC3, lineNbr++,
+								"load char into ac2");
+						lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr,
+								"push char");
+						code
+								.emitLDA(RegisterConstant.AC3, -1,
+										RegisterConstant.AC3, lineNbr++,
+										"increase ac3");
+						code.emitLDA(RegisterConstant.AC, -1,
+								RegisterConstant.AC, lineNbr++,
+								"decrease str length");
+						code.emitJNE(RegisterConstant.AC, -6,
+								RegisterConstant.PC, lineNbr++,
+								"jump back if str not yet finish");
+						code.emitLD(RegisterConstant.AC, idType.offset,
+								RegisterConstant.ZERO, lineNbr++,
+								"load str length from static data");
+					}
+					super.visit(node, data);
 				}
-
 			}
 
 		}
-		return super.visit(node, data);
+		return data;
 	}
 
 }

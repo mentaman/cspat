@@ -41,6 +41,28 @@ public class TypeRecord {
 
 		return ret;
 	}
+	
+	public int getDimension(){
+		int dimension = 0;
+		TypeRecord currentRecord = this;
+		Type type = currentRecord.baseType;
+	    while (type.basicType.equals(BasicType.ARRAY)) {
+			dimension++;
+			currentRecord = currentRecord.underType;
+			type = currentRecord.baseType;			
+		}
+		
+		return dimension;
+	}
+	
+	public static int arraySize(TypeRecord type){
+		int size = 1;
+		while (isArray(type)) {
+			size *= type.baseType.size;
+			type = type.underType;
+		}	
+		return size;
+	}
 
 	public static boolean isArray(Object o) {
 		if (!(o instanceof TypeRecord)) {

@@ -37,4 +37,17 @@ public class TypeRecordTest {
 		TypeRecord array8 = TypeRecord.arrayType(3, array7);
 		assertFalse(array8.equals(array7));
 	}
+	
+	@Test
+	public void testArraySize() throws Exception {
+		TypeRecord array1 = TypeRecord.arrayType(2, TypeRecord.intType);
+		TypeRecord array2 = TypeRecord.arrayType(3, array1);
+		TypeRecord array3 = TypeRecord.arrayType(4, array2);
+		assertEquals(2,TypeRecord.arraySize(array1));
+		assertEquals(2*3,TypeRecord.arraySize(array2));
+		assertEquals(2*3*4,TypeRecord.arraySize(array3));
+		System.out.println("array 1: " + array1);
+		System.out.println("array 2: " + array2);
+		System.out.println("array 3: " + array3);
+	}
 }
