@@ -498,7 +498,39 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			TypeRecord idType = currentTable.variableTable.get(id);
 			if (idType.offset != 0) {
 				if (node.isArray) { // array
+					int totalSize = TypeRecord.arraySize(type);
+					TypeRecord currentRecord = node.originalType;
+					code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
+							lineNbr++, "load 0 to ac");
+					for (int i = 0; i < node.jjtGetNumChildren(); i++) {
+						int sizeOfSubArray = TypeRecord
+								.arraySize(currentRecord.underType);
+						System.out.println("subarray size: " + sizeOfSubArray);
+						lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
+								"pop index");
+						code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
+								RegisterConstant.ZERO, lineNbr++,
+								"load size of subarray");
+						code.emitMUL(RegisterConstant.AC2,
+								RegisterConstant.AC2, RegisterConstant.AC3,
+								lineNbr++, "compute " + i + " dim");
+						code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+								RegisterConstant.AC2, lineNbr++, "add result");
 
+						currentRecord = currentRecord.underType;
+					}
+
+					code.emitLDC(RegisterConstant.AC2,
+							currentTable.variableTable.get(id).offset,
+							RegisterConstant.ZERO, lineNbr++,
+							"load offset into ac2");
+					code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+							RegisterConstant.AC2, lineNbr++,
+							"compute final offset");
+					// lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+					// "push final offset");
+					code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC,
+							lineNbr++, "load data from array");
 				} else {
 					if (type.equals(TypeRecord.intType)
 							|| type.equals(TypeRecord.boolType)) {
