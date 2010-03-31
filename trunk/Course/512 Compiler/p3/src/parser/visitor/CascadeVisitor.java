@@ -8,6 +8,7 @@ import parser.ASTPrefixExp;
 import parser.ASTPrimaryExp;
 import parser.ASTTimes;
 import parser.ASTUnary;
+import parser.ASTassignExp;
 import parser.ASTassociateExp;
 import parser.ASTboolTerm;
 import parser.ASTbreak_stm;
@@ -290,6 +291,12 @@ public class CascadeVisitor implements Ice9ParserVisitor {
 
 	@Override
 	public Object visit(ASTstringTerm node, Object data) {
+		commonAction(node, data);
+		return data;
+	}
+
+	@Override
+	public Object visit(ASTassignExp node, Object data) {
 		commonAction(node, data);
 		return data;
 	}
