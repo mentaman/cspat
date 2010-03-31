@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.hamcrest.core.IsAnything;
+
 import com.sun.org.apache.bcel.internal.generic.StoreInstruction;
 
 import parser.*;
@@ -48,6 +50,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		currentTable = globalTable;
 		code.emitLD(RegisterConstant.SP, 0, RegisterConstant.ZERO, lineNbr++,
 				"save stack pointer");
+		code.emitLDC(RegisterConstant.DP, 1, RegisterConstant.ZERO, lineNbr++,
+				"save data pointer");
 
 		super.visit(node, data);
 
@@ -328,8 +332,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		if (hasElse) {
 			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
-																		// else
-																		// stms
+			// else
+			// stms
 		}
 
 		for (int i = 0; i < saveJumpToAfterIf.size(); i++) {
@@ -343,21 +347,61 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTassignExp node, Object data) {
-
+		ASTlvalue lvalue = (ASTlvalue) node.jjtGetChild(0);
+		lvalue.isAssignment = true;
 		super.visit(node, data);
 
-		SimpleNode lvalue = (SimpleNode) node.jjtGetChild(0);
 		String id = lvalue.getFirstToken().image;
 		TypeRecord type = (TypeRecord) lvalue.jjtGetValue();
 		SimpleNode exp = (SimpleNode) node.jjtGetChild(1);
+		TypeRecord expType = (TypeRecord) exp.jjtGetValue();
 
 		if (type.equals(TypeRecord.intType)) {
 			code.emitST(RegisterConstant.AC, dataPointer,
-					RegisterConstant.ZERO, lineNbr++, "store into static data");
+					RegisterConstant.ZERO, lineNbr++,
+					"store int into static data");
 			TypeRecord newTypeRecord = new TypeRecord(BasicType.INT);
 			newTypeRecord.offset = dataPointer;
-			currentTable.variableTable.put(id, newTypeRecord);		
+			currentTable.variableTable.put(id, newTypeRecord);
 			dataPointer++;
+		} else if (type.equals(TypeRecord.boolType)) {
+			code.emitST(RegisterConstant.AC, dataPointer,
+					RegisterConstant.ZERO, lineNbr++,
+					"store bool into static data");
+			TypeRecord newTypeRecord = new TypeRecord(BasicType.BOOL);
+			newTypeRecord.offset = dataPointer;
+			currentTable.variableTable.put(id, newTypeRecord);
+			dataPointer++;
+		} else if (type.equals(TypeRecord.strType)) {
+			int offset = dataPointer;
+			System.out.println("datapointer: " + dataPointer);
+			code.emitST(RegisterConstant.AC, dataPointer,
+					RegisterConstant.ZERO, lineNbr++,
+					"store str length into static data");
+			dataPointer++;
+
+			code.emitLDC(RegisterConstant.AC3, dataPointer,
+					RegisterConstant.ZERO, lineNbr++,
+					"store datapointer into ac3");
+
+			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
+			code.emitST(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+					lineNbr++, "save char into static data");
+			code.emitLDA(RegisterConstant.AC3, 1, RegisterConstant.AC3,
+					lineNbr++, "increase datapointer");
+			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+					lineNbr++, "decrease length of remaining string");
+			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+					lineNbr++, "continue print if not yet finish");
+
+			TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
+			newTypeRecord.offset = offset;
+			newTypeRecord.length = expType.length;
+			currentTable.variableTable.put(id, newTypeRecord);
+			dataPointer += expType.length;
+			System.out.println("length: " + expType.length);
+			System.out.println("dp: " + dataPointer);
+			System.out.println("offset: " + offset);
 		}
 
 		return data;
@@ -365,19 +409,45 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTlvalue node, Object data) {
-		
+
 		String id = node.getFirstToken().image;
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
-		if (currentTable.variableTable.containsKey(id)) {
+		if (currentTable.variableTable.containsKey(id) && !node.isAssignment) {
 			TypeRecord idType = currentTable.variableTable.get(id);
-			if (type.equals(TypeRecord.intType)) {
-				code.emitLD(RegisterConstant.AC, idType.offset,
-						RegisterConstant.ZERO, lineNbr++, "load from static data");
+			if (idType.offset != 0) {
+				if (type.equals(TypeRecord.intType)
+						|| type.equals(TypeRecord.boolType)) {
+					code.emitLD(RegisterConstant.AC, idType.offset,
+							RegisterConstant.ZERO, lineNbr++,
+							"load from static data");
+				} else if (type.equals(TypeRecord.strType)) {
+					code.emitLD(RegisterConstant.AC, idType.offset,
+							RegisterConstant.ZERO, lineNbr++,
+							"load str length from static data");
+
+					code.emitLDC(RegisterConstant.AC3, idType.offset
+							+ idType.length, RegisterConstant.ZERO, lineNbr++,
+							"load offset into ac3");
+
+					code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+							lineNbr++, "load char into ac2");
+					lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr,
+							"push char");
+					code.emitLDA(RegisterConstant.AC3, -1,
+							RegisterConstant.AC3, lineNbr++, "increase ac3");
+					code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+							lineNbr++, "decrease str length");
+					code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+							lineNbr++, "jump back if str not yet finish");
+					code.emitLD(RegisterConstant.AC, idType.offset,
+							RegisterConstant.ZERO, lineNbr++,
+							"load str length from static data");
+				}
+
 			}
+
 		}
 		return super.visit(node, data);
 	}
-	
-	
 
 }
