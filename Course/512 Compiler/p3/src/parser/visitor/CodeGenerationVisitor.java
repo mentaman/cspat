@@ -4,9 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.sun.org.apache.bcel.internal.generic.StoreInstruction;
+
 import parser.*;
 import parser.generator.TMCodeGenerator;
 import table.*;
+import type.BasicType;
 import type.TypeRecord;
 
 public class CodeGenerationVisitor extends CascadeVisitor {
@@ -36,6 +39,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	public CodeGenerationVisitor(SymbolTable globalTable) {
 		super();
 		this.globalTable = globalTable;
+		currentTable = globalTable;
 	}
 
 	@Override
@@ -309,11 +313,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		int saveLineNbr = 0;
 		ArrayList<Integer> saveJumpToAfterIf = new ArrayList<Integer>();
-		for (int i = 0; i + 1< childrenCount; i += 2) {
+		for (int i = 0; i + 1 < childrenCount; i += 2) {
 			node.jjtGetChild(i).jjtAccept(this, data); // generate expression
 			saveLineNbr = lineNbr;
 			lineNbr++;
-			node.jjtGetChild(i+1).jjtAccept(this, data); // generate stms
+			node.jjtGetChild(i + 1).jjtAccept(this, data); // generate stms
 			if (hasElse) { // save line number for jump to the end
 				saveJumpToAfterIf.add(lineNbr);
 				lineNbr++;
@@ -323,7 +327,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 
 		if (hasElse) {
-			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate else stms
+			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
+																		// else
+																		// stms
 		}
 
 		for (int i = 0; i < saveJumpToAfterIf.size(); i++) {
@@ -334,5 +340,44 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		return data;
 	}
+
+	@Override
+	public Object visit(ASTassignExp node, Object data) {
+
+		super.visit(node, data);
+
+		SimpleNode lvalue = (SimpleNode) node.jjtGetChild(0);
+		String id = lvalue.getFirstToken().image;
+		TypeRecord type = (TypeRecord) lvalue.jjtGetValue();
+		SimpleNode exp = (SimpleNode) node.jjtGetChild(1);
+
+		if (type.equals(TypeRecord.intType)) {
+			code.emitST(RegisterConstant.AC, dataPointer,
+					RegisterConstant.ZERO, lineNbr++, "store into static data");
+			TypeRecord newTypeRecord = new TypeRecord(BasicType.INT);
+			newTypeRecord.offset = dataPointer;
+			currentTable.variableTable.put(id, newTypeRecord);		
+			dataPointer++;
+		}
+
+		return data;
+	}
+
+	@Override
+	public Object visit(ASTlvalue node, Object data) {
+		
+		String id = node.getFirstToken().image;
+		TypeRecord type = (TypeRecord) node.jjtGetValue();
+		if (currentTable.variableTable.containsKey(id)) {
+			TypeRecord idType = currentTable.variableTable.get(id);
+			if (type.equals(TypeRecord.intType)) {
+				code.emitLD(RegisterConstant.AC, idType.offset,
+						RegisterConstant.ZERO, lineNbr++, "load from static data");
+			}
+		}
+		return super.visit(node, data);
+	}
+	
+	
 
 }

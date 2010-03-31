@@ -1,7 +1,4 @@
-if 6 < 3 ->
-write 1;
-[] 2 > 3 ->
-write 2;
-[] else ->
-write 3;
-fi
+var a:int
+
+a := 10;
+write a + 2;
