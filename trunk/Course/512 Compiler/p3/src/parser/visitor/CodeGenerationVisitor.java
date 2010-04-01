@@ -3,6 +3,7 @@ package parser.visitor;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.hamcrest.core.IsAnything;
 
@@ -22,7 +23,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private SymbolTable currentTable;
 	private TMCodeGenerator code = new TMCodeGenerator();
 	private boolean debug = true;
-
+	private HashMap<String, Integer> stringTable = new HashMap<String, Integer>();
 	private void debug(String text) {
 		if (debug) {
 			System.out.println(text);
@@ -451,6 +452,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				int offset = dataPointer;
 				type.length = expType.length;
 				System.out.println("datapointer: " + dataPointer);
+				if (stringTable.containsKey(expType.token.image)) {
+					TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
+					newTypeRecord.offset = stringTable.get(expType.token.image);
+					newTypeRecord.length = expType.length;
+					currentTable.variableTable.put(id, newTypeRecord);
+					return data;
+				}
+
+				stringTable.put(expType.token.image, dataPointer);
+				System.out.println("adding string " + expType.token.image
+						+ " with offset " + dataPointer);
 				code.emitST(RegisterConstant.AC, dataPointer,
 						RegisterConstant.ZERO, lineNbr++,
 						"store str length into static data");
@@ -510,7 +522,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			try {
 				idType = currentTable.lookupId(node.getFirstToken());
 			} catch (SymbolTableException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if (idType.offset != 0) {
@@ -557,20 +568,25 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 							code.emitLD(RegisterConstant.AC, idType.offset,
 									RegisterConstant.ZERO, lineNbr++,
 									"load int/bool from static data");
-						}else{
+						} else {
 							System.out.println("idtype is temporary");
 							SymbolTable tempSymbolTable = currentTable;
-							code.emitLDA(RegisterConstant.AC, 0, RegisterConstant.FP, lineNbr++, "load fp into ac");
-							while (!tempSymbolTable.variableTable.containsKey(id)) {
+							code.emitLDA(RegisterConstant.AC, 0,
+									RegisterConstant.FP, lineNbr++,
+									"load fp into ac");
+							while (!tempSymbolTable.variableTable
+									.containsKey(id)) {
 								System.out.println("not found");
-								code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC, lineNbr++, "load upper level fp");
+								code.emitLD(RegisterConstant.AC, 0,
+										RegisterConstant.AC, lineNbr++,
+										"load upper level fp");
 								tempSymbolTable = tempSymbolTable.parent;
 							}
 							code.emitLD(RegisterConstant.AC, idType.offset,
 									RegisterConstant.AC, lineNbr++,
 									"load int/bool from stack");
 						}
-						
+
 					} else if (type.equals(TypeRecord.strType)) {
 						code.emitLD(RegisterConstant.AC, idType.offset,
 								RegisterConstant.ZERO, lineNbr++,
@@ -665,24 +681,24 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				RegisterConstant.AC2, lineNbr++, "subtract hi with low");
 		int saveLineNbr = lineNbr;
 		lineNbr++;
-		
 
 		SimpleNode stmsNode = (SimpleNode) node.jjtGetChild(2);
 		stmsNode.jjtAccept(this, data);
 
-		code.emitLD(RegisterConstant.AC, lowType.offset, RegisterConstant.FP, lineNbr++,
-				"load low into ac");
+		code.emitLD(RegisterConstant.AC, lowType.offset, RegisterConstant.FP,
+				lineNbr++, "load low into ac");
 		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
 				"decrease low");
-		code.emitST(RegisterConstant.AC, lowType.offset, RegisterConstant.FP, lineNbr++,
-				"save low");
+		code.emitST(RegisterConstant.AC, lowType.offset, RegisterConstant.FP,
+				lineNbr++, "save low");
 		code.emitLDA(RegisterConstant.PC, -(lineNbr - loopStart + 1),
 				RegisterConstant.PC, lineNbr++, "jump back to loop start");
 
 		code.emitJLT(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
 				RegisterConstant.PC, saveLineNbr, "jump out of the fa loop");
-		
-		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++, "change sp to fp + 1");
+
+		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
+				"change sp to fp + 1");
 		lineNbr = code.emitPOP(RegisterConstant.FP, lineNbr, "restore fp");
 
 		currentTable = currentTable.parent;

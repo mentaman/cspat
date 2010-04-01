@@ -1,5 +1,7 @@
 package type;
 
+import parser.Token;
+
 public class TypeRecord {
 	public Type baseType = new Type();
 	public TypeRecord underType;
@@ -11,13 +13,13 @@ public class TypeRecord {
 	public int offset;
 	public int length; // for string
 	public boolean isGlobal = true;
-
-
+	public Token token = new Token();
 
 	@Override
 	public String toString() {
 		return "TypeRecord [baseType=" + baseType + ", length=" + length
 				+ ", notAssignable=" + notAssignable + ", offset=" + offset
+				+ ", length=" + length + ", token=" + token.image
 				+ ", underType=" + underType + "]";
 	}
 
@@ -28,8 +30,8 @@ public class TypeRecord {
 	public TypeRecord(BasicType type) {
 		baseType.basicType = type;
 	}
-	
-	public TypeRecord(BasicType type,boolean notAssignable) {
+
+	public TypeRecord(BasicType type, boolean notAssignable) {
 		baseType.basicType = type;
 		this.notAssignable = notAssignable;
 	}
@@ -42,26 +44,26 @@ public class TypeRecord {
 
 		return ret;
 	}
-	
-	public int getDimension(){
+
+	public int getDimension() {
 		int dimension = 0;
 		TypeRecord currentRecord = this;
 		Type type = currentRecord.baseType;
-	    while (type.basicType.equals(BasicType.ARRAY)) {
+		while (type.basicType.equals(BasicType.ARRAY)) {
 			dimension++;
 			currentRecord = currentRecord.underType;
-			type = currentRecord.baseType;			
+			type = currentRecord.baseType;
 		}
-		
+
 		return dimension;
 	}
-	
-	public static int arraySize(TypeRecord type){
+
+	public static int arraySize(TypeRecord type) {
 		int size = 1;
 		while (isArray(type)) {
 			size *= type.baseType.size;
 			type = type.underType;
-		}	
+		}
 		return size;
 	}
 
@@ -109,7 +111,5 @@ public class TypeRecord {
 			return false;
 		return true;
 	}
-
-
 
 }

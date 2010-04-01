@@ -6,7 +6,7 @@
 5: LDC   0, 1(5)  load integer 1
 6: LDA   6, -1(6)  push low
 7: ST    0, 0(6)  push low
-8: LDC   0, 5(5)  load integer 5
+8: LDC   0, 3(5)  load integer 3
 9: LDA   6, -1(6)  push hi
 10: ST    0, 0(6)  push hi
 11: LD    0, -2(4)  load hi into ac 
@@ -18,7 +18,7 @@
 18: LDC   0, 1(5)  load integer 1
 19: LDA   6, -1(6)  push low
 20: ST    0, 0(6)  push low
-21: LDC   0, 6(5)  load integer 6
+21: LDC   0, 3(5)  load integer 3
 22: LDA   6, -1(6)  push hi
 23: ST    0, 0(6)  push hi
 24: LD    0, -2(4)  load hi into ac 
