@@ -10,6 +10,7 @@ public class TypeRecord {
 	public boolean notAssignable = false;
 	public int offset;
 	public int length; // for string
+	public boolean isGlobal = true;
 
 
 

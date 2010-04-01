@@ -16,6 +16,7 @@ public class SymbolTable {
 	public HashMap<String, ProcType> forwardTable = new HashMap<String, ProcType>();
 	public SymbolTable parent;
 	public boolean isGlobal = false;
+	public int tempDataPointer = 0;
 
 	// public Stack<Object> stack1 = new Stack<Object>();
 

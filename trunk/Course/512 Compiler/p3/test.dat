@@ -1,8 +1,6 @@
-var a:int
+fa i := 1 to 5 ->
+fa j := 1 to 6->
+write i;
+af
+af
 
-a := 1;
-
-do a <= 5 ->
-write a;
-a := a + 1;
-od
