@@ -14,6 +14,7 @@ public class SymbolTable {
 	public HashMap<String, TypeRecord> typeTable = new HashMap<String, TypeRecord>();
 	public HashMap<String, ProcType> procTable = new HashMap<String, ProcType>();
 	public HashMap<String, ProcType> forwardTable = new HashMap<String, ProcType>();
+
 	public SymbolTable parent;
 	public boolean isGlobal = false;
 	public int tempDataPointer = 0;
