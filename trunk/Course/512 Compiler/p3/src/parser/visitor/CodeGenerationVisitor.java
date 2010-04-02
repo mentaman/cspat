@@ -4,10 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 import org.hamcrest.core.IsAnything;
 
 import com.sun.org.apache.bcel.internal.generic.StoreInstruction;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import parser.*;
 import parser.generator.TMCodeGenerator;
@@ -24,6 +26,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private TMCodeGenerator code = new TMCodeGenerator();
 	private boolean debug = true;
 	private HashMap<String, Integer> stringTable = new HashMap<String, Integer>();
+	private Stack<ArrayList<Integer>> breakStatements = new Stack<ArrayList<Integer>>();
+
 	private void debug(String text) {
 		if (debug) {
 			System.out.println(text);
@@ -320,7 +324,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			saveLineNbr = lineNbr;
 			lineNbr++;
 			node.jjtGetChild(i + 1).jjtAccept(this, data); // generate stms
-			if (node.hasElse || node.hasElseIf) { // save line number for jump to the end
+			if (node.hasElse || node.hasElseIf) { // save line number for jump
+													// to the end
 				saveJumpToAfterIf.add(lineNbr);
 				lineNbr++;
 			}
@@ -592,21 +597,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	private void emitCodeForGlobalArray(ASTlvalue node, String id) {
 		TypeRecord currentRecord = node.originalType;
-		code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
-				lineNbr++, "load 0 to ac");
+		code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO, lineNbr++,
+				"load 0 to ac");
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
-			int sizeOfSubArray = TypeRecord
-					.arraySize(currentRecord.underType);
+			int sizeOfSubArray = TypeRecord.arraySize(currentRecord.underType);
 			System.out.println("subarray size: " + sizeOfSubArray);
-			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
-					"pop index");
+			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop index");
 
 			code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
-					RegisterConstant.ZERO, lineNbr++,
-					"load size of subarray");
-			code.emitMUL(RegisterConstant.AC2,
-					RegisterConstant.AC2, RegisterConstant.AC3,
-					lineNbr++, "compute " + i + " dim");
+					RegisterConstant.ZERO, lineNbr++, "load size of subarray");
+			code.emitMUL(RegisterConstant.AC2, RegisterConstant.AC2,
+					RegisterConstant.AC3, lineNbr++, "compute " + i + " dim");
 			code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
 					RegisterConstant.AC2, lineNbr++, "add result");
 
@@ -615,13 +616,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		code.emitLDC(RegisterConstant.AC2,
 				currentTable.variableTable.get(id).offset,
-				RegisterConstant.ZERO, lineNbr++,
-				"load offset into ac2");
+				RegisterConstant.ZERO, lineNbr++, "load offset into ac2");
 		code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
-				RegisterConstant.AC2, lineNbr++,
-				"compute final offset");
-		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC,
-				lineNbr++, "load data from array");
+				RegisterConstant.AC2, lineNbr++, "compute final offset");
+		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC, lineNbr++,
+				"load data from array");
 	}
 
 	@Override
@@ -630,6 +629,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		SimpleNode exp = (SimpleNode) node.jjtGetChild(0);
 		int loopstartLine = lineNbr;
 		System.out.println("loopstart: " + loopstartLine);
+		breakStatements.push(new ArrayList<Integer>());
 		exp.jjtAccept(this, data);
 		int saveLineNbr = lineNbr;
 		lineNbr++;
@@ -641,6 +641,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
 				RegisterConstant.PC, saveLineNbr, "jump out of the do loop");
+		ArrayList<Integer> currentBreaks = breakStatements.pop();
+		for (Integer breakLineNbr : currentBreaks) {
+			code.emitLDA(RegisterConstant.PC, lineNbr - breakLineNbr - 1,
+					RegisterConstant.PC, breakLineNbr, "break -> jump out of the do loop");
+		}
 		return data;
 	}
 
@@ -650,6 +655,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		SymbolTable parent = currentTable;
 		currentTable = new SymbolTable();
 		currentTable.parent = parent;
+		breakStatements.push(new ArrayList<Integer>());
+		
 		String loopid = node.getFirstToken().image;
 
 		lineNbr = code.emitPUSH(RegisterConstant.FP, lineNbr, "push fp");
@@ -697,12 +704,32 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitJLT(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
 				RegisterConstant.PC, saveLineNbr, "jump out of the fa loop");
 
+		ArrayList<Integer> currentBreaks = breakStatements.pop();
+		for (Integer breakLineNbr : currentBreaks) {
+			code.emitLDA(RegisterConstant.PC, lineNbr - breakLineNbr - 1,
+					RegisterConstant.PC, breakLineNbr, "break -> jump out of the do loop");
+		}
+		
 		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
 				"change sp to fp + 1");
 		lineNbr = code.emitPOP(RegisterConstant.FP, lineNbr, "restore fp");
 
 		currentTable = currentTable.parent;
 		return data;
+	}
+
+	@Override
+	public Object visit(ASTexit_stm node, Object data) {
+		code.emitHALT(lineNbr++, "exit program");
+		return super.visit(node, data);
+	}
+
+	@Override
+	public Object visit(ASTbreak_stm node, Object data) {
+		ArrayList<Integer> breaks = breakStatements.peek();
+		breaks.add(lineNbr);
+		lineNbr++;
+		return super.visit(node, data);
 	}
 
 }
