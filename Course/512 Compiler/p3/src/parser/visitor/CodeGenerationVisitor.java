@@ -313,11 +313,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			debug("child " + i + ": " + node.jjtGetChild(i));
 		}
 
-		boolean hasElse = false;
-		if (childrenCount > 2) {
-			hasElse = true;
-		}
-
 		int saveLineNbr = 0;
 		ArrayList<Integer> saveJumpToAfterIf = new ArrayList<Integer>();
 		for (int i = 0; i + 1 < childrenCount; i += 2) {
@@ -325,7 +320,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			saveLineNbr = lineNbr;
 			lineNbr++;
 			node.jjtGetChild(i + 1).jjtAccept(this, data); // generate stms
-			if (hasElse) { // save line number for jump to the end
+			if (node.hasElse || node.hasElseIf) { // save line number for jump to the end
 				saveJumpToAfterIf.add(lineNbr);
 				lineNbr++;
 			}
@@ -333,7 +328,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 					RegisterConstant.PC, saveLineNbr, "if expr not true");
 		}
 
-		if (hasElse) {
+		if (node.hasElse) {
 			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
 			// else stms
 		}
@@ -528,38 +523,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				if (node.isArray) { // array
 					int totalSize = TypeRecord.arraySize(type);
 					TypeRecord currentRecord = node.originalType;
-					code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
-							lineNbr++, "load 0 to ac");
-					for (int i = 0; i < node.jjtGetNumChildren(); i++) {
-						int sizeOfSubArray = TypeRecord
-								.arraySize(currentRecord.underType);
-						System.out.println("subarray size: " + sizeOfSubArray);
-						lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
-								"pop index");
-
-						code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
-								RegisterConstant.ZERO, lineNbr++,
-								"load size of subarray");
-						code.emitMUL(RegisterConstant.AC2,
-								RegisterConstant.AC2, RegisterConstant.AC3,
-								lineNbr++, "compute " + i + " dim");
-						code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
-								RegisterConstant.AC2, lineNbr++, "add result");
-
-						currentRecord = currentRecord.underType;
+					if (idType.isGlobal) {
+						emitCodeForGlobalArray(node, id);
 					}
-
-					code.emitLDC(RegisterConstant.AC2,
-							currentTable.variableTable.get(id).offset,
-							RegisterConstant.ZERO, lineNbr++,
-							"load offset into ac2");
-					code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
-							RegisterConstant.AC2, lineNbr++,
-							"compute final offset");
-					// lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
-					// "push final offset");
-					code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC,
-							lineNbr++, "load data from array");
 				} else {
 					if (type.equals(TypeRecord.intType)
 							|| type.equals(TypeRecord.boolType)) {
@@ -622,6 +588,40 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		}
 		return data;
+	}
+
+	private void emitCodeForGlobalArray(ASTlvalue node, String id) {
+		TypeRecord currentRecord = node.originalType;
+		code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
+				lineNbr++, "load 0 to ac");
+		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
+			int sizeOfSubArray = TypeRecord
+					.arraySize(currentRecord.underType);
+			System.out.println("subarray size: " + sizeOfSubArray);
+			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
+					"pop index");
+
+			code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
+					RegisterConstant.ZERO, lineNbr++,
+					"load size of subarray");
+			code.emitMUL(RegisterConstant.AC2,
+					RegisterConstant.AC2, RegisterConstant.AC3,
+					lineNbr++, "compute " + i + " dim");
+			code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+					RegisterConstant.AC2, lineNbr++, "add result");
+
+			currentRecord = currentRecord.underType;
+		}
+
+		code.emitLDC(RegisterConstant.AC2,
+				currentTable.variableTable.get(id).offset,
+				RegisterConstant.ZERO, lineNbr++,
+				"load offset into ac2");
+		code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
+				RegisterConstant.AC2, lineNbr++,
+				"compute final offset");
+		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC,
+				lineNbr++, "load data from array");
 	}
 
 	@Override
