@@ -2,18 +2,27 @@ var i : int
 
 i := 5;
 
-if i < 1 ->
-write "i < 1";
-[] i > 1 ->
-write "i > 1";
-fi
-write "out of 1st loop";
+do i > 0 ->
+write i;
+i := i - 1;
 
-if i < 1 ->
-write "i < 1";
-[] i < 3 ->
-write "i < 3";
-[] else ->
-write "i >= 3";
+if i = 3 ->
+break;
 fi
-write "out of 2nd loop";
+
+od
+
+write "out of the do loop";
+
+
+fa i := 1 to 5 ->
+
+write i;
+
+if i = 3 ->
+break;
+fi
+
+af
+
+write "out of the fa loop";
