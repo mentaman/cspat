@@ -111,5 +111,20 @@ public class TypeRecord {
 			return false;
 		return true;
 	}
+	
+	public static TypeRecord clone(TypeRecord type){
+		if (type == null) {
+			return null;
+		}
+		TypeRecord resultRecord = new TypeRecord(type.baseType.basicType);
+		resultRecord.baseType.size = type.baseType.size;
+		resultRecord.isGlobal = type.isGlobal;
+		resultRecord.notAssignable = type.notAssignable;
+		resultRecord.length = type.length;
+		resultRecord.offset = type.offset;
+		resultRecord.token = type.token;
+		resultRecord.underType = clone(type.underType);
+		return resultRecord;
+	}
 
 }

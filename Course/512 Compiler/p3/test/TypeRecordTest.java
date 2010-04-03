@@ -50,4 +50,14 @@ public class TypeRecordTest {
 		System.out.println("array 2: " + array2);
 		System.out.println("array 3: " + array3);
 	}
+	
+	@Test
+	public void testClone() throws Exception {
+		TypeRecord array1 = TypeRecord.arrayType(2, TypeRecord.intType);
+		TypeRecord array2 = TypeRecord.arrayType(3, array1);
+		TypeRecord array3 = TypeRecord.arrayType(4, array2);
+		assertEquals(array3,TypeRecord.clone(array3));
+		System.out.println("array 3: " + array3);
+		
+	}
 }
