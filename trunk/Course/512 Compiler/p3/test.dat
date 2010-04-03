@@ -1,10 +1,16 @@
 var i : int
 
-proc test(i : int) : int
+proc test(i : int) : str
+var a : int
+
+
 i := i + 1;
 writes "i + 1 = ";
 write i;
-test := 100;
+test := "hi";
+
+a := 5;
+write a;
 end
 
 write "start";

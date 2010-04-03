@@ -4,6 +4,8 @@ package parser;
 
 import java.util.ArrayList;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 public class SimpleNode implements Node {
 
 	protected Node parent;
@@ -41,6 +43,18 @@ public class SimpleNode implements Node {
 
 	public Token getTokenAt(int index) {
 		return tokens.get(index);
+	}
+	
+	public int getTokenSize(){
+		return tokens.size();
+	}
+	
+	public ArrayList<Token> getTokens(){
+		return tokens;
+	}
+	
+	public void setTokens(ArrayList<Token> data ){
+		tokens = data;
 	}
 
 	public void jjtOpen() {

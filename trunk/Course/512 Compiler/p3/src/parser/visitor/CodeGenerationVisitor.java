@@ -770,6 +770,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTproc node, Object data) {
+		System.out.println("in astproc");
 		Token idToken = node.getFirstToken();
 		ProcType procType = null;
 		SymbolTable parent = currentTable;
@@ -800,9 +801,34 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		procType.startLineNbr = lineNbr;
 
-		System.out.println("before proc: " + currentTable);
+		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
+			SimpleNode child = (SimpleNode) node.jjtGetChild(i);
+			System.out.println("child node: " + child);
+			if (child instanceof ASTvar) {
+				ASTvarlist varlist = (ASTvarlist) child.jjtGetChild(0);
+				for (int j = 0; j < varlist.getTokenSize(); j++) {
+					TypeRecord varType = (TypeRecord) varlist.jjtGetValue();
+					TypeRecord type = TypeRecord.clone(varType);
+					type.isGlobal = false;
+					if (TypeRecord.isArray(varType)) {
+						currentOffset = currentOffset
+								- TypeRecord.arraySize(varType) + 1;
+						type.offset = currentOffset--;
+						currentTable.variableTable.put(
+								varlist.getTokenAt(j).image, type);
+					} else {
+						type.offset = currentOffset--;
+						currentTable.variableTable.put(
+								varlist.getTokenAt(j).image, type);
+					}
+				}
 
-		super.visit(node, data); // generate code for proc content
+			}
+			child.jjtAccept(this, data);
+
+		}
+
+		System.out.println("before proc: " + currentTable);
 
 		int returnAddressOffset = -1;
 		if (returnType.equals(TypeRecord.intType)
@@ -817,7 +843,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
 				"change sp to fp + 1");
 		lineNbr = code.emitPOP(RegisterConstant.FP, lineNbr, "restore fp");
-		
+
 		code.emitLDA(RegisterConstant.PC, 0, RegisterConstant.AC2, lineNbr++,
 				"jump to the return address");
 
@@ -834,6 +860,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		ProcType procType = null;
 		try {
 			procType = currentTable.lookupProc(idToken);
+			System.out.println("procedure call: " + procType);
 		} catch (SymbolTableException e) {
 			e.printStackTrace();
 		}
@@ -889,14 +916,16 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code
 				.emitPUSH(RegisterConstant.AC, returnLineNbr,
 						"push return address");
-		
+
 		if (returnType.equals(TypeRecord.strType)) {
 			code.emitLDA(RegisterConstant.AC4, 0, RegisterConstant.AC,
 					lineNbr++, "store str address into ac4 from ac");
 			code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
 					lineNbr++, "load str length from address stored in ac");
-			code.emitADD(RegisterConstant.AC3, RegisterConstant.AC, RegisterConstant.AC4,
-					lineNbr++, "load str offset into ac3");
+			code
+					.emitADD(RegisterConstant.AC3, RegisterConstant.AC,
+							RegisterConstant.AC4, lineNbr++,
+							"load str offset into ac3");
 			//			
 			// code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
 			// RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
