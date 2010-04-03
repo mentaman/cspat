@@ -4,11 +4,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 import org.hamcrest.core.Is;
 import org.hamcrest.core.IsAnything;
 
+import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry.Entry;
 import com.sun.org.apache.bcel.internal.generic.StoreInstruction;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
@@ -46,15 +49,30 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		super();
 	}
 
-	public CodeGenerationVisitor(SymbolTable globalTable) {
+	public CodeGenerationVisitor(SymbolTable globalTable,HashMap<String, Integer> stringTable) {
 		super();
 		this.globalTable = globalTable;
 		currentTable = globalTable;
+		this.stringTable = stringTable;
 	}
 
 	@Override
 	public Object visit(ASTprogram node, Object data) {
 
+		System.out.println("before generating stringtable: " + stringTable);
+		
+		for ( Map.Entry<String,Integer> entry: stringTable.entrySet()) {
+			String stringValue = entry.getKey();
+			int offset = entry.getValue();
+			int strLength = stringValue.length() - 2;
+			code.emitDATA(strLength);
+			code.emitSDATA(stringValue);
+			entry.setValue(dataPointer);
+			dataPointer += (strLength + 1);
+		}
+		
+		System.out.println("after generating stringtable: " + stringTable);
+		
 		currentTable = globalTable;
 		code.emitLD(RegisterConstant.SP, 0, RegisterConstant.ZERO, lineNbr++,
 				"save stack pointer");
@@ -585,7 +603,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						}
 
 					} else if (type.equals(TypeRecord.strType)) {
-						loadStringIntoStack(idType);
+						loadStringIntoStack(idType, id);
 					}
 					super.visit(node, data);
 				}
@@ -608,25 +626,59 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 	}
 
-	private void loadStringIntoStack(TypeRecord idType) {
-		code.emitLD(RegisterConstant.AC, idType.offset, RegisterConstant.ZERO,
-				lineNbr++, "load str length from static data");
+	private void loadStringIntoStack(TypeRecord idType, String id) {
+		if (idType.isGlobal) {
+			code.emitLD(RegisterConstant.AC, idType.offset,
+					RegisterConstant.ZERO, lineNbr++,
+					"load str length from static data");
 
-		code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
-				RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
+			code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
+					RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
 
-		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3, lineNbr++,
-				"load char into ac2");
-		lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
+			code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+					lineNbr++, "load char into ac2");
+			lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
 
-		code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3, lineNbr++,
-				"decrease ac3");
-		code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC, lineNbr++,
-				"decrease str length");
-		code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC, lineNbr++,
-				"jump back if str not yet finish");
-		code.emitLD(RegisterConstant.AC, idType.offset, RegisterConstant.ZERO,
-				lineNbr++, "load str length from static data");
+			code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
+					lineNbr++, "decrease ac3");
+			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+					lineNbr++, "decrease str length");
+			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+					lineNbr++, "jump back if str not yet finish");
+			code.emitLD(RegisterConstant.AC, idType.offset,
+					RegisterConstant.ZERO, lineNbr++,
+					"load str length from static data");
+		} else {
+			storeCorrespondingFPintoAC2(id);
+			code.emitST(RegisterConstant.AC4, idType.offset,
+					RegisterConstant.AC2, lineNbr++,
+					"store str address into ac4");
+
+			code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
+					lineNbr++, "load str length from address stored in ac");
+			code
+					.emitADD(RegisterConstant.AC3, RegisterConstant.AC,
+							RegisterConstant.AC4, lineNbr++,
+							"load str offset into ac3");
+			//			
+			// code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
+			// RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
+
+			code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+					lineNbr++, "load char into ac2");
+			lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
+
+			code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
+					lineNbr++, "decrease ac3");
+			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+					lineNbr++, "decrease str length");
+			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+					lineNbr++, "jump back if str not yet finish");
+
+			code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
+					lineNbr++, "load str length from address stored in ac3");
+		}
+
 	}
 
 	private void emitCodeForGlobalArray(ASTlvalue node, String id) {
@@ -792,6 +844,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		if (!returnType.equals(TypeRecord.voidType)) {
 			currentTable.variableTable.put(idToken.image, returnType);
 		}
+
 		for (ParaType paraType : procType.paraTypes) {
 			TypeRecord type = TypeRecord.clone(paraType.type);
 			type.isGlobal = false;
@@ -830,9 +883,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		System.out.println("before proc: " + currentTable);
 
+		System.out.println("return type: " + returnType);
 		int returnAddressOffset = -1;
 		if (returnType.equals(TypeRecord.intType)
-				|| returnType.equals(TypeRecord.boolType)) {
+				|| returnType.equals(TypeRecord.boolType)
+				|| returnType.equals(TypeRecord.strType)) {
 			code.emitLD(RegisterConstant.AC, returnValueOffset,
 					RegisterConstant.FP, lineNbr++,
 					"load int/bool/string offset as return value");
@@ -877,9 +932,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		int currentOffset = -2; // -1 is for return address
 		if (!procType.returnType.equals(TypeRecord.voidType)) {
-			// if (TypeRecord.isArray(returnType)) {
-			//
-			// }
 			lineNbr = code.emitPUSH(RegisterConstant.ZERO, lineNbr,
 					"push zero as return value");
 		}
@@ -897,7 +949,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 			} else if (paraType.type.equals(TypeRecord.strType)) {
 				String content = paraNodeType.token.image;
-				if (!stringTable.containsKey(content)) {
+				System.out.println("before loading str parameter: " + stringTable);
+				if (!stringTable.containsKey(content)) {					
 					storeStringToStaticData(paraType.id.image, paraNodeType);
 				}
 				code.emitLDA(RegisterConstant.SP, paraNodeType.length,
@@ -906,6 +959,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						RegisterConstant.ZERO, lineNbr++, "load string offset");
 				lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 						"push str parameter");
+			} else if (TypeRecord.isArray(paraType.type)) {
+
+			}
+		}
+
+		Set<TypeRecord> types = procType.localVariablesHashMap.keySet();
+		for (TypeRecord keyType : types) {
+			ArrayList<Token> tokens = procType.localVariablesHashMap
+					.get(keyType);
+			for (Token localIdToken : tokens) {
+
 			}
 		}
 

@@ -1,19 +1,2 @@
-var i : int
-
-proc test(i : int) : str
-var a : int
-
-
-i := i + 1;
-writes "i + 1 = ";
-write i;
-test := "hi";
-
-a := 5;
-write a;
-end
-
-write "start";
-i := 5;
-write test(i);
-write "end";
+write "hello world";
+write "hello";

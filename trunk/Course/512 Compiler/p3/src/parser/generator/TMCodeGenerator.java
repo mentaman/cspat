@@ -33,6 +33,8 @@ public class TMCodeGenerator {
 	private final static String JNE = "JNE";
 	private final static String JGE = "JGE";
 	private final static String JGT = "JGT";
+	private final static String DATA = ".DATA";
+	private final static String SDATA = ".SDATA";
 
 	public void emitLD(int register, int constant, int baseRegister, int lineNbr) {
 		emitLD(register, constant, baseRegister, lineNbr, "");
@@ -212,5 +214,17 @@ public class TMCodeGenerator {
 		content.append(lineNbr + ": " + JGT + "   " + register + ", "
 				+ constant + "(" + baseRegister + ")" + "  " + comment);
 		content.append(NEWLINE);
+	}
+	
+	public void emitDATA(int data) {
+		content.append(DATA+ "   " + data);
+		content.append(NEWLINE);
+		
+	}
+	
+	public void emitSDATA(String data) {
+		content.append(SDATA+ "   " + data);
+		content.append(NEWLINE);
+		
 	}
 }

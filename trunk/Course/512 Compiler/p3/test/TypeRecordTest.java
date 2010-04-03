@@ -12,6 +12,8 @@ public class TypeRecordTest {
 		assertEquals(TypeRecord.intType,TypeRecord.intType);
 		assertEquals(TypeRecord.boolType,TypeRecord.boolType);
 		assertEquals(TypeRecord.strType,TypeRecord.strType);
+		TypeRecord type = new TypeRecord(BasicType.STRING);
+		assertFalse(type.equals(TypeRecord.intType));
 		
 	}
 	
