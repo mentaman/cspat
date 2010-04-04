@@ -489,13 +489,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 					"pop final offset");
 
 			code.emitST(RegisterConstant.AC, 0, RegisterConstant.AC2,
-					lineNbr++, "store value into static data");
-
-			if (currentOffset == 0) {
-				lvalue.originalType.offset = offset;
-				currentTable.variableTable.put(id, lvalue.originalType);
-				dataPointer += TypeRecord.arraySize(lvalue.originalType);
-			}
+					lineNbr++, "store value into array static data");
 
 		} else {
 			exp.jjtAccept(this, data);
@@ -1032,12 +1026,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 					localVariableSize += TypeRecord.arraySize(keyType);
 					code.emitLDC(RegisterConstant.AC, localVariableSize,
 							RegisterConstant.ZERO, lineNbr++,
-							"load array localVariableSize");
-					code.emitSUB(RegisterConstant.AC, RegisterConstant.FP,
+							"load array localVariableSize: "
+									+ localVariableSize);
+					code.emitSUB(RegisterConstant.AC, RegisterConstant.SP,
 							RegisterConstant.AC, lineNbr++,
 							"compute absolute address of the array");
 					code.emitST(RegisterConstant.AC, -localVariableSize - 1,
-							RegisterConstant.FP, lineNbr++,
+							RegisterConstant.SP, lineNbr++,
 							"store absolute array address");
 					localVariableSize++;
 
