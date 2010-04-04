@@ -13,7 +13,7 @@ public class ProcType {
 	public int startLineNbr;
 	public int endLineNbr;
 	public HashMap<TypeRecord, ArrayList<Token>> localVariablesHashMap = new HashMap<TypeRecord, ArrayList<Token>>();
-
+	public HashMap<String, TypeRecord> typeTable = new HashMap<String, TypeRecord>();
 	
 
 	@Override
