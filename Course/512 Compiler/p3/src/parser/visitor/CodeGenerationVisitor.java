@@ -115,7 +115,15 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			type.offset = dataPointer;
 			entry.setValue(type);
 			if (TypeRecord.isArray(type)) {
-				dataPointer += TypeRecord.arraySize(type);
+				code.emitLDC(RegisterConstant.AC, dataPointer + 1,
+						RegisterConstant.ZERO, lineNbr++,
+						"store array start address: " + (dataPointer + 1));
+				code.emitLDC(RegisterConstant.AC2, dataPointer,
+						RegisterConstant.ZERO, lineNbr++,
+						"store array offset into ac2" + dataPointer);
+				code.emitST(RegisterConstant.AC, 0, RegisterConstant.AC2,
+						lineNbr++, "store array offset");
+				dataPointer += TypeRecord.arraySize(type) + 1;
 			} else {
 				dataPointer++;
 			}
@@ -460,8 +468,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				currentRecord = currentRecord.underType;
 			}
 
-			code.emitLDC(RegisterConstant.AC2, offset, RegisterConstant.ZERO,
-					lineNbr++, "load offset into ac2");
+			if (lookupType.isGlobal) {
+				code.emitLD(RegisterConstant.AC2, offset,
+						RegisterConstant.ZERO, lineNbr++,
+						"load offset into ac2");
+			} else {
+				storeCorrespondingFPintoAC2(id);
+				code.emitLD(RegisterConstant.AC2, lookupType.offset,
+						RegisterConstant.AC2, lineNbr++,
+						"load local offset into ac2");
+			}
+
 			code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
 					RegisterConstant.AC2, lineNbr++, "compute final offset");
 			lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
@@ -573,7 +590,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	@Override
 	public Object visit(ASTlvalue node, Object data) {
 
-		String id = node.getFirstToken().image;
+		Token idToken = node.getFirstToken();
+		String id = idToken.image;
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
 		if (node.isArray) { // array
 			debug("original type: " + node.originalType);
@@ -593,7 +611,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		if (!node.isAssignment) {
 			TypeRecord idType = null;
 			try {
-				idType = currentTable.lookupId(node.getFirstToken());
+				idType = currentTable.lookupId(idToken);
 			} catch (SymbolTableException e) {
 				e.printStackTrace();
 			}
@@ -601,9 +619,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				if (node.isArray) { // array
 					int totalSize = TypeRecord.arraySize(type);
 					TypeRecord currentRecord = node.originalType;
-					if (idType.isGlobal) {
-						emitCodeForGlobalArray(node, id);
-					}
+					emitCodeForArray(node, id, idType, idToken);
+
 				} else {
 
 					if (idType.isGlobal) {
@@ -697,7 +714,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	}
 
-	private void emitCodeForGlobalArray(ASTlvalue node, String id) {
+	private void emitCodeForArray(ASTlvalue node, String id, TypeRecord idType,
+			Token idToken) {
 		TypeRecord currentRecord = node.originalType;
 		code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO, lineNbr++,
 				"load 0 to ac");
@@ -716,9 +734,23 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			currentRecord = currentRecord.underType;
 		}
 
-		code.emitLDC(RegisterConstant.AC2,
-				currentTable.variableTable.get(id).offset,
-				RegisterConstant.ZERO, lineNbr++, "load offset into ac2");
+		if (idType.isGlobal) {
+			code.emitLD(RegisterConstant.AC2, currentTable.variableTable
+					.get(id).offset, RegisterConstant.ZERO, lineNbr++,
+					"load global offset into ac2");
+		} else {
+			TypeRecord lookupId = null;
+			try {
+				lookupId = currentTable.lookupId(idToken);
+			} catch (SymbolTableException e) {
+				e.printStackTrace();
+			}
+			storeCorrespondingFPintoAC2(id);
+			code.emitLD(RegisterConstant.AC2, lookupId.offset,
+					RegisterConstant.AC2, lineNbr++,
+					"load local offset into ac2");
+		}
+
 		code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
 				RegisterConstant.AC2, lineNbr++, "compute final offset");
 		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC, lineNbr++,
@@ -879,7 +911,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				type.isGlobal = false;
 				if (TypeRecord.isArray(keyType)) {
 					currentOffset = currentOffset
-							- TypeRecord.arraySize(keyType) + 1;
+							- TypeRecord.arraySize(keyType);
 				}
 				type.offset = currentOffset--;
 				currentTable.variableTable.put(localIdToken.image, type);
@@ -998,6 +1030,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			for (Token localIdToken : tokens) {
 				if (TypeRecord.isArray(keyType)) {
 					localVariableSize += TypeRecord.arraySize(keyType);
+					code.emitLDC(RegisterConstant.AC, localVariableSize,
+							RegisterConstant.ZERO, lineNbr++,
+							"load array localVariableSize");
+					code.emitSUB(RegisterConstant.AC, RegisterConstant.FP,
+							RegisterConstant.AC, lineNbr++,
+							"compute absolute address of the array");
+					code.emitST(RegisterConstant.AC, -localVariableSize - 1,
+							RegisterConstant.FP, lineNbr++,
+							"store absolute array address");
+					localVariableSize++;
+
 				} else {
 					localVariableSize++;
 				}
