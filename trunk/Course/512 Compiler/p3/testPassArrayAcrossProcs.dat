@@ -1,4 +1,5 @@
 type rgb = int[3]
+var k:int[3][3]
 
 proc test2(a:rgb) : str
 a[0] := 1;
@@ -11,12 +12,10 @@ test2 := "success";
 end
 
 
-proc test() : str
-var b:rgb
-
+proc test(b:rgb) : str
 test := test2(b);
 end
 
 
 
-write test();
+write test(k[1]);

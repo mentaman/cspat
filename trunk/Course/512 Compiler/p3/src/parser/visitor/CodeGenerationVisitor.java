@@ -660,60 +660,60 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 	}
 
-//	private void loadStringIntoStack(TypeRecord idType, String id) {
-//		if (idType.isGlobal) {
-//			code.emitLD(RegisterConstant.AC, idType.offset,
-//					RegisterConstant.ZERO, lineNbr++,
-//					"load str length from static data");
-//
-//			code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
-//					RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
-//
-//			code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
-//					lineNbr++, "load char into ac2");
-//			lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
-//
-//			code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
-//					lineNbr++, "decrease ac3");
-//			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
-//					lineNbr++, "decrease str length");
-//			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
-//					lineNbr++, "jump back if str not yet finish");
-//			code.emitLD(RegisterConstant.AC, idType.offset,
-//					RegisterConstant.ZERO, lineNbr++,
-//					"load str length from static data");
-//		} else {
-//			storeCorrespondingFPintoAC2(id);
-//			code.emitST(RegisterConstant.AC4, idType.offset,
-//					RegisterConstant.AC2, lineNbr++,
-//					"store str address into ac4");
-//
-//			code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
-//					lineNbr++, "load str length from address stored in ac");
-//			code
-//					.emitADD(RegisterConstant.AC3, RegisterConstant.AC,
-//							RegisterConstant.AC4, lineNbr++,
-//							"load str offset into ac3");
-//			//			
-//			// code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
-//			// RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
-//
-//			code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
-//					lineNbr++, "load char into ac2");
-//			lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
-//
-//			code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
-//					lineNbr++, "decrease ac3");
-//			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
-//					lineNbr++, "decrease str length");
-//			code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
-//					lineNbr++, "jump back if str not yet finish");
-//
-//			code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
-//					lineNbr++, "load str length from address stored in ac3");
-//		}
-//
-//	}
+	// private void loadStringIntoStack(TypeRecord idType, String id) {
+	// if (idType.isGlobal) {
+	// code.emitLD(RegisterConstant.AC, idType.offset,
+	// RegisterConstant.ZERO, lineNbr++,
+	// "load str length from static data");
+	//
+	// code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
+	// RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
+	//
+	// code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+	// lineNbr++, "load char into ac2");
+	// lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
+	//
+	// code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
+	// lineNbr++, "decrease ac3");
+	// code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+	// lineNbr++, "decrease str length");
+	// code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+	// lineNbr++, "jump back if str not yet finish");
+	// code.emitLD(RegisterConstant.AC, idType.offset,
+	// RegisterConstant.ZERO, lineNbr++,
+	// "load str length from static data");
+	// } else {
+	// storeCorrespondingFPintoAC2(id);
+	// code.emitST(RegisterConstant.AC4, idType.offset,
+	// RegisterConstant.AC2, lineNbr++,
+	// "store str address into ac4");
+	//
+	// code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
+	// lineNbr++, "load str length from address stored in ac");
+	// code
+	// .emitADD(RegisterConstant.AC3, RegisterConstant.AC,
+	// RegisterConstant.AC4, lineNbr++,
+	// "load str offset into ac3");
+	// //
+	// // code.emitLDC(RegisterConstant.AC3, idType.offset + idType.length,
+	// // RegisterConstant.ZERO, lineNbr++, "load offset into ac3");
+	//
+	// code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC3,
+	// lineNbr++, "load char into ac2");
+	// lineNbr = code.emitPUSH(RegisterConstant.AC2, lineNbr, "push char");
+	//
+	// code.emitLDA(RegisterConstant.AC3, -1, RegisterConstant.AC3,
+	// lineNbr++, "decrease ac3");
+	// code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
+	// lineNbr++, "decrease str length");
+	// code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC,
+	// lineNbr++, "jump back if str not yet finish");
+	//
+	// code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC4,
+	// lineNbr++, "load str length from address stored in ac3");
+	// }
+	//
+	// }
 
 	private void emitCodeForArrayValueAccess(ASTlvalue node, String id,
 			TypeRecord idType, Token idToken) {
@@ -898,6 +898,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} catch (SymbolTableException e) {
 			e.printStackTrace();
 		}
+		currentTable.typeTable = procType.typeTable;
 
 		TypeRecord returnType = TypeRecord.clone(procType.returnType);
 		returnType.isGlobal = false;
