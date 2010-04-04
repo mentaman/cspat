@@ -119,36 +119,62 @@
 117: LD    4, 0(6)  restore fp
 118: LDA   6, 1(6)  restore fp
 119: LDA   7, 0(1)  jump to the return address
-5: LDA   7, 120(5)  jump to start of the program
 120: LDA   6, -1(6)  push fp
 121: ST    4, 0(6)  push fp
 122: LDA   4, 0(6)  set fp to sp
 126: LDA   6, -1(6)  push zero as return value
 127: ST    5, 0(6)  push zero as return value
-128: LDC   0, 1(5)  load integer 1
-129: LDA   6, -1(6)  push array index
-130: ST    0, 0(6)  push array index
-131: LDC   0, 2(5)  push array dimension
-132: LDC   0, 0(5)  load 0 to ac
-133: LD    1, 0(6)  pop index
-134: LDA   6, 1(6)  pop index
-135: LDC   2, 3(5)  load size of subarray
-136: MUL   1, 1, 2  compute 0 dim
-137: ADD   0, 0, 1  add result
-138: LD    1, 9(5)  load global offset into ac2
-139: ADD   0, 0, 1  compute final offset
-140: LDA   6, -1(6)  push array parameter
-141: ST    0, 0(6)  push array parameter
-142: LDA   6, 0(6)  preserve space for local vars
-143: LDA   7, 6(5)  jump to procedure call
-123: LDC   0, 144(5)  load return address into ac
+128: LDC   0, 1(5)  push array dimension
+129: LDC   0, 0(5)  load 0 to ac
+130: LDA   1, 0(4)  load fp into ac2
+131: LD    1, 0(1)  load upper level fp into ac2
+132: LD    1, -3(1)  load local offset into ac2
+133: ADD   0, 0, 1  compute final offset
+134: LDA   6, -1(6)  push array parameter
+135: ST    0, 0(6)  push array parameter
+136: LDA   6, 0(6)  preserve space for local vars
+137: LDA   7, 6(5)  jump to procedure call
+123: LDC   0, 138(5)  load return address into ac
 124: LDA   6, -1(6)  push return address
 125: ST    0, 0(6)  push return address
-144: LD    1, 0(0)  load str length into ac2
-145: LDA   0, 1(0)  increase offset
-146: LD    2, 0(0)  load char into ac3
-147: OUTC   2, 2, 2  write char
-148: LDA   1, -1(1)  decrease length of remaining string in ac2
-149: JNE   1, -5(7)  continue print if not yet finish
-150: OUTNL 0, 0, 0  write new line
-151: HALT  0, 0, 0  program ends
+138: LDA   1, 0(4)  load fp into ac2
+139: ST    0, -2(1)  store int/bool/string into stack
+140: LD    0, -2(4)  load int/bool/string offset as return value
+141: LD    1, -1(4)  load return address
+142: LDA   6, 0(4)  change sp to fp + 1
+143: LD    4, 0(6)  restore fp
+144: LDA   6, 1(6)  restore fp
+145: LDA   7, 0(1)  jump to the return address
+5: LDA   7, 146(5)  jump to start of the program
+146: LDA   6, -1(6)  push fp
+147: ST    4, 0(6)  push fp
+148: LDA   4, 0(6)  set fp to sp
+152: LDA   6, -1(6)  push zero as return value
+153: ST    5, 0(6)  push zero as return value
+154: LDC   0, 1(5)  load integer 1
+155: LDA   6, -1(6)  push array index
+156: ST    0, 0(6)  push array index
+157: LDC   0, 2(5)  push array dimension
+158: LDC   0, 0(5)  load 0 to ac
+159: LD    1, 0(6)  pop index
+160: LDA   6, 1(6)  pop index
+161: LDC   2, 3(5)  load size of subarray
+162: MUL   1, 1, 2  compute 0 dim
+163: ADD   0, 0, 1  add result
+164: LD    1, 9(5)  load global offset into ac2
+165: ADD   0, 0, 1  compute final offset
+166: LDA   6, -1(6)  push array parameter
+167: ST    0, 0(6)  push array parameter
+168: LDA   6, 0(6)  preserve space for local vars
+169: LDA   7, 120(5)  jump to procedure call
+149: LDC   0, 170(5)  load return address into ac
+150: LDA   6, -1(6)  push return address
+151: ST    0, 0(6)  push return address
+170: LD    1, 0(0)  load str length into ac2
+171: LDA   0, 1(0)  increase offset
+172: LD    2, 0(0)  load char into ac3
+173: OUTC   2, 2, 2  write char
+174: LDA   1, -1(1)  decrease length of remaining string in ac2
+175: JNE   1, -5(7)  continue print if not yet finish
+176: OUTNL 0, 0, 0  write new line
+177: HALT  0, 0, 0  program ends
