@@ -24,9 +24,9 @@ public class SymbolTable {
 	public static SymbolTable buildInTable() {
 
 		SymbolTable ret = new SymbolTable();
-		ret.typeTable.put("int", TypeRecord.intType);
-		ret.typeTable.put("bool", TypeRecord.boolType);
-		ret.typeTable.put("str", TypeRecord.strType);
+		ret.typeTable.put("int", TypeRecord.clone(TypeRecord.intType));
+		ret.typeTable.put("bool",  TypeRecord.clone(TypeRecord.boolType));
+		ret.typeTable.put("str",  TypeRecord.clone(TypeRecord.strType));
 		List<ParaType> paras = new ArrayList<ParaType>();
 		Token s = new Token();
 		s.image = "s";
