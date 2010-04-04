@@ -1,15 +1,19 @@
 type rgb = int[3]
 var k:int[3][3]
 
-proc test(a:rgb) : str
+proc test2(a:rgb) : str
 a[0] := 1;
 a[1] := 2;
 
 write a[0];
 write a[1];
 write a[0] + a[1];
+test2 := "success";
+end
 
-test := "success";
+
+proc test(b:rgb) : str
+test := test2(b);
 end
 
 
