@@ -1,14 +1,10 @@
-var a:int[5][6]
 var s:str
-var k:int
-var m:bool
-var n:str
 
-
-s := "hello";
-n := s;
+proc test(s:str) : str
 write s;
-k := 5;
-write k;
-writes "n = ";
-writes n;
+test := "hello";
+end
+
+write "start";
+s := "pass";
+write test(s);
