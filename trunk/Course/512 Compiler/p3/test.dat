@@ -1,5 +1,5 @@
 type rgb = int[3]
-var k:rgb
+var k:int[3][3]
 
 proc test(a:rgb) : str
 a[0] := 1;
@@ -14,4 +14,4 @@ end
 
 
 
-write test(k);
+write test(k[1]);
