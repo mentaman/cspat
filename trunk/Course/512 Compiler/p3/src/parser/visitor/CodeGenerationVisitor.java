@@ -49,7 +49,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		super();
 	}
 
-	public CodeGenerationVisitor(SymbolTable globalTable,HashMap<String, Integer> stringTable) {
+	public CodeGenerationVisitor(SymbolTable globalTable,
+			HashMap<String, Integer> stringTable) {
 		super();
 		this.globalTable = globalTable;
 		currentTable = globalTable;
@@ -60,19 +61,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	public Object visit(ASTprogram node, Object data) {
 
 		System.out.println("before generating stringtable: " + stringTable);
-		
-		for ( Map.Entry<String,Integer> entry: stringTable.entrySet()) {
-			String stringValue = entry.getKey();
-			int offset = entry.getValue();
-			int strLength = stringValue.length() - 2;
-			code.emitDATA(strLength);
-			code.emitSDATA(stringValue);
-			entry.setValue(dataPointer);
-			dataPointer += (strLength + 1);
-		}
-		
+		System.out.println("before generating currenttable: " + currentTable);
+		storeStringAndComputeOffset();
+		storeGlobalVariableAndComputeOffset();
+
 		System.out.println("after generating stringtable: " + stringTable);
-		
+		System.out.println("after generating currenttable: " + currentTable);
+
 		currentTable = globalTable;
 		code.emitLD(RegisterConstant.SP, 0, RegisterConstant.ZERO, lineNbr++,
 				"save stack pointer");
@@ -109,6 +104,34 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		return data;
 	}
 
+	private void storeGlobalVariableAndComputeOffset() {
+		for (Map.Entry<String, TypeRecord> entry : globalTable.variableTable
+				.entrySet()) {
+			String id = entry.getKey();
+			TypeRecord type = entry.getValue();
+			type = TypeRecord.clone(type);
+			type.offset = dataPointer;
+			entry.setValue(type);
+			if (TypeRecord.isArray(type)) {
+				dataPointer += TypeRecord.arraySize(type);
+			} else {
+				dataPointer++;
+			}
+		}
+	}
+
+	private void storeStringAndComputeOffset() {
+		for (Map.Entry<String, Integer> entry : stringTable.entrySet()) {
+			String stringValue = entry.getKey();
+			int offset = entry.getValue();
+			int strLength = stringValue.length() - 2;
+			code.emitDATA(strLength);
+			code.emitSDATA(stringValue);
+			entry.setValue(dataPointer);
+			dataPointer += (strLength + 1);
+		}
+	}
+
 	@Override
 	public Object visit(ASTintTerm node, Object data) {
 		Token token = node.getFirstToken();
@@ -142,12 +165,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} else if (type.equals(TypeRecord.boolType)) {
 			code.emitOUTB(RegisterConstant.AC, lineNbr++, "write boolean");
 		} else if (type.equals(TypeRecord.strType)) {
-			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
+			code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC,
+					lineNbr++, "load str length into ac2");
+			code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC,
+					lineNbr++, "increase offset");
+			code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC,
+					lineNbr++, "load char into ac3");
 
-			code.emitOUTC(RegisterConstant.AC2, lineNbr++, "write char");
-			code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC,
-					lineNbr++, "decrease length of remaining string");
-			code.emitJNE(RegisterConstant.AC, -5, RegisterConstant.PC,
+			code.emitOUTC(RegisterConstant.AC3, lineNbr++, "write char");
+			code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2,
+					lineNbr++, "decrease length of remaining string in ac2");
+			code.emitJNE(RegisterConstant.AC2, -5, RegisterConstant.PC,
 					lineNbr++, "continue print if not yet finish");
 		}
 
@@ -174,20 +202,19 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	@Override
 	public Object visit(ASTstringTerm node, Object data) {
 		debug("token: " + node.getFirstToken());
-		String original = node.getFirstToken().image;
-		String content = original.substring(1, original.length() - 1);
+		String content = node.getFirstToken().image;
 		debug("content: " + content);
-		for (int i = content.length() - 1; i >= 0; i--) {
-			int value = content.charAt(i) - 0;
-			code.emitLDC(RegisterConstant.AC, value, RegisterConstant.ZERO,
-					lineNbr++, "load char in ASCii: " + value);
-			lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
-					"push char into stack");
-
-		}
-		code.emitLDC(RegisterConstant.AC, content.length(),
-				RegisterConstant.ZERO, lineNbr++, "load string length "
-						+ content.length());
+		// for (int i = content.length() - 1; i >= 0; i--) {
+		// int value = content.charAt(i) - 0;
+		// code.emitLDC(RegisterConstant.AC, value, RegisterConstant.ZERO,
+		// lineNbr++, "load char in ASCii: " + value);
+		// lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+		// "push char into stack");
+		//
+		// }
+		int offset = stringTable.get(content);
+		code.emitLDC(RegisterConstant.AC, offset, RegisterConstant.ZERO,
+				lineNbr++, "load string offset " + offset);
 		return super.visit(node, data);
 	}
 
@@ -454,73 +481,61 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} else {
 			exp.jjtAccept(this, data);
 			System.out.println("currentoffset: " + currentOffset);
-			if (lookupType.equals(TypeRecord.intType)
-					|| lookupType.equals(TypeRecord.boolType)) {
-				if (lookupType.isGlobal) {
-					if (currentOffset == 0) {
-						code.emitST(RegisterConstant.AC, dataPointer,
-								RegisterConstant.ZERO, lineNbr++,
-								"store int/bool into static data");
-						TypeRecord newTypeRecord = TypeRecord.clone(type);
-						newTypeRecord.offset = dataPointer;
-						currentTable.variableTable.put(id, newTypeRecord);
-						dataPointer++;
-					} else {
-						code
-								.emitST(RegisterConstant.AC, currentOffset,
-										RegisterConstant.ZERO, lineNbr++,
-										"store int/bool into previous used static data");
-					}
-				} else {
-					storeCorrespondingFPintoAC2(id);
-					code.emitST(RegisterConstant.AC, currentOffset,
-							RegisterConstant.AC2, lineNbr++,
-							"store int/bool into stack");
-				}
+			lookupType.length = expType.length;
 
-			} else if (lookupType.equals(TypeRecord.strType)) {
-				int offset = dataPointer;
-				lookupType.length = expType.length;
-				System.out.println("datapointer: " + dataPointer);
-				if (stringTable.containsKey(expType.token.image)) {
-					Integer lookupOffset = stringTable.get(expType.token.image);
-					if (lookupType.isGlobal) {
-						TypeRecord newTypeRecord = new TypeRecord(
-								BasicType.STRING);
-
-						newTypeRecord.offset = lookupOffset;
-						newTypeRecord.length = expType.length;
-						currentTable.variableTable.put(id, newTypeRecord);
-					} else {
-						storeCorrespondingFPintoAC2(id);
-						code.emitLDC(RegisterConstant.AC, lookupOffset,
-								RegisterConstant.ZERO, lineNbr++,
-								"load string data offset into ac");
-						code.emitST(RegisterConstant.AC, lookupType.offset,
-								RegisterConstant.AC2, lineNbr++,
-								"store string offset into stack");
-					}
-					return data;
-				}
-
-				storeStringToStaticData(id, expType);
-
-				if (lookupType.isGlobal) {
-					TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
-					newTypeRecord.offset = offset;
-					newTypeRecord.length = expType.length;
-					currentTable.variableTable.put(id, newTypeRecord);
-				} else {
-					storeCorrespondingFPintoAC2(id);
-					code.emitLDC(RegisterConstant.AC, offset,
-							RegisterConstant.ZERO, lineNbr++,
-							"load string data offset into ac");
-					code.emitST(RegisterConstant.AC, lookupType.offset,
-							RegisterConstant.AC2, lineNbr++,
-							"store string offset into stack");
-				}
-
+			if (lookupType.isGlobal) {
+				code.emitST(RegisterConstant.AC, currentOffset,
+						RegisterConstant.ZERO, lineNbr++,
+						"store int/bool/string into previous used static data");
+			} else {
+				storeCorrespondingFPintoAC2(id);
+				code.emitST(RegisterConstant.AC, currentOffset,
+						RegisterConstant.AC2, lineNbr++,
+						"store int/bool/string into stack");
 			}
+
+			// } else if (lookupType.equals(TypeRecord.strType)) {
+			// int offset = dataPointer;
+			// lookupType.length = expType.length;
+			// if (lookupType.isGlobal) {
+			// TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
+			// newTypeRecord.offset = offset;
+			// newTypeRecord.length = expType.length;
+			// currentTable.variableTable.put(id, newTypeRecord);
+			// } else {
+			// storeCorrespondingFPintoAC2(id);
+			// code.emitLDC(RegisterConstant.AC, offset,
+			// RegisterConstant.ZERO, lineNbr++,
+			// "load string data offset into ac");
+			// code.emitST(RegisterConstant.AC, lookupType.offset,
+			// RegisterConstant.AC2, lineNbr++,
+			// "store string offset into stack");
+			// }
+			//
+			// code.emitST(RegisterConstant.AC, currentOffset,
+			// RegisterConstant.AC2, lineNbr++,
+			// "store int/bool into stack");
+
+			// System.out.println("datapointer: " + dataPointer);
+			// Integer lookupOffset = stringTable.get(expType.token.image);
+			// if (lookupType.isGlobal) {
+			// TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);
+			// newTypeRecord.offset = lookupOffset;
+			// newTypeRecord.length = expType.length;
+			// currentTable.variableTable.put(id, newTypeRecord);
+			// } else {
+			// storeCorrespondingFPintoAC2(id);
+			// code.emitLDC(RegisterConstant.AC, lookupOffset,
+			// RegisterConstant.ZERO, lineNbr++,
+			// "load string data offset into ac");
+			// code.emitST(RegisterConstant.AC, lookupType.offset,
+			// RegisterConstant.AC2, lineNbr++,
+			// "store string offset into stack");
+			// }
+			// return data;
+
+			// storeStringToStaticData(id, expType);
+
 		}
 		return data;
 	}
@@ -588,23 +603,22 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						emitCodeForGlobalArray(node, id);
 					}
 				} else {
-					if (type.equals(TypeRecord.intType)
-							|| type.equals(TypeRecord.boolType)) {
-						if (idType.isGlobal) {
-							System.out.println("idtype is global");
-							code.emitLD(RegisterConstant.AC, idType.offset,
-									RegisterConstant.ZERO, lineNbr++,
-									"load int/bool from static data");
-						} else {
-							storeCorrespondingFPintoAC2(id);
-							code.emitLD(RegisterConstant.AC, idType.offset,
-									RegisterConstant.AC2, lineNbr++,
-									"load int/bool from stack");
-						}
 
-					} else if (type.equals(TypeRecord.strType)) {
-						loadStringIntoStack(idType, id);
+					if (idType.isGlobal) {
+						System.out.println("idtype is global");
+						code.emitLD(RegisterConstant.AC, idType.offset,
+								RegisterConstant.ZERO, lineNbr++,
+								"load int/bool/str from static data");
+					} else {
+						storeCorrespondingFPintoAC2(id);
+						code.emitLD(RegisterConstant.AC, idType.offset,
+								RegisterConstant.AC2, lineNbr++,
+								"load int/bool/str from stack");
 					}
+
+					// else if (type.equals(TypeRecord.strType)) {
+					// loadStringIntoStack(idType, id);
+					// }
 					super.visit(node, data);
 				}
 			}
@@ -949,8 +963,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 			} else if (paraType.type.equals(TypeRecord.strType)) {
 				String content = paraNodeType.token.image;
-				System.out.println("before loading str parameter: " + stringTable);
-				if (!stringTable.containsKey(content)) {					
+				System.out.println("before loading str parameter: "
+						+ stringTable);
+				if (!stringTable.containsKey(content)) {
 					storeStringToStaticData(paraType.id.image, paraNodeType);
 				}
 				code.emitLDA(RegisterConstant.SP, paraNodeType.length,

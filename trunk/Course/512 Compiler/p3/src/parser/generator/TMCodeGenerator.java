@@ -217,7 +217,7 @@ public class TMCodeGenerator {
 	}
 	
 	public void emitDATA(int data) {
-		content.append(DATA+ "   " + data);
+		content.append(DATA+ "    " + data);
 		content.append(NEWLINE);
 		
 	}
