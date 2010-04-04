@@ -74,8 +74,9 @@ declist	-> idlist ':' typeid { ',' declist }
 lvalue	-> id | lvalue '[' exp ']'
 */TypeRecord lvalue() :{  debug("lvalue()");  Token id;  TypeRecord type;  Token lbrace;  TypeRecord indexType;
   TypeRecord lookupType;}{  id = < ID >  {    type = currentTable.lookupId(id);
-    lookupType = type;  }  (    lbrace = < LBRACE > indexType = noAssignExp() < RBRACE >    {      if (!TypeRecord.isArray(type))      {        throw new TypeException(TypeError.WRONG_TYPE, "type must be array for indexing", lbrace);      }      if (!indexType.equals(TypeRecord.intType))      {        throw new TypeException(TypeError.WRONG_TYPE, "array index must be integer", lbrace);      }      type = type.underType;
-      jjtThis.isArray = true;
+    lookupType = type;
+    if(TypeRecord.isArray(type))    {
+      jjtThis.isArray = true;    }  }  (    lbrace = < LBRACE > indexType = noAssignExp() < RBRACE >    {      if (!TypeRecord.isArray(type))      {        throw new TypeException(TypeError.WRONG_TYPE, "type must be array for indexing", lbrace);      }      if (!indexType.equals(TypeRecord.intType))      {        throw new TypeException(TypeError.WRONG_TYPE, "array index must be integer", lbrace);      }      type = type.underType;
           }  )*  {
     jjtThis.originalType = lookupType;    debugTable("id:" + id + " type: " + type);    jjtThis.jjtSetValue(type);
     jjtThis.setFirstToken(id);    return type;  }}/*
