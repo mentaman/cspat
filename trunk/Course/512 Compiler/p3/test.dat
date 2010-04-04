@@ -1,27 +1,11 @@
-var s:str
+var a:int[3][4]
 
-proc test(s:str) : str
-write s;
-test := "hello";
-end
+a[0][0] := 1000;
+a[0][1] := 1001;
+a[1][0] := 1002;
+a[1][2] := 2;
 
-proc test2(a:int, b: bool):int
-a := a * a;
-test2 := a;
-
-if b ->
-write "TRUE";
-[] else ->
-write "FALSE";
-fi
-
-end
-
-
-
-write "start";
-s := "pass";
-write test(s);
-
-write test2(10,true);
-write test2(10,false);
+write a[0][0] + a[0][1];
+write a[0][1];
+write a[1][0];
+write a[1][2];
