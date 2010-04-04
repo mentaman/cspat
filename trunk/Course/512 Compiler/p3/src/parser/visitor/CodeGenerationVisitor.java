@@ -587,6 +587,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		Token idToken = node.getFirstToken();
 		String id = idToken.image;
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
+		TypeRecord idType = null;
+		try {
+			idType = currentTable.lookupId(idToken);
+		} catch (SymbolTableException e) {
+			e.printStackTrace();
+		}
+		
 		if (node.isArray) { // array
 			debug("original type: " + node.originalType);
 			debug("original type dim: " + node.originalType.getDimension());
@@ -599,21 +606,19 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			}
 			code.emitLDC(RegisterConstant.AC, node.originalType.getDimension(),
 					RegisterConstant.ZERO, lineNbr++, "push array dimension");
-
 		}
 
 		if (!node.isAssignment) {
-			TypeRecord idType = null;
-			try {
-				idType = currentTable.lookupId(idToken);
-			} catch (SymbolTableException e) {
-				e.printStackTrace();
-			}
+			
 			if (idType.offset != 0) {
 				if (node.isArray) { // array
 					int totalSize = TypeRecord.arraySize(type);
 					TypeRecord currentRecord = node.originalType;
-					emitCodeForArray(node, id, idType, idToken);
+					if (TypeRecord.isArray(type)) {
+						computeArrayMemoryAddress(node, id, idType, idToken);
+					} else {
+						emitCodeForArrayValueAccess(node, id, idType, idToken);
+					}
 
 				} else {
 
@@ -629,9 +634,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 								"load int/bool/str from stack");
 					}
 
-					// else if (type.equals(TypeRecord.strType)) {
-					// loadStringIntoStack(idType, id);
-					// }
 					super.visit(node, data);
 				}
 			}
@@ -708,8 +710,15 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	}
 
-	private void emitCodeForArray(ASTlvalue node, String id, TypeRecord idType,
+	private void emitCodeForArrayValueAccess(ASTlvalue node, String id, TypeRecord idType,
 			Token idToken) {
+		computeArrayMemoryAddress(node, id, idType, idToken);
+		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC, lineNbr++,
+				"load data from array");
+	}
+
+	private void computeArrayMemoryAddress(ASTlvalue node, String id,
+			TypeRecord idType, Token idToken) {
 		TypeRecord currentRecord = node.originalType;
 		code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO, lineNbr++,
 				"load 0 to ac");
@@ -747,8 +756,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		code.emitADD(RegisterConstant.AC, RegisterConstant.AC,
 				RegisterConstant.AC2, lineNbr++, "compute final offset");
-		code.emitLD(RegisterConstant.AC, 0, RegisterConstant.AC, lineNbr++,
-				"load data from array");
 	}
 
 	@Override
@@ -993,7 +1000,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			TypeRecord paraNodeType = (TypeRecord) paraNode.jjtGetValue();
 
 			if (TypeRecord.isArray(paraType.type)) {
-
+				lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+				"push array parameter");
 			} else {
 				lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 						"push int/bool/str parameter");
