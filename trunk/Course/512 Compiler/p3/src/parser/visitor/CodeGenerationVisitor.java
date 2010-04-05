@@ -36,6 +36,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private HashMap<String, Integer> stringTable = new HashMap<String, Integer>();
 	private Stack<ArrayList<Integer>> breakStatements = new Stack<ArrayList<Integer>>();
 	private boolean isLoadingParameter = false;
+	private Stack<ArrayList<Integer>> returnStatements = new Stack<ArrayList<Integer>>();
 
 	private void debug(String text) {
 		if (debug) {
@@ -56,6 +57,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			HashMap<String, Integer> stringTable) {
 		super();
 		this.globalTable = globalTable;
+		globalTable.isGlobal = true;
 		currentTable = globalTable;
 		this.stringTable = stringTable;
 	}
@@ -893,6 +895,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		SymbolTable parent = currentTable;
 		currentTable = new SymbolTable();
 		currentTable.parent = parent;
+		returnStatements.push(new ArrayList<Integer>());
 		try {
 			procType = currentTable.lookupProc(idToken);
 		} catch (SymbolTableException e) {
@@ -944,6 +947,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			child.jjtAccept(this, data);
 		}
 
+		ArrayList<Integer> returnList = returnStatements.pop();
+		for (int returnLine : returnList) {
+			code.emitLDA(RegisterConstant.PC, lineNbr - returnLine - 1,
+					RegisterConstant.PC, returnLine, "return procedure call");
+		}
 		System.out.println("return type: " + returnType);
 		int returnAddressOffset = -1;
 		code.emitLD(RegisterConstant.AC, returnValueOffset,
@@ -964,6 +972,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		System.out.println("proc: " + procType);
 		System.out.println("end of proc linenbr: " + lineNbr);
 		currentTable = currentTable.parent;
+
 		return data;
 	}
 
@@ -1096,6 +1105,18 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		// lineNbr++, "load str length from address stored in ac3");
 		// }
 		return data;
+	}
+
+	@Override
+	public Object visit(ASTreturn_stm node, Object data) {
+		if (currentTable.isGlobal) {
+			code.emitHALT(lineNbr++, "return in global scope");
+		} else {
+			ArrayList<Integer> returnList = returnStatements.peek();
+			returnList.add(lineNbr);
+			lineNbr++;
+		}
+		return super.visit(node, data);
 	}
 
 }
