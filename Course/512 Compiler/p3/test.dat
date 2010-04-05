@@ -1,14 +1,1 @@
-proc test() : str
-write "before assign";
-test := "before return";
-return;
-write "after return";
-
-
-end
-
-
-
-write test();
-return;
-write "main after return";
+write int("112") + 1;
