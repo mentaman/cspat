@@ -1,64 +1,58 @@
-.DATA    13
-.SDATA   "before assign"
-.DATA    17
-.SDATA   "main after return"
-.DATA    13
-.SDATA   "before return"
-.DATA    12
-.SDATA   "after return"
+.DATA    3
+.SDATA   "112"
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 1(5)  load string offset 1
-4: LD    1, 0(0)  load str length into ac2
-5: LDA   0, 1(0)  increase offset
-6: LD    2, 0(0)  load char into ac3
-7: OUTC   2, 2, 2  write char
-8: LDA   1, -1(1)  decrease length of remaining string in ac2
-9: JNE   1, -5(7)  continue print if not yet finish
-10: OUTNL 0, 0, 0  write new line
-11: LDC   0, 33(5)  load string offset 33
-12: LDA   1, 0(4)  load fp into ac2
-13: ST    0, -2(1)  store int/bool/string into stack
-15: LDC   0, 47(5)  load string offset 47
-16: LD    1, 0(0)  load str length into ac2
-17: LDA   0, 1(0)  increase offset
-18: LD    2, 0(0)  load char into ac3
-19: OUTC   2, 2, 2  write char
-20: LDA   1, -1(1)  decrease length of remaining string in ac2
-21: JNE   1, -5(7)  continue print if not yet finish
-22: OUTNL 0, 0, 0  write new line
-14: LDA   7, 8(7)  return procedure call
-23: LD    0, -2(4)  load int/bool/string offset as return value
-24: LD    1, -1(4)  load return address
-25: LDA   6, 0(4)  change sp to fp + 1
-26: LD    4, 0(6)  restore fp
-27: LDA   6, 1(6)  restore fp
-28: LDA   7, 0(1)  jump to the return address
-2: LDA   7, 29(5)  jump to start of the program
-29: LDA   6, -1(6)  push fp
-30: ST    4, 0(6)  push fp
-31: LDA   4, 0(6)  set fp to sp
-35: LDA   6, -1(6)  push zero as return value
-36: ST    5, 0(6)  push zero as return value
-37: LDA   6, 0(6)  preserve space for local vars
-38: LDA   7, 3(5)  jump to procedure call
-32: LDC   0, 39(5)  load return address into ac
-33: LDA   6, -1(6)  push return address
-34: ST    0, 0(6)  push return address
-39: LD    1, 0(0)  load str length into ac2
-40: LDA   0, 1(0)  increase offset
-41: LD    2, 0(0)  load char into ac3
-42: OUTC   2, 2, 2  write char
-43: LDA   1, -1(1)  decrease length of remaining string in ac2
-44: JNE   1, -5(7)  continue print if not yet finish
-45: OUTNL 0, 0, 0  write new line
-46: HALT  0, 0, 0  return in global scope
-47: LDC   0, 15(5)  load string offset 15
-48: LD    1, 0(0)  load str length into ac2
-49: LDA   0, 1(0)  increase offset
-50: LD    2, 0(0)  load char into ac3
-51: OUTC   2, 2, 2  write char
-52: LDA   1, -1(1)  decrease length of remaining string in ac2
-53: JNE   1, -5(7)  continue print if not yet finish
+3: LD    0, -3(4)  load str offset
+4: LD    1, 0(0)  load str length
+5: LDC   2, 0(5)  load 0 as initial result
+6: LDA   6, -1(6)  push 0
+7: ST    2, 0(6)  push 0
+8: LD    2, 0(6)  pop result into AC3
+9: LDA   6, 1(6)  pop result into AC3
+10: LDC   3, 10(5)  load 10 into ac4
+11: MUL   2, 2, 3  mul result with 10
+12: LDA   6, -1(6)  push result
+13: ST    2, 0(6)  push result
+14: LDA   0, 1(0)  increase str offset
+15: LD    2, 0(0)  load char
+16: LDC   3, 48(5)  load 48 into ac4
+17: SUB   2, 2, 3  compute int value
+18: LD    3, 0(6)  pop result into AC4
+19: LDA   6, 1(6)  pop result into AC4
+20: ADD   2, 2, 3  compute result
+21: LDA   6, -1(6)  push result
+22: ST    2, 0(6)  push result
+23: LDA   1, -1(1)  decrease str length
+24: JNE   1, 8(5)  continue if str length
+25: LD    0, 0(6)  pop result
+26: LDA   6, 1(6)  pop result
+27: ST    0, -2(4)  save to return value
+28: LD    0, -2(4)  load int/bool/string offset as return value
+29: LD    1, -1(4)  load return address
+30: LDA   6, 0(4)  change sp to fp + 1
+31: LD    4, 0(6)  restore fp
+32: LDA   6, 1(6)  restore fp
+33: LDA   7, 0(1)  jump to the return address
+2: LDA   7, 34(5)  jump to start of the program
+34: LDA   6, -1(6)  push fp
+35: ST    4, 0(6)  push fp
+36: LDA   4, 0(6)  set fp to sp
+40: LDA   6, -1(6)  push zero as return value
+41: ST    5, 0(6)  push zero as return value
+42: LDC   0, 1(5)  load string offset 1
+43: LDA   6, -1(6)  push int/bool/str parameter
+44: ST    0, 0(6)  push int/bool/str parameter
+45: LDA   6, 0(6)  preserve space for local vars
+46: LDA   7, 3(5)  jump to procedure call
+37: LDC   0, 47(5)  load return address into ac
+38: LDA   6, -1(6)  push return address
+39: ST    0, 0(6)  push return address
+47: LDA   6, -1(6)  push first child's value
+48: ST    0, 0(6)  push first child's value
+49: LDC   0, 1(5)  load integer 1
+50: LD    1, 0(6)  pop first child's value
+51: LDA   6, 1(6)  pop first child's value
+52: ADD   0, 0, 1  add two children
+53: OUT   0, 0, 0  write integer
 54: OUTNL 0, 0, 0  write new line
 55: HALT  0, 0, 0  program ends

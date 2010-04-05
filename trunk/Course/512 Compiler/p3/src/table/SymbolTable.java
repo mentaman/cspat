@@ -75,6 +75,14 @@ public class SymbolTable {
 
 		return current.procTable.get(id);
 	}
+	
+	public ProcType lookupProc(String id) throws SymbolTableException {
+		SymbolTable current = this;
+		while (!current.procTable.containsKey(id) && current.parent != null) {
+			current = current.parent;
+		}
+		return current.procTable.get(id);
+	}
 
 	public TypeRecord lookupType(Token t, String typeName)
 			throws SymbolTableException {

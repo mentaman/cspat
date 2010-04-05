@@ -79,8 +79,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitLD(RegisterConstant.FP, 0, RegisterConstant.ZERO, lineNbr++,
 				"save frame pointer");
 
-		int saveLineNbr = lineNbr;
+		int saveLineNbr = lineNbr; // save line for jumping to main function
 		lineNbr++;
+
+		emitIntFunction();
 
 		// super.visit(node, data);
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
@@ -107,6 +109,60 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		System.out.println("emit code:");
 		System.out.println(code.toString());
 		return data;
+	}
+
+	private void emitIntFunction() {
+		ProcType intProc = null;
+		try {
+			intProc = currentTable.lookupProc("int");
+		} catch (SymbolTableException e) {
+			e.printStackTrace();
+		}
+		intProc.startLineNbr = lineNbr;
+		code.emitLD(RegisterConstant.AC, -3, RegisterConstant.FP, lineNbr++,"load str offset");
+		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,"load str length");
+		code.emitLDC(RegisterConstant.AC3, 0, RegisterConstant.ZERO, lineNbr++,"load 0 as initial result");
+		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push 0");
+		
+		int saveLineNbr = lineNbr;
+		lineNbr = code.emitPOP(RegisterConstant.AC3, lineNbr, "pop result into AC3");
+		code.emitLDC(RegisterConstant.AC4, 10, RegisterConstant.ZERO, lineNbr++,"load 10 into ac4");
+		code.emitMUL(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "mul result with 10");
+		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push result");
+		
+		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++, "increase str offset");
+		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,"load char");
+		code.emitLDC(RegisterConstant.AC4, 48, RegisterConstant.ZERO, lineNbr++,"load 48 into ac4");
+		code.emitSUB(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "compute int value");
+		lineNbr = code.emitPOP(RegisterConstant.AC4, lineNbr, "pop result into AC4");
+		code.emitADD(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "compute result");
+		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push result");
+		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++, "decrease str length");
+		code.emitJNE(RegisterConstant.AC2, saveLineNbr, RegisterConstant.ZERO, lineNbr++, "continue if str length");
+		
+		lineNbr = code.emitPOP(RegisterConstant.AC, lineNbr, "pop result");
+		code.emitST(RegisterConstant.AC, -2, RegisterConstant.FP, lineNbr++, "save to return value");
+		
+		int returnAddressOffset = -1;
+		int returnValueOffset = -2;
+		code.emitLD(RegisterConstant.AC, returnValueOffset,
+				RegisterConstant.FP, lineNbr++,
+				"load int/bool/string offset as return value"); // array return
+		// not supported
+
+		code.emitLD(RegisterConstant.AC2, returnAddressOffset,
+				RegisterConstant.FP, lineNbr++, "load return address");
+		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
+				"change sp to fp + 1");
+		lineNbr = code.emitPOP(RegisterConstant.FP, lineNbr, "restore fp");
+
+		code.emitLDA(RegisterConstant.PC, 0, RegisterConstant.AC2, lineNbr++,
+				"jump to the return address");
+
+	
+		intProc.endLineNbr = lineNbr-1;
+		// code.emit
+
 	}
 
 	private void storeGlobalVariableAndComputeOffset() {
