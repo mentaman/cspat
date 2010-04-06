@@ -358,7 +358,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 as false");
 				code.emitJNE(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
-						RegisterConstant.PC, saveLineNbr, "short curcuit");
+						RegisterConstant.PC, saveLineNbr, "short circuit");
 			}
 
 		} else if (operator.equals("-")) {
@@ -391,7 +391,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			code.emitMUL(RegisterConstant.AC, RegisterConstant.AC,
 					RegisterConstant.AC2, lineNbr++, "multiply two children");
 			code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
-					RegisterConstant.PC, saveLineNbr, "short curcuit");
+					RegisterConstant.PC, saveLineNbr, "short circuit");
 
 		} else if (operator.equals("/")) {
 			code.emitDIV(RegisterConstant.AC, RegisterConstant.AC2,
