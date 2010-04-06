@@ -858,18 +858,19 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 			currentRecord = currentRecord.underType;
 		}
+		
+		TypeRecord lookupId = null;
+		try {
+			lookupId = currentTable.lookupId(idToken);
+		} catch (SymbolTableException e) {
+			e.printStackTrace();
+		}
 
 		if (idType.isGlobal) {
-			code.emitLD(RegisterConstant.AC2, currentTable.variableTable
-					.get(id).offset, RegisterConstant.ZERO, lineNbr++,
+			code.emitLD(RegisterConstant.AC2, lookupId.offset, RegisterConstant.ZERO, lineNbr++,
 					"load global offset into ac2");
 		} else {
-			TypeRecord lookupId = null;
-			try {
-				lookupId = currentTable.lookupId(idToken);
-			} catch (SymbolTableException e) {
-				e.printStackTrace();
-			}
+		
 			storeCorrespondingFPintoAC2(id);
 			if (debug) {
 				System.out.println("idTOKEN: " + idToken);
