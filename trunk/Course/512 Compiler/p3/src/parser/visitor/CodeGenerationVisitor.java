@@ -332,9 +332,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		firstChildNode.jjtAccept(this, data);
 		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 				"push first child's value");
-
-		int saveLineNbr = lineNbr;
-		lineNbr++;
+		int saveLineNbr = 0;
+		if (type.equals(TypeRecord.boolType)) {
+			saveLineNbr = lineNbr;
+			lineNbr++;
+		}
 
 		SimpleNode secondChildNode = (SimpleNode) node.jjtGetChild(1);
 		secondChildNode.jjtAccept(this, data);
@@ -376,8 +378,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		String operator = token.image;
 		SimpleNode firstChildNode = (SimpleNode) node.jjtGetChild(0);
 		firstChildNode.jjtAccept(this, data);
-		int saveLineNbr = lineNbr;
-		lineNbr++;
+		int saveLineNbr = 0;
+		if (type.equals(TypeRecord.boolType)) {
+			saveLineNbr = lineNbr;
+			lineNbr++;
+		}
 
 		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 				"push first child's value");
@@ -390,8 +395,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		if (operator.equals("*")) {
 			code.emitMUL(RegisterConstant.AC, RegisterConstant.AC,
 					RegisterConstant.AC2, lineNbr++, "multiply two children");
-			code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
-					RegisterConstant.PC, saveLineNbr, "short circuit");
+			if (type.equals(TypeRecord.boolType)) {
+				code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
+						RegisterConstant.PC, saveLineNbr, "short circuit");
+			}
 
 		} else if (operator.equals("/")) {
 			code.emitDIV(RegisterConstant.AC, RegisterConstant.AC2,
