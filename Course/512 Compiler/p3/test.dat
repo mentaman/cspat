@@ -1,18 +1,5 @@
-proc test():bool
-write "in proc";
-test := false;
-end
+var a:int
 
+a := 1000;
 
-
-if true + test() ->
-write "true";
-[] else ->
-write "false";
-fi
-
-if false * test() ->
-write "true";
-[] else ->
-write "false";
-fi
+write 2 * int("123");
