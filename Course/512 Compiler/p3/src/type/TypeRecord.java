@@ -1,5 +1,7 @@
 package type;
 
+import java.util.ArrayList;
+
 import parser.Token;
 
 public class TypeRecord {
@@ -125,6 +127,16 @@ public class TypeRecord {
 		resultRecord.token = type.token;
 		resultRecord.underType = clone(type.underType);
 		return resultRecord;
+	}
+
+	public static Integer[] dimensionSizes(TypeRecord array) {
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		TypeRecord current = array;
+		while(TypeRecord.isArray(current)) {
+			result.add(current.baseType.size);
+			current = current.underType;
+		}
+		return result.toArray(new Integer[result.size()]);
 	}
 
 }

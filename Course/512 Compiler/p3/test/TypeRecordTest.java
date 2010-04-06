@@ -54,6 +54,19 @@ public class TypeRecordTest {
 	}
 	
 	@Test
+	public void testArrayDimensionSize() throws Exception {
+		TypeRecord array1 = TypeRecord.arrayType(2, TypeRecord.intType);
+		TypeRecord array2 = TypeRecord.arrayType(3, array1);
+		TypeRecord array3 = TypeRecord.arrayType(4, array2);
+		Integer[] dimensionSizes = TypeRecord.dimensionSizes(array3);
+		assertEquals(3,dimensionSizes.length);
+		assertEquals(4,dimensionSizes[0].intValue());
+		assertEquals(3,dimensionSizes[1].intValue());
+		assertEquals(2,dimensionSizes[2].intValue());
+		System.out.println("dimensionSizes: " + dimensionSizes);
+	}
+	
+	@Test
 	public void testClone() throws Exception {
 		TypeRecord array1 = TypeRecord.arrayType(2, TypeRecord.intType);
 		TypeRecord array2 = TypeRecord.arrayType(3, array1);
