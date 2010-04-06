@@ -72,7 +72,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		emitErrorString();
 		storeStringAndComputeOffset();
 		storeGlobalVariableAndComputeOffset();
-		
 
 		System.out.println("after generating stringtable: " + stringTable);
 		System.out.println("after generating currenttable: " + currentTable);
@@ -118,17 +117,18 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 	private void emitArrayErrorHandleCode() {
 		errorHandleLineNbr = lineNbr;
-		code.emitLDC(RegisterConstant.AC, stringTable.get(arrayErrorMessage), RegisterConstant.ZERO, lineNbr++,"load array error str address");
+		code.emitLDC(RegisterConstant.AC, stringTable.get(arrayErrorMessage),
+				RegisterConstant.ZERO, lineNbr++,
+				"load array error str address");
 		writeString();
 		code.emitOUTNL(lineNbr++, "emit newline");
-		code.emitHALT(lineNbr++,"stop because of standard error");
+		code.emitHALT(lineNbr++, "stop because of standard error");
 	}
 
 	private void emitErrorString() {
 		arrayErrorMessage = "\"array index error!\"";
 		stringTable.put(arrayErrorMessage, dataPointer);
-		
-		
+
 	}
 
 	private void emitIntFunction() {
@@ -139,30 +139,45 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			e.printStackTrace();
 		}
 		intProc.startLineNbr = lineNbr;
-		code.emitLD(RegisterConstant.AC, -3, RegisterConstant.FP, lineNbr++,"load str offset");
-		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,"load str length");
-		code.emitLDC(RegisterConstant.AC3, 0, RegisterConstant.ZERO, lineNbr++,"load 0 as initial result");
+		code.emitLD(RegisterConstant.AC, -3, RegisterConstant.FP, lineNbr++,
+				"load str offset");
+		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,
+				"load str length");
+		code.emitLDC(RegisterConstant.AC3, 0, RegisterConstant.ZERO, lineNbr++,
+				"load 0 as initial result");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push 0");
-		
+
 		int saveLineNbr = lineNbr;
-		lineNbr = code.emitPOP(RegisterConstant.AC3, lineNbr, "pop result into AC3");
-		code.emitLDC(RegisterConstant.AC4, 10, RegisterConstant.ZERO, lineNbr++,"load 10 into ac4");
-		code.emitMUL(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "mul result with 10");
+		lineNbr = code.emitPOP(RegisterConstant.AC3, lineNbr,
+				"pop result into AC3");
+		code.emitLDC(RegisterConstant.AC4, 10, RegisterConstant.ZERO,
+				lineNbr++, "load 10 into ac4");
+		code.emitMUL(RegisterConstant.AC3, RegisterConstant.AC3,
+				RegisterConstant.AC4, lineNbr++, "mul result with 10");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push result");
-		
-		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++, "increase str offset");
-		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,"load char");
-		code.emitLDC(RegisterConstant.AC4, 48, RegisterConstant.ZERO, lineNbr++,"load 48 into ac4");
-		code.emitSUB(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "compute int value");
-		lineNbr = code.emitPOP(RegisterConstant.AC4, lineNbr, "pop result into AC4");
-		code.emitADD(RegisterConstant.AC3, RegisterConstant.AC3, RegisterConstant.AC4, lineNbr++, "compute result");
+
+		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
+				"increase str offset");
+		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,
+				"load char");
+		code.emitLDC(RegisterConstant.AC4, 48, RegisterConstant.ZERO,
+				lineNbr++, "load 48 into ac4");
+		code.emitSUB(RegisterConstant.AC3, RegisterConstant.AC3,
+				RegisterConstant.AC4, lineNbr++, "compute int value");
+		lineNbr = code.emitPOP(RegisterConstant.AC4, lineNbr,
+				"pop result into AC4");
+		code.emitADD(RegisterConstant.AC3, RegisterConstant.AC3,
+				RegisterConstant.AC4, lineNbr++, "compute result");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push result");
-		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++, "decrease str length");
-		code.emitJNE(RegisterConstant.AC2, saveLineNbr, RegisterConstant.ZERO, lineNbr++, "continue if str length");
-		
+		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
+				"decrease str length");
+		code.emitJNE(RegisterConstant.AC2, saveLineNbr, RegisterConstant.ZERO,
+				lineNbr++, "continue if str length");
+
 		lineNbr = code.emitPOP(RegisterConstant.AC, lineNbr, "pop result");
-		code.emitST(RegisterConstant.AC, -2, RegisterConstant.FP, lineNbr++, "save to return value");
-		
+		code.emitST(RegisterConstant.AC, -2, RegisterConstant.FP, lineNbr++,
+				"save to return value");
+
 		int returnAddressOffset = -1;
 		int returnValueOffset = -2;
 		code.emitLD(RegisterConstant.AC, returnValueOffset,
@@ -179,8 +194,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitLDA(RegisterConstant.PC, 0, RegisterConstant.AC2, lineNbr++,
 				"jump to the return address");
 
-	
-		intProc.endLineNbr = lineNbr-1;
+		intProc.endLineNbr = lineNbr - 1;
 		// code.emit
 
 	}
@@ -265,18 +279,18 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	}
 
 	private void writeString() {
-		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC,
-				lineNbr++, "load str length into ac2");
-		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC,
-				lineNbr++, "increase offset");
-		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC,
-				lineNbr++, "load char into ac3");
+		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,
+				"load str length into ac2");
+		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
+				"increase offset");
+		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,
+				"load char into ac3");
 
 		code.emitOUTC(RegisterConstant.AC3, lineNbr++, "write char");
-		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2,
-				lineNbr++, "decrease length of remaining string in ac2");
-		code.emitJNE(RegisterConstant.AC2, -5, RegisterConstant.PC,
-				lineNbr++, "continue print if not yet finish");
+		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
+				"decrease length of remaining string in ac2");
+		code.emitJNE(RegisterConstant.AC2, -5, RegisterConstant.PC, lineNbr++,
+				"continue print if not yet finish");
 	}
 
 	@Override
@@ -319,6 +333,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 				"push first child's value");
 
+		int saveLineNbr = lineNbr;
+		lineNbr++;
+
 		SimpleNode secondChildNode = (SimpleNode) node.jjtGetChild(1);
 		secondChildNode.jjtAccept(this, data);
 		lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
@@ -340,6 +357,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "skip load false");
 				code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 as false");
+				code.emitJNE(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
+						RegisterConstant.PC, saveLineNbr, "short curcuit");
 			}
 
 		} else if (operator.equals("-")) {
@@ -353,9 +372,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	@Override
 	public Object visit(ASTtimeDivide node, Object data) {
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
-
+		Token token = node.getFirstToken();
+		String operator = token.image;
 		SimpleNode firstChildNode = (SimpleNode) node.jjtGetChild(0);
 		firstChildNode.jjtAccept(this, data);
+		int saveLineNbr = lineNbr;
+		lineNbr++;
+
 		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 				"push first child's value");
 
@@ -364,11 +387,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
 				"pop first child's value");
 
-		Token token = node.getFirstToken();
-		String operator = token.image;
 		if (operator.equals("*")) {
 			code.emitMUL(RegisterConstant.AC, RegisterConstant.AC,
 					RegisterConstant.AC2, lineNbr++, "multiply two children");
+			code.emitJEQ(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
+					RegisterConstant.PC, saveLineNbr, "short curcuit");
 
 		} else if (operator.equals("/")) {
 			code.emitDIV(RegisterConstant.AC, RegisterConstant.AC2,
@@ -540,8 +563,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr,
 						"pop index");
 				arrayRuntimeIndexCheck(sizes, i);
-				
-				
+
 				code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
 						RegisterConstant.ZERO, lineNbr++,
 						"load size of subarray");
@@ -817,9 +839,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			int sizeOfSubArray = TypeRecord.arraySize(currentRecord.underType);
 			System.out.println("subarray size: " + sizeOfSubArray);
 			lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop index");
-            
+
 			arrayRuntimeIndexCheck(sizes, i);
-			
+
 			code.emitLDC(RegisterConstant.AC3, sizeOfSubArray,
 					RegisterConstant.ZERO, lineNbr++, "load size of subarray");
 			code.emitMUL(RegisterConstant.AC2, RegisterConstant.AC2,
@@ -863,10 +885,15 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	}
 
 	private void arrayRuntimeIndexCheck(Integer[] sizes, int i) {
-		code.emitJLT(RegisterConstant.AC2, errorHandleLineNbr, RegisterConstant.ZERO, lineNbr++, "jump if index less than 0");
-		code.emitLDC(RegisterConstant.AC4, sizes[i], RegisterConstant.ZERO, lineNbr++,"load array size");
-		code.emitSUB(RegisterConstant.AC4, RegisterConstant.AC4, RegisterConstant.AC2, lineNbr++, "sub max size with index");
-		code.emitJLE(RegisterConstant.AC4, errorHandleLineNbr, RegisterConstant.ZERO, lineNbr++, "jump if index greater than size - 1");
+		code.emitJLT(RegisterConstant.AC2, errorHandleLineNbr,
+				RegisterConstant.ZERO, lineNbr++, "jump if index less than 0");
+		code.emitLDC(RegisterConstant.AC4, sizes[i], RegisterConstant.ZERO,
+				lineNbr++, "load array size");
+		code.emitSUB(RegisterConstant.AC4, RegisterConstant.AC4,
+				RegisterConstant.AC2, lineNbr++, "sub max size with index");
+		code.emitJLE(RegisterConstant.AC4, errorHandleLineNbr,
+				RegisterConstant.ZERO, lineNbr++,
+				"jump if index greater than size - 1");
 	}
 
 	@Override

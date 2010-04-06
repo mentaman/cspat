@@ -1,3 +1,18 @@
-var a:int[3][4][5]
+proc test():bool
+write "in proc";
+test := false;
+end
 
-a[3][4][5] := 1;
+
+
+if true + test() ->
+write "true";
+[] else ->
+write "false";
+fi
+
+if false * test() ->
+write "true";
+[] else ->
+write "false";
+fi
