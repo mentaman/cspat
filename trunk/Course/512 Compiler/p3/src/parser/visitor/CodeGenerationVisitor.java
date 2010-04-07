@@ -38,8 +38,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private boolean isLoadingParameter = false;
 	private Stack<ArrayList<Integer>> returnStatements = new Stack<ArrayList<Integer>>();
 	private String arrayErrorMessage;
-	private int errorHandleLineNbr;
+	private int arrayErrorHandleLineNbr;
 	private int loopLevel = 0;
+	private String outOfMemoryMessage;
+	private int memoryErrorHandleLineNbr;
 
 	private void debug(String text) {
 		if (debug) {
@@ -74,10 +76,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		storeStringAndComputeOffset();
 		storeGlobalVariableAndComputeOffset();
 
-		System.out.println("after generating stringtable: " + stringTable);
-		System.out.println("after generating currenttable: " + currentTable);
-
-		currentTable = globalTable;
 		code.emitLD(RegisterConstant.SP, 0, RegisterConstant.ZERO, lineNbr++,
 				"save stack pointer");
 		code.emitLD(RegisterConstant.FP, 0, RegisterConstant.ZERO, lineNbr++,
@@ -86,7 +84,22 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		int saveLineNbr = lineNbr; // save line for jumping to main function
 		lineNbr++;
 
-		emitArrayErrorHandleCode();
+		code.dataPointer = dataPointer;
+		emitErrorHandleCode();
+		System.out.println("arrayErrorHandleLineNbr: "
+				+ arrayErrorHandleLineNbr);
+		System.out.println("memoryErrorHandleLineNbr: "
+				+ memoryErrorHandleLineNbr);
+		code.memoryErrorLineNbr = memoryErrorHandleLineNbr;
+
+		System.out.println("datapointer: " + dataPointer);
+		System.out.println("memoryErrorLineNbr: " + memoryErrorHandleLineNbr);
+
+		System.out.println("after generating stringtable: " + stringTable);
+		System.out.println("after generating currenttable: " + currentTable);
+
+		currentTable = globalTable;
+
 		emitIntFunction();
 
 		// super.visit(node, data);
@@ -116,20 +129,29 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		return data;
 	}
 
-	private void emitArrayErrorHandleCode() {
-		errorHandleLineNbr = lineNbr;
+	private void emitErrorHandleCode() {
+		arrayErrorHandleLineNbr = lineNbr;
 		code.emitLDC(RegisterConstant.AC, stringTable.get(arrayErrorMessage),
 				RegisterConstant.ZERO, lineNbr++,
 				"load array error str address");
 		writeString();
 		code.emitOUTNL(lineNbr++, "emit newline");
-		code.emitHALT(lineNbr++, "stop because of standard error");
+		code.emitHALT(lineNbr++, "stop because of array error");
+
+		memoryErrorHandleLineNbr = lineNbr;
+		code.emitLDC(RegisterConstant.AC, stringTable.get(outOfMemoryMessage),
+				RegisterConstant.ZERO, lineNbr++,
+				"load out of memory str address");
+		writeString();
+		code.emitOUTNL(lineNbr++, "emit newline");
+		code.emitHALT(lineNbr++, "stop because of out of memory error");
 	}
 
 	private void emitErrorString() {
 		arrayErrorMessage = "\"array index error!\"";
-		stringTable.put(arrayErrorMessage, dataPointer);
-
+		stringTable.put(arrayErrorMessage, 0);
+		outOfMemoryMessage = "\"out of memory\"";
+		stringTable.put(outOfMemoryMessage, 0);
 	}
 
 	private void emitIntFunction() {
@@ -281,10 +303,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	}
 
 	private void writeString() {
-			
+
 		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,
 				"load str length into ac2");
-		code.emitJEQ(RegisterConstant.AC2, 5, RegisterConstant.PC, lineNbr++, "output nothing when empty");
+		code.emitJEQ(RegisterConstant.AC2, 5, RegisterConstant.PC, lineNbr++,
+				"output nothing when empty");
+
+		int nextLineNbr = lineNbr;
 		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
 				"increase offset");
 		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,
@@ -293,7 +318,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitOUTC(RegisterConstant.AC3, lineNbr++, "write char");
 		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
 				"decrease length of remaining string in ac2");
-		code.emitJNE(RegisterConstant.AC2, -5, RegisterConstant.PC, lineNbr++,
+		code.emitJNE(RegisterConstant.AC2, nextLineNbr - lineNbr - 1,
+				RegisterConstant.PC, lineNbr++,
 				"continue print if not yet finish");
 	}
 
@@ -315,14 +341,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		debug("token: " + node.getFirstToken());
 		String stringValue = node.getFirstToken().image;
 		debug("content: " + stringValue);
-		// for (int i = content.length() - 1; i >= 0; i--) {
-		// int value = content.charAt(i) - 0;
-		// code.emitLDC(RegisterConstant.AC, value, RegisterConstant.ZERO,
-		// lineNbr++, "load char in ASCii: " + value);
-		// lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
-		// "push char into stack");
-		//
-		// }
 
 		if (stringValue.startsWith("'")) {
 			stringValue = "\""
@@ -564,9 +582,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		if (lvalue.isArray) { // array
 			System.out.println("original type: " + lvalue.originalType);
 			int offset = currentOffset;
-			if (currentOffset == 0) {
-				offset = dataPointer;
-			}
 			int totalSize = TypeRecord.arraySize(type);
 			TypeRecord currentRecord = lvalue.originalType;
 			code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
@@ -677,33 +692,33 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		return data;
 	}
 
-	private void storeStringToStaticData(String id, TypeRecord expType) {
-		stringTable.put(expType.token.image, dataPointer);
-		System.out.println("adding string " + expType.token.image
-				+ " with offset " + dataPointer);
-		code.emitST(RegisterConstant.AC, dataPointer, RegisterConstant.ZERO,
-				lineNbr++, "store str length into static data");
-		dataPointer++;
-
-		code.emitLDC(RegisterConstant.AC3, dataPointer, RegisterConstant.ZERO,
-				lineNbr++, "store datapointer into ac3");
-
-		lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
-
-		code.emitST(RegisterConstant.AC2, 0, RegisterConstant.AC3, lineNbr++,
-				"save char into static data");
-		code.emitLDA(RegisterConstant.AC3, 1, RegisterConstant.AC3, lineNbr++,
-				"increase datapointer");
-		code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC, lineNbr++,
-				"decrease length of remaining string");
-		code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC, lineNbr++,
-				"continue print if not yet finish");
-
-		dataPointer += expType.length;
-		System.out.println("length: " + expType.length);
-		System.out.println("dp: " + dataPointer);
-
-	}
+	// private void storeStringToStaticData(String id, TypeRecord expType) {
+	// stringTable.put(expType.token.image, dataPointer);
+	// System.out.println("adding string " + expType.token.image
+	// + " with offset " + dataPointer);
+	// code.emitST(RegisterConstant.AC, dataPointer, RegisterConstant.ZERO,
+	// lineNbr++, "store str length into static data");
+	// dataPointer++;
+	//
+	// code.emitLDC(RegisterConstant.AC3, dataPointer, RegisterConstant.ZERO,
+	// lineNbr++, "store datapointer into ac3");
+	//
+	// lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop char");
+	//
+	// code.emitST(RegisterConstant.AC2, 0, RegisterConstant.AC3, lineNbr++,
+	// "save char into static data");
+	// code.emitLDA(RegisterConstant.AC3, 1, RegisterConstant.AC3, lineNbr++,
+	// "increase datapointer");
+	// code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC, lineNbr++,
+	// "decrease length of remaining string");
+	// code.emitJNE(RegisterConstant.AC, -6, RegisterConstant.PC, lineNbr++,
+	// "continue print if not yet finish");
+	//
+	// dataPointer += expType.length;
+	// System.out.println("length: " + expType.length);
+	// System.out.println("dp: " + dataPointer);
+	//
+	// }
 
 	@Override
 	public Object visit(ASTlvalue node, Object data) {
@@ -903,13 +918,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	}
 
 	private void arrayRuntimeIndexCheck(Integer[] sizes, int i) {
-		code.emitJLT(RegisterConstant.AC2, errorHandleLineNbr,
+		code.emitJLT(RegisterConstant.AC2, arrayErrorHandleLineNbr,
 				RegisterConstant.ZERO, lineNbr++, "jump if index less than 0");
 		code.emitLDC(RegisterConstant.AC4, sizes[i], RegisterConstant.ZERO,
 				lineNbr++, "load array size");
 		code.emitSUB(RegisterConstant.AC4, RegisterConstant.AC4,
 				RegisterConstant.AC2, lineNbr++, "sub max size with index");
-		code.emitJLE(RegisterConstant.AC4, errorHandleLineNbr,
+		code.emitJLE(RegisterConstant.AC4, arrayErrorHandleLineNbr,
 				RegisterConstant.ZERO, lineNbr++,
 				"jump if index greater than size - 1");
 	}
@@ -1046,7 +1061,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		int currentOffset = -2;
 		int returnValueOffset = currentOffset;
-		currentOffset--;
+		
 		if (returnType != null) {
 			returnType.isGlobal = false;
 			returnType.offset = returnValueOffset;
@@ -1054,6 +1069,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		if (!returnType.equals(TypeRecord.voidType)) {
 			currentTable.variableTable.put(idToken.image, returnType);
+			currentOffset--;
 		}
 
 		for (ParaType paraType : procType.paraTypes) {
@@ -1082,8 +1098,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		procType.startLineNbr = lineNbr;
 		System.out.println("before proc: " + idToken + " current table: "
 				+ currentTable);
-        loopLevel = 0;
-		
+		loopLevel = 0;
+
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
 			SimpleNode child = (SimpleNode) node.jjtGetChild(i);
 			System.out.println("child node: " + child);
@@ -1097,14 +1113,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 		System.out.println("return type: " + returnType);
 		int returnAddressOffset = -1;
-			
+
 		code.emitLD(RegisterConstant.AC, returnValueOffset,
 				RegisterConstant.FP, lineNbr++,
 				"load int/bool/string offset as return value"); // array return
 		// not supported
 
-		
-		
 		code.emitLD(RegisterConstant.AC2, returnAddressOffset,
 				RegisterConstant.FP, lineNbr++, "load return address");
 		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
@@ -1141,12 +1155,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		int returnLineNbr = lineNbr; // save for backpatching push return
 		// address
-		lineNbr += 3; // 2 for push return address
+		lineNbr += 6; // 2 for push return address
 
 		int currentOffset = -2; // -1 is for return address
 		if (!procType.returnType.equals(TypeRecord.voidType)) {
 			lineNbr = code.emitPUSH(RegisterConstant.ZERO, lineNbr,
 					"push zero as return value");
+			currentOffset--;
 		}
 
 		for (int i = 0; i < procType.paraTypes.size(); i++) {
@@ -1211,10 +1226,20 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				}
 			}
 		}
-		code
-				.emitLDA(RegisterConstant.SP, -localVariableSize-1,
-						RegisterConstant.SP, lineNbr++,
-						"preserve space for local vars");
+		
+		System.out.println("procType.returnType: " + procType.returnType);
+		if(!procType.returnType.equals(TypeRecord.voidType)){
+			code
+			.emitLDA(RegisterConstant.SP, -localVariableSize - 1,
+					RegisterConstant.SP, lineNbr++,
+					"preserve space for local vars");
+		}else{
+			code
+			.emitLDA(RegisterConstant.SP, -localVariableSize,
+					RegisterConstant.SP, lineNbr++,
+					"preserve space for local vars");
+		}
+		
 		code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
 				RegisterConstant.ZERO, lineNbr++, "jump to procedure call");
 		code.emitLDC(RegisterConstant.AC, lineNbr, RegisterConstant.ZERO,
@@ -1261,9 +1286,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			int level = loopLevel;
 			System.out.println("return at level " + level);
 			while (level > 0) {
-				code.emitLD(RegisterConstant.FP, 0,
-						RegisterConstant.FP, lineNbr++,
-						"load upper level fp");
+				code.emitLD(RegisterConstant.FP, 0, RegisterConstant.FP,
+						lineNbr++, "load upper level fp");
 				level--;
 			}
 			ArrayList<Integer> returnList = returnStatements.peek();
