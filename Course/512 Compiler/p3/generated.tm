@@ -128,36 +128,35 @@
 113: JLE   3, 13(5)  push return address
 114: ST    0, 0(6)  push return address
 102: JEQ   0, 22(7)  if expr not true
-125: LD    0, -2(4)  load int/bool/string offset as return value
-126: LD    1, -1(4)  load return address
-127: LDA   6, 0(4)  change sp to fp + 1
-128: LD    4, 0(6)  restore fp
-129: LDA   6, 1(6)  restore fp
-130: LDA   7, 0(1)  jump to the return address
-2: LDA   7, 131(5)  jump to start of the program
-131: LDC   0, 10000(5)  load integer 10000
-132: ST    0, 40(5)  store int/bool/string into previous used static data
-133: LD    0, 40(5)  load int/bool/str from static data
-134: OUT   0, 0, 0  write integer
-135: OUTNL 0, 0, 0  write new line
-136: LDA   6, -1(6)  push fp
-137: LDC   3, 41(5)  push fp
-138: SUB   3, 6, 3  push fp
-139: JLE   3, 13(5)  push fp
-140: ST    4, 0(6)  push fp
-141: LDA   4, 0(6)  set fp to sp
-148: LD    0, 40(5)  load int/bool/str from static data
-149: LDA   6, -1(6)  push int/bool/str parameter
-150: LDC   3, 41(5)  push int/bool/str parameter
-151: SUB   3, 6, 3  push int/bool/str parameter
-152: JLE   3, 13(5)  push int/bool/str parameter
-153: ST    0, 0(6)  push int/bool/str parameter
-154: LDA   6, 0(6)  preserve space for local vars
-155: LDA   7, 63(5)  jump to procedure call
-142: LDC   0, 156(5)  load return address into ac
-143: LDA   6, -1(6)  push return address
-144: LDC   3, 41(5)  push return address
-145: SUB   3, 6, 3  push return address
-146: JLE   3, 13(5)  push return address
-147: ST    0, 0(6)  push return address
-156: HALT  0, 0, 0  program ends
+125: LD    1, -1(4)  load return address
+126: LDA   6, 0(4)  change sp to fp + 1
+127: LD    4, 0(6)  restore fp
+128: LDA   6, 1(6)  restore fp
+129: LDA   7, 0(1)  jump to the return address
+2: LDA   7, 130(5)  jump to start of the program
+130: LDC   0, 10000(5)  load integer 10000
+131: ST    0, 40(5)  store int/bool/string into previous used static data
+132: LD    0, 40(5)  load int/bool/str from static data
+133: OUT   0, 0, 0  write integer
+134: OUTNL 0, 0, 0  write new line
+135: LDA   6, -1(6)  push fp
+136: LDC   3, 41(5)  push fp
+137: SUB   3, 6, 3  push fp
+138: JLE   3, 13(5)  push fp
+139: ST    4, 0(6)  push fp
+140: LDA   4, 0(6)  set fp to sp
+147: LD    0, 40(5)  load int/bool/str from static data
+148: LDA   6, -1(6)  push int/bool/str parameter
+149: LDC   3, 41(5)  push int/bool/str parameter
+150: SUB   3, 6, 3  push int/bool/str parameter
+151: JLE   3, 13(5)  push int/bool/str parameter
+152: ST    0, 0(6)  push int/bool/str parameter
+153: LDA   6, 0(6)  preserve space for local vars
+154: LDA   7, 63(5)  jump to procedure call
+141: LDC   0, 155(5)  load return address into ac
+142: LDA   6, -1(6)  push return address
+143: LDC   3, 41(5)  push return address
+144: SUB   3, 6, 3  push return address
+145: JLE   3, 13(5)  push return address
+146: ST    0, 0(6)  push return address
+155: HALT  0, 0, 0  program ends
