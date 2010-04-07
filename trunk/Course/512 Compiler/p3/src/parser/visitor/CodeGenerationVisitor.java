@@ -1061,7 +1061,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		int currentOffset = -2;
 		int returnValueOffset = currentOffset;
-		
+
 		if (returnType != null) {
 			returnType.isGlobal = false;
 			returnType.offset = returnValueOffset;
@@ -1114,11 +1114,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		System.out.println("return type: " + returnType);
 		int returnAddressOffset = -1;
 
-		code.emitLD(RegisterConstant.AC, returnValueOffset,
-				RegisterConstant.FP, lineNbr++,
-				"load int/bool/string offset as return value"); // array return
-		// not supported
-
+		if (!returnType.equals(TypeRecord.voidType)) {
+			code.emitLD(RegisterConstant.AC, returnValueOffset,
+					RegisterConstant.FP, lineNbr++,
+					"load int/bool/string offset as return value");
+		}
+		
 		code.emitLD(RegisterConstant.AC2, returnAddressOffset,
 				RegisterConstant.FP, lineNbr++, "load return address");
 		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
@@ -1226,20 +1227,18 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				}
 			}
 		}
-		
+
 		System.out.println("procType.returnType: " + procType.returnType);
-		if(!procType.returnType.equals(TypeRecord.voidType)){
-			code
-			.emitLDA(RegisterConstant.SP, -localVariableSize - 1,
+		if (!procType.returnType.equals(TypeRecord.voidType)) {
+			code.emitLDA(RegisterConstant.SP, -localVariableSize - 1,
 					RegisterConstant.SP, lineNbr++,
 					"preserve space for local vars");
-		}else{
-			code
-			.emitLDA(RegisterConstant.SP, -localVariableSize,
+		} else {
+			code.emitLDA(RegisterConstant.SP, -localVariableSize,
 					RegisterConstant.SP, lineNbr++,
 					"preserve space for local vars");
 		}
-		
+
 		code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
 				RegisterConstant.ZERO, lineNbr++, "jump to procedure call");
 		code.emitLDC(RegisterConstant.AC, lineNbr, RegisterConstant.ZERO,
