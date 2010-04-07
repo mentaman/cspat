@@ -227,10 +227,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		for (Map.Entry<String, Integer> entry : stringTable.entrySet()) {
 			String stringValue = entry.getKey();
 			int offset = entry.getValue();
+			entry.setValue(dataPointer);
 			int strLength = stringValue.length() - 2;
 			code.emitDATA(strLength);
 			code.emitSDATA(stringValue);
-			entry.setValue(dataPointer);
+
 			dataPointer += (strLength + 1);
 		}
 	}
@@ -309,8 +310,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	@Override
 	public Object visit(ASTstringTerm node, Object data) {
 		debug("token: " + node.getFirstToken());
-		String content = node.getFirstToken().image;
-		debug("content: " + content);
+		String stringValue = node.getFirstToken().image;
+		debug("content: " + stringValue);
 		// for (int i = content.length() - 1; i >= 0; i--) {
 		// int value = content.charAt(i) - 0;
 		// code.emitLDC(RegisterConstant.AC, value, RegisterConstant.ZERO,
@@ -319,7 +320,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		// "push char into stack");
 		//
 		// }
-		int offset = stringTable.get(content);
+
+		if (stringValue.startsWith("'")) {
+			stringValue = "\""
+					+ stringValue.substring(1, stringValue.length() - 1) + "\"";
+		}
+		int offset = stringTable.get(stringValue);
 		code.emitLDC(RegisterConstant.AC, offset, RegisterConstant.ZERO,
 				lineNbr++, "load string offset " + offset);
 		return super.visit(node, data);
@@ -858,7 +864,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 			currentRecord = currentRecord.underType;
 		}
-		
+
 		TypeRecord lookupId = null;
 		try {
 			lookupId = currentTable.lookupId(idToken);
@@ -867,10 +873,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 
 		if (idType.isGlobal) {
-			code.emitLD(RegisterConstant.AC2, lookupId.offset, RegisterConstant.ZERO, lineNbr++,
+			code.emitLD(RegisterConstant.AC2, lookupId.offset,
+					RegisterConstant.ZERO, lineNbr++,
 					"load global offset into ac2");
 		} else {
-		
+
 			storeCorrespondingFPintoAC2(id);
 			if (debug) {
 				System.out.println("idTOKEN: " + idToken);
@@ -1032,11 +1039,14 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		currentTable.typeTable = procType.typeTable;
 
 		TypeRecord returnType = TypeRecord.clone(procType.returnType);
-		returnType.isGlobal = false;
+
 		int currentOffset = -2;
 		int returnValueOffset = currentOffset;
-		returnType.offset = returnValueOffset;
 		currentOffset--;
+		if (returnType != null) {
+			returnType.isGlobal = false;
+			returnType.offset = returnValueOffset;
+		}
 
 		if (!returnType.equals(TypeRecord.voidType)) {
 			currentTable.variableTable.put(idToken.image, returnType);
@@ -1194,7 +1204,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			}
 		}
 		code
-				.emitLDA(RegisterConstant.SP, -localVariableSize,
+				.emitLDA(RegisterConstant.SP, -localVariableSize-1,
 						RegisterConstant.SP, lineNbr++,
 						"preserve space for local vars");
 		code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
