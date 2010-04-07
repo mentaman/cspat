@@ -27,6 +27,7 @@ public class SymbolTable {
 		ret.typeTable.put("int", TypeRecord.clone(TypeRecord.intType));
 		ret.typeTable.put("bool",  TypeRecord.clone(TypeRecord.boolType));
 		ret.typeTable.put("str",  TypeRecord.clone(TypeRecord.strType));
+		ret.typeTable.put("string",  TypeRecord.clone(TypeRecord.strType));
 		List<ParaType> paras = new ArrayList<ParaType>();
 		Token s = new Token();
 		s.image = "s";

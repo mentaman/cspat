@@ -39,6 +39,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private Stack<ArrayList<Integer>> returnStatements = new Stack<ArrayList<Integer>>();
 	private String arrayErrorMessage;
 	private int errorHandleLineNbr;
+	private int loopLevel = 0;
 
 	private void debug(String text) {
 		if (debug) {
@@ -280,8 +281,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	}
 
 	private void writeString() {
+			
 		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,
 				"load str length into ac2");
+		code.emitJEQ(RegisterConstant.AC2, 5, RegisterConstant.PC, lineNbr++, "output nothing when empty");
 		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
 				"increase offset");
 		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,
@@ -978,9 +981,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		int saveLineNbr = lineNbr;
 		lineNbr++;
 
+		loopLevel++;
 		SimpleNode stmsNode = (SimpleNode) node.jjtGetChild(2);
 		stmsNode.jjtAccept(this, data);
-
+		loopLevel--;
 		code.emitLD(RegisterConstant.AC, lowType.offset, RegisterConstant.FP,
 				lineNbr++, "load low into ac");
 		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
@@ -1078,7 +1082,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		procType.startLineNbr = lineNbr;
 		System.out.println("before proc: " + idToken + " current table: "
 				+ currentTable);
-
+        loopLevel = 0;
+		
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
 			SimpleNode child = (SimpleNode) node.jjtGetChild(i);
 			System.out.println("child node: " + child);
@@ -1092,11 +1097,14 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		}
 		System.out.println("return type: " + returnType);
 		int returnAddressOffset = -1;
+			
 		code.emitLD(RegisterConstant.AC, returnValueOffset,
 				RegisterConstant.FP, lineNbr++,
 				"load int/bool/string offset as return value"); // array return
 		// not supported
 
+		
+		
 		code.emitLD(RegisterConstant.AC2, returnAddressOffset,
 				RegisterConstant.FP, lineNbr++, "load return address");
 		code.emitLDA(RegisterConstant.SP, 0, RegisterConstant.FP, lineNbr++,
@@ -1250,6 +1258,14 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		if (currentTable.isGlobal) {
 			code.emitHALT(lineNbr++, "return in global scope");
 		} else {
+			int level = loopLevel;
+			System.out.println("return at level " + level);
+			while (level > 0) {
+				code.emitLD(RegisterConstant.FP, 0,
+						RegisterConstant.FP, lineNbr++,
+						"load upper level fp");
+				level--;
+			}
 			ArrayList<Integer> returnList = returnStatements.peek();
 			returnList.add(lineNbr);
 			lineNbr++;
