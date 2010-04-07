@@ -1,66 +1,40 @@
 .DATA    2
 .SDATA   "Hi"
-.DATA    3
-.SDATA   "+10"
+.DATA    6
+.SDATA   "fourth"
 .DATA    1
 .SDATA   "5"
 .DATA    18
 .SDATA   "array index error!"
-.DATA    5
-.SDATA   "There"
-.DATA    0
-.SDATA   ""
-.DATA    14
-.SDATA   "should not see"
-.DATA    15
-.SDATA   "m > 4 || m <= 2"
-.DATA    5
-.SDATA   "first"
-.DATA    1
-.SDATA   " "
-.DATA    3
-.SDATA   "abc"
-.DATA    5
-.SDATA   "third"
-.DATA    5
-.SDATA   "inner"
-.DATA    13
-.SDATA   "out of memory"
-.DATA    8
-.SDATA   "Hi there"
-.DATA    3
-.SDATA   "10 "
-.DATA    4
-.SDATA   "Done"
-.DATA    3
-.SDATA   "Hi "
-.DATA    6
-.SDATA   "fourth"
-.DATA    5
-.SDATA   " -10 "
-.DATA    1
-.SDATA   "-"
-.DATA    15
-.SDATA   "m <= 4 && m > 2"
 .DATA    11
 .SDATA   "after break"
 .DATA    1
 .SDATA   "1"
-.DATA    3
-.SDATA   "1-0"
+.DATA    14
+.SDATA   "should not see"
 .DATA    1
 .SDATA   "3"
 .DATA    5
 .SDATA   "outer"
-.DATA    8
-.SDATA   "Hi There"
+.DATA    5
+.SDATA   "first"
 .DATA    3
 .SDATA   "end"
+.DATA    1
+.SDATA   " "
+.DATA    5
+.SDATA   "third"
+.DATA    13
+.SDATA   "out of memory"
+.DATA    5
+.SDATA   "inner"
+.DATA    4
+.SDATA   "Done"
 .DATA    6
 .SDATA   "second"
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 10(5)  load array error str address
+3: LDC   0, 13(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -70,7 +44,7 @@
 10: JNE   1, -5(7)  continue print if not yet finish
 11: OUTNL 0, 0, 0  emit newline
 12: HALT  0, 0, 0  stop because of array error
-13: LDC   0, 91(5)  load out of memory str address
+13: LDC   0, 87(5)  load out of memory str address
 14: LD    1, 0(0)  load str length into ac2
 15: JEQ   1, 5(7)  output nothing when empty
 16: LDA   0, 1(0)  increase offset
@@ -84,7 +58,7 @@
 24: LD    1, 0(0)  load str length
 25: LDC   2, 0(5)  load 0 as initial result
 26: LDA   6, -1(6)  push 0
-27: LDC   3, 206(5)  push 0
+27: LDC   3, 121(5)  push 0
 28: SUB   3, 6, 3  push 0
 29: JLE   3, 13(5)  push 0
 30: ST    2, 0(6)  push 0
@@ -93,7 +67,7 @@
 33: LDC   3, 10(5)  load 10 into ac4
 34: MUL   2, 2, 3  mul result with 10
 35: LDA   6, -1(6)  push result
-36: LDC   3, 206(5)  push result
+36: LDC   3, 121(5)  push result
 37: SUB   3, 6, 3  push result
 38: JLE   3, 13(5)  push result
 39: ST    2, 0(6)  push result
@@ -105,7 +79,7 @@
 45: LDA   6, 1(6)  pop result into AC4
 46: ADD   2, 2, 3  compute result
 47: LDA   6, -1(6)  push result
-48: LDC   3, 206(5)  push result
+48: LDC   3, 121(5)  push result
 49: SUB   3, 6, 3  push result
 50: JLE   3, 13(5)  push result
 51: ST    2, 0(6)  push result
@@ -121,22 +95,22 @@
 61: LDA   6, 1(6)  restore fp
 62: LDA   7, 0(1)  jump to the return address
 2: LDA   7, 63(5)  jump to start of the program
-63: LDC   0, 8(5)  load string offset 8
-64: ST    0, 205(5)  store int/bool/string into previous used static data
+63: LDC   0, 11(5)  load string offset 11
+64: ST    0, 120(5)  store int/bool/string into previous used static data
 65: LDA   6, -1(6)  push fp
-66: LDC   3, 206(5)  push fp
+66: LDC   3, 121(5)  push fp
 67: SUB   3, 6, 3  push fp
 68: JLE   3, 13(5)  push fp
 69: ST    4, 0(6)  push fp
 70: LDA   4, 0(6)  set fp to sp
 77: LDA   6, -1(6)  push zero as return value
-78: LDC   3, 206(5)  push zero as return value
+78: LDC   3, 121(5)  push zero as return value
 79: SUB   3, 6, 3  push zero as return value
 80: JLE   3, 13(5)  push zero as return value
 81: ST    5, 0(6)  push zero as return value
-82: LD    0, 205(5)  load int/bool/str from static data
+82: LD    0, 120(5)  load int/bool/str from static data
 83: LDA   6, -1(6)  push int/bool/str parameter
-84: LDC   3, 206(5)  push int/bool/str parameter
+84: LDC   3, 121(5)  push int/bool/str parameter
 85: SUB   3, 6, 3  push int/bool/str parameter
 86: JLE   3, 13(5)  push int/bool/str parameter
 87: ST    0, 0(6)  push int/bool/str parameter
@@ -144,12 +118,12 @@
 89: LDA   7, 23(5)  jump to procedure call
 71: LDC   0, 90(5)  load return address into ac
 72: LDA   6, -1(6)  push return address
-73: LDC   3, 206(5)  push return address
+73: LDC   3, 121(5)  push return address
 74: SUB   3, 6, 3  push return address
 75: JLE   3, 13(5)  push return address
 76: ST    0, 0(6)  push return address
-90: ST    0, 204(5)  store int/bool/string into previous used static data
-91: LD    0, 205(5)  load int/bool/str from static data
+90: ST    0, 119(5)  store int/bool/string into previous used static data
+91: LD    0, 120(5)  load int/bool/str from static data
 92: LD    1, 0(0)  load str length into ac2
 93: JEQ   1, 5(7)  output nothing when empty
 94: LDA   0, 1(0)  increase offset
@@ -158,7 +132,7 @@
 97: LDA   1, -1(1)  decrease length of remaining string in ac2
 98: JNE   1, -5(7)  continue print if not yet finish
 99: OUTNL 0, 0, 0  write new line
-100: LD    0, 204(5)  load int/bool/str from static data
+100: LD    0, 119(5)  load int/bool/str from static data
 101: OUT   0, 0, 0  write integer
 102: OUTNL 0, 0, 0  write new line
 103: HALT  0, 0, 0  program ends

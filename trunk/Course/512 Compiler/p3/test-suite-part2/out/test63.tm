@@ -1,23 +1,13 @@
-.DATA    3
-.SDATA   "Hi "
-.DATA    2
-.SDATA   "Hi"
 .DATA    13
 .SDATA   "out of memory"
-.DATA    15
-.SDATA   "m <= 4 && m > 2"
 .DATA    18
 .SDATA   "array index error!"
-.DATA    5
-.SDATA   "There"
-.DATA    15
-.SDATA   "m > 4 || m <= 2"
-0: LDC   0, 80(5)  store array start address: 80
-1: LDC   1, 79(5)  store array offset into ac2: 79
+0: LDC   0, 35(5)  store array start address: 35
+1: LDC   1, 34(5)  store array offset into ac2: 34
 2: ST    0, 0(1)  store array offset
 3: LD    6, 0(5)  save stack pointer
 4: LD    4, 0(5)  save frame pointer
-6: LDC   0, 38(5)  load array error str address
+6: LDC   0, 15(5)  load array error str address
 7: LD    1, 0(0)  load str length into ac2
 8: JEQ   1, 5(7)  output nothing when empty
 9: LDA   0, 1(0)  increase offset
@@ -27,7 +17,7 @@
 13: JNE   1, -5(7)  continue print if not yet finish
 14: OUTNL 0, 0, 0  emit newline
 15: HALT  0, 0, 0  stop because of array error
-16: LDC   0, 8(5)  load out of memory str address
+16: LDC   0, 1(5)  load out of memory str address
 17: LD    1, 0(0)  load str length into ac2
 18: JEQ   1, 5(7)  output nothing when empty
 19: LDA   0, 1(0)  increase offset
@@ -41,7 +31,7 @@
 27: LD    1, 0(0)  load str length
 28: LDC   2, 0(5)  load 0 as initial result
 29: LDA   6, -1(6)  push 0
-30: LDC   3, 85(5)  push 0
+30: LDC   3, 40(5)  push 0
 31: SUB   3, 6, 3  push 0
 32: JLE   3, 16(5)  push 0
 33: ST    2, 0(6)  push 0
@@ -50,7 +40,7 @@
 36: LDC   3, 10(5)  load 10 into ac4
 37: MUL   2, 2, 3  mul result with 10
 38: LDA   6, -1(6)  push result
-39: LDC   3, 85(5)  push result
+39: LDC   3, 40(5)  push result
 40: SUB   3, 6, 3  push result
 41: JLE   3, 16(5)  push result
 42: ST    2, 0(6)  push result
@@ -62,7 +52,7 @@
 48: LDA   6, 1(6)  pop result into AC4
 49: ADD   2, 2, 3  compute result
 50: LDA   6, -1(6)  push result
-51: LDC   3, 85(5)  push result
+51: LDC   3, 40(5)  push result
 52: SUB   3, 6, 3  push result
 53: JLE   3, 16(5)  push result
 54: ST    2, 0(6)  push result
@@ -79,20 +69,20 @@
 65: LDA   7, 0(1)  jump to the return address
 5: LDA   7, 66(5)  jump to start of the program
 66: LDA   6, -1(6)  push fp
-67: LDC   3, 85(5)  push fp
+67: LDC   3, 40(5)  push fp
 68: SUB   3, 6, 3  push fp
 69: JLE   3, 16(5)  push fp
 70: ST    4, 0(6)  push fp
 71: LDA   4, 0(6)  set fp to sp
 72: LDC   0, 0(5)  load integer 0
 73: LDA   6, -1(6)  push low
-74: LDC   3, 85(5)  push low
+74: LDC   3, 40(5)  push low
 75: SUB   3, 6, 3  push low
 76: JLE   3, 16(5)  push low
 77: ST    0, 0(6)  push low
 78: LDC   0, 4(5)  load integer 4
 79: LDA   6, -1(6)  push hi
-80: LDC   3, 85(5)  push hi
+80: LDC   3, 40(5)  push hi
 81: SUB   3, 6, 3  push hi
 82: JLE   3, 16(5)  push hi
 83: ST    0, 0(6)  push hi
@@ -102,7 +92,7 @@
 88: LDA   1, 0(4)  load fp into ac2
 89: LD    0, -1(1)  load int/bool/str from stack
 90: LDA   6, -1(6)  push array index
-91: LDC   3, 85(5)  push array index
+91: LDC   3, 40(5)  push array index
 92: SUB   3, 6, 3  push array index
 93: JLE   3, 16(5)  push array index
 94: ST    0, 0(6)  push array index
@@ -117,10 +107,10 @@
 103: LDC   2, 1(5)  load size of subarray
 104: MUL   1, 1, 2  compute 0 dim
 105: ADD   0, 0, 1  add result
-106: LD    1, 79(5)  load offset into ac2
+106: LD    1, 34(5)  load offset into ac2
 107: ADD   0, 0, 1  compute final offset
 108: LDA   6, -1(6)  push final offset
-109: LDC   3, 85(5)  push final offset
+109: LDC   3, 40(5)  push final offset
 110: SUB   3, 6, 3  push final offset
 111: JLE   3, 16(5)  push final offset
 112: ST    0, 0(6)  push final offset
@@ -138,20 +128,20 @@
 123: LD    4, 0(6)  restore fp
 124: LDA   6, 1(6)  restore fp
 125: LDA   6, -1(6)  push fp
-126: LDC   3, 85(5)  push fp
+126: LDC   3, 40(5)  push fp
 127: SUB   3, 6, 3  push fp
 128: JLE   3, 16(5)  push fp
 129: ST    4, 0(6)  push fp
 130: LDA   4, 0(6)  set fp to sp
 131: LDC   0, 0(5)  load integer 0
 132: LDA   6, -1(6)  push low
-133: LDC   3, 85(5)  push low
+133: LDC   3, 40(5)  push low
 134: SUB   3, 6, 3  push low
 135: JLE   3, 16(5)  push low
 136: ST    0, 0(6)  push low
 137: LDC   0, 4(5)  load integer 4
 138: LDA   6, -1(6)  push hi
-139: LDC   3, 85(5)  push hi
+139: LDC   3, 40(5)  push hi
 140: SUB   3, 6, 3  push hi
 141: JLE   3, 16(5)  push hi
 142: ST    0, 0(6)  push hi
@@ -161,7 +151,7 @@
 147: LDA   1, 0(4)  load fp into ac2
 148: LD    0, -1(1)  load int/bool/str from stack
 149: LDA   6, -1(6)  push array index
-150: LDC   3, 85(5)  push array index
+150: LDC   3, 40(5)  push array index
 151: SUB   3, 6, 3  push array index
 152: JLE   3, 16(5)  push array index
 153: ST    0, 0(6)  push array index
@@ -176,7 +166,7 @@
 162: LDC   2, 1(5)  load size of subarray
 163: MUL   1, 1, 2  compute 0 dim
 164: ADD   0, 0, 1  add result
-165: LD    1, 79(5)  load global offset into ac2
+165: LD    1, 34(5)  load global offset into ac2
 166: ADD   0, 0, 1  compute final offset
 167: LD    0, 0(0)  load data from array
 168: OUT   0, 0, 0  write integer

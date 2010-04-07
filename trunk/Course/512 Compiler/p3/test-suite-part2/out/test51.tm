@@ -1,20 +1,10 @@
-.DATA    3
-.SDATA   "Hi "
-.DATA    2
-.SDATA   "Hi"
 .DATA    13
 .SDATA   "out of memory"
-.DATA    15
-.SDATA   "m <= 4 && m > 2"
 .DATA    18
 .SDATA   "array index error!"
-.DATA    5
-.SDATA   "There"
-.DATA    15
-.SDATA   "m > 4 || m <= 2"
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 38(5)  load array error str address
+3: LDC   0, 15(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -24,7 +14,7 @@
 10: JNE   1, -5(7)  continue print if not yet finish
 11: OUTNL 0, 0, 0  emit newline
 12: HALT  0, 0, 0  stop because of array error
-13: LDC   0, 8(5)  load out of memory str address
+13: LDC   0, 1(5)  load out of memory str address
 14: LD    1, 0(0)  load str length into ac2
 15: JEQ   1, 5(7)  output nothing when empty
 16: LDA   0, 1(0)  increase offset
@@ -38,7 +28,7 @@
 24: LD    1, 0(0)  load str length
 25: LDC   2, 0(5)  load 0 as initial result
 26: LDA   6, -1(6)  push 0
-27: LDC   3, 79(5)  push 0
+27: LDC   3, 34(5)  push 0
 28: SUB   3, 6, 3  push 0
 29: JLE   3, 13(5)  push 0
 30: ST    2, 0(6)  push 0
@@ -47,7 +37,7 @@
 33: LDC   3, 10(5)  load 10 into ac4
 34: MUL   2, 2, 3  mul result with 10
 35: LDA   6, -1(6)  push result
-36: LDC   3, 79(5)  push result
+36: LDC   3, 34(5)  push result
 37: SUB   3, 6, 3  push result
 38: JLE   3, 13(5)  push result
 39: ST    2, 0(6)  push result
@@ -59,7 +49,7 @@
 45: LDA   6, 1(6)  pop result into AC4
 46: ADD   2, 2, 3  compute result
 47: LDA   6, -1(6)  push result
-48: LDC   3, 79(5)  push result
+48: LDC   3, 34(5)  push result
 49: SUB   3, 6, 3  push result
 50: JLE   3, 13(5)  push result
 51: ST    2, 0(6)  push result
@@ -100,19 +90,19 @@
 86: LDA   7, 0(1)  jump to the return address
 2: LDA   7, 87(5)  jump to start of the program
 87: LDA   6, -1(6)  push fp
-88: LDC   3, 79(5)  push fp
+88: LDC   3, 34(5)  push fp
 89: SUB   3, 6, 3  push fp
 90: JLE   3, 13(5)  push fp
 91: ST    4, 0(6)  push fp
 92: LDA   4, 0(6)  set fp to sp
 99: LDA   6, -1(6)  push zero as return value
-100: LDC   3, 79(5)  push zero as return value
+100: LDC   3, 34(5)  push zero as return value
 101: SUB   3, 6, 3  push zero as return value
 102: JLE   3, 13(5)  push zero as return value
 103: ST    5, 0(6)  push zero as return value
 104: LDC   0, 1(5)  load booleantrue
 105: LDA   6, -1(6)  push int/bool/str parameter
-106: LDC   3, 79(5)  push int/bool/str parameter
+106: LDC   3, 34(5)  push int/bool/str parameter
 107: SUB   3, 6, 3  push int/bool/str parameter
 108: JLE   3, 13(5)  push int/bool/str parameter
 109: ST    0, 0(6)  push int/bool/str parameter
@@ -120,26 +110,26 @@
 111: LDA   7, 63(5)  jump to procedure call
 93: LDC   0, 112(5)  load return address into ac
 94: LDA   6, -1(6)  push return address
-95: LDC   3, 79(5)  push return address
+95: LDC   3, 34(5)  push return address
 96: SUB   3, 6, 3  push return address
 97: JLE   3, 13(5)  push return address
 98: ST    0, 0(6)  push return address
 112: OUT   0, 0, 0  write integer
 113: OUTNL 0, 0, 0  write new line
 114: LDA   6, -1(6)  push fp
-115: LDC   3, 79(5)  push fp
+115: LDC   3, 34(5)  push fp
 116: SUB   3, 6, 3  push fp
 117: JLE   3, 13(5)  push fp
 118: ST    4, 0(6)  push fp
 119: LDA   4, 0(6)  set fp to sp
 126: LDA   6, -1(6)  push zero as return value
-127: LDC   3, 79(5)  push zero as return value
+127: LDC   3, 34(5)  push zero as return value
 128: SUB   3, 6, 3  push zero as return value
 129: JLE   3, 13(5)  push zero as return value
 130: ST    5, 0(6)  push zero as return value
 131: LDC   0, 0(5)  load booleanfalse
 132: LDA   6, -1(6)  push int/bool/str parameter
-133: LDC   3, 79(5)  push int/bool/str parameter
+133: LDC   3, 34(5)  push int/bool/str parameter
 134: SUB   3, 6, 3  push int/bool/str parameter
 135: JLE   3, 13(5)  push int/bool/str parameter
 136: ST    0, 0(6)  push int/bool/str parameter
@@ -147,7 +137,7 @@
 138: LDA   7, 63(5)  jump to procedure call
 120: LDC   0, 139(5)  load return address into ac
 121: LDA   6, -1(6)  push return address
-122: LDC   3, 79(5)  push return address
+122: LDC   3, 34(5)  push return address
 123: SUB   3, 6, 3  push return address
 124: JLE   3, 13(5)  push return address
 125: ST    0, 0(6)  push return address

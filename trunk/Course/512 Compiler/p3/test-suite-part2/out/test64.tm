@@ -1,23 +1,13 @@
-.DATA    3
-.SDATA   "Hi "
-.DATA    2
-.SDATA   "Hi"
 .DATA    13
 .SDATA   "out of memory"
-.DATA    15
-.SDATA   "m <= 4 && m > 2"
 .DATA    18
 .SDATA   "array index error!"
-.DATA    5
-.SDATA   "There"
-.DATA    15
-.SDATA   "m > 4 || m <= 2"
-0: LDC   0, 81(5)  store array start address: 81
-1: LDC   1, 80(5)  store array offset into ac2: 80
+0: LDC   0, 36(5)  store array start address: 36
+1: LDC   1, 35(5)  store array offset into ac2: 35
 2: ST    0, 0(1)  store array offset
 3: LD    6, 0(5)  save stack pointer
 4: LD    4, 0(5)  save frame pointer
-6: LDC   0, 38(5)  load array error str address
+6: LDC   0, 15(5)  load array error str address
 7: LD    1, 0(0)  load str length into ac2
 8: JEQ   1, 5(7)  output nothing when empty
 9: LDA   0, 1(0)  increase offset
@@ -27,7 +17,7 @@
 13: JNE   1, -5(7)  continue print if not yet finish
 14: OUTNL 0, 0, 0  emit newline
 15: HALT  0, 0, 0  stop because of array error
-16: LDC   0, 8(5)  load out of memory str address
+16: LDC   0, 1(5)  load out of memory str address
 17: LD    1, 0(0)  load str length into ac2
 18: JEQ   1, 5(7)  output nothing when empty
 19: LDA   0, 1(0)  increase offset
@@ -41,7 +31,7 @@
 27: LD    1, 0(0)  load str length
 28: LDC   2, 0(5)  load 0 as initial result
 29: LDA   6, -1(6)  push 0
-30: LDC   3, 92(5)  push 0
+30: LDC   3, 47(5)  push 0
 31: SUB   3, 6, 3  push 0
 32: JLE   3, 16(5)  push 0
 33: ST    2, 0(6)  push 0
@@ -50,7 +40,7 @@
 36: LDC   3, 10(5)  load 10 into ac4
 37: MUL   2, 2, 3  mul result with 10
 38: LDA   6, -1(6)  push result
-39: LDC   3, 92(5)  push result
+39: LDC   3, 47(5)  push result
 40: SUB   3, 6, 3  push result
 41: JLE   3, 16(5)  push result
 42: ST    2, 0(6)  push result
@@ -62,7 +52,7 @@
 48: LDA   6, 1(6)  pop result into AC4
 49: ADD   2, 2, 3  compute result
 50: LDA   6, -1(6)  push result
-51: LDC   3, 92(5)  push result
+51: LDC   3, 47(5)  push result
 52: SUB   3, 6, 3  push result
 53: JLE   3, 16(5)  push result
 54: ST    2, 0(6)  push result
@@ -79,18 +69,18 @@
 65: LDA   7, 0(1)  jump to the return address
 5: LDA   7, 66(5)  jump to start of the program
 66: LDC   0, 1(5)  load integer 1
-67: ST    0, 91(5)  store int/bool/string into previous used static data
+67: ST    0, 46(5)  store int/bool/string into previous used static data
 68: LDC   0, 4(5)  load integer 4
-69: ST    0, 79(5)  store int/bool/string into previous used static data
-70: LD    0, 79(5)  load int/bool/str from static data
+69: ST    0, 34(5)  store int/bool/string into previous used static data
+70: LD    0, 34(5)  load int/bool/str from static data
 71: LDA   6, -1(6)  push array index
-72: LDC   3, 92(5)  push array index
+72: LDC   3, 47(5)  push array index
 73: SUB   3, 6, 3  push array index
 74: JLE   3, 16(5)  push array index
 75: ST    0, 0(6)  push array index
-76: LD    0, 91(5)  load int/bool/str from static data
+76: LD    0, 46(5)  load int/bool/str from static data
 77: LDA   6, -1(6)  push array index
-78: LDC   3, 92(5)  push array index
+78: LDC   3, 47(5)  push array index
 79: SUB   3, 6, 3  push array index
 80: JLE   3, 16(5)  push array index
 81: ST    0, 0(6)  push array index
@@ -114,10 +104,10 @@
 99: LDC   2, 1(5)  load size of subarray
 100: MUL   1, 1, 2  compute 1 dim
 101: ADD   0, 0, 1  add result
-102: LD    1, 80(5)  load offset into ac2
+102: LD    1, 35(5)  load offset into ac2
 103: ADD   0, 0, 1  compute final offset
 104: LDA   6, -1(6)  push final offset
-105: LDC   3, 92(5)  push final offset
+105: LDC   3, 47(5)  push final offset
 106: SUB   3, 6, 3  push final offset
 107: JLE   3, 16(5)  push final offset
 108: ST    0, 0(6)  push final offset
@@ -125,15 +115,15 @@
 110: LD    1, 0(6)  pop final offset
 111: LDA   6, 1(6)  pop final offset
 112: ST    0, 0(1)  store value into array static data
-113: LD    0, 79(5)  load int/bool/str from static data
+113: LD    0, 34(5)  load int/bool/str from static data
 114: LDA   6, -1(6)  push array index
-115: LDC   3, 92(5)  push array index
+115: LDC   3, 47(5)  push array index
 116: SUB   3, 6, 3  push array index
 117: JLE   3, 16(5)  push array index
 118: ST    0, 0(6)  push array index
-119: LD    0, 91(5)  load int/bool/str from static data
+119: LD    0, 46(5)  load int/bool/str from static data
 120: LDA   6, -1(6)  push array index
-121: LDC   3, 92(5)  push array index
+121: LDC   3, 47(5)  push array index
 122: SUB   3, 6, 3  push array index
 123: JLE   3, 16(5)  push array index
 124: ST    0, 0(6)  push array index
@@ -157,15 +147,15 @@
 142: LDC   2, 1(5)  load size of subarray
 143: MUL   1, 1, 2  compute 1 dim
 144: ADD   0, 0, 1  add result
-145: LD    1, 80(5)  load global offset into ac2
+145: LD    1, 35(5)  load global offset into ac2
 146: ADD   0, 0, 1  compute final offset
 147: LD    0, 0(0)  load data from array
 148: OUT   0, 0, 0  write integer
 149: OUTNL 0, 0, 0  write new line
-150: LD    0, 91(5)  load int/bool/str from static data
+150: LD    0, 46(5)  load int/bool/str from static data
 151: OUT   0, 0, 0  write integer
 152: OUTNL 0, 0, 0  write new line
-153: LD    0, 79(5)  load int/bool/str from static data
+153: LD    0, 34(5)  load int/bool/str from static data
 154: OUT   0, 0, 0  write integer
 155: OUTNL 0, 0, 0  write new line
 156: HALT  0, 0, 0  program ends
