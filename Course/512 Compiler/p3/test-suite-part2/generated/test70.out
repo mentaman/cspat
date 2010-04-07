@@ -1,0 +1,8 @@
+Loading file: test-suite-part2/out/test70.tm
+-162916 
+-490 
+84 
+70 
+Abort limit reached
+Last executed cmd:   47:  LDA  6,  -1(6)  | before:  r[6]: 9993  r[6]: 9993  m[9992]: 90    |  push result
+Number of instructions executed = 20000

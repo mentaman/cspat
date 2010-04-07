@@ -48,7 +48,7 @@ import parser.SimpleNode;
 
 public class CascadeVisitor implements Ice9ParserVisitor {
 
-	boolean debug = true;
+	boolean debug = false;
 
 	public void commonAction(SimpleNode node, Object data) {
 		if (debug) {

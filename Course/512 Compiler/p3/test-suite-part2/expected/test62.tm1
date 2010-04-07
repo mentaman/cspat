@@ -1,0 +1,170 @@
+.DATA 23	* string length
+.SDATA "Arrays bounds violation"	* string constant
+.DATA 19	* string length
+.SDATA "Out of stack space "	* string constant
+* BEGIN preamble
+: LDC 4, 0(0)	* initialize ZEROREG to 0
+: LD 5, 0(4)	* initialize SP to end of memory
+: LDA 5, -1(5)	* subtract one to get the true SP
+: LDA 6, 0(5)	* FP and SP start off the same
+* END preamble
+* BEGIN: procedure call
+: LDA 0, 19(7)	* Get return address into ACC0
+: LDA 3, -49(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+* BEGIN: load an int constant
+: LDC 0, 2(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 3, -46(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 98(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* Store param in slot
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+: LDA 3, -50(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: LDA 5, -5(5)	* decrement SP by local var's size (i.e., push)
+: LDA 6, 10(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 49(4)	* Jump to the start of the proc
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+* BEGIN: procedure call
+: LDA 0, 19(7)	* Get return address into ACC0
+: LDA 3, -49(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 3, -46(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 98(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* Store param in slot
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+: LDA 3, -50(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: LDA 5, -5(5)	* decrement SP by local var's size (i.e., push)
+: LDA 6, 10(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 49(4)	* Jump to the start of the proc
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+: HALT 0, 0, 0	* End of Program
+* BEGIN: procedure code
+: LDA 0, 0(0)	* NOOP to mark beginning of proc
+* BEGIN: load an int constant
+: LDC 0, 3(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: push to stack
+: LDA 3, -46(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDC 0, -9(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -46(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 101(4)	* array bounds too small
+: LDC 3, 5(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 101(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 0, 6	* Add FP to the relative offset
+: ST 1, 0(0)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LDC 0, -9(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -46(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 112(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 101(4)	* array bounds too small
+: LDC 3, 5(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 101(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: ADD 0, 0, 6	* Add the array offset to FP for a local access
+: LD 0, 0(0)	* Load the final dereferenced local var into the specified register
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+: LD 0, 0(6)	* Load the return address from the 1st slot in the AR to ACC0
+: LDA 7, 0(0)	* Return to calling location (stored in ACC0)
+* END: procedure code
+* BEGIN: array bounds message handler
+: LDC 0, 1(0)	* Load the error message into ACC0
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+: HALT 0, 0, 0	* Halt for array bounds
+* END: array bounds message handler
+* BEGIN: stack limit message handler
+: LDC 0, 25(0)	* Load the error message into ACC0
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 3, 0(1)	* Load next char from string into ACC3
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 3, 0, 0	* Write out character in ACC3
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTC 2, 0, 0	* Write out diagnostic char in ACC2
+: OUTNL 0, 0, 0	* dump out the newline
+: HALT 0, 0, 0	* Halt for stack limit
+* END: stack limit message handler

@@ -1,0 +1,42 @@
+.DATA 23	* string length
+.SDATA "Arrays bounds violation"	* string constant
+.DATA 19	* string length
+.SDATA "Out of stack space "	* string constant
+.DATA 3	* string length
+.SDATA "Hi "	* string constant
+.DATA 5	* string length
+.SDATA "There"	* string constant
+* BEGIN preamble
+: LDC 4, 0(0)	* initialize ZEROREG to 0
+: LD 5, 0(4)	* initialize SP to end of memory
+: LDA 5, -1(5)	* subtract one to get the true SP
+: LDA 6, 0(5)	* FP and SP start off the same
+* END preamble
+* BEGIN: load a string's location into ACC0
+: LDC 0, 45(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 49(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+: HALT 0, 0, 0	* End of Program

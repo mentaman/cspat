@@ -1,0 +1,833 @@
+.DATA 23	* string length
+.SDATA "Arrays bounds violation"	* string constant
+.DATA 19	* string length
+.SDATA "Out of stack space "	* string constant
+.DATA 30	* string length
+.SDATA "Input length of array (1-100):"	* string constant
+.DATA 5	* string length
+.SDATA "wrong"	* string constant
+.DATA 6	* string length
+.SDATA "Input "	* string constant
+.DATA 2	* string length
+.SDATA ": "	* string constant
+.DATA 12	* string length
+.SDATA "Sorted list:"	* string constant
+.DATA 0	* storage location (105) for var n
+.DATA 0	* storage location (106) for var t
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (107) for var a
+.DATA 0	* storage location (207) for var i
+.DATA 0	* storage location (208) for var $-i
+.DATA 0	* storage location (209) for var j
+.DATA 0	* storage location (210) for var $-j
+.DATA 0	* storage location (211) for var i
+.DATA 0	* storage location (212) for var $-i
+.DATA 0	* storage location (213) for var i
+.DATA 0	* storage location (214) for var $-i
+* BEGIN preamble
+: LDC 4, 0(0)	* initialize ZEROREG to 0
+: LD 5, 0(4)	* initialize SP to end of memory
+: LDA 5, -1(5)	* subtract one to get the true SP
+: LDA 6, 0(5)	* FP and SP start off the same
+* END preamble
+* BEGIN: load a string's location into ACC0
+: LDC 0, 45(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 105(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JGT 0, 24(7)	* Jump over rest of logical or code
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 57(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 100(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 1, 0	* for OR, add right and left
+: JEQ 0, 1(7)	* Jump over Load 1 if ACC0 == 0
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 11(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 76(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 105(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: for loop
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 207(4)	* Store ACC0 into global offset
+* END: save initial value to loop var
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 208(4)	* Store ACC0 into global offset
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, 207(4)	* Load the global var into ACC0
+: LD 1, 208(4)	* Load the global var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 180(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: load a string's location into ACC0
+: LDC 0, 82(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 207(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 0, 1	* Add ACC0 & ACC1 placing result in ACC0
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 89(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 207(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ST 1, 0(0)	* Store ACC0 into global offset
+* END: assignment
+* END: body of for loop
+: LD 0, 207(4)	* Load the global var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 207(4)	* Store ACC0 into global offset
+: LDA 7, 110(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+* BEGIN: for loop
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 211(4)	* Store ACC0 into global offset
+* END: save initial value to loop var
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 212(4)	* Store ACC0 into global offset
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, 211(4)	* Load the global var into ACC0
+: LD 1, 212(4)	* Load the global var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 406(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: for loop
+* BEGIN: variable (rvalue) access
+: LD 0, 211(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 0, 1	* Add ACC0 & ACC1 placing result in ACC0
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 209(4)	* Store ACC0 into global offset
+* END: save initial value to loop var
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 210(4)	* Store ACC0 into global offset
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, 209(4)	* Load the global var into ACC0
+: LD 1, 210(4)	* Load the global var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 394(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: variable (rvalue) access
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 211(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LD 0, 0(0)	* Load the final dereferenced value into the specified register
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 209(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LD 0, 0(0)	* Load the final dereferenced value into the specified register
+* END: variable (rvalue) access
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: JEQ 0, 91(7)	* Jump over the then stmts if false
+* BEGIN: variable (rvalue) access
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 211(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LD 0, 0(0)	* Load the final dereferenced value into the specified register
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 106(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 209(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LD 0, 0(0)	* Load the final dereferenced value into the specified register
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 211(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ST 1, 0(0)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, 106(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 209(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ST 1, 0(0)	* Store ACC0 into global offset
+* END: assignment
+* END: body of for loop
+: LD 0, 209(4)	* Load the global var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 209(4)	* Store ACC0 into global offset
+: LDA 7, 240(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+* END: body of for loop
+: LD 0, 211(4)	* Load the global var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 211(4)	* Store ACC0 into global offset
+: LDA 7, 208(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+* BEGIN: load a string's location into ACC0
+: LDC 0, 92(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: for loop
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 213(4)	* Store ACC0 into global offset
+* END: save initial value to loop var
+* BEGIN: variable (rvalue) access
+: LD 0, 105(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 214(4)	* Store ACC0 into global offset
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, 213(4)	* Load the global var into ACC0
+: LD 1, 214(4)	* Load the global var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 470(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: variable (rvalue) access
+: LDC 0, 107(0)	* Load the base address into ACC0
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 56(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 213(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: JLT 0, 472(4)	* array bounds too small
+: LDC 3, 100(0)	* Load the array bounds limit into ACC3
+: SUB 3, 0, 3	* Subtract the max from the current index
+: JGE 3, 472(4)	* array bounds too big
+: LDC 1, 1(0)	* Load the skip size into ACC1
+: MUL 1, 1, 0	* Multiply the index by the skip size and place the result back into ACC1
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ADD 0, 1, 0	* add the base (ACC0) and the skip size (ACC1) and put the result back in ACC0
+: LD 0, 0(0)	* Load the final dereferenced value into the specified register
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* END: body of for loop
+: LD 0, 213(4)	* Load the global var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -216(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 483(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 213(4)	* Store ACC0 into global offset
+: LDA 7, 435(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+: HALT 0, 0, 0	* End of Program
+* BEGIN: array bounds message handler
+: LDC 0, 1(0)	* Load the error message into ACC0
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+: HALT 0, 0, 0	* Halt for array bounds
+* END: array bounds message handler
+* BEGIN: stack limit message handler
+: LDC 0, 25(0)	* Load the error message into ACC0
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 3, 0(1)	* Load next char from string into ACC3
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 3, 0, 0	* Write out character in ACC3
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTC 2, 0, 0	* Write out diagnostic char in ACC2
+: OUTNL 0, 0, 0	* dump out the newline
+: HALT 0, 0, 0	* Halt for stack limit
+* END: stack limit message handler
