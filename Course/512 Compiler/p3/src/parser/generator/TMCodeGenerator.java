@@ -35,6 +35,10 @@ public class TMCodeGenerator {
 	private final static String JGT = "JGT";
 	private final static String DATA = ".DATA";
 	private final static String SDATA = ".SDATA";
+	
+	public int dataPointer = 1;
+
+	public int memoryErrorLineNbr = 1;
 
 	public void emitLD(int register, int constant, int baseRegister, int lineNbr) {
 		emitLD(register, constant, baseRegister, lineNbr, "");
@@ -92,6 +96,9 @@ public class TMCodeGenerator {
 
 	public int emitPUSH(int AC, int lineNbr, String comment) {
 		emitLDA(RegisterConstant.SP, -1, RegisterConstant.SP, lineNbr++, comment);
+		emitLDC(RegisterConstant.AC4, dataPointer, RegisterConstant.ZERO, lineNbr++, comment);
+		emitSUB(RegisterConstant.AC4, RegisterConstant.SP, RegisterConstant.AC4, lineNbr++, comment);
+		emitJLE(RegisterConstant.AC4, memoryErrorLineNbr, RegisterConstant.ZERO, lineNbr++, comment);
 		emitST(AC, 0, RegisterConstant.SP, lineNbr++, comment);
 		return lineNbr;
 	}
