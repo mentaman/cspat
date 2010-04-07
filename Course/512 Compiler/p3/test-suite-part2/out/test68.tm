@@ -1,20 +1,10 @@
-.DATA    3
-.SDATA   "Hi "
-.DATA    2
-.SDATA   "Hi"
 .DATA    13
 .SDATA   "out of memory"
-.DATA    15
-.SDATA   "m <= 4 && m > 2"
 .DATA    18
 .SDATA   "array index error!"
-.DATA    5
-.SDATA   "There"
-.DATA    15
-.SDATA   "m > 4 || m <= 2"
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 38(5)  load array error str address
+3: LDC   0, 15(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -24,7 +14,7 @@
 10: JNE   1, -5(7)  continue print if not yet finish
 11: OUTNL 0, 0, 0  emit newline
 12: HALT  0, 0, 0  stop because of array error
-13: LDC   0, 8(5)  load out of memory str address
+13: LDC   0, 1(5)  load out of memory str address
 14: LD    1, 0(0)  load str length into ac2
 15: JEQ   1, 5(7)  output nothing when empty
 16: LDA   0, 1(0)  increase offset
@@ -38,7 +28,7 @@
 24: LD    1, 0(0)  load str length
 25: LDC   2, 0(5)  load 0 as initial result
 26: LDA   6, -1(6)  push 0
-27: LDC   3, 79(5)  push 0
+27: LDC   3, 34(5)  push 0
 28: SUB   3, 6, 3  push 0
 29: JLE   3, 13(5)  push 0
 30: ST    2, 0(6)  push 0
@@ -47,7 +37,7 @@
 33: LDC   3, 10(5)  load 10 into ac4
 34: MUL   2, 2, 3  mul result with 10
 35: LDA   6, -1(6)  push result
-36: LDC   3, 79(5)  push result
+36: LDC   3, 34(5)  push result
 37: SUB   3, 6, 3  push result
 38: JLE   3, 13(5)  push result
 39: ST    2, 0(6)  push result
@@ -59,7 +49,7 @@
 45: LDA   6, 1(6)  pop result into AC4
 46: ADD   2, 2, 3  compute result
 47: LDA   6, -1(6)  push result
-48: LDC   3, 79(5)  push result
+48: LDC   3, 34(5)  push result
 49: SUB   3, 6, 3  push result
 50: JLE   3, 13(5)  push result
 51: ST    2, 0(6)  push result
@@ -76,13 +66,13 @@
 62: LDA   7, 0(1)  jump to the return address
 63: LDC   0, 0(5)  load integer 0
 64: LDA   6, -1(6)  push array index
-65: LDC   3, 79(5)  push array index
+65: LDC   3, 34(5)  push array index
 66: SUB   3, 6, 3  push array index
 67: JLE   3, 13(5)  push array index
 68: ST    0, 0(6)  push array index
 69: LDC   0, 0(5)  load integer 0
 70: LDA   6, -1(6)  push array index
-71: LDC   3, 79(5)  push array index
+71: LDC   3, 34(5)  push array index
 72: SUB   3, 6, 3  push array index
 73: JLE   3, 13(5)  push array index
 74: ST    0, 0(6)  push array index
@@ -114,13 +104,13 @@
 100: OUTNL 0, 0, 0  write new line
 101: LDC   0, 1(5)  load integer 1
 102: LDA   6, -1(6)  push array index
-103: LDC   3, 79(5)  push array index
+103: LDC   3, 34(5)  push array index
 104: SUB   3, 6, 3  push array index
 105: JLE   3, 13(5)  push array index
 106: ST    0, 0(6)  push array index
 107: LDC   0, 0(5)  load integer 0
 108: LDA   6, -1(6)  push array index
-109: LDC   3, 79(5)  push array index
+109: LDC   3, 34(5)  push array index
 110: SUB   3, 6, 3  push array index
 111: JLE   3, 13(5)  push array index
 112: ST    0, 0(6)  push array index
@@ -157,13 +147,13 @@
 143: LDA   7, 0(1)  jump to the return address
 144: LDC   0, 0(5)  load integer 0
 145: LDA   6, -1(6)  push array index
-146: LDC   3, 79(5)  push array index
+146: LDC   3, 34(5)  push array index
 147: SUB   3, 6, 3  push array index
 148: JLE   3, 13(5)  push array index
 149: ST    0, 0(6)  push array index
 150: LDC   0, 0(5)  load integer 0
 151: LDA   6, -1(6)  push array index
-152: LDC   3, 79(5)  push array index
+152: LDC   3, 34(5)  push array index
 153: SUB   3, 6, 3  push array index
 154: JLE   3, 13(5)  push array index
 155: ST    0, 0(6)  push array index
@@ -191,7 +181,7 @@
 177: LD    1, -4(1)  load local offset into ac2
 178: ADD   0, 0, 1  compute final offset
 179: LDA   6, -1(6)  push final offset
-180: LDC   3, 79(5)  push final offset
+180: LDC   3, 34(5)  push final offset
 181: SUB   3, 6, 3  push final offset
 182: JLE   3, 13(5)  push final offset
 183: ST    0, 0(6)  push final offset
@@ -201,13 +191,13 @@
 187: ST    0, 0(1)  store value into array static data
 188: LDC   0, 1(5)  load integer 1
 189: LDA   6, -1(6)  push array index
-190: LDC   3, 79(5)  push array index
+190: LDC   3, 34(5)  push array index
 191: SUB   3, 6, 3  push array index
 192: JLE   3, 13(5)  push array index
 193: ST    0, 0(6)  push array index
 194: LDC   0, 0(5)  load integer 0
 195: LDA   6, -1(6)  push array index
-196: LDC   3, 79(5)  push array index
+196: LDC   3, 34(5)  push array index
 197: SUB   3, 6, 3  push array index
 198: JLE   3, 13(5)  push array index
 199: ST    0, 0(6)  push array index
@@ -235,7 +225,7 @@
 221: LD    1, -4(1)  load local offset into ac2
 222: ADD   0, 0, 1  compute final offset
 223: LDA   6, -1(6)  push final offset
-224: LDC   3, 79(5)  push final offset
+224: LDC   3, 34(5)  push final offset
 225: SUB   3, 6, 3  push final offset
 226: JLE   3, 13(5)  push final offset
 227: ST    0, 0(6)  push final offset
@@ -244,7 +234,7 @@
 230: LDA   6, 1(6)  pop final offset
 231: ST    0, 0(1)  store value into array static data
 232: LDA   6, -1(6)  push fp
-233: LDC   3, 79(5)  push fp
+233: LDC   3, 34(5)  push fp
 234: SUB   3, 6, 3  push fp
 235: JLE   3, 13(5)  push fp
 236: ST    4, 0(6)  push fp
@@ -256,7 +246,7 @@
 248: LD    1, -4(1)  load local offset into ac2
 249: ADD   0, 0, 1  compute final offset
 250: LDA   6, -1(6)  push array parameter
-251: LDC   3, 79(5)  push array parameter
+251: LDC   3, 34(5)  push array parameter
 252: SUB   3, 6, 3  push array parameter
 253: JLE   3, 13(5)  push array parameter
 254: ST    0, 0(6)  push array parameter
@@ -264,7 +254,7 @@
 256: LDA   7, 63(5)  jump to procedure call
 238: LDC   0, 257(5)  load return address into ac
 239: LDA   6, -1(6)  push return address
-240: LDC   3, 79(5)  push return address
+240: LDC   3, 34(5)  push return address
 241: SUB   3, 6, 3  push return address
 242: JLE   3, 13(5)  push return address
 243: ST    0, 0(6)  push return address
@@ -275,7 +265,7 @@
 261: LDA   7, 0(1)  jump to the return address
 2: LDA   7, 262(5)  jump to start of the program
 262: LDA   6, -1(6)  push fp
-263: LDC   3, 79(5)  push fp
+263: LDC   3, 34(5)  push fp
 264: SUB   3, 6, 3  push fp
 265: JLE   3, 13(5)  push fp
 266: ST    4, 0(6)  push fp
@@ -287,7 +277,7 @@
 278: LDA   7, 144(5)  jump to procedure call
 268: LDC   0, 279(5)  load return address into ac
 269: LDA   6, -1(6)  push return address
-270: LDC   3, 79(5)  push return address
+270: LDC   3, 34(5)  push return address
 271: SUB   3, 6, 3  push return address
 272: JLE   3, 13(5)  push return address
 273: ST    0, 0(6)  push return address

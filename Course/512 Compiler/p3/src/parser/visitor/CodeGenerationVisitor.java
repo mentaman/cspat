@@ -497,12 +497,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		super.visit(node, data);
 		Token t1 = node.getTokenAt(0);
 		Token t2 = node.getTokenAt(1);
-//		System.out.println("t1: " + t1.image);
-//		if (t2 != null) {
-//			System.out.println("t2: " + t2.image);
-//		}
+		// System.out.println("t1: " + t1.image);
+		// if (t2 != null) {
+		// System.out.println("t2: " + t2.image);
+		// }
 
-		if (t1.image.equals("-") ) {
+		if (t1.image.equals("-")) {
 			if (type.equals(TypeRecord.intType)) {
 				code.emitLDC(RegisterConstant.AC2, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 into AC2");
@@ -521,7 +521,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "load 0 as false");
 
 			}
-		}else if (t2 != null && t2.image.equals("-")) {
+		} else if (t2 != null && t2.image.equals("-")) {
 			if (childType.equals(TypeRecord.intType)) {
 				code.emitLDC(RegisterConstant.AC2, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 into AC2");
@@ -1314,8 +1314,11 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "load upper level fp");
 				level--;
 			}
-			ArrayList<Integer> returnList = returnStatements.peek();
-			returnList.add(lineNbr);
+			ArrayList<Integer> returnList = null;
+			if (!returnStatements.isEmpty()) {
+				returnList = returnStatements.peek();
+				returnList.add(lineNbr);
+			}
 			lineNbr++;
 		}
 		return super.visit(node, data);
