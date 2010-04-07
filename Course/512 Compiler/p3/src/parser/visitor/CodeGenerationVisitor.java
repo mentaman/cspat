@@ -33,6 +33,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private SymbolTable currentTable;
 	private TMCodeGenerator code = new TMCodeGenerator();
 	private boolean debug = false;
+	private boolean debug2 = false;
 	private HashMap<String, Integer> stringTable = new HashMap<String, Integer>();
 	private Stack<ArrayList<Integer>> breakStatements = new Stack<ArrayList<Integer>>();
 	private boolean isLoadingParameter = false;
@@ -43,9 +44,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private String outOfMemoryMessage;
 	private int memoryErrorHandleLineNbr;
 	private String outputFile = "generated.tm";
+	private HashMap<String, ArrayList<Integer>> forwardLines = new HashMap<String, ArrayList<Integer>>();
 
 	private void debug(String text) {
 		if (debug) {
+			System.out.println(text);
+
+		}
+	}
+
+	private void debug2(String text) {
+		if (debug2) {
 			System.out.println(text);
 
 		}
@@ -1159,6 +1168,16 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		debug("end of proc linenbr: " + lineNbr);
 		currentTable = currentTable.parent;
 
+		if (forwardLines.containsKey(idToken.image)) {
+			for (Integer jumpLineNbr : forwardLines.get(idToken.image)) {
+				code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
+						RegisterConstant.ZERO, jumpLineNbr,
+						"jump to procedure call");
+			}
+
+			forwardLines.remove(idToken.image);
+		}
+
 		return data;
 	}
 
@@ -1167,8 +1186,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		Token idToken = node.getFirstToken();
 		ProcType procType = null;
 		try {
-			procType = currentTable.lookupProc(idToken);
-			debug("procedure call: " + procType);
+			procType = currentTable.lookupProcWithoutForward(idToken);
+			debug2("procedure call " + idToken.image + ": " + procType);
 		} catch (SymbolTableException e) {
 			e.printStackTrace();
 		}
@@ -1264,8 +1283,17 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 					"preserve space for local vars");
 		}
 
-		code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
-				RegisterConstant.ZERO, lineNbr++, "jump to procedure call");
+		if (procType.startLineNbr != 0) {
+			code.emitLDA(RegisterConstant.PC, procType.startLineNbr,
+					RegisterConstant.ZERO, lineNbr++, "jump to procedure call");
+		} else {
+			if (!forwardLines.containsKey(idToken.image)) {
+				forwardLines.put(idToken.image, new ArrayList<Integer>());
+			}
+			forwardLines.get(idToken.image).add(lineNbr);
+			lineNbr++;
+		}
+
 		code.emitLDC(RegisterConstant.AC, lineNbr, RegisterConstant.ZERO,
 				returnLineNbr++, "load return address into ac");
 		code
