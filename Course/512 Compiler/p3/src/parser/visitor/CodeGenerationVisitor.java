@@ -45,6 +45,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 	private int memoryErrorHandleLineNbr;
 	private String outputFile = "generated.tm";
 	private HashMap<String, ArrayList<Integer>> forwardLines = new HashMap<String, ArrayList<Integer>>();
+	private String invalidNumericCharMessage;
 
 	private void debug(String text) {
 		if (debug) {
@@ -162,6 +163,8 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		stringTable.put(arrayErrorMessage, 0);
 		outOfMemoryMessage = "\"out of memory\"";
 		stringTable.put(outOfMemoryMessage, 0);
+		invalidNumericCharMessage = "\"invalid numeric character\"";
+		stringTable.put(invalidNumericCharMessage, 0);
 	}
 
 	private void emitIntFunction() {
@@ -171,11 +174,63 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} catch (SymbolTableException e) {
 			e.printStackTrace();
 		}
+		
 		intProc.startLineNbr = lineNbr;
 		code.emitLD(RegisterConstant.AC, -3, RegisterConstant.FP, lineNbr++,
 				"load str offset");
 		code.emitLD(RegisterConstant.AC2, 0, RegisterConstant.AC, lineNbr++,
 				"load str length");
+
+		code.emitLDA(RegisterConstant.AC, 1, RegisterConstant.AC, lineNbr++,
+				"increase str offset");
+		code.emitLD(RegisterConstant.AC3, 0, RegisterConstant.AC, lineNbr++,
+				"load char");
+		code.emitLDC(RegisterConstant.AC4, 43, RegisterConstant.ZERO,
+				lineNbr++, "load 43(+) into ac4");
+		code.emitSUB(RegisterConstant.AC4, RegisterConstant.AC3,
+				RegisterConstant.AC4, lineNbr++, "sub 43(+)");
+		int save1 = lineNbr;
+		lineNbr++;
+
+		// code.emitJNE(RegisterConstant.AC4, 3, RegisterConstant.PC, lineNbr++,
+		// "jump if equal");
+
+		code.emitLDC(RegisterConstant.AC4, 45, RegisterConstant.ZERO,
+				lineNbr++, "load 45(-) into ac4");
+		code.emitSUB(RegisterConstant.AC4, RegisterConstant.AC3,
+				RegisterConstant.AC4, lineNbr++, "sub 45(-)");
+		int save2 = lineNbr;
+		lineNbr++;
+		// code.emitJNE(RegisterConstant.AC4, 5, RegisterConstant.PC, lineNbr++,
+		// "jump if equal");
+		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
+		"decrease str length");
+		code.emitLDC(RegisterConstant.AC3, -1, RegisterConstant.ZERO,
+				lineNbr++, "load -1 into ac3");
+		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push -1");
+
+		int save3 = lineNbr;
+		lineNbr++;
+
+		code.emitJNE(RegisterConstant.AC4, lineNbr - save2 - 1,
+				RegisterConstant.PC, save2, "jump if not equal '-'");
+		code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC, lineNbr++,
+				"move back str offset");
+		code.emitLDA(RegisterConstant.AC2, 1, RegisterConstant.AC2, lineNbr++,
+		"increase str length");
+
+		code.emitJEQ(RegisterConstant.AC4, lineNbr - save1 - 1,
+				RegisterConstant.PC, save1, "jump if equal '+'");
+
+		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
+		"decrease str length");
+		code.emitLDC(RegisterConstant.AC3, 1, RegisterConstant.ZERO, lineNbr++,
+				"load 1 into ac3");
+		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push 1");
+
+		code.emitLDA(RegisterConstant.PC, lineNbr - save3 - 1,
+				RegisterConstant.PC, save3, "jump to start parsing str");
+
 		code.emitLDC(RegisterConstant.AC3, 0, RegisterConstant.ZERO, lineNbr++,
 				"load 0 as initial result");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push 0");
@@ -208,6 +263,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 				lineNbr++, "continue if str length");
 
 		lineNbr = code.emitPOP(RegisterConstant.AC, lineNbr, "pop result");
+		lineNbr = code.emitPOP(RegisterConstant.AC2, lineNbr, "pop symbol");
+		code.emitMUL(RegisterConstant.AC, RegisterConstant.AC,
+				RegisterConstant.AC2, lineNbr++, "multiply symbol");
 		code.emitST(RegisterConstant.AC, -2, RegisterConstant.FP, lineNbr++,
 				"save to return value");
 
