@@ -1,10 +1,9 @@
 Loading file: test-suite-part2/out/test70.tm
-2 
 int(s): -162916 
 -162916 
--490 
+10 
 84 
 70 
 Abort limit reached
-Last executed cmd:   52:  LDA  1,  -1(1)  | before:  r[1]: -833  r[1]: -833 decrease str length
+Last executed cmd:   78:  JNE  1,  56(5)  | before:  r[1]: -832  r[5]: 0     m[56]: 114   |  continue if str length
 Number of instructions executed = 20000
