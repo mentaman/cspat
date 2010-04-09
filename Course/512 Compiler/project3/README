@@ -1,0 +1,11 @@
+Please use ant to build the source files first. Compilation requires the support of Java 5 or later version.
+
+ice9 is the shell to start my program.
+
+You can use my program like this: "ice9 test1.tm < bsort.9.txt".
+
+The program accepts the first parameter as the output file name, which will be the generated tm code. 
+
+If there is no parameter provided, it will use "generated.tm" as the default file name. 
+
+The program output nothing when the input pass the parsing and output error messages when lexer or parser reports errors.
