@@ -1,10 +1,32 @@
-.DATA    13
-.SDATA   "out of memory"
+.DATA    16
+.SDATA   "after test(a[1])"
+.DATA    3
+.SDATA   "-50"
+.DATA    25
+.SDATA   "invalid numeric character"
+.DATA    6
+.SDATA   "i am c"
+.DATA    9
+.SDATA   "a[0] is: "
+.DATA    5
+.SDATA   "c is "
+.DATA    2
+.SDATA   "50"
+.DATA    3
+.SDATA   "+50"
 .DATA    18
 .SDATA   "array index error!"
+.DATA    9
+.SDATA   "i am a[1]"
+.DATA    9
+.SDATA   "i am a[0]"
+.DATA    13
+.SDATA   "out of memory"
+.DATA    9
+.SDATA   "a[1] is: "
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 15(5)  load array error str address
+3: LDC   0, 78(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -14,7 +36,7 @@
 10: JNE   1, -5(7)  continue print if not yet finish
 11: OUTNL 0, 0, 0  emit newline
 12: HALT  0, 0, 0  stop because of array error
-13: LDC   0, 1(5)  load out of memory str address
+13: LDC   0, 117(5)  load out of memory str address
 14: LD    1, 0(0)  load str length into ac2
 15: JEQ   1, 5(7)  output nothing when empty
 16: LDA   0, 1(0)  increase offset
@@ -26,214 +48,242 @@
 22: HALT  0, 0, 0  stop because of out of memory error
 23: LD    0, -3(4)  load str offset
 24: LD    1, 0(0)  load str length
-25: LDC   2, 0(5)  load 0 as initial result
-26: LDA   6, -1(6)  push 0
-27: LDC   3, 34(5)  push 0
-28: SUB   3, 6, 3  push 0
-29: JLE   3, 13(5)  push 0
-30: ST    2, 0(6)  push 0
-31: LD    2, 0(6)  pop result into AC3
-32: LDA   6, 1(6)  pop result into AC3
-33: LDC   3, 10(5)  load 10 into ac4
-34: MUL   2, 2, 3  mul result with 10
-35: LDA   6, -1(6)  push result
-36: LDC   3, 34(5)  push result
-37: SUB   3, 6, 3  push result
-38: JLE   3, 13(5)  push result
-39: ST    2, 0(6)  push result
-40: LDA   0, 1(0)  increase str offset
-41: LD    2, 0(0)  load char
-42: LDC   3, 48(5)  load 48 into ac4
-43: SUB   2, 2, 3  compute int value
-44: LD    3, 0(6)  pop result into AC4
-45: LDA   6, 1(6)  pop result into AC4
-46: ADD   2, 2, 3  compute result
-47: LDA   6, -1(6)  push result
-48: LDC   3, 34(5)  push result
-49: SUB   3, 6, 3  push result
-50: JLE   3, 13(5)  push result
-51: ST    2, 0(6)  push result
-52: LDA   1, -1(1)  decrease str length
-53: JNE   1, 31(5)  continue if str length
-54: LD    0, 0(6)  pop result
-55: LDA   6, 1(6)  pop result
-56: ST    0, -2(4)  save to return value
-57: LD    0, -2(4)  load int/bool/string offset as return value
-58: LD    1, -1(4)  load return address
-59: LDA   6, 0(4)  change sp to fp + 1
-60: LD    4, 0(6)  restore fp
-61: LDA   6, 1(6)  restore fp
-62: LDA   7, 0(1)  jump to the return address
-2: LDA   7, 63(5)  jump to start of the program
-63: LDC   0, 0(5)  load integer 0
-64: LDA   6, -1(6)  push first child's value
-65: LDC   3, 34(5)  push first child's value
-66: SUB   3, 6, 3  push first child's value
-67: JLE   3, 13(5)  push first child's value
-68: ST    0, 0(6)  push first child's value
-69: LDC   0, 6(5)  load integer 6
-70: LD    1, 0(6)  pop first child's value
-71: LDA   6, 1(6)  pop first child's value
-72: SUB   1, 1, 0  greater than
-73: LDC   0, 1(5)  load 1 as true
-74: JGE   1, 1(7)  skip load false
-75: LDC   0, 0(5)  load 0 as false
-77: LDC   0, 1(5)  load integer 1
-78: OUT   0, 0, 0  write integer
-79: OUTNL 0, 0, 0  write new line
-76: JEQ   0, 4(7)  if expr not true
-81: LDC   0, 1(5)  load integer 1
-82: LDA   6, -1(6)  push first child's value
-83: LDC   3, 34(5)  push first child's value
-84: SUB   3, 6, 3  push first child's value
-85: JLE   3, 13(5)  push first child's value
-86: ST    0, 0(6)  push first child's value
-87: LDC   0, 6(5)  load integer 6
-88: LD    1, 0(6)  pop first child's value
-89: LDA   6, 1(6)  pop first child's value
-90: SUB   1, 1, 0  greater than
-91: LDC   0, 1(5)  load 1 as true
-92: JGE   1, 1(7)  skip load false
-93: LDC   0, 0(5)  load 0 as false
-95: LDC   0, 2(5)  load integer 2
-96: OUT   0, 0, 0  write integer
-97: OUTNL 0, 0, 0  write new line
-94: JEQ   0, 4(7)  if expr not true
-99: LDC   0, 6(5)  load integer 6
-100: LDA   6, -1(6)  push first child's value
-101: LDC   3, 34(5)  push first child's value
-102: SUB   3, 6, 3  push first child's value
-103: JLE   3, 13(5)  push first child's value
-104: ST    0, 0(6)  push first child's value
-105: LDC   0, 6(5)  load integer 6
-106: LD    1, 0(6)  pop first child's value
-107: LDA   6, 1(6)  pop first child's value
-108: SUB   1, 1, 0  greater than
-109: LDC   0, 1(5)  load 1 as true
-110: JGE   1, 1(7)  skip load false
-111: LDC   0, 0(5)  load 0 as false
-113: LDC   0, 3(5)  load integer 3
-114: OUT   0, 0, 0  write integer
-115: OUTNL 0, 0, 0  write new line
-112: JEQ   0, 4(7)  if expr not true
-80: LDA   7, 36(7)  Jump to the end of if
-98: LDA   7, 18(7)  Jump to the end of if
-116: LDA   7, 0(7)  Jump to the end of if
-117: LDC   0, 4(5)  load integer 4
-118: OUT   0, 0, 0  write integer
-119: OUTNL 0, 0, 0  write new line
-120: LDC   0, 6(5)  load integer 6
-121: LDA   6, -1(6)  push first child's value
-122: LDC   3, 34(5)  push first child's value
-123: SUB   3, 6, 3  push first child's value
-124: JLE   3, 13(5)  push first child's value
-125: ST    0, 0(6)  push first child's value
-126: LDC   0, 6(5)  load integer 6
-127: LD    1, 0(6)  pop first child's value
-128: LDA   6, 1(6)  pop first child's value
-129: SUB   1, 1, 0  greater than
-130: LDC   0, 1(5)  load 1 as true
-131: JGE   1, 1(7)  skip load false
-132: LDC   0, 0(5)  load 0 as false
-134: LDC   0, 1(5)  load integer 1
-135: OUT   0, 0, 0  write integer
-136: OUTNL 0, 0, 0  write new line
-133: JEQ   0, 4(7)  if expr not true
-138: LDC   0, 1(5)  load integer 1
-139: LDA   6, -1(6)  push first child's value
-140: LDC   3, 34(5)  push first child's value
-141: SUB   3, 6, 3  push first child's value
-142: JLE   3, 13(5)  push first child's value
-143: ST    0, 0(6)  push first child's value
-144: LDC   0, 6(5)  load integer 6
-145: LD    1, 0(6)  pop first child's value
-146: LDA   6, 1(6)  pop first child's value
-147: SUB   1, 1, 0  greater than
-148: LDC   0, 1(5)  load 1 as true
-149: JGE   1, 1(7)  skip load false
-150: LDC   0, 0(5)  load 0 as false
-152: LDC   0, 2(5)  load integer 2
-153: OUT   0, 0, 0  write integer
-154: OUTNL 0, 0, 0  write new line
-151: JEQ   0, 4(7)  if expr not true
-156: LDC   0, 0(5)  load integer 0
-157: LDA   6, -1(6)  push first child's value
-158: LDC   3, 34(5)  push first child's value
-159: SUB   3, 6, 3  push first child's value
-160: JLE   3, 13(5)  push first child's value
-161: ST    0, 0(6)  push first child's value
-162: LDC   0, 6(5)  load integer 6
-163: LD    1, 0(6)  pop first child's value
-164: LDA   6, 1(6)  pop first child's value
-165: SUB   1, 1, 0  greater than
-166: LDC   0, 1(5)  load 1 as true
-167: JGE   1, 1(7)  skip load false
-168: LDC   0, 0(5)  load 0 as false
-170: LDC   0, 3(5)  load integer 3
-171: OUT   0, 0, 0  write integer
-172: OUTNL 0, 0, 0  write new line
-169: JEQ   0, 4(7)  if expr not true
-137: LDA   7, 36(7)  Jump to the end of if
-155: LDA   7, 18(7)  Jump to the end of if
-173: LDA   7, 0(7)  Jump to the end of if
-174: LDC   0, 4(5)  load integer 4
-175: OUT   0, 0, 0  write integer
-176: OUTNL 0, 0, 0  write new line
-177: LDC   0, 0(5)  load integer 0
-178: LDA   6, -1(6)  push first child's value
-179: LDC   3, 34(5)  push first child's value
-180: SUB   3, 6, 3  push first child's value
-181: JLE   3, 13(5)  push first child's value
-182: ST    0, 0(6)  push first child's value
-183: LDC   0, 6(5)  load integer 6
-184: LD    1, 0(6)  pop first child's value
-185: LDA   6, 1(6)  pop first child's value
-186: SUB   1, 1, 0  greater than
-187: LDC   0, 1(5)  load 1 as true
-188: JGE   1, 1(7)  skip load false
-189: LDC   0, 0(5)  load 0 as false
-191: LDC   0, 1(5)  load integer 1
-192: OUT   0, 0, 0  write integer
-193: OUTNL 0, 0, 0  write new line
-190: JEQ   0, 4(7)  if expr not true
-195: LDC   0, 6(5)  load integer 6
-196: LDA   6, -1(6)  push first child's value
-197: LDC   3, 34(5)  push first child's value
-198: SUB   3, 6, 3  push first child's value
-199: JLE   3, 13(5)  push first child's value
-200: ST    0, 0(6)  push first child's value
-201: LDC   0, 6(5)  load integer 6
-202: LD    1, 0(6)  pop first child's value
-203: LDA   6, 1(6)  pop first child's value
-204: SUB   1, 1, 0  greater than
-205: LDC   0, 1(5)  load 1 as true
-206: JGE   1, 1(7)  skip load false
-207: LDC   0, 0(5)  load 0 as false
-209: LDC   0, 2(5)  load integer 2
-210: OUT   0, 0, 0  write integer
-211: OUTNL 0, 0, 0  write new line
-208: JEQ   0, 4(7)  if expr not true
-213: LDC   0, 6(5)  load integer 6
-214: LDA   6, -1(6)  push first child's value
-215: LDC   3, 34(5)  push first child's value
-216: SUB   3, 6, 3  push first child's value
-217: JLE   3, 13(5)  push first child's value
-218: ST    0, 0(6)  push first child's value
-219: LDC   0, 6(5)  load integer 6
-220: LD    1, 0(6)  pop first child's value
-221: LDA   6, 1(6)  pop first child's value
-222: SUB   1, 1, 0  greater than
-223: LDC   0, 1(5)  load 1 as true
-224: JGE   1, 1(7)  skip load false
-225: LDC   0, 0(5)  load 0 as false
-227: LDC   0, 3(5)  load integer 3
-228: OUT   0, 0, 0  write integer
-229: OUTNL 0, 0, 0  write new line
-226: JEQ   0, 4(7)  if expr not true
-194: LDA   7, 36(7)  Jump to the end of if
-212: LDA   7, 18(7)  Jump to the end of if
-230: LDA   7, 0(7)  Jump to the end of if
-231: LDC   0, 4(5)  load integer 4
-232: OUT   0, 0, 0  write integer
-233: OUTNL 0, 0, 0  write new line
-234: HALT  0, 0, 0  program ends
+25: LDA   0, 1(0)  increase str offset
+26: LD    2, 0(0)  load char
+27: LDC   3, 43(5)  load 43(+) into ac4
+28: SUB   3, 2, 3  sub 43(+)
+30: LDC   3, 45(5)  load 45(-) into ac4
+31: SUB   3, 2, 3  sub 45(-)
+33: LDA   1, -1(1)  decrease str length
+34: LDC   2, -1(5)  load -1 into ac3
+35: LDA   6, -1(6)  push -1
+36: LDC   3, 141(5)  push -1
+37: SUB   3, 6, 3  push -1
+38: JLE   3, 13(5)  push -1
+39: ST    2, 0(6)  push -1
+32: JNE   3, 8(7)  jump if not equal '-'
+41: LDA   0, -1(0)  move back str offset
+42: LDA   1, 1(1)  increase str length
+29: JEQ   3, 13(7)  jump if equal '+'
+43: LDA   1, -1(1)  decrease str length
+44: LDC   2, 1(5)  load 1 into ac3
+45: LDA   6, -1(6)  push 1
+46: LDC   3, 141(5)  push 1
+47: SUB   3, 6, 3  push 1
+48: JLE   3, 13(5)  push 1
+49: ST    2, 0(6)  push 1
+40: LDA   7, 9(7)  jump to start parsing str
+50: LDC   2, 0(5)  load 0 as initial result
+51: LDA   6, -1(6)  push 0
+52: LDC   3, 141(5)  push 0
+53: SUB   3, 6, 3  push 0
+54: JLE   3, 13(5)  push 0
+55: ST    2, 0(6)  push 0
+56: LD    2, 0(6)  pop result into AC3
+57: LDA   6, 1(6)  pop result into AC3
+58: LDC   3, 10(5)  load 10 into ac4
+59: MUL   2, 2, 3  mul result with 10
+60: LDA   6, -1(6)  push result
+61: LDC   3, 141(5)  push result
+62: SUB   3, 6, 3  push result
+63: JLE   3, 13(5)  push result
+64: ST    2, 0(6)  push result
+65: LDA   0, 1(0)  increase str offset
+66: LD    2, 0(0)  load char
+67: LDC   3, 48(5)  load 48 into ac4
+68: SUB   2, 2, 3  compute int value
+69: LD    3, 0(6)  pop result into AC4
+70: LDA   6, 1(6)  pop result into AC4
+71: ADD   2, 2, 3  compute result
+72: LDA   6, -1(6)  push result
+73: LDC   3, 141(5)  push result
+74: SUB   3, 6, 3  push result
+75: JLE   3, 13(5)  push result
+76: ST    2, 0(6)  push result
+77: LDA   1, -1(1)  decrease str length
+78: JNE   1, 56(5)  continue if str length
+79: LD    0, 0(6)  pop result
+80: LDA   6, 1(6)  pop result
+81: LD    1, 0(6)  pop symbol
+82: LDA   6, 1(6)  pop symbol
+83: MUL   0, 0, 1  multiply symbol
+84: ST    0, -2(4)  save to return value
+85: LD    0, -2(4)  load int/bool/string offset as return value
+86: LD    1, -1(4)  load return address
+87: LDA   6, 0(4)  change sp to fp + 1
+88: LD    4, 0(6)  restore fp
+89: LDA   6, 1(6)  restore fp
+90: LDA   7, 0(1)  jump to the return address
+2: LDA   7, 91(5)  jump to start of the program
+91: LDC   0, 0(5)  load integer 0
+92: LDA   6, -1(6)  push first child's value
+93: LDC   3, 141(5)  push first child's value
+94: SUB   3, 6, 3  push first child's value
+95: JLE   3, 13(5)  push first child's value
+96: ST    0, 0(6)  push first child's value
+97: LDC   0, 6(5)  load integer 6
+98: LD    1, 0(6)  pop first child's value
+99: LDA   6, 1(6)  pop first child's value
+100: SUB   1, 1, 0  greater than
+101: LDC   0, 1(5)  load 1 as true
+102: JGE   1, 1(7)  skip load false
+103: LDC   0, 0(5)  load 0 as false
+105: LDC   0, 1(5)  load integer 1
+106: OUT   0, 0, 0  write integer
+107: OUTNL 0, 0, 0  write new line
+104: JEQ   0, 4(7)  if expr not true
+109: LDC   0, 1(5)  load integer 1
+110: LDA   6, -1(6)  push first child's value
+111: LDC   3, 141(5)  push first child's value
+112: SUB   3, 6, 3  push first child's value
+113: JLE   3, 13(5)  push first child's value
+114: ST    0, 0(6)  push first child's value
+115: LDC   0, 6(5)  load integer 6
+116: LD    1, 0(6)  pop first child's value
+117: LDA   6, 1(6)  pop first child's value
+118: SUB   1, 1, 0  greater than
+119: LDC   0, 1(5)  load 1 as true
+120: JGE   1, 1(7)  skip load false
+121: LDC   0, 0(5)  load 0 as false
+123: LDC   0, 2(5)  load integer 2
+124: OUT   0, 0, 0  write integer
+125: OUTNL 0, 0, 0  write new line
+122: JEQ   0, 4(7)  if expr not true
+127: LDC   0, 6(5)  load integer 6
+128: LDA   6, -1(6)  push first child's value
+129: LDC   3, 141(5)  push first child's value
+130: SUB   3, 6, 3  push first child's value
+131: JLE   3, 13(5)  push first child's value
+132: ST    0, 0(6)  push first child's value
+133: LDC   0, 6(5)  load integer 6
+134: LD    1, 0(6)  pop first child's value
+135: LDA   6, 1(6)  pop first child's value
+136: SUB   1, 1, 0  greater than
+137: LDC   0, 1(5)  load 1 as true
+138: JGE   1, 1(7)  skip load false
+139: LDC   0, 0(5)  load 0 as false
+141: LDC   0, 3(5)  load integer 3
+142: OUT   0, 0, 0  write integer
+143: OUTNL 0, 0, 0  write new line
+140: JEQ   0, 4(7)  if expr not true
+108: LDA   7, 36(7)  Jump to the end of if
+126: LDA   7, 18(7)  Jump to the end of if
+144: LDA   7, 0(7)  Jump to the end of if
+145: LDC   0, 4(5)  load integer 4
+146: OUT   0, 0, 0  write integer
+147: OUTNL 0, 0, 0  write new line
+148: LDC   0, 6(5)  load integer 6
+149: LDA   6, -1(6)  push first child's value
+150: LDC   3, 141(5)  push first child's value
+151: SUB   3, 6, 3  push first child's value
+152: JLE   3, 13(5)  push first child's value
+153: ST    0, 0(6)  push first child's value
+154: LDC   0, 6(5)  load integer 6
+155: LD    1, 0(6)  pop first child's value
+156: LDA   6, 1(6)  pop first child's value
+157: SUB   1, 1, 0  greater than
+158: LDC   0, 1(5)  load 1 as true
+159: JGE   1, 1(7)  skip load false
+160: LDC   0, 0(5)  load 0 as false
+162: LDC   0, 1(5)  load integer 1
+163: OUT   0, 0, 0  write integer
+164: OUTNL 0, 0, 0  write new line
+161: JEQ   0, 4(7)  if expr not true
+166: LDC   0, 1(5)  load integer 1
+167: LDA   6, -1(6)  push first child's value
+168: LDC   3, 141(5)  push first child's value
+169: SUB   3, 6, 3  push first child's value
+170: JLE   3, 13(5)  push first child's value
+171: ST    0, 0(6)  push first child's value
+172: LDC   0, 6(5)  load integer 6
+173: LD    1, 0(6)  pop first child's value
+174: LDA   6, 1(6)  pop first child's value
+175: SUB   1, 1, 0  greater than
+176: LDC   0, 1(5)  load 1 as true
+177: JGE   1, 1(7)  skip load false
+178: LDC   0, 0(5)  load 0 as false
+180: LDC   0, 2(5)  load integer 2
+181: OUT   0, 0, 0  write integer
+182: OUTNL 0, 0, 0  write new line
+179: JEQ   0, 4(7)  if expr not true
+184: LDC   0, 0(5)  load integer 0
+185: LDA   6, -1(6)  push first child's value
+186: LDC   3, 141(5)  push first child's value
+187: SUB   3, 6, 3  push first child's value
+188: JLE   3, 13(5)  push first child's value
+189: ST    0, 0(6)  push first child's value
+190: LDC   0, 6(5)  load integer 6
+191: LD    1, 0(6)  pop first child's value
+192: LDA   6, 1(6)  pop first child's value
+193: SUB   1, 1, 0  greater than
+194: LDC   0, 1(5)  load 1 as true
+195: JGE   1, 1(7)  skip load false
+196: LDC   0, 0(5)  load 0 as false
+198: LDC   0, 3(5)  load integer 3
+199: OUT   0, 0, 0  write integer
+200: OUTNL 0, 0, 0  write new line
+197: JEQ   0, 4(7)  if expr not true
+165: LDA   7, 36(7)  Jump to the end of if
+183: LDA   7, 18(7)  Jump to the end of if
+201: LDA   7, 0(7)  Jump to the end of if
+202: LDC   0, 4(5)  load integer 4
+203: OUT   0, 0, 0  write integer
+204: OUTNL 0, 0, 0  write new line
+205: LDC   0, 0(5)  load integer 0
+206: LDA   6, -1(6)  push first child's value
+207: LDC   3, 141(5)  push first child's value
+208: SUB   3, 6, 3  push first child's value
+209: JLE   3, 13(5)  push first child's value
+210: ST    0, 0(6)  push first child's value
+211: LDC   0, 6(5)  load integer 6
+212: LD    1, 0(6)  pop first child's value
+213: LDA   6, 1(6)  pop first child's value
+214: SUB   1, 1, 0  greater than
+215: LDC   0, 1(5)  load 1 as true
+216: JGE   1, 1(7)  skip load false
+217: LDC   0, 0(5)  load 0 as false
+219: LDC   0, 1(5)  load integer 1
+220: OUT   0, 0, 0  write integer
+221: OUTNL 0, 0, 0  write new line
+218: JEQ   0, 4(7)  if expr not true
+223: LDC   0, 6(5)  load integer 6
+224: LDA   6, -1(6)  push first child's value
+225: LDC   3, 141(5)  push first child's value
+226: SUB   3, 6, 3  push first child's value
+227: JLE   3, 13(5)  push first child's value
+228: ST    0, 0(6)  push first child's value
+229: LDC   0, 6(5)  load integer 6
+230: LD    1, 0(6)  pop first child's value
+231: LDA   6, 1(6)  pop first child's value
+232: SUB   1, 1, 0  greater than
+233: LDC   0, 1(5)  load 1 as true
+234: JGE   1, 1(7)  skip load false
+235: LDC   0, 0(5)  load 0 as false
+237: LDC   0, 2(5)  load integer 2
+238: OUT   0, 0, 0  write integer
+239: OUTNL 0, 0, 0  write new line
+236: JEQ   0, 4(7)  if expr not true
+241: LDC   0, 6(5)  load integer 6
+242: LDA   6, -1(6)  push first child's value
+243: LDC   3, 141(5)  push first child's value
+244: SUB   3, 6, 3  push first child's value
+245: JLE   3, 13(5)  push first child's value
+246: ST    0, 0(6)  push first child's value
+247: LDC   0, 6(5)  load integer 6
+248: LD    1, 0(6)  pop first child's value
+249: LDA   6, 1(6)  pop first child's value
+250: SUB   1, 1, 0  greater than
+251: LDC   0, 1(5)  load 1 as true
+252: JGE   1, 1(7)  skip load false
+253: LDC   0, 0(5)  load 0 as false
+255: LDC   0, 3(5)  load integer 3
+256: OUT   0, 0, 0  write integer
+257: OUTNL 0, 0, 0  write new line
+254: JEQ   0, 4(7)  if expr not true
+222: LDA   7, 36(7)  Jump to the end of if
+240: LDA   7, 18(7)  Jump to the end of if
+258: LDA   7, 0(7)  Jump to the end of if
+259: LDC   0, 4(5)  load integer 4
+260: OUT   0, 0, 0  write integer
+261: OUTNL 0, 0, 0  write new line
+262: HALT  0, 0, 0  program ends

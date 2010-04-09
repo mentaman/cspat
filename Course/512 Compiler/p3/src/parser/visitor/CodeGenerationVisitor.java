@@ -8,18 +8,34 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
-import javax.print.attribute.Size2DSyntax;
-
-import org.hamcrest.core.Is;
-import org.hamcrest.core.IsAnything;
-
-import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry.Entry;
-import com.sun.org.apache.bcel.internal.generic.StoreInstruction;
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
-import parser.*;
+import parser.ASTAdditive;
+import parser.ASTUnary;
+import parser.ASTassignExp;
+import parser.ASTboolTerm;
+import parser.ASTbreak_stm;
+import parser.ASTcompares;
+import parser.ASTdostm;
+import parser.ASTexit_stm;
+import parser.ASTfa;
+import parser.ASTifstm;
+import parser.ASTintTerm;
+import parser.ASTlvalue;
+import parser.ASTotherstm;
+import parser.ASTplusMinus;
+import parser.ASTproc;
+import parser.ASTprocedureCall;
+import parser.ASTprogram;
+import parser.ASTreadTerm;
+import parser.ASTreturn_stm;
+import parser.ASTstms;
+import parser.ASTstringTerm;
+import parser.ASTtimeDivide;
+import parser.ASTwrite_stm;
+import parser.SimpleNode;
+import parser.Token;
 import parser.generator.TMCodeGenerator;
-import table.*;
+import table.SymbolTable;
+import table.SymbolTableException;
 import type.BasicType;
 import type.ParaType;
 import type.ProcType;

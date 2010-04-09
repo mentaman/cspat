@@ -1,10 +1,32 @@
-.DATA    13
-.SDATA   "out of memory"
+.DATA    16
+.SDATA   "after test(a[1])"
+.DATA    3
+.SDATA   "-50"
+.DATA    25
+.SDATA   "invalid numeric character"
+.DATA    6
+.SDATA   "i am c"
+.DATA    9
+.SDATA   "a[0] is: "
+.DATA    5
+.SDATA   "c is "
+.DATA    2
+.SDATA   "50"
+.DATA    3
+.SDATA   "+50"
 .DATA    18
 .SDATA   "array index error!"
+.DATA    9
+.SDATA   "i am a[1]"
+.DATA    9
+.SDATA   "i am a[0]"
+.DATA    13
+.SDATA   "out of memory"
+.DATA    9
+.SDATA   "a[1] is: "
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 15(5)  load array error str address
+3: LDC   0, 78(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -14,7 +36,7 @@
 10: JNE   1, -5(7)  continue print if not yet finish
 11: OUTNL 0, 0, 0  emit newline
 12: HALT  0, 0, 0  stop because of array error
-13: LDC   0, 1(5)  load out of memory str address
+13: LDC   0, 117(5)  load out of memory str address
 14: LD    1, 0(0)  load str length into ac2
 15: JEQ   1, 5(7)  output nothing when empty
 16: LDA   0, 1(0)  increase offset
@@ -26,73 +48,101 @@
 22: HALT  0, 0, 0  stop because of out of memory error
 23: LD    0, -3(4)  load str offset
 24: LD    1, 0(0)  load str length
-25: LDC   2, 0(5)  load 0 as initial result
-26: LDA   6, -1(6)  push 0
-27: LDC   3, 34(5)  push 0
-28: SUB   3, 6, 3  push 0
-29: JLE   3, 13(5)  push 0
-30: ST    2, 0(6)  push 0
-31: LD    2, 0(6)  pop result into AC3
-32: LDA   6, 1(6)  pop result into AC3
-33: LDC   3, 10(5)  load 10 into ac4
-34: MUL   2, 2, 3  mul result with 10
-35: LDA   6, -1(6)  push result
-36: LDC   3, 34(5)  push result
-37: SUB   3, 6, 3  push result
-38: JLE   3, 13(5)  push result
-39: ST    2, 0(6)  push result
-40: LDA   0, 1(0)  increase str offset
-41: LD    2, 0(0)  load char
-42: LDC   3, 48(5)  load 48 into ac4
-43: SUB   2, 2, 3  compute int value
-44: LD    3, 0(6)  pop result into AC4
-45: LDA   6, 1(6)  pop result into AC4
-46: ADD   2, 2, 3  compute result
-47: LDA   6, -1(6)  push result
-48: LDC   3, 34(5)  push result
-49: SUB   3, 6, 3  push result
-50: JLE   3, 13(5)  push result
-51: ST    2, 0(6)  push result
-52: LDA   1, -1(1)  decrease str length
-53: JNE   1, 31(5)  continue if str length
-54: LD    0, 0(6)  pop result
-55: LDA   6, 1(6)  pop result
-56: ST    0, -2(4)  save to return value
-57: LD    0, -2(4)  load int/bool/string offset as return value
-58: LD    1, -1(4)  load return address
-59: LDA   6, 0(4)  change sp to fp + 1
-60: LD    4, 0(6)  restore fp
-61: LDA   6, 1(6)  restore fp
-62: LDA   7, 0(1)  jump to the return address
-2: LDA   7, 63(5)  jump to start of the program
-63: LDC   0, 7(5)  load integer 7
-64: LDA   6, -1(6)  push first child's value
-65: LDC   3, 34(5)  push first child's value
-66: SUB   3, 6, 3  push first child's value
-67: JLE   3, 13(5)  push first child's value
-68: ST    0, 0(6)  push first child's value
-69: LDC   0, 7(5)  load integer 7
-70: LD    1, 0(6)  pop first child's value
-71: LDA   6, 1(6)  pop first child's value
-72: SUB   1, 1, 0  greater than
-73: LDC   0, 1(5)  load 1 as true
-74: JNE   1, 1(7)  skip load false
-75: LDC   0, 0(5)  load 0 as false
-76: OUT   0, 0, 0  write integer
-77: OUTNL 0, 0, 0  write new line
-78: LDC   0, 6(5)  load integer 6
-79: LDA   6, -1(6)  push first child's value
-80: LDC   3, 34(5)  push first child's value
-81: SUB   3, 6, 3  push first child's value
-82: JLE   3, 13(5)  push first child's value
-83: ST    0, 0(6)  push first child's value
-84: LDC   0, 7(5)  load integer 7
-85: LD    1, 0(6)  pop first child's value
-86: LDA   6, 1(6)  pop first child's value
-87: SUB   1, 1, 0  greater than
-88: LDC   0, 1(5)  load 1 as true
-89: JNE   1, 1(7)  skip load false
-90: LDC   0, 0(5)  load 0 as false
-91: OUT   0, 0, 0  write integer
-92: OUTNL 0, 0, 0  write new line
-93: HALT  0, 0, 0  program ends
+25: LDA   0, 1(0)  increase str offset
+26: LD    2, 0(0)  load char
+27: LDC   3, 43(5)  load 43(+) into ac4
+28: SUB   3, 2, 3  sub 43(+)
+30: LDC   3, 45(5)  load 45(-) into ac4
+31: SUB   3, 2, 3  sub 45(-)
+33: LDA   1, -1(1)  decrease str length
+34: LDC   2, -1(5)  load -1 into ac3
+35: LDA   6, -1(6)  push -1
+36: LDC   3, 141(5)  push -1
+37: SUB   3, 6, 3  push -1
+38: JLE   3, 13(5)  push -1
+39: ST    2, 0(6)  push -1
+32: JNE   3, 8(7)  jump if not equal '-'
+41: LDA   0, -1(0)  move back str offset
+42: LDA   1, 1(1)  increase str length
+29: JEQ   3, 13(7)  jump if equal '+'
+43: LDA   1, -1(1)  decrease str length
+44: LDC   2, 1(5)  load 1 into ac3
+45: LDA   6, -1(6)  push 1
+46: LDC   3, 141(5)  push 1
+47: SUB   3, 6, 3  push 1
+48: JLE   3, 13(5)  push 1
+49: ST    2, 0(6)  push 1
+40: LDA   7, 9(7)  jump to start parsing str
+50: LDC   2, 0(5)  load 0 as initial result
+51: LDA   6, -1(6)  push 0
+52: LDC   3, 141(5)  push 0
+53: SUB   3, 6, 3  push 0
+54: JLE   3, 13(5)  push 0
+55: ST    2, 0(6)  push 0
+56: LD    2, 0(6)  pop result into AC3
+57: LDA   6, 1(6)  pop result into AC3
+58: LDC   3, 10(5)  load 10 into ac4
+59: MUL   2, 2, 3  mul result with 10
+60: LDA   6, -1(6)  push result
+61: LDC   3, 141(5)  push result
+62: SUB   3, 6, 3  push result
+63: JLE   3, 13(5)  push result
+64: ST    2, 0(6)  push result
+65: LDA   0, 1(0)  increase str offset
+66: LD    2, 0(0)  load char
+67: LDC   3, 48(5)  load 48 into ac4
+68: SUB   2, 2, 3  compute int value
+69: LD    3, 0(6)  pop result into AC4
+70: LDA   6, 1(6)  pop result into AC4
+71: ADD   2, 2, 3  compute result
+72: LDA   6, -1(6)  push result
+73: LDC   3, 141(5)  push result
+74: SUB   3, 6, 3  push result
+75: JLE   3, 13(5)  push result
+76: ST    2, 0(6)  push result
+77: LDA   1, -1(1)  decrease str length
+78: JNE   1, 56(5)  continue if str length
+79: LD    0, 0(6)  pop result
+80: LDA   6, 1(6)  pop result
+81: LD    1, 0(6)  pop symbol
+82: LDA   6, 1(6)  pop symbol
+83: MUL   0, 0, 1  multiply symbol
+84: ST    0, -2(4)  save to return value
+85: LD    0, -2(4)  load int/bool/string offset as return value
+86: LD    1, -1(4)  load return address
+87: LDA   6, 0(4)  change sp to fp + 1
+88: LD    4, 0(6)  restore fp
+89: LDA   6, 1(6)  restore fp
+90: LDA   7, 0(1)  jump to the return address
+2: LDA   7, 91(5)  jump to start of the program
+91: LDC   0, 7(5)  load integer 7
+92: LDA   6, -1(6)  push first child's value
+93: LDC   3, 141(5)  push first child's value
+94: SUB   3, 6, 3  push first child's value
+95: JLE   3, 13(5)  push first child's value
+96: ST    0, 0(6)  push first child's value
+97: LDC   0, 7(5)  load integer 7
+98: LD    1, 0(6)  pop first child's value
+99: LDA   6, 1(6)  pop first child's value
+100: SUB   1, 1, 0  greater than
+101: LDC   0, 1(5)  load 1 as true
+102: JNE   1, 1(7)  skip load false
+103: LDC   0, 0(5)  load 0 as false
+104: OUT   0, 0, 0  write integer
+105: OUTNL 0, 0, 0  write new line
+106: LDC   0, 6(5)  load integer 6
+107: LDA   6, -1(6)  push first child's value
+108: LDC   3, 141(5)  push first child's value
+109: SUB   3, 6, 3  push first child's value
+110: JLE   3, 13(5)  push first child's value
+111: ST    0, 0(6)  push first child's value
+112: LDC   0, 7(5)  load integer 7
+113: LD    1, 0(6)  pop first child's value
+114: LDA   6, 1(6)  pop first child's value
+115: SUB   1, 1, 0  greater than
+116: LDC   0, 1(5)  load 1 as true
+117: JNE   1, 1(7)  skip load false
+118: LDC   0, 0(5)  load 0 as false
+119: OUT   0, 0, 0  write integer
+120: OUTNL 0, 0, 0  write new line
+121: HALT  0, 0, 0  program ends
