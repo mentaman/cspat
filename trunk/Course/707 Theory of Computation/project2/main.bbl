@@ -1,0 +1,134 @@
+\begin{thebibliography}{10}
+
+\bibitem{constraint}
+B.~Botella A.~Gotlieb and M.~Rueher.
+\newblock {Automatic Test Data Generation Using Constraint Solving Techniques.}
+\newblock In {\em ISSTA}, 1998.
+
+\bibitem{inka}
+B.~Botella A.~Gotlieb and M.~Watel.
+\newblock {Inka: Ten years after the first ideas.}
+\newblock In {\em ICSSEA}, 2006.
+
+\bibitem{testbook}
+Paul Ammann and Jeff Offutt.
+\newblock {\em Introduction to software testing}.
+\newblock Cambridge University Press, Cambridge, UK, 2008.
+
+\bibitem{structural}
+S.~Bardin and P.~Herrmann.
+\newblock {Structural Testing of Executables.}
+\newblock In {\em ICST}, 2008.
+
+\bibitem{prune}
+S\'{e}bastien Bardin and Philippe Herrmann.
+\newblock {Pruning the Search Space in Path-Based Test Generation}.
+\newblock In {\em ICST}, 2009.
+
+\bibitem{select}
+Robert~S. Boyer, Bernard Elspas, and Karl~N. Levitt.
+\newblock {SELECT--a formal system for testing and debugging programs by
+  symbolic execution.}
+\newblock In {\em ICRS}, 1975.
+
+\bibitem{mixed}
+Cristian Cadar and Dawson Engler.
+\newblock {Execution Generated Test Cases: How to Make Systems Code Crash
+  Itself}.
+\newblock In {\em SPIN}, 2005.
+
+\bibitem{exe}
+Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
+  Engler.
+\newblock Exe: automatically generating inputs of death.
+\newblock In {\em CCS}, 2006.
+
+\bibitem{selective}
+Vitaly Chipounov, Vlad Georgescu, Cristian Zamfir, and George Candea.
+\newblock Selective {S}ymbolic {E}xecution.
+\newblock In {\em Proceedings of the 5th {W}orkshop on {H}ot {T}opics in
+  {S}ystem {D}ependability ({H}ot{D}ep)}, 2009.
+
+\bibitem{test76}
+Lori~A. Clarke.
+\newblock {A System to Generate Test Data and Symbolically Execute Programs}.
+\newblock {\em TSE}, 1976.
+
+\bibitem{compositional}
+Patrice Godefroid.
+\newblock {Compositional Dynamic Test Generation}.
+\newblock In {\em POPL}, 2007.
+
+\bibitem{dart}
+Patrice Godefroid, Nils Klarlund, and Koushik Sen.
+\newblock Dart: directed automated random testing.
+\newblock In {\em PLDI}, pages 213--223, 2005.
+
+\bibitem{graph}
+Jonathan Gross and Jay Yellen.
+\newblock {\em Graph theory and its applications}.
+\newblock CRC Press, Inc., Boca Raton, FL, USA, 1999.
+
+\bibitem{empirical}
+M.~Harman and P.~McMinn.
+\newblock {A theoretical \& empirical analysis of evolutionary testing and hill
+  climbing for structural test data generation.}
+\newblock In {\em ISSTA}, 2007.
+
+\bibitem{symbolic}
+James~C. King.
+\newblock Symbolic execution and program testing.
+\newblock {\em Commun. ACM}, 19(7):385--394, 1976.
+
+\bibitem{auto}
+B.~Korel.
+\newblock {Automated Software Test Data Generation.}
+\newblock In {\em TSE}, 1990.
+
+\bibitem{procedure}
+B.~Korel.
+\newblock {Automated Test Data Generation for Programs with Procedures.}
+\newblock In {\em ISSTA}, 1996.
+
+\bibitem{iterative}
+A.~P.~Mathur N.~Gupta and M.~L. Soffa.
+\newblock {Automated Test Data Generation Using an Iterative Relaxation
+  Method.}
+\newblock In {\em FSE}, 1998.
+
+\bibitem{una}
+A.~P. Mathur andM. L.~Soffa. N.~Gupta.
+\newblock {UNA Based Iterative Test Data Generation and its Evaluation.}
+\newblock In {\em ASE}, 1999.
+
+\bibitem{onthefly}
+B.~Marre N.~Williams and P.~Mouy.
+\newblock {On-the-Fly Generation of K-Path Tests for C Functions}.
+\newblock In {\em ASE}, 2004.
+
+\bibitem{fuzz}
+M.~Y.~Levin P.~Godefroid and D.Molnar.
+\newblock {Automated Whitebox Fuzz Testing}.
+\newblock In {\em NDSS}, 2008.
+
+\bibitem{extenjpf}
+C.~S.~Pasareanu S.~Anand and W.~Visser.
+\newblock {JPF-SE: A Symbolic Execution Extension to Java PathFinder.}
+\newblock In {\em TACAS}, 2007.
+
+\bibitem{cute}
+Koushik Sen, Darko Marinov, and Gul Agha.
+\newblock Cute: a concolic unit testing engine for c.
+\newblock In {\em ESEC/FSE}, 2005.
+
+\bibitem{pex}
+N.~Tillmann and J.~de~Halleux.
+\newblock {Pex-White Box Test Generation for .NET.}
+\newblock In {\em TAP}, 2008.
+
+\bibitem{fitness}
+Tao Xie, Nikolai Tillmann, Peli de~Halleux, and Wolfram Schulte.
+\newblock Fitness-guided path exploration in dynamic symbolic execution.
+\newblock In {\em DSN}, June-July 2009.
+
+\end{thebibliography}
