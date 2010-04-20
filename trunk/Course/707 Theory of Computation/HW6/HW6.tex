@@ -1,0 +1,97 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 6}: Context-free languages, context-free grammars, PDA, Pumping lemma. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF, and any images you have\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Tuesday, April 13, 2010}}\\
+\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+	\item Prove non-context-free using Pumping lemma:
+	\begin{enumerate}
+		\item $ L = \{ 0^i 1^j 2^i 3^j |i,j \ge 1\} $
+		\item $ L = \{ a^i b^j c^k |0 \le i < j < k\} $
+		\item $ L = \{ a^i b^j |j = i^2 \} $
+		\item $ {\bar L}$, where $L = \{ 0^k |k$  is a perfect square $\}$
+	\end{enumerate}
+
+	\item Design a PDA and provide a context-free grammar (in any form) to accept the following language: 
+	\begin{enumerate}
+	\item $L = \{ a^n b^{n + m} c^m |n \ge 0,m \ge 1\} $
+	\item The set of all strings over $\{a, b\}$ with exactly twice as many $a$'s as $b$'s.
+	\end{enumerate}
+	
+	\item Give a context-free grammar in Chomsky Normal Form that generates the following language: 
+	\begin{enumerate}
+	\item The set of all strings over $\{a, b\}$ with exactly twice as many $a$'s as $b$'s.
+	\item $L = \{ w \in (a + b + c)^* |n_a (w) + n_b (w) \ne n_c (w)\}$, where  $n_a (w)$ is the number of $a$'s in $w$.\\	
+	\item $L = \{ a^i b^j c^k |i \ne j$  or $j \ne k\} $
+	\end{enumerate}
+	
+\end{enumerate}
+
+\end{document}

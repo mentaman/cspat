@@ -1,0 +1,127 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{EXAM 1}: Countability, closure properties of countable sets. Complexity theory, NP-completeness, polynomial-time reducibility, self-reduction, approximability.\\
+\textbf{Submission:} Home-take\\
+%\textbf{Duration:} 75 minutes\\
+\textbf{FULL NAME:} \rule{2 in}{1 pt} \\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date: February 25, 11:59 PM}
+\textbf{Mid-Term Exam, Spring, 2010}}\\
+\end{center}
+
+\noindent{\hrulefill}
+
+\begin{enumerate}
+	\item Provide a solution to \textbf{ONE} problem in \textbf{EACH} category; a total of \textbf{FOUR} categories.
+	\item Solutions to the other problems in each category will\textbf{ NOT} be graded. 
+	\item This is an open-textbook (main course book), open-notes, open-homeworks, BUT \textbf{closed-internet} exam. You may \textbf{NOT} discuss the exam with any one. The exam is an \textbf{INDIVIDUAL} effort.
+\end{enumerate}
+\noindent{\hrulefill}
+
+
+\bigskip
+
+\begin{enumerate}
+
+	%---------- PROBLEM 1 --------------
+	\item Prove or disprove the countability of each of the following sets (\textbf{25 points}: identifying which class (5 points), proof idea (5 points), complete proof (15 points)):	
+	\begin{enumerate}
+		\item The set of all regular languages over $\{0, 1\}$.
+		\item The set of all languages over the alphabet $\{0, 1\}$
+		\item The set of all infinite length strings over the three letter alphabet $\{0, 1, 2\}$
+	\end{enumerate}
+	
+		
+	%---------- PROBLEM 2 --------------
+	\item \textbf{$NP$-completeness, 25 points}: Verification Step (5 points), Reduction Step (10 points), Correctness Step (10 points): Prove that the problem is $NP$-complete.
+	
+	\begin{enumerate}
+		\item BIGGER-CLIQUE = $\{\langle G_1, G_2\rangle \mid $ the largest clique of graph $G_1$ is larger than every clique of graph $G_2\}$
+		\item NP-PATH = {$<G, s, t, k>$ | $G$ is an undirected graph containing a simple path of length at least $k$ from $s$ to $t$.} (Hint: \textit{Use the fact that the Hamiltonian Path problem for undirected graphs is $NP$-complete}.)
+		\item HALF-CLIQUE = {$<G>$ | $G$ is an undirected graph having a complete subgraph with  $\left\lfloor n/2 \right\rfloor$ nodes, where $n$ is the number of nodes in $G$}.
+		%\item Longest Path (Reduction from Hamiltonian Path)
+		%\item MAX-CUT (See hint for Problem 7.25 in Sipser's book)
+	\end{enumerate}
+
+%---------- PROBLEM 3 --------------
+
+	\item \textbf{Self-reducibility, 25 points}: 
+	\begin{enumerate}
+		\item Find an isomorphism between graphs $G_1$ and $G_2$ and provide time complexity, or state that none exists.  (An isomorphism is a bijection $\phi : V(G_1) \to V(G_2)$ such that $(v_1, v_2) \in E(G_1)$ iff $(\phi(v_1), \phi(v_2)) \in E(G_2)$.)  Assume that you have a decision algorithm $D(G, G')$ that decides whether $G$ and $G'$ are isomorphic in $O(f(|V(G)| + |V(G')|))$ time.
+		
+		\item Given a set of integers $A$, find a subset of $A$ that sums to zero and provide time complexity, or state that none exists.  Assume that you have a decision algorithm $D(S)$ that decides whether such a subset exists in $O(f(|S|))$ time.	
+	\end{enumerate}
+
+%---------- PROBLEM 4 --------------
+	
+	\item \textbf{Approximability, 25 points}: 
+	\begin{enumerate}
+	\item  If $P \neq NP$, then Vertex Cover does not allow any absolute approximation. (There is an absolute approximation algorithm $A$ if $A(G) \leq OPT(G) + C$ for some constant integer $C$ and any instance, $G$ of the vertex cover.)
+	\item The VERTEX-COVER problem and the $NP$-complete CLIQUE problem are complementary in the sense that an optimal vertex cover is the complement of a maximum-size clique in the complement graph. Does this relationship imply that there is a polynomial-time approximation algorithm with a constant approximation ratio for the CLIQUE problem? Justify your answer.
+	
+	\end{enumerate}
+	
+		
+\end{enumerate}
+
+
+
+\end{document}

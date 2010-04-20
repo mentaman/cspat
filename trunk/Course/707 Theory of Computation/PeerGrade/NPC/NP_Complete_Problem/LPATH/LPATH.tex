@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\begin{document}
+$\\$
+Geoffrey Rogers\\
+\begin{center}
+Prove LPATH is NP-Complete
+\end{center}
+$\\$
+Definition of Longest Path (LPATH): \\
+LPATH  = \{$<$$G,a,b,k$$>$ $| G$ contains a simple path of length at least $k$ from $a$ to $b$\}
+
+
+$\\$
+\textbf{Step 1 (Verify):} Given a LPATH of length $k$ between points $a$ and $b$ on a graph $G$, verify that a simple path of length at least $k$ exists from $a$ to $b$ in polynomial time.
+
+$\\$
+-Check that the LPATH is simple
+\begin{tabbing}
+for \= $i = 1 \to n$\\
+\{\\
+\> for $j = (i+1) \to n$\\
+\>\{\\
+\> make sure $vertex_i \neq vertex_j$\\
+\>\}\\
+\}\\
+This takes $O(n^2)$ time.	
+\end{tabbing}
+
+$\\$
+-Check that all edges in path actually exist 
+\begin{tabbing}
+for \= $i = 1 \to $ $|$edges in LPATH$|$\\
+\{\\
+\> for $j = (i+1) \to $ $|$edges in $G|$\\
+\>\{\\
+\> make sure $edge_i = edge_j$ for some $edge_j \in G$\\
+\>\}\\
+\}\\
+This takes $O(n^2)$ time.	
+\end{tabbing}
+$\\$
+-Count number of edges in LPATH\\
+This takes $O(n)$ time.
+
+$\\$
+Thus, the entire verify step takes $O(n^2)$ time which is polynomial.\\
+$\\$$\\$$\\$$\\$$\\$
+\textbf{Step 2 (Reduction):} Show that LPATH is NP-Hard.  We do this by showing reduction from known NP-Complete problem to the LPATH problem.\\
+$P_{known} = $ UHAMPATH\\
+$P_{new} = $ LPATH\\\\
+$UHAMPATH = \{<G,s,t>|G$ is undirected graph that contains a Hamiltonian path from $s$ to $t$\}\\
+\\
+Reduction: \\
+UHAMPATH($G = (V,E),s,t$)\\
+$k$ = $|$V$|$ - 1\\
+Return the answer to LPATH($G,s,t,k$)\\
+$\\$
+The reduction step occurs in polynomial time.
+
+$\\$
+\textbf{Step 3 (Correctness):} Graph $G$ has a Longest Path of size $|$V$|$ - 1 between $a$ and $b$ iff $G$ has a Hamiltonian Path between $a$ and $b$.\\
+$\\$
+-\textbf{Case 1} Assume $G$ has Longest Path of size $|$V$|$ - 1 between $a$ and $b$.  Show $G$ has a Hamiltonian Path between $a$ and $b$.\\
+\\
+There exists a simple path from $a$ to $b$ with length $|$V$|$ - 1(from given Hamiltonian Path).  Therefore, there exists a Longest Path of at least length $|$V$|$ - 1 from $a$ to $b$.  This Longest Path is the Hamiltonian Path.
+
+$\\$
+-\textbf{Case 2} Assume $G$ does not have a  Hamiltonian Path between $a$ and $b$.  Show $G$ does not have a Longest Path between $a$ and $b$ of size at least $|$V$|$ - 1.\\
+\\
+A longest path with length at least $|$V$|$ - 1 from $a$ to $b$ would be a simple path which visits every vertex $v$, such that $v \in V$.  A simple path that starts at $a$ and ends at $b$, of length $|$V$|$ - 1, is a Hamiltonian Path.  However, no hamiltonian path from $a$ to $b$ exists (given).  Therefore, no longest path of length $|$V$|$ - 1 exists.
+
+\end{document}

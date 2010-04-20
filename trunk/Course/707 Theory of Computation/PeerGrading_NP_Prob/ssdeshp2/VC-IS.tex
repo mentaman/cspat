@@ -1,0 +1,141 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\usepackage{color, ulem}
+\definecolor{dkgreen}{rgb}{0, 0.75, 0}
+\definecolor{dkred}{rgb}{0.5, 0, 0}
+\definecolor{dkpurp}{rgb}{0.25, 0, 0.5}
+\newcommand{\add}[1]{\textcolor{dkgreen}{#1}}
+\newcommand{\rmv}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\moveto}[1]{\textcolor{blue}{#1}}
+\newcommand{\movefrom}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\highlighttext}[1]{\colorbox{yellow}{#1}}
+\newenvironment{added}{\color{dkgreen}}{\color{black}}
+\newenvironment{removed}{\color{red}}{\color{black}}
+\newenvironment{edited}{\color{blue}}{\color{black}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory \\
+\textbf{Reduction Homework}: NP-complete problems \\
+\textbf{Peer Grading By} Saurabh Deshpande,Peter Savitsky,Jeffery Painter  \\
+\textbf{Students:} Xusheng Xiao xxiao2@ncsu.edu, Xi Ge xge@ncsu.edu, Ling Chen lchen10@ncsu.edu \\
+\textbf{Points deducted : 8 }
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{11:00 A.M. (EST), Sunday, February 13, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+  \item Given a NP-complete problem, Vertex Cover, show that the Independent Set is $NP$-complete.\\
+  Independent Set is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Is there a subset S of k vertices in G such that no pair of vertices in S is connected by an edge in G?
+    
+\textbf{Solution:}
+\begin{enumerate}
+	\item (Verification):Show that Independent Set is in NP.
+
+   \moveto{Decision Problem not stated   (-1)}
+	\\ Given an independent set $C\subseteq V, |C|=n$ for a graph $G=(V,E)$, we can verify it using the following pseudo-code: \\
+	
+		$\forall u \in C$, \\
+	\hspace*{0.2in}$\forall v \in C$, \\
+	\hspace*{0.4in}check whether $<u,v> \in E$ \\
+   
+	Checking whether $<u,v> \in E$ can be done in \rmv{$T(|E|)$ }\add{$O(|E|)$ time }   \\  
+   \moveto{Big - O notation missing   (-1)}
+
+   So the verification algorithm takes \rmv{$O(n^{2}|E|)$}  
+   \add{$O(n^{2}|E|)$ time } \\
+   \moveto{It is not specified if the Big-O notation denotes time or space or any other complexity   (-1)}
+   
+	 \moveto{The verification if $|C|$ = k , where C is IS , is not done   (-1)}
+%	
+%	The verification algorithm guesses $C\subseteq V$ and check that whether C is an independent set of G=(V,E). If the test succeeds then the algorithm accepts, otherwise it rejects. To check whether C is an independent set of G=(V,E) only needs one travesal on G which takes $O(V+E)$, so the verification algorithm takes $O(n\cdot (V+E))$.\\
+	
+	\item (Reduction):Show that Independent Set is NP-hard.
+	\\Given a G has a VC of size k, we should construct a graph G' has Independent Set of size k'.
+	\\Construction Process: Given VertexCover(G,k) where $V_{1}$ is the vertex cover and $k=|V_{1}|$, we set $G'=G$ and $k'=|V|-k$,\rmv { then we could return the answer to IndependentSet(G',k') where $V-V_{1}$ is the independent set.} \\
+\add{so the problem of a VC for $<G,k>$ reduces to one of IS for $<G',k'>$} \\
+ \moveto {Our goal here is just reduction from a known NPC problem and not to return any answer.   (-1)}
+ 
+ This takes \rmv {constant} \add{O(1)} time.\\
+ \moveto { Big - O notation missing  (-1) }
+	
+	\item (Correctness):Show that Independent Set is NP-hard.
+	\\We need to show that $G$ has a vertex cover of size $k$ if and only if it has an Independent Set of size $k'=|V|-k$.\\
+	\\Assume $G(V,E)$ has a vertex cover $C$ of size $k$. Consider two vertices $u\in V-C$ and $v\in V-C$, we can know that $e=<u,v>\notin E$ since $C$ is a vertex cover of $G$. Therefore, no two vertices in $V-C$ are connected by an edge. So $V-C$ is an independent set with size $k'=|V|-k$.\\	
+		
+	Assume $G$ has an Independent Set $S$ of size $k'=|V|-k$.
+	\\$\forall e\in E, e=<u,v>$, $S$ is independent set$\Rightarrow$ $u\notin S$ or $v\notin S$ or \add{$u,v \notin S$ } $\Rightarrow$ $u\in V-S$ or $v\in V-S$ or \add{ $u,v \in V-S$} \\
+\moveto{ The case where $u,v \notin S$ is not considered   (-1)} \\
+ $\Rightarrow$ $V-S$ covers $e=<u,v>$.\\
+ \add {$\Rightarrow$ $V-S$ is a VC of size k.} \\
+ \moveto {Inference not stated  (-1) } \\
+	
+\end{enumerate}
+\end{enumerate}
+
+\end{document}

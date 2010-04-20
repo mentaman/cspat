@@ -1,0 +1,162 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\usepackage{color, ulem}
+\definecolor{dkgreen}{rgb}{0, 0.75, 0}
+\definecolor{dkred}{rgb}{0.5, 0, 0}
+\definecolor{dkpurp}{rgb}{0.25, 0, 0.5}
+\newcommand{\add}[1]{\textcolor{dkgreen}{#1}}
+\newcommand{\rmv}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\moveto}[1]{\textcolor{blue}{#1}}
+\newcommand{\movefrom}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\highlighttext}[1]{\colorbox{yellow}{#1}}
+\newenvironment{added}{\color{dkgreen}}{\color{black}}
+\newenvironment{removed}{\color{red}}{\color{black}}
+\newenvironment{edited}{\color{blue}}{\color{black}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 2}: Complexity Theory, polynomial time reduction, P vs NP, NP-hard and NP-complete problems. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Thursday, February 11, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\add{Your Points: 6 out os 10.}
+
+\begin{enumerate}
+
+
+  \item Show that the Vertex Cover remains $NP$-complete even when all the vertices in the graph 	are restricted to have even degree.\\
+  Vertex Cover is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Is there a subset $V' \subseteq V$ such that $|V'| \leq k$, and for each edge $\{u,v\} \in E$ at least one of $u$ and $v$ belongs to $V'$?
+  
+  \add{
+		\begin{theorem}
+		$VC_{Even}$ is $NP$-complete.
+		\end{theorem}
+		}
+		
+		\add{-1 Pt: You must clearly state your theorem that you plan to prove. Also, see how I added begin and end proof statements around your proof.}
+		
+\begin{proof}
+  
+  \textbf{Proof}:\\
+  \emph{Decisition Problem}: $VC=\{<G,k>:$ graph $G$ has a vertex cover of size $k$ where $\forall e \in E, degree(e) = 2\}$
+  
+  \add{-0.5 Pt: $degree(e)$ is undefined and is not 2. Even degree vertex?}
+  
+  \emph{Step 1}:\\
+  Given a vertex cover of size $k$ of a graph $G=(V,E),\forall v \in V degree(v) \text{is even}$, we can verify that it is indeed the vertex cover of graph $G(n,k)$ in polynomial time:\\
+  $$T(n,k)=O(|E|k)=O(n^{2}k)$$
+  
+  \add{-1 Pt: How will you verify? In terms of $n$, what is the complexity?}
+  
+   \emph{Step 2}:\\
+  Given a $G=(V,E)$, we can construct a graph $G'=(V',E')$ such that:\\
+  $V' = V \bigcup \{v_{1},v_{2},v_{3}\}$, and \\
+  $E' = E \bigcup \{<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>\}$ $\bigcup \{<v,v_{1}>|v \in V, degree(v) \text{is odd}>\}$ \\
+  
+  We claim that all the vertices in $G'$ have even degree since the number of vertices that has odd degree is even. \\
+  
+ 
+  
+  \textbf{Proof}:\\ 
+  The sum of the degree of all vertices in a graph $G$ with $n$ edges is $2n$ since each edge has two end points and add 1 to the degree of two end points(vertices). Assume the set of odd-degree vertices is $V_{o}$ and the set of even-degree vertices is $V_{e}$, then, we have
+  $$\sum_{v\in V}degree(v) = \sum_{v'\in V_{o}}degree(v') +  \sum_{v''\in V_{e}}degree(v'')$$ \\
+  $\sum_{v\in V}degree(v)=2n$ is even and $ \sum_{v''\in V_{e}}degree(v'')$ is even (sum of even numbers is even) $\Rightarrow$
+  $\sum_{v'\in V_{o}}degree(v')$ is even $\Rightarrow$ the number of odd number must be even\\
+  
+  Thus, all the vertices of $G'$ has even degrees. 
+  
+  The construction of $G'$ can be completed in polynomial time since we only need to visit every vertex in $G$ for one time:
+  $$T(n,k)=O(|E|)=O(n)$$
+  
+  \add{-1 Pt: Time complexity is wrong.}
+  
+  \emph{Step 3}:\\
+  \textbf{Claim}: The graph $G$ has a vertex cover of size $k$ if and only if $G'$ has a vertex cover of size $k+2$\\
+  Suppose graph $G=(V,E)$ has vertex cover of size $k$, $V' \subseteq V:|V'|=k$, and we choose a set of vertices $V'' = V' \bigcup \{v_{1},v_{2}\}$:
+  
+\begin{enumerate}
+	\item $v_{1} \in V''$ $\Rightarrow$ edges $e' \in \{<v,v_{1}>|v \in V, degree(v) is odd>\}$ is covered by $v_{1}$. 
+	\item $v_{1} \in V'',v_{2} \in V''$ $\Rightarrow$ $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$ is covered by $v_{1},v_{2}$. 
+	\item $\forall e \in E$ is covered by $V', V' \subseteq V''.$ $\Rightarrow$ $V''$ cover all the edges in $E$ 
+\end{enumerate}
+  
+  Combining (a),(b), and (c) $\Rightarrow$ $V''$ is the vertex cover of $G'$.\\
+ 
+  Suppose set $G'$ has a set cover $V''$ of size $k+2$\\
+  To cover $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$, at least two vertices of $\{v_{1},v_{2},v_{3}\}$ are included in $V''$ \add{(-0.5 Pt: Why?)}\\
+  Since all egdes in the $E'$ are covered by $V''$, the edges except $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$ must be covered by $k$ vertices. These edges are exactly the same edges in $E$.\\
+  Thus, $G$ has a vertex cover of $k$. 
+  
+  \end{proof}
+  
+\end{enumerate}
+
+\end{document}

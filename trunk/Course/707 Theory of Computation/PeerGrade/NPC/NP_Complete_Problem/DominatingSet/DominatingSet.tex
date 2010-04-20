@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+\usepackage{cases}
+\usepackage{algorithmic}
+
+
+
+
+\begin{document}
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Bonus Homework}: Bonus points assignment\\
+\textbf{Author}: Padmashree Ravindra, Ye Jin, DaYoung Lee\\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} Both LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 AM, Tuesday, Feb 9, 2010}}\\
+\end{center}
+
+\noindent{\hrulefill}
+\bigskip
+
+\begin{enumerate}
+   \item{\textbf{Dominating Set is $NP$-complete}} \\
+   \textbf{Decision Problem:}\\
+ $DS =\{<G,k>| G$ contains a dominating set with $k$ nodes$\}$\\
+ A subset of nodes of a graph $G$ is a \textbf{dominating set} if every other node of $G$ is adjacent to some node in the subset.\\
+
+  \begin{enumerate}
+   \item\textbf{Step 1 (Verification): }\\
+		 \textbf{Claim:} $DS \in NP$ i.e. can be verified in polynomial time\\
+    Given a graph $G(V,E)$ has vertexes $v\in V$ with size of $n$, edge $e=\{u,v\} \in E$ and Dominating Set $DS$ with size $k$.\\
+    \textbf{Algorithm: }\\
+    1 \quad for all $v\in V$ \dots\dots\dots\dots\dots\dots\dots\dots\dots\dots $O(|V|)$\\
+    2 \quad\quad\quad if v is an isolate vertex\\
+    3 \quad\quad\quad\quad\quad if $v\in DS$ then continue \dots\dots\dots  $O(|DS|)$\\
+    4 \quad\quad\quad\quad\quad else return false\\
+    5 \quad\quad\quad else\\
+    6 \quad\quad\quad\quad\quad if $v\in DS$\\
+    7 \quad\quad\quad\quad\quad\quad\quad then continue\\
+    8 \quad\quad\quad\quad\quad else for all $e\in E \bigwedge v\in e$ \dots\dots\dots $O(|E|)$\\
+    9 \quad\quad\quad\quad\quad\quad\quad if $u\in e-\{v\}$ \dots\dots\dots\dots\dots $O(|DS|)$\\
+    10\quad\quad\quad\quad\quad\quad\quad\quad\quad then v is covered and break\\
+    11\quad\quad\quad\quad\quad\quad\quad else continue\\
+    12\quad\quad\quad\quad\quad\quad\quad if all edges are checked and v is not covered\\
+    13\quad\quad\quad\quad\quad\quad\quad\quad\quad then return false\\
+    14\quad return true\\ \\
+    \textbf{Algorithm's time complexity: } $O(|V|\cdot |E|\cdot |DS|)=O(n^2k)$ \\
+    So the Verification Algorithm will finished in Polynomial time, and hence the Dominating Set is a NP problem.
+
+   \item\textbf{Step 2 (Reduction): $DS$ can be derived with Reduction from the $NP-complete$ problem "Vertex Cover" } \\
+   $P_{known} =$ Vertex Cover, $VC =\{<G,k>| G$ has a vertex cover of size $k\}$\\
+   \textbf{Claim:} $VC \rightarrow DS$ reduction in polynomial time \\
+   1. $G'$ construction :  Given graph $G(V,E)$, construct $G'$ such that:\\
+   for each $ e=\{u,v\} \in E$\\
+   a. Add vertex $w$\\
+   b. Add edges $\{u,w\}$ and $\{v,w\}$\\
+   Complexity is $O(\left|V\right|)$ = $O(n)$\\
+   2. Verify that $G'$ has a dominating set of size $k$ using Step 1\\
+   Complexity is $O(n^2k)$\\
+   Hence, $T(n,k) = O(n^2k)$, reduction is possible in polynomial time\\
+   \item\textbf{Step 3 (Correctness): } \\
+   \textbf{Claim:} Graph $G$ has a vertex cover of size $k$ if and only if graph $G'$ has a dominating set of size $k$.\\ \\
+   $\Rightarrow$ Suppose that $G$ has a vertex cover $S$ of size $k$, we need to prove that either $v \in S$ or $v$ has an adjacent node in $S$ \\
+   $\forall v \in G'$, we have the following two options:\\
+   a. Original vertex : $v \in G$ \\
+   Since $\{u,v\} \in G$ and $S$ is the vertex cover, if $v \notin S$, then by definition of a vertex cover $u \in S$. Thus, an adjecent node of $v$ is in $S$\\
+   b. Additional vertex $w$ has two adjacent vertices $u, v \in G$ and by definition of a vertex cover, either $u \in S$ or $v \in S$.
+   Hence, if $G$ has a vertex cover of size $k$, then $G'$ has a dominating set of at most size $k$\\ \\
+   $\Leftarrow$ Suppose that $G'$ has a dominating set $D$ of size $k$.Consider the additional vertices $w \in D$. We note that $w$ is connected to exactly 2 vertices $u,v \in G$.Since $u,v,w \in G'$ form a triangle, choosing any vertex in the triangle would dominate the other two. Hence we can construct $D_{new}$ by replacing every $w \in D$ by $u$ or $v$ and still cover all the vertices in $G'$. Also every $w \in G'$ corresponds to an edge $\{u,v\} \in G$ and hence all edges in $G$ are covered by $D_{new}$.\\
+   Thus, if $G'$ has a dominating set of size $k$, then $G$ has a vertex cover of at most size $k$\\
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

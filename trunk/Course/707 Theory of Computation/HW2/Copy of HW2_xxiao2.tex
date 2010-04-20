@@ -1,0 +1,189 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 2}: Complexity Theory, polynomial time reduction, P vs NP, NP-hard and NP-complete problems. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Thursday, February 11, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+	\item Let $\sum$ denote $\{0,1\}$. Let $\propto $ denote polynomial-time reducibility. A set $L \subseteq \sum^*$ is $P$-complete if $L \in P$ and $M \propto L$ for all $M$, where $M \subseteq \sum^*$ and $M \in P$.
+	\begin {enumerate}
+	\item Show that $\emptyset$ and $\sum^*$ are not $P$-complete.
+	\item Show that if $L \in P$ and $\emptyset \neq L \neq \sum^*$, then $L$ is  $P$-complete.  
+	\end{enumerate}
+
+
+  \item Show that the Vertex Cover remains $NP$-complete even when all the vertices in the graph 	are restricted to have even degree.\\
+  Vertex Cover is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Is there a subset $V' \subseteq V$ such that $|V'| \leq k$, and for each edge $\{u,v\} \in E$ at least one of $u$ and $v$ belongs to $V'$?
+  
+  \textbf{Proof}:\\
+  \emph{Decisition Problem}: $VC=\{<G,k>:$ graph $G$ has a vertex cover of size $k$ where $\forall e \in E, degree(e) = 2\}$
+  
+  \emph{Step 1}:\\
+  Given a vertex cover of size $k$ of a graph $G=(V,E),\forall v \in V degree(v) \text{is even}$, we can verify that it is indeed the vertex cover of graph $G(n,k)$ in polynomial time:\\
+  $$T(n,k)=O(|E|k)=O(n^{2}k)$$
+  
+   \emph{Step 2}:\\
+  Given a $G=(V,E)$, we can construct a graph $G'=(V',E')$ such that:\\
+  $V' = V \bigcup \{v_{1},v_{2},v_{3}\}$, and \\
+  $E' = E \bigcup \{<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>\}$ $\bigcup \{<v,v_{1}>|v \in V, degree(v) \text{is odd}>\}$ \\
+  
+  We claim that all the vertices in $G'$ have even degree since the number of vertices that has odd degree is even. \\
+  \textbf{Proof}:\\ 
+  The sum of the degree of all vertices in a graph $G$ with $n$ edges is $2n$ since each edge has two end points and add 1 to the degree of two end points(vertices). Assume the set of odd-degree vertices is $V_{o}$ and the set of even-degree vertices is $V_{e}$, then, we have
+  $$\sum_{v\in V}degree(v) = \sum_{v'\in V_{o}}degree(v') +  \sum_{v''\in V_{e}}degree(v'')$$ \\
+  $\sum_{v\in V}degree(v)=2n$ is even and $ \sum_{v''\in V_{e}}degree(v'')$ is even (sum of even numbers is even) $\Rightarrow$
+  $\sum_{v'\in V_{o}}degree(v')$ is even $\Rightarrow$ the number of odd number must be even\\
+  
+  Thus, all the vertices of $G'$ has even degrees. 
+  
+  The construction of $G'$ can be completed in polynomial time since we only need to visit every vertex in $G$ for one time:
+  $$T(n,k)=O(|E|)=O(n)$$
+  
+  \emph{Step 3}:\\
+  \textbf{Claim}: The graph $G$ has a vertex cover of size $k$ if and only if $G'$ has a vertex cover of size $k+2$\\
+  Suppose graph $G=(V,E)$ has vertex cover of size $k$, $V' \subseteq V:|V'|=k$, and we choose a set of vertices $V'' = V' \bigcup \{v_{1},v_{2}\}$:
+  
+\begin{enumerate}
+	\item $v_{1} \in V''$ $\Rightarrow$ edges $e' \in \{<v,v_{1}>|v \in V, degree(v) is odd>\}$ is covered by $v_{1}$. 
+	\item $v_{1} \in V'',v_{2} \in V''$ $\Rightarrow$ $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$ is covered by $v_{1},v_{2}$. 
+	\item $\forall e \in E$ is covered by $V', V' \subseteq V''.$ $\Rightarrow$ $V''$ cover all the edges in $E$ 
+\end{enumerate}
+  
+  Combining (a),(b), and (c) $\Rightarrow$ $V''$ is the vertex cover of $G'$.\\
+ 
+  Suppose set $G'$ has a set cover $V''$ of size $k+2$\\
+  To cover $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$, at least two vertices of $\{v_{1},v_{2},v_{3}\}$ are included in $V''$\\
+  Removing two of the vertices in $<v_{1},v_{2}>,<v_{1},v_{3}>,<v_{2},v_{3}>$, the remaining vertices would still cover the eges in $E$ since edges incident to $v_{1},v_{2},v_{3}$ do not belong to $E$.\\
+  Thus, $G$ has a vertex cover of $k$. 
+  
+	\item Show that the Set Cover problem is $NP$-complete using the reduction from Vertex Cover.\\
+  Set Cover problem is defined as follows:\\
+  INSTANCE: A set $X$ of $n$ elements, a family $F$ of subsets of $X$, and a positive integer $k$.\\
+  QUESTION: Is there a set $k$ or fewer subsets from $F$  whose union is $X$?\\
+  For example, if $X=\{1,2,3,4\}$ and $F=\{\{1,2\}, \{2,3\}, \{4\}, \{2,4\}\}$, a solution does NOT exist for $k=2$ but does exist for $k=3$ (e.g., $\{\{1,2\}, \{2,3\}, \{4\}\}$.
+  
+  \textbf{Proof}:\\
+  \emph{Decisition Problem}: $SC=\{<S,S_{1},S_{2},...,S_{m},k>$: Given a set $S$ of $n$ elements, and $S_{1},S_{2},\ldots,S_{m}$ are the subsets of $S$, $S$ has a set cover of size $k$ such that $S_{i1} \bigcup S_{i2} \bigcup \ldots \bigcup S_{ik}=S$\\
+  
+  \emph{Step 1}:\\
+  Given $k$ subsets, we can verify that it is the set cover of $S$ by unioning $k$ subsets in polynomial time, since unioning two subsets can be completed in $O(n^{2})$.
+  $$T(S,n,k) = O(kn^{2})$$
+  \emph{Step 2}:\\
+  Given a $G=(V,E)$, let each edge $e \in E$ represent an element in the set $S$ and each vertex $v_{i} \in V$ represent a set $S_{i}$ contains edges incident to $v_{i}$. Thus, $S_{i} \subseteq S$. We define the union of vertices $u \bigcup v$ as the union of the edges incident to $u,v$. Thus, to find out the set cover of size $k$ for $S$ is to find out $k$ vertices $\{v_{i1}, v_{i2}, \ldots \,v_{ik}\}$ such that $\{v_{i1} \bigcup v_{i2} \bigcup \ldots \bigcup v_{ik}=S\}$. The time of the transform procedure is $T(V,E) = |V| + |E|$, which is polynomial in time.\\
+  \emph{Step 3}:\\
+  \textbf{Claim}: The graph $G$ has a vertex cover of size $k$ if and only if the set $S$ has a set cover of size $k$.\\
+  Suppose graph $G=(V,E)$ has vertex cover of size $k$, $V' \subseteq V:|V'|=k$:\\
+  $\forall (u,v) \in E$ $\Rightarrow$ either $u \in V'$ or $v \in V'$ or both $\Rightarrow$ \\ 
+  $\forall v_{i} \in V'$ $\Rightarrow$  $\{v_{i1} \bigcup v_{i2} \bigcup \ldots \bigcup v_{ik}=S\}$ 
+  
+  Suppose set $S$ has a set cover of size $k$\\
+  $S_{i1} \bigcup S_{i2} \bigcup \ldots \bigcup S_{ik}=S$ \\ 
+  $\Rightarrow$ $\forall <u,v> \in E$, either $u$ or $v$ or both are in $\{S_{i1}, S_{i2},\ldots,S_{ik}\}$ \\
+  $\Rightarrow$ every subset $S_{i}$ represent a vertex $v \in V$\\
+  $\Rightarrow$ there is a vertex cover of size $k$ in $G$ 
+  
+  \item The Independent Set problem is defined as follows.\\
+  Set Cover problem is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Does $G$ contain an indepenent set of size $k$ or more, i.e., a subset $V' \subseteq V$ and  $|V'| \geq k$ such that no two vertices in $V'$ are joined by an edge in $E$?\\
+  Suppose you are given a graph, $G=(V,E)$, and an integer $k$ as input with $|V|=n$. And suppose you are given an algorithm, $D$, that solves the decision version of the Independent Set problem in time $T(n,k)$.
+  	\begin {enumerate}
+	\item Use $D$ to find the size of the maximum independent set, and state the time complexity involved.
+	\item Use $D$ in a self-reduction to solve the search version of the independent set problem, and state the time complexity involved.  
+	\end{enumerate}
+	\end{enumerate}
+
+\begin{enumerate}
+	\item To solve the optimization version of independent set, we can use the pseudo-code showed as follows:\\
+	
+	for k = n to 1\\
+	\hspace*{0.2in} record the answer to D(G,k)\\
+	\hspace*{0.2in} if D(G) answer ``yes'' , then output k and stop \\
+	
+	Since in the worse case, we call D(G) n times, the time complexity is $T'(n,k)=O(n*T(n,k))$
+	
+	\item To solve the search version of independent set, we can borrow the idea of binary search. The pseudo-code is showed as follows:\\
+	
+	high = n, low = 1. \\
+	while high $>$ low, do \\
+	\hspace*{0.2in} mid = $\left\lceil (high + low) / 2\right\rceil$ \\
+	\hspace*{0.2in} record the answer to D(G,mid) \\
+	\hspace*{0.2in} if D(G,mid) answer ``yes'', low = mid + 1; \\
+	\hspace*{0.2in} if D(G,mid) answer ``no'', high = mid - 1; \\
+	output high
+	
+	Using binary search, the time complexity is $T''(n,k)=log_{2}n*T(n,k)$.
+	
+\end{enumerate}
+\end{document}

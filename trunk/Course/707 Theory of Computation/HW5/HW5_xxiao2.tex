@@ -1,0 +1,209 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+%--------Graphics Packages------------------
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 4}: Finite automata (FA), DFA, NFA, regular expressions, Pumping lemma, and closure properties\\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\textbf{NOTE:} If you create images, make sure you submit them as well.
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{11:00 AM, Saturday, March 13, 2010}}\\
+\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+
+%----------------------------------------------------------------------------
+	\item Assuming $L_1 ,L_2 ,...$ are regular, which of the following languages are regular. Prove your answers.	
+	\begin{enumerate}
+		\item  $\bigcup\limits_{i = 1}^n {L_i } $
+		\item  $\bigcup\limits_{i = 1}^\infty  {L_i } $
+	    \item  $\bigcap\limits_{i = 1}^n {L_i } $
+		\item  $\bigcap\limits_{i = 1}^\infty  {L_i } $
+	\end{enumerate}
+	
+	\begin{enumerate}
+    \item 
+    \begin{theorem}
+     $\bigcup\limits_{i = 1}^n {L_i } $ is regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+    Prove by induction.
+    
+    \textbf{Basis:} For $n = 1$, $\bigcup\limits_{i = 1}^n {L_i }=L_1$. Since $L_1$ is regular, $\bigcup\limits_{i = 1}^n {L_i }$ is regular.
+     
+    \textbf{Inductive Hypothesis:} Assume that $\bigcup\limits_{i = 1}^n {L_i }$ is regular for $\forall n \geq 1, n \in N$
+    
+    \textbf{Inductive Step:} Prove that $\bigcup\limits_{i = 1}^{n+1} {L_i }$ is regular.
+    
+    Note: $\bigcup\limits_{i = 1}^{n+1} {L_i } = \bigcup\limits_{i = 1}^n {L_i } \bigcup L_{i+1}$. By assumption, $L_{i+1}$ is regular. By inductive hypothesis, $\bigcup\limits_{i = 1}^n {L_i }$ is regular. Since regular languages are  closed under union, $\bigcup\limits_{i = 1}^n {L_i } \bigcup L_{i+1}$ is regular. Therefore, $\bigcup\limits_{i = 1}^{n+1} {L_i }$ is regular.
+    
+    \end{proof}
+    
+     \item 
+    \begin{theorem}
+     $\bigcup\limits_{i = 1}^\infty {L_i } $ may be regular language or non-regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+    Prove by example.
+    
+    \begin{enumerate}
+	\item \textbf{Regular:} Let $L_1 = 0^1,L_2=0^2,\ldots,L_n=0^n,\ldots$. Each $L$ is a finite sequence of 0s, so each $L$ is a regular language. The union $\bigcup\limits_{i = 1}^\infty {L_i } = 0^*$, which is a regular language. Thus,  $\bigcup\limits_{i = 1}^\infty {L_i }$ is regular.
+	\item \textbf{Non-regular:} Let $L_1 = 0^4, L_2 = 0^6,L_3 = 0^8, \ldots, L_n = 0^{composite}, \ldots$. Since each $L$ is a finite sequence of 0s, they are regular languages. The union of all these regular languages that have composite number of 0s is a non-regular language, $L = \{0^{composite}\}$, which is proved in the class.
+    
+    \end{enumerate} 
+   
+    
+    \end{proof}
+		
+	  \item 
+    \begin{theorem}
+      $\bigcap\limits_{i = 1}^n {L_i } $ is a regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+      Prove by induction.
+    
+    \textbf{Basis:} For $n = 1$, $\bigcap\limits_{i = 1}^n {L_i }=L_1$. Since $L_1$ is regular, $\bigcap\limits_{i = 1}^n {L_i }$ is regular.
+     
+    \textbf{Inductive Hypothesis:} Assume that $\bigcap\limits_{i = 1}^n {L_i }$ is regular for $\forall n \geq 1, n \in N$
+    
+    \textbf{Inductive Step:} Prove that $\bigcap\limits_{i = 1}^{n+1} {L_i }$ is regular.
+    
+    Note: $\bigcap\limits_{i = 1}^{n+1} {L_i } = \bigcap\limits_{i = 1}^n {L_i } \bigcap L_{i+1}$. By assumption, $L_{i+1}$ is regular. By inductive hypothesis, $\bigcap\limits_{i = 1}^n {L_i }$ is regular. Since the intersection of two regular languages $L_1 \bigcap L_2 = \overline{\overline{L_1} \bigcup \overline{L_2}} $, and union and complement are the two closed operators for regular languages, the intersection of two regular languages is a regular language. Thus,$\bigcap\limits_{i = 1}^n {L_i } \bigcap L_{i+1}$ is regular, which means $\bigcap\limits_{i = 1}^{n+1} {L_i }$ is regular.
+   
+    
+    \end{proof}
+    
+      \item 
+    \begin{theorem}
+     $\bigcap\limits_{i = 1}^\infty {L_i } $ may be regular language or non-regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+    Prove by example.
+    
+    \begin{enumerate}
+	\item \textbf{Regular:} Let $L_1 = 0^1,L_2 = 0^2,\ldots,L_n=0^n,\ldots$. Each $L$ is a finite sequence of 0s, thus a regular language. In this case, $\bigcap\limits_{i = 1}^\infty {L_i } = \emptyset $. Thus,  $\bigcap\limits_{i = 1}^\infty {L_i}$ is regular.
+	
+	\item \textbf{Non-regular:} Let $L = \{0^{composite}\} =  0^4 \bigcup 0^6 \bigcup 0^8 \bigcup \ldots \bigcup 0^{composite} \bigcup \ldots$. The composite of $L$ is $\overline{L} =  \{\overline{0^{composite}}\} = \overline{0^4} \bigcap \overline{0^6} \bigcap \overline{0^8} \bigcap \ldots \bigcap \overline{0^{composite}} \bigcap \ldots $. Since $0^4, 0^6, \ldots, 0^{composite}, \ldots$ are all finite, they are all regular languages. Thus, the complement of them are also regular, since regular languages are closed on the operator of union.  In this way, $\overline{L} =  \{\overline{0^{composite}}\}$ is the infinite intersections of each $\overline{0^{composite}}$. Assuming $\overline{L} =  \{\overline{0^{composite}}\}$ is regular, then its complement, $L = \{0^{composite}\}$, is also regular, since regular languages are closed on the operator intersection, which is proved in (c). However, we know that $L = \{0^{composite}\}$ is not regular, which is a contradiction. Therefore, $\overline{0^{composite}}$ is not regular. Thus, the infinite intersections of regular languages may produce a non-regular language.
+    
+    \end{enumerate} 
+   
+    
+    \end{proof}
+	
+	\end{enumerate}
+
+%----------------------------------------------------------------------------
+
+	\item Prove that the following languages are regular:
+	\begin{enumerate}
+	\item  $MIN(L) = \{ x \in L |$ no prefix of $x$ is in $L$\}
+	\item  $L^R  = \{ x|$ reverse of $x$ is in $L\}$
+	\end{enumerate}
+
+\begin{enumerate}
+\item  
+ \begin{theorem}
+    $MIN(L) = \{ x \in L |$ no prefix of $x$ is in $L$\} is a regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+
+    Given a regular language $L$, construct a $DFA$ for it. For each final state, we cut off all the outgoing edges from it. In this way, we build a $DFA$ that recognizes $x$, where no prefix of $x$ is in $L$.
+    Thus, $MIN(L) = \{ x \in L |$ no prefix of $x$ is in $L$\} is a regular language.
+   
+    
+    \end{proof}
+    
+
+ \item 
+    \begin{theorem}
+     $L^R  = \{ x|$ reverse of $x$ is in $L\}$ is a regular language.
+    
+    \end{theorem}	
+    \begin{proof}
+    Given a regular language $L$ that recognizes $x$, we can construct a $DFA$ for it. Using this $DFA$, we can build a $DFA$ for $L^R  = \{ x|$ reverse of $x$ is in $L\}$ as follows:
+    
+    \begin{itemize}
+    \item Reverse each transition. 
+    \item Turn the start state into a final state.
+    \item Add a new start state, and add a $\lambda$-transition from the start state to each final state.
+    \item Turn the original final states into normal states.
+    \end{itemize} 
+    
+    In this way, we can recognize the reverse of $x$. Thus, $L^R  = \{ x|$ reverse of $x$ is in $L\}$ is a regular language.
+    
+
+   
+    
+    \end{proof}
+\end{enumerate}
+	
+\end{enumerate}
+
+\end{document}

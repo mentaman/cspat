@@ -54,6 +54,11 @@ Lori~A. Clarke.
 \newblock {A System to Generate Test Data and Symbolically Execute Programs}.
 \newblock {\em TSE}, 1976.
 
+\bibitem{grammar}
+P.~Godefroid, A.~Kiezun, and M.~Levin.
+\newblock Grammar-based whitebox fuzzing.
+\newblock {\em SIGPLAN Not.}, pages 206--215, 2008.
+
 \bibitem{compositional}
 Patrice Godefroid.
 \newblock {Compositional Dynamic Test Generation}.
@@ -105,6 +110,11 @@ A.~P. Mathur andM. L.~Soffa. N.~Gupta.
 B.~Marre N.~Williams and P.~Mouy.
 \newblock {On-the-Fly Generation of K-Path Tests for C Functions}.
 \newblock In {\em ASE}, 2004.
+
+\bibitem{fuzzing}
+M.~Levin P.~Godefroid and D.~Molnar.
+\newblock {Automated Whitebox Fuzz Testing.}
+\newblock In {\em NDSS}, 2008.
 
 \bibitem{fuzz}
 M.~Y.~Levin P.~Godefroid and D.Molnar.

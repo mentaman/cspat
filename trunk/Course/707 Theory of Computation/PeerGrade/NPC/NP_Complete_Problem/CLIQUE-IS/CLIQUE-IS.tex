@@ -1,0 +1,118 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\usepackage{color, ulem}
+\definecolor{dkgreen}{rgb}{0, 0.75, 0}
+\definecolor{dkred}{rgb}{0.5, 0, 0}
+\definecolor{dkpurp}{rgb}{0.25, 0, 0.5}
+\newcommand{\add}[1]{\textcolor{dkgreen}{#1}}
+\newcommand{\rmv}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\moveto}[1]{\textcolor{blue}{#1}}
+\newcommand{\movefrom}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\highlighttext}[1]{\colorbox{yellow}{#1}}
+\newenvironment{added}{\color{dkgreen}}{\color{black}}
+\newenvironment{removed}{\color{red}}{\color{black}}
+\newenvironment{edited}{\color{blue}}{\color{black}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Group Problem}: Clique $\propto$ Independent Set. \\
+\textbf{Students:} kshakya, dsen,dbao\\
+\end{flushleft}
+
+
+\noindent{\hrulefill}
+
+\bigskip
+
+
+\begin{flushleft}
+\textbf{Input}: A graph G =(V,E), an integer k $\leq \left | V \right |$ \\
+\textbf{Output}: If there is a subset S of k vertices in G such that no pair of vertices in S is connected by an edge in G?\\
+
+\textbf{Decision Problem}: \\
+IS =  $\left \{ <  G,k > : \textup{Graph G has a Independent set of size k } \right \} $\\
+
+\textbf{Step 1}:\\
+We need to show that Independent Set (IS) $ \in $ NP. Suppose we have been given a set of 
+vertices $V'$. We can verify that $V'$ is IS of Graph G as follows:\\
+\begin{enumerate}
+	\item Verify $\left | V' \right | $ = k. This is O(1).
+	\item For each edge (u,v) $\in$ E(G), we check whether u $\in$ $V'$ and v$\in$ $V'$. If none of the edge satisfies this relation, then $V'$ is IS of G, otherwise it is not. This is $O(k^2\left |E\right |)$.
+\end{enumerate}
+
+So the verification step is polynomial. Hence IS is in NP.
+
+\textbf{Step2}:\\
+Given the Clique problem is NP-Complete, we show that Clique $\propto$ IS. Given an instance of Clique problem $<G,k>$, following steps reduces it to IS problem.\\
+\begin{enumerate}
+\item We compute the complement $\overline{G}$ of given Graph. This take $O(n^2)$.
+\item Calculate $k'=k$.
+\end{enumerate}
+The output of reduction algorithm is an instance $<\overline{G},k'>$ of IS problem.
+
+\textbf{Step3}:\\
+Graph G has Clique $V' \subset$ V iff $\overline{G}$ has IS $V'$.\\
+$\rightarrow$\\
+Suppose G has Clique $V' \subset$ V. If (u,v) be an edge in G and u $\in$ $V'$ and v $\in$ $V'$, then by definition of Clique and Complement, (u,v) $\notin \overline{E}$. Since u,v were chosen arbitrarily, the vertices that forms a clique in G forms IS in $\overline{G}$.\\
+$\leftarrow$\\
+Suppose G has IS $V' \subset$ V.  Take any two verices u,v in G such that u $\in$ $V'$ and v $\in$ $V'$, then (u,v) $\notin {E}$ by defition of Independent Set. This implies that (u,v)  $\in \overline{E}$.  Since u,v were chosen arbitrarily, the vertices that forms a IS in G forms a Clique of same size in $\overline{G}$.\\
+
+This proves that IS is NP-Complete problem.
+
+\add{test} \rm{fds}
+\end{flushleft}
+\end{document}
