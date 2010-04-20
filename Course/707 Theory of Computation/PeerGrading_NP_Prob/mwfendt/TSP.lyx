@@ -1,0 +1,814 @@
+#LyX file created by tex2lyx 1.6.5
+\lyxformat 264
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\@ifundefined{definecolor}
+ {\usepackage{color}}{}
+,hmargin={1.0in}}\usepackage{alltt}\usepackage{float}\usepackage{multirow}\@ifundefined{definecolor}
+ {\usepackage{color}}{}
+\usepackage{ulem}\definecolor{dkgreen}{rgb}{0,0.75,0}\definecolor{dkred}{rgb}{0.5,0,0}\definecolor{dkpurp}{rgb}{0.25,0,0.5}\newcommand{\add}[1]{\textcolor{dkgreen}{#1}}\newcommand{\rmv}[1]{\textcolor{red}{\sout{#1}}}\newcommand{\moveto}[1]{\textcolor{blue}{#1}}\newcommand{\movefrom}[1]{\textcolor{blue}{\sout{#1}}}\newcommand{\highlighttext}[1]{\colorbox{yellow}{#1}}\newenvironment{added}{\color{dkgreen}}{\color{black}}\newenvironment{removed}{\color{red}}{\color{black}}\newenvironment{edited}{\color{blue}}{\color{black}}
+
+% Make the contents smaller than normal
+% \usepackage[small,compact]{titlesec}
+% \usepackage{times}
+\setlength{\columnsep}{0.5in}%Stuff out of art10.sty and modified to conform to IEEE format
+\makeatletter
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+%as Latex considers descenders in its calculation of interline spacing,
+%to get 12 point spacing for normalsize text, must set it to 10 points
+\def\@normalsize{\@setsize\normalsize{10pt}\xpt\@xpt
+\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip
+\abovedisplayskip \abovedisplayshortskip \z@
+plus3pt\belowdisplayshortskip 6pt plus3pt
+minus3pt\let\@listi\@listI}
+
+\def\section{\@startsection {section}{1}{\z@}{1.0ex plus 1ex}{.2ex plus .2ex}{\center\bf}}
+
+%make subsection titles bold and 11 point, 1 blank line before, 1 after
+\def\subsection{\@startsection {subsection}{2}{\z@}{1.0ex plus 1ex} {.2ex plus .2ex}{\it}}
+
+\makeatother\newfloat{codefragment}{p}{cdf}\floatname{codefragment}{\textbf{\textsf{CodeFragment}}}
+
+
+\end_preamble
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+% Uncomment if you don't want date printed
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%make title bold and 14 pt font (Latex default is non-bold, 16pt)
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+
+
+\size larger
+
+\series bold
+CSC-707: NP-Complete Proof
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+%for single author (just remove % characters)
+\end_layout
+
+\begin_layout Standard
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+
+Jeffery L. Painter, Peter Savitsky, Saurabh Deshpande
+\newline
+ NCSU, Raleigh, NC
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+Graded by Matthew Fendt, Geoffrey Rogers, and Minh Tran, Total of -12 points
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Prove that the TSP (Traveling Salesman) problem is NP-Complete by reduction to the Hamiltonian Cycle problem. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+Reduce from HAMCYCLE to TSP, -2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+
+\newline
+
+\end_layout
+
+\begin_layout Standard
+
+Hamiltonian Cycle Problem: 
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Input:
+\family default
+\series default
+\shape default
+ An un-weighted graph G 
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+Output:
+\family default
+\series default
+\shape default
+ Does there exist a 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+em
+\end_layout
+
+\end_inset
+
+
+\series bold
+simple
+\family default
+\series default
+\shape default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ tour that visits every vertex of G without repetition? 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+repition of what? Edges? Vertices? -1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\newline
+ Prove that TSP is NP-Complete via reduction 
+\newline
+
+\end_layout
+
+\begin_layout Standard
+
+
+\series bold
+Step 1:
+\family default
+\series default
+\shape default
+ (Verification) Show that 
+\begin_inset Formula $TSP \in NP$
+\end_inset
+
+ 
+\newline
+
+\end_layout
+
+\begin_layout Standard
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ The TSP problem: 
+\begin_inset Formula $TSP = \{ <G, c, k> : G = (V, E) \text{ is a complete graph }, c \text{ is a function } V \times V \rightarrow Z, $
+\end_inset
+
+ 
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $k \in Z \text{ and } G \text{ has a traveling salesman tour with cost at most } k \}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Given a tour 
+\begin_inset Formula $h = (v_1, v_2, v_3, \cdots, v_n )$
+\end_inset
+
+ and a cost 
+\begin_inset Formula $k$
+\end_inset
+
+, we need to check for two conditions 
+\end_layout
+
+\begin_layout Enumerate
+
+The tour visits every city (vertex) in the graph and returns to the starting point 
+\end_layout
+
+\begin_layout Enumerate
+
+Cost 
+\begin_inset Formula $k$
+\end_inset
+
+ is not exceeded by the tour 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+also need to show no repition of vertices in h, -2
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+Pseudo-code: 
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ Part 1: --- O(n2) // identify that every city is visited for j = 1 ... |V|: vertexpresent = false for i = 1 ... n // test if present if ( h[i] contains vertex(j) ): vertexpresent = true if vertexpresent == false: fails to be a tour
+\end_layout
+
+\begin_layout Standard
+
+Part 2: --- O(1) // test that we end where we began if ( h[0] = h[n] ): validtour = true
+\end_layout
+
+\begin_layout Standard
+
+Part 3: --- O(n) // determine total cost for tour h cost = 0 for i = 0 ... (h-1): cost = cost + d( vi, v(i+1) ) if ( cost > k ): fails to be a tour of cost <= k 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ Therefore given a graph, we can decide if a tour has cost at most 
+\begin_inset Formula $k$
+\end_inset
+
+ in 
+\begin_inset Formula $T(n) = O(n^2)$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+what is n?, -1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+Therefore, TSP is verifiable in polynomial time. 
+\newline
+
+\end_layout
+
+\begin_layout Standard
+
+
+\series bold
+Step 2:
+\family default
+\series default
+\shape default
+ Reduction
+\end_layout
+
+\begin_layout Standard
+
+We will use the HAM-CYC problem which is known to be NP-Complete and show there exists a polynomial reduction to the TSP problem. 
+\newline
+ Let 
+\begin_inset Formula $G = (V,E)$
+\end_inset
+
+ be an input instance of the HAM-CYC problem with 
+\begin_inset Formula $|V|=n$
+\end_inset
+
+. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+Should be general instance of HAMCYCLE, not specific one, -5
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+Then we will construct a complete weighted graph 
+\begin_inset Formula $G' = (V, E')$
+\end_inset
+
+ such that if an edge 
+\begin_inset Formula $e_i \in E$
+\end_inset
+
+ then the weight of 
+\begin_inset Formula $e_i = 1$
+\end_inset
+
+ in 
+\begin_inset Formula $E'$
+\end_inset
+
+ and if the edge was not in 
+\begin_inset Formula $E$
+\end_inset
+
+ then the weight of 
+\begin_inset Formula $e_i = 2$
+\end_inset
+
+. 
+\newline
+ The reduction to TSP can be implemented in polynomial time 
+\begin_inset Formula $O(|V| \times |V|) = O(n^2)$
+\end_inset
+
+ 
+\newline
+ Pseudocode: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+begin{verbatim}
+\end_layout
+
+\end_inset
+
+ for i = 1 to |V| do for j = 1 to |V| do if ( i,j ) in E then w(i,j) = 1 else w(i,j) = 2 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+end{verbatim}
+\end_layout
+
+\end_inset
+
+ Therefore, 
+\begin_inset Formula $G = (V, E) \rightarrow T(n) = O(n^2) \rightarrow G' = (V, E')$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+
+\series bold
+Step 3:
+\family default
+\series default
+\shape default
+ Correctness
+\end_layout
+
+\begin_layout Standard
+
+
+\series bold
+Claim: 
+\family default
+\series default
+\shape default
+ The graph 
+\begin_inset Formula $G$
+\end_inset
+
+ has a Hamiltonian cycle if and only if there is a TSP tour of 
+\begin_inset Formula $G'$
+\end_inset
+
+ of weight exactly 
+\begin_inset Formula $n$
+\end_inset
+
+. 
+\newline
+ Suppose that the graph 
+\begin_inset Formula $G'$
+\end_inset
+
+ has a Hamiltonian cycle 
+\begin_inset Formula $h$
+\end_inset
+
+. Then each edge in 
+\begin_inset Formula $h$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $E$
+\end_inset
+
+ and has a cost associated with it of 1 in 
+\begin_inset Formula $G'$
+\end_inset
+
+. Also, by definition, every vertex in 
+\begin_inset Formula $V$
+\end_inset
+
+ is visited by the cycle 
+\begin_inset Formula $h$
+\end_inset
+
+. Thus, 
+\begin_inset Formula $h$
+\end_inset
+
+ is a tour in 
+\begin_inset Formula $G'$
+\end_inset
+
+ of cost 
+\begin_inset Formula $|V|=n$
+\end_inset
+
+. 
+\newline
+ Now suppose that the graph 
+\begin_inset Formula $G'$
+\end_inset
+
+ has a tour 
+\begin_inset Formula $h'$
+\end_inset
+
+ of cost exactly 
+\begin_inset Formula $n$
+\end_inset
+
+. Then, since the edges in 
+\begin_inset Formula $h'$
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+add{
+\end_layout
+
+\end_inset
+
+you defined h to be a sequence of vertices, not edges, -1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+}
+\end_layout
+
+\end_inset
+
+are found in 
+\begin_inset Formula $E'$
+\end_inset
+
+ and the total cost is exactly 
+\begin_inset Formula $n$
+\end_inset
+
+, then each edge in 
+\begin_inset Formula $h'$
+\end_inset
+
+ has cost 
+\begin_inset Formula $1$
+\end_inset
+
+. This means that every edge in 
+\begin_inset Formula $h'$
+\end_inset
+
+ is also in 
+\begin_inset Formula $E$
+\end_inset
+
+. And since the tour implies that every city is visited, we conclude that 
+\begin_inset Formula $h'$
+\end_inset
+
+ must also be a Hamiltonian cycle in graph 
+\begin_inset Formula $G$
+\end_inset
+
+. 
+\newline
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Standard
+
+
+\backslash
+qed
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

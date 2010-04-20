@@ -1,0 +1,232 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 1}: Functions, Sets, Proofs, Induction, Countability\\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} Both LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 AM, Tuesday, January 19, 2010}}\\
+\begin{enumerate}
+	\item Specify an estimate time spent (minutes) on each sub-problem (\textbf{optional}).
+	\item No penatly for skipping up to three (3) sub-problems at your choosing. 
+	%\item Problem 6 is \textbf{optional} and may win you \textbf{extra} points.
+	\item What sub-problems you would like us to discuss in class (\textbf{optional}). 
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}
+\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+	\item Prove of disprove the countability of each of the following sets:	
+	\begin{enumerate}
+		\item \rule{0.5 in}{1 pt} $S= \{f: N \to N$ $|$ $f$ is total and, $\forall i \in N,$ $f(i) \leq 2i \}$
+		\item \rule{0.5 in}{1 pt} The set of all finite sequences of natural numbers
+		\item \rule{0.5 in}{1 pt} The set of all subsets of a countable set
+		\item \rule{0.5 in}{1 pt} $S= \{1,3,5\}$
+		\item \rule{0.5 in}{1 pt} The set of all ordered pairs of integers
+	\end{enumerate}
+  
+  \textbf{Answers}:
+  
+  \begin{enumerate}
+		\item \textbf{We hope to discuss this sub-problem in the class}.
+		
+		For $S= \{f: N \to N$ $|$ $f$ is total and, $\forall i \in N,$ $f(i) \leq 2i \}$, every $x \in N$ maps to a finite subset of N: $$1 \rightarrow \{1,2\}, 2 \rightarrow \{1,2,3,4\}, \ldots, n \rightarrow \{1,2,3,\ldots,2*n\}, \ldots$$
+		Since the countable union of countable sets: $\bigcup_{\substack{j=1}}^{\infty} S_{j}$, $S_{j}$ is countable for $\forall j$, $S= \{f: N \to N$ $|$ $f$ is total and, $\forall i \in N,$ $f(i) \leq 2i \}$ is countable.
+		
+		\item The set of all finite sequences of natural numbers consists of 1-length sequences of $N$, 2-length sequences of $N$, \ldots, n-length sequences of $N$ and so on. All these n-length sequences of $N$, $n \in N$, are countable. Since the countable union of countable sets is countable, the set of all finite sequences of natural numbers is countable.
+		
+		\item The set of all subsets of a countable set is countable. \\ Assume a countable set $S=\{s_{1},s_{2},\ldots,s_{n},\ldots\}$, we can create a function to map a sequence $A = <a_{1},a_{2},\ldots,a_{n},\ldots>$ to a subset of $S$. For example, given a subset $S'$ of $S$, if $s_{1} \notin S'$, then $a_{1} = 0$ in the corresponding sequence $A'$ for $S'$. This function maps the countable set ``sequence of $S$''  onto the set of all subsets of a countable set S. Thus, the set of subsets of a countable set is countable.
+		
+		\item $S= \{1,3,5\}$ is countable since $|S|$ is finite, which is 3.
+		
+		\item 
+		I provide two solutions to it:
+			
+\begin{enumerate}
+  \item The set of all ordered pairs of integers is the cross-product of the set of integers, $Z \times Z$. Since the set of integers, $Z$, is coutable and $\prod_{j=1}^{\infty}S_{j}$ is countable for $\forall j$, $Z \times Z$ is countable. Thus, the set of all ordered pairs of integers is countable.
+	\item I use a function that is similar to the one that counts the ordered pairs of natural numbers. For an ordered pair of integers, $(i,j)$, I can compute their absolute values, $(|i|,|j|)$, and use the function $\frac{(|i|+|j|-2)(|i|+|j|-1)}{2} + |i|$ to compute the corresponding mapping value $k$. In this way, we can map the $k$ value of the integer pairs, $(i,j), i > 0, j > 0$, to $4k + 1$, the $k$ value of the integer pairs, $(i,j), i < 0, j > 0$, to $4k + 2$, the $k$ value of the integer pairs, $(i,j), i < 0, j < 0$, to $4k + 3$, and the $k$ value of the integer pairs, $(i,j), i > 0, j < 0$, to $4k + 3$. First I construct a function $f(i,j): Z \rightarrow N, i \in Z, j \in Z, i \neq 0, j \neq 0$:
+		
+\begin{equation*}
+f(i,j) = \left\{
+\begin{array}{rl}
+f(i,j) = 4 * \left(  \frac{(|i|+|j|-2)(|i|+|j|-1)}{2} + |i|\right) + 1 \text{  if } i > 0, j > 0\\
+f(i,j) = 4 * \left(  \frac{(|i|+|j|-2)(|i|+|j|-1)}{2} + |i|\right) + 2 \text{  if } i < 0, j > 0\\
+f(i,j) = 4 * \left(  \frac{(|i|+|j|-2)(|i|+|j|-1)}{2} + |i|\right) + 3 \text{  if } i < 0, j < 0\\
+f(i,j) = 4 * \left(  \frac{(|i|+|j|-2)(|i|+|j|-1)}{2} + |i|\right) + 4 \text{  if } i > 0, j < 0\\
+\end{array} \right.
+\end{equation*}	
+
+	Our new function use the same function to compute the corresponding mapping value $k$ by replacing $i,j$ with $|i|,|j|$ and map $(i,j)$ to $4k+x$ based on which quadrant $(i,j)$ belong to. Since the function $f(i,j) = \frac{(i+j-2)(i+j-1)}{2} + i, i \in N, j \in N$ is bijection, our function is also bijection. Thus, the ordered pairs of $(i,j),i \in Z, j \in Z, i \neq 0, j \neq 0$ is countable. I can constuct the whole ordered pairs of integers by unioning the finite set of ordered pairs $(i,j),i \in Z, j \in Z, i = 0 \text{ or } j = 0$. Since both sets are countable, their union is countable, too. 
+\end{enumerate}
+		
+	
+	\end{enumerate}
+	
+
+	
+	\item Define the contrapositive (NOT) for each of the two statements:
+	
+	\begin{enumerate}
+		\item \rule{0.5 in}{1 pt} $A$ AND (NOT $B$) $\to$ $C$ OR (NOT $D$)
+		\item \rule{0.5 in}{1 pt} $\exists p:$ $\forall x \in L$ $\exists$ $u,v,w$ such that:
+			\begin{enumerate}
+			\item $x=uvw$
+			\item $|uv| \le p$
+			\item $|v|>0$
+			\item $\forall k \geq 0,$ $uv^kw \in L$
+		\end{enumerate}
+	\end{enumerate}
+	
+	\textbf{Answer}:
+	\begin{enumerate}
+	\item  (NOT $C$) AND D $\to$ (NOT $A$) OR $B$
+	\item $\forall p:$ $\exists x \in L$ $\forall$ $u,v,w$ such that:
+			\begin{enumerate}
+			\item $x\neq 	uvw$ OR
+			\item $|uv| > p$ OR
+			\item $|v|\le 0$ OR
+			\item $\exists k \geq 0,$ $uv^kw \notin L$
+		\end{enumerate}
+	\end{enumerate}
+	
+
+	\item Correct (if necessary) each of the following claims and prove the claims:
+	\begin{enumerate}
+	\item \rule{0.5 in}{1 pt} For $\forall x,$ $2^x \geq x^2$
+	\item \rule{0.5 in}{1 pt} There is no pair of integers $a$ and $b:$ $a\bmod b = b\bmod a$
+	\item \rule{0.5 in}{1 pt} $\sum\limits_{i = 0}^n {i^3 }  = \left( {\sum\limits_{i = 0}^n i } \right)^2 $
+	\end{enumerate}
+	
+	\textbf{Answer}:
+	\begin{enumerate}
+	\item The claim, $\forall x,$ $2^x \geq x^2$, is not correct: When $x$ = -2, $2^x = \frac{1}{4} < x^2 = 4$. \\
+	The corrected claim is: $\forall x \geq 4, 2^x \geq x^2$. \\
+	\textbf{Prove}:
+	First I use induction to prove $2^{x} \geq 2x + 1, \forall x \geq 4$. \\
+	When $x = 4, 2^{x} = 16, 2x + 1 = 9, 2^{x} \geq 2x + 1$ \\
+	Assume $x > 4, 2^{x} \geq 2x + 1$, then we have: \\
+	$ 2^{x + 1} = 2*2^{x} \geq 2x + 1 + 2 = 2(x+1) + 1 $
+	Thus, $2^{x} \geq 2x + 1, \forall x \geq 4$. \\
+	Then I use induction to prove $\forall x \geq 4, 2^x \geq x^2$:
+	When $x = 4, 2^{x} = 16, x^{2} = 16, 2^{x} \geq 2x + 1$ \\
+	Assume $x > 4, 2^{x} \geq x^{2}$, then we have: \\
+	$ 2^{x + 1} = 2*2^{x} \geq x^{2} + 2x + 1 = (x+1)^{2} \Rightarrow 2^{x + 1} \geq (x+1)^2 $ \\
+	Thus, $2^{x} \geq 2x + 1, \forall x \geq 4$.
+	
+	\item The claim, there is no pair of integers $a$ and $b:$ $a\bmod b = b\bmod a$, is not correct. 
+		
+	\textbf{Prove}:
+	If $a=b$, then $a\bmod b = 0, b\bmod a = 0$ and $a\bmod b = b\bmod a$, which means the claim is not correct. Therefore, the claim should be changed to: there is no pair of distinct non-zero integers $a$ and $b$ : $a\bmod b = b\bmod a$. Prove: When $ab = 0$, $a \bmod b$, $b \bmod a$, or both $a \bmod b$ and $b \bmod a$ is invalid since the modulo can not be 0. When $ab < 0$, then $(a \bmod b)*(b \bmod a) < 0$ and $(a \bmod b) \neq (b \bmod a)$. When $ab > 0$ and assume $|a| > b$, $b \bmod a = b$ and $a \bmod b \neq b$. Therefore, the claim, there is no pair of distinct non-zero integers $a$ and $b$ : $a\bmod b = b\bmod a$, is correct.
+		
+	\item Prove: The sum of cubes can be represented as: $\sum\limits_{i = 0}^n {i^3 }  = \frac{n^{2}*(n+1)^{2}}{4}$. Since ${\sum\limits_{i = 0}^n i } = \frac{n*(n+1)}{2}$, $\left( {\sum\limits_{i = 0}^n i } \right)^2 = (\frac{n*(n+1)}{2})^{2} = \frac{n^{2}*(n+1)^{2}}{4}$ , $\sum\limits_{i = 0}^n {i^3 }  = \left( {\sum\limits_{i = 0}^n i } \right)^2 $. The claim is correct. 
+	\end{enumerate}
+	
+	\item Prove or disprove each of the following claims:
+	\begin{enumerate}
+	\item \rule{0.5 in}{1 pt} $\sqrt 2$ is a rational number 
+	\item \rule{0.5 in}{1 pt} Any even number is composite (i.e. not prime)
+	\end{enumerate}
+
+	\textbf{Answer}:
+	\begin{enumerate}
+	\item Disprove: Assume $\sqrt{2}$ is a rational number. Thus, we can have: $\sqrt{2}=\frac{a}{b}$ such that $a$ and $b$ do not have common divisor. From $\sqrt{2}=\frac{a}{b}$, we can have: $2=\frac{a^{2}}{b^{2}}$, from which we can further get $a^{2}=2*b^{2}$. Then we know $a^{2}$ is an even number and $a$ must be an even number, since the square of an odd number can not be an even number. Knowing that $a$ is an even number, we can replace $a$ with $2*k$ and we have: $4*k^{2}=2*b^{2}$ $\Rightarrow$ $b^{2} = 2*k^{2}$, which means that $b$ is also an even number. If $a$ and $b$ are both even numbers, then they have a common divisor, 2, which means that we have a conflict with our assumption that $a$ and $b$ do not have common divisor. Therefore, $\sqrt{2}$ is not a rational number.
+	\item Disprove: 2 is an even number since it can be divided by itself. 2 is also a prime number since it has exactly two distinct natural number divisors, 1 and 2. Thus, not every even number is composite. 	
+	\end{enumerate}
+
+	\item State (without proof) if a definition is \textsl{one-to-one}, \textsl{onto}, or a \textsl{bijection}.
+	\begin{enumerate}
+	\item \rule{0.5 in}{1 pt} $f: Z \to Z$ $|$ $f(i) = |i|$ 
+	\item \rule{0.5 in}{1 pt} $f: N \to \{0,1,2,3\}$ $|$ $f(i) \equiv i\bmod 4$
+	\item \rule{0.5 in}{1 pt} $f: \{1,2,3\} \to \{1,2,3\}$ $|$ $f(1)=3$, $f(2)=1$, $f(3)=2$, $f(2)=3$
+	\end{enumerate}
+	
+	\textbf{Answer}:
+	
+	\begin{enumerate}
+	\item $f: Z \to Z$ $|$ $f(i) = |i|$ is not \textsl{one-to-one}, \textsl{onto}, or a \textsl{bijection}.
+	\item $f: N \to \{0,1,2,3\}$ $|$ $f(i) \equiv i\bmod 4$ is \textsl{onto}.
+	\item $f: \{1,2,3\} \to \{1,2,3\}$ $|$ $f(1)=3$, $f(2)=1$, $f(3)=2$, $f(2)=3$ is \textsl{onto}.
+	\end{enumerate}
+	
+	\item \textbf{The ugly proof}.
+	\begin{enumerate}
+	\item Choose any of the above sub-problems.
+	\item Provide an \textbf{ugly} solution to this sub-problem.
+	\end{enumerate}
+	The `\textbf{ugliest solution}' is the one that contains either \textsl{common} or \textsl{hard-to-catch} mistakes. 
+	The more mistakes the better, but the \textsl{elegancy} of the mistakes will be valued higher.
+	
+	\textbf{Answers}:
+	
+\begin{enumerate}
+	\item I choose problem 1(c): prove or disprove the set of all subsets of a countable set.
+	\item The set of all subsets of a countable set is countable. A subset of a countable set is countable and the set of all subsets of a countable set can be viewed as the countable union of its subsets. Since the coutable union of countable sets: $\bigcup _{j=1}^{\infty}S_j$ is countable for $\forall j$, the set of all subsets of a countable set is countable. 
+	
+	\textbf{The problem of this ugly proof is: the union of all its subsets equals itself.}
+\end{enumerate}
+	
+\end{enumerate}
+
+\end{document}

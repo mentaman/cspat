@@ -1,1 +1,17 @@
-\section{fuzzing}
+\section{Grammar-based Whitebox Fuzzing Using Symbolic Execution}
+Whitebox fuzzing~\cite{fuzzing} executes the program under test with an initial, well-structured input, both concretely and symbolically. Along the execution, symbolic execution collects constraints on program inputs from the predicates in the conditional statements. The conjunction of these constraints of a execution path form an expression, called path condition. Satisfying the negation of each constraint in the path condition defines new inputs that exercise different control paths. Whitebox fuzzing repeats this process for the newly created inputs, with the goal of exercising many different control paths of the program under test and finding defects as fast as possible using various search heuristics. In practice, the search is usually incomplete because the number of feasible control paths grows exponentially with number of conditional statements in the program under test and because the precision of symbolic execution, constraint generation and solving is inherently limited. However, whitebox fuzzing has been shown to be very effective in finding new security vulnerabilities in several applications.
+
+In practice, the current effectiveness of whitebox fuzzing is limited when testing applications with highly structured
+inputs, e.g., compilers and interpreters. These applications process their inputs in stages, such as lexing, parsing and evaluation. Because of the enormous number of control paths in early processing stages, whitebox fuzzing rarely reaches parts of the application beyond these first stages. For instance, there are many possible sequences of blank-spaces/tabs/carriagereturns/etc. separating tokens in most structured languages, each corresponding to a different control path in the lexer. In addition to path explosion, symbolic execution may fail already in the first processing stages. For instance, lexers often detect language keywords by comparing their pre-computed, hard-coded hash values with the hash values of strings read from the input; this effectively prevents symbolic execution and constraint solving from ever generating input strings that match those keywords, since hash functions cannot be inversed (i.e., given a constraint x == hash(y) and a value for x, one cannot compute a value for y that satisfies this constraint).
+
+In \cite{grammar}, Godefroid et al. propose a new approach, called \textit{grammar-based whitebox fuzzing}, which enhances whitebox fuzzing with a grammar-based specification of valid inputs. They present a dynamic test generation algorithm where symbolic execution directly generates grammar-based constraints whose satisfiability is checked using a custom grammar-based constraint solver. Their algorithm consists of two key components:
+
+\begin{enumerate}
+\item Generation of higher-level symbolic constraints, expressed in terms of symbolic grammar tokens returned by the
+lexer, instead of the traditional~\cite{dart,exe,fuzzing} symbolic bytes read as input.
+	
+\item A custom constraint solver that solves constraints on symbolic grammar tokens. The solver looks for solutions
+that satisfy the constraints and are accepted by a given (context-free) grammar.
+\end{enumerate}
+
+

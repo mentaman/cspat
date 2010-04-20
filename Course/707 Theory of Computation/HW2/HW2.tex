@@ -1,0 +1,106 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 2}: Complexity Theory, polynomial time reduction, P vs NP, NP-hard and NP-complete problems. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Thursday, February 11, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+	\item Let $\sum$ denote $\{0,1\}$. Let $\propto $ denote polynomial-time reducibility. A set $L \subseteq \sum^*$ is $P$-complete if $L \in P$ and $M \propto L$ for all $M$, where $M \subseteq \sum^*$ and $M \in P$.
+	\begin {enumerate}
+	\item Show that $\emptyset$ and $\sum^*$ are not $P$-complete.
+	\item Show that if $L \in P$ and $\emptyset \neq L \neq \sum^*$, then $L$ is  $P$-complete.  
+	\end{enumerate}
+
+
+  \item Show that the Vertex Cover remains $NP$-complete even when all the vertices in the graph 	are restricted to have even degree.\\
+  Vertex Cover is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Is there a subset $V' \subseteq V$ such that $|V'| \leq k$, and for each edge $\{u,v\} \in E$ at least one of $u$ and $v$ belongs to $V'$?
+  
+	\item Show that the Set Cover problem is $NP$-complete using the reduction from Vertex Cover.\\
+  Set Cover problem is defined as follows:\\
+  INSTANCE: A set $X$ of $n$ elements, a family $F$ of subsets of $X$, and a positive integer $k$.\\
+  QUESTION: Is there a set $k$ or fewer subsets from $F$  whose union is $X$?\\
+  For example, if $X=\{1,2,3,4\}$ and $F=\{\{1,2\}, \{2,3\}, \{4\}, \{2,4\}\}$, a solution does NOT exist for $k=2$ but does exist for $k=3$ (e.g., $\{\{1,2\}, \{2,3\}, \{4\}\}$.
+  
+  	\item The Independent Set problem is defined as follows.\\
+  Set Cover problem is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Does $G$ contain an indepenent set of size $k$ or more, i.e., a subset $V' \subseteq V$ and  $|V'| \geq k$ such that no two vertices in $V'$ are joined by an edge in $E$?\\
+  Suppose you are given a graph, $G=(V,E)$, and an integer $k$ as input with $|V|=n$. And suppose you are given an algorithm, $D$, that solves the decision version of the Independent Set problem in time $T(n,k)$.
+  	\begin {enumerate}
+	\item Use $D$ to find the size of the maximum independent set, and state the time complexity involved.
+	\item Use $D$ in a self-reduction to solve the search version of the independent set problem, and state the time complexity involved.  
+	\end{enumerate}
+	\end{enumerate}
+
+\end{document}

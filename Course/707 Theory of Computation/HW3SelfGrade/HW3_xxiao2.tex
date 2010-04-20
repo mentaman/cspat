@@ -1,0 +1,121 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+
+\usepackage{color, ulem}
+\definecolor{dkgreen}{rgb}{0, 0.75, 0}
+\definecolor{dkred}{rgb}{0.5, 0, 0}
+\definecolor{dkpurp}{rgb}{0.25, 0, 0.5}
+\newcommand{\add}[1]{\textcolor{dkgreen}{#1}}
+\newcommand{\rmv}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\moveto}[1]{\textcolor{blue}{#1}}
+\newcommand{\movefrom}[1]{\textcolor{blue}{\sout{#1}}}
+\newcommand{\highlighttext}[1]{\colorbox{yellow}{#1}}
+\newenvironment{added}{\color{dkgreen}}{\color{black}}
+\newenvironment{removed}{\color{red}}{\color{black}}
+\newenvironment{edited}{\color{blue}}{\color{black}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 3}: Self-reduction and Approximability. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Thursday, February 18, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+	\add{	My points: 8.25 out of 10}
+
+\begin{enumerate}
+
+%---------- PROBLEM 4 --------------
+	\item \textbf{Approximability}: 
+	\begin{enumerate}
+	\item  If $P \neq NP$, then for any constant $c \geq 1$, there is no polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem. (Hint: Show that HAM-CYCLE can be solved in polynomial time. Also, see the additional hint in the lecture slides.)
+	
+		\end{enumerate}
+		
+		\add{
+		\begin{theorem}
+		If $P \neq NP$, then for any constant $c \geq 1$, there is no polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem.
+		\end{theorem}	
+		-0.5 Pt: I must clearly state the theorem I want to prove.	
+		}		
+		
+		\rmv{
+		\textbf{Solution:}
+		}	
+		\begin{proof}
+\begin{enumerate}
+	\item 
+\begin{enumerate}
+	\item We first prove that HAM-CYCLE problem can be solved by using the $c$-approximation algorithm for a general Traveling Salesman Problem. Given a undirected and unweighted graph $G$, we can create a complete graph $G'$ of $G$ by adding missing edges and assign weight to each edge. For the edges in $G$, we assign 1 for the weight. For the edges not in $G$, we assign $c*|V| + 1$ for the weight. This reduction can be done in polynomial time ($O(|V|*|E|)$). \add{(-1 Pt: Since $|E|=O(|V|^2)$, the reduction is $O(n^3)$)} Using the $c$-approximation algorithm for TSP, we can get a TSP tour of weight $W$. If $W > c*|V|$, then we know this tour pick at least one edge that is not in $G$ (since every edge in $G$ is assigned weight of 1) and $G$ does not have HAM-CYCLE. Otherwise, $G$ has a HAM-CYCLE.
+  \item  Since the reduction from HAM-CYCLE to TSP is in polynomial time, if there exists a polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem, HAM-CYCLE can be solved in polynomial time. We already know that \rmv{HAM-CYCLE $\in NP$} \add{-0.25 Pt: HAM-CYCLE is $NP-complete$ problem}. If it can be solved in polynomial time, then $P=NP$, which contradicts with \rmv{out} \add{our} assumption that $P \neq NP$. Thus, there is no polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem. 
+\end{enumerate}
+\end{enumerate}
+		\end{proof}
+		
+		\end{enumerate}
+\end{document}

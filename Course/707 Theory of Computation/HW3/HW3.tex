@@ -1,0 +1,179 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC707, Automata, Computability and Computational Theory\\
+\textbf{Homework 3}: Self-reduction and Approximability. \\
+\textbf{Submission:} Use Wolfware\\
+\textbf{File Format:} LaTeX and PDF\\
+\end{flushleft}
+
+\begin{center}
+\fbox{\textbf{Due Date:} \textbf{2:00 A.M. (EST), Thursday, February 18, 2010}}\\
+\begin{enumerate}
+	\item Provide any feedback/questions you may have on this homework (\textbf{optional}).
+	\item Using LaTeX is required.
+\end{enumerate}\end{center}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+
+	\item \textbf{Self-reducibility}: Let $G$ denote a finite, simple, undirected graph. Let $k$ denote an arbitrary, positive integer.
+	\begin{enumerate}
+	\item  Reduce the problem of finding a coloring of $G$ with $k$ or fewer colors to the problem of deciding whether such a coloring exists.
+	\textbf{Solution:}
+	
+	Given a graph $G$ and a decision version of algorithm, $D$, that solves the problem of k-coloring in a graph\\
+\begin{enumerate}
+  \item mark all the vertices in $G$ white
+	\item call $D(G,k)$, if answer ``no'', output empty and stop; 
+	\item construct a clique of size $k$, and color the vertices in the clique with different colors (except white)
+	\item pick any vertex $v$ is colored white, connect $v$ with $k-1$ vertices in the clique
+	\item call $D(G,k)$, if answer ``no'', connect $v$ with other $k-1$ vertices in the clique, repeat step iv.
+	\item if answer ``yes'', mark $v$ with the color of the vertex in the clique that is not connected with $v$. 
+	\item repeat step iv until all the vertices are not colored white
+\end{enumerate}
+
+  After these steps, every vertex in $G$ will be colored.
+	
+	
+	\item Reduce the problem of finding a vertex cover of size $k$ in polynomial time to the problem of deciding whether such a cover exists in polynomial time.
+	
+  Given a graph $G$ and a decision version of algorithm, $D$, that solves the problem of vertex cover in a graph\\
+		
+	\begin{enumerate}
+	\item call $D(G,k)$, if answer ``no'', output empty and stop; 
+	\item construct $G'$: add vertex $v_{new}$ to $G$; pick vertex $v$ that has not been marked, add an edge $(v,v_{new})$ to $G$
+	\item call $D(G,k)$
+	\item if answer ``yes'', mark $v$ as the vertex in the vertex cover, $G=G'$ and repeat step ii
+	\item if answer ``no'', remove $v_{new}$ and the new edge ($v_{new}$,$v$) from $G$, and repeat step ii
+\end{enumerate}
+ 
+  After these steps, every vertex in vertex cover of $G$ will be marked.
+
+	 \item The Independent Set problem is defined as follows. (Problem 4 from HW2)\\
+  Set Cover problem is defined as follows:\\
+  INSTANCE: A graph $G=(V,E)$ and a positive integer $k \leq |V|$.\\
+  QUESTION: Does $G$ contain an indepenent set of size $k$ or more, i.e., a subset $V' \subseteq V$ and  $|V'| \geq k$ such that no two vertices in $V'$ are joined by an edge in $E$?\\
+  Suppose you are given a graph, $G=(V,E)$, and an integer $k$ as input with $|V|=n$. And suppose you are given an algorithm, $D$, that solves the decision version of the Independent Set problem in time $T(n,k)$.
+  	\begin {enumerate}
+	\item Use $D$ to find the size of the maximum independent set, and state the time complexity involved.
+	\item Use $D$ in a self-reduction to solve the search version of the independent set problem, and state the time complexity involved.  
+	\end{enumerate}
+
+\textbf{Solution:}
+
+\begin{enumerate}
+	\item Use $D$ to find the size of the maximum independent set:\\
+	Given a graph $G$,
+	
+	for k = n to 1\\
+	\hspace*{0.2in} call $D(G,k)$\\
+	\hspace*{0.2in} if $D(G,k)$ answer ``yes'' , then output $k$ and stop \\
+	
+	Since in the worse case, we call $D$ $n=|V|$ times, the time complexity is $T'(n,k)=O(n*T(n,k))$
+	
+	\item Use $D$ in a self-reduction to solve the search version of the independent set problem:\\
+	Given a graph $G=(V,E)$\\
+	
+	call $D(G,k)$
+	if $D(G)$ answer ``no'', then output empty and stop
+	else \\
+	\hspace*{0.1in} while $G$ is not empty and $k > 0$ \\
+	\hspace*{0.2in} pick any $v \in V$\\
+	\hspace*{0.2in} construct $G'$ by removing $v$ from $V$\\
+	\hspace*{0.2in} call $D(G',k)$\\
+	\hspace*{0.2in} if $D(G',k)$ answer ``yes'', $G=G'$\\
+	\hspace*{0.2in} else add $v$ to IS, $k=k-1$, \\
+	\hspace*{0.5in} construct $G''$ by removing $v$ and its neighbor vertices \\
+	\hspace*{0.5in} $G=G''$ \\
+	\hspace*{0.1in} output IS and stop\\
+	
+	Since in the worse case, we need to call $D$ $n=|V|$ times, and construct $G'$ or $G''$ requires $O(|V|+|E|)$, the time complexity is 
+	$T'(n,k)=O(n*T(n,k)+|V|+|E|)$
+	
+\end{enumerate}
+	
+	\end{enumerate}
+
+%---------- PROBLEM 4 --------------
+	
+	\item \textbf{Approximability}: 
+	\begin{enumerate}
+	\item  If $P \neq NP$, then for any constant $c \geq 1$, there is no polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem. (Hint: Show that HAM-CYCLE can be solved in polynomial time. Also, see the additional hint in the lecture slides.)
+	
+		\end{enumerate}
+		
+		\textbf{Solution:}
+\begin{enumerate}
+	\item 
+	
+\begin{enumerate}
+	\item We first prove that HAM-CYCLE problem can be solved by using the $c$-approximation algorithm for a general Traveling Salesman Problem. Given a undirected and unweighted graph $G$, we can create a complete graph $G'$ of $G$ by adding missing edges and assign weight to each edge. For the edges in $G$, we assign 1 for the weight. For the edges not in $G$, we assign $c*|V| + 1$ for the weight. This reduction can be done in polynomial time ($O(|V|*|E|)$). Using the $c$-approximation algorithm for TSP, we can get a TSP tour of weight $W$. If $W > c*|V|$, then we know this tour pick at least one edge that is not in $G$ (since every edge in $G$ is assigned weight of 1) and $G$ does not have HAM-CYCLE. Otherwise, $G$ has a HAM-CYCLE.
+  \item Since the reduction from HAM-CYCLE to TSP is in polynomial time, if there exists a polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem, HAM-CYCLE can be solved in polynomial time. We already know that HAM-CYCLE $\in NP$. If it can be solved in polynomial time, then $P=NP$, which contradicts with out assumption that $P \neq NP$. Thus, there is no polynomial-time $c$-approximation algorithm for a general Traveling Salesman Problem. 
+\end{enumerate}
+	
+	
+	
+	
+	
+\end{enumerate}
+		\end{enumerate}
+
+\end{document}
