@@ -29,4 +29,13 @@ The algorithm Hampi uses to create regular expressions that specify the set of s
 	\item Remove $\epsilon$ productions.
 	\item Take the following steps to construct the regular expression that encodes all fixed size strings of the grammar: (i) precompute the shortest and longest size of the string that can be generated from every nonterminal(i.e. upper bound and lower bound). (ii) given a size $n$ and a nonterminal $N$, examine all the possible productions for $N$. For each $N\rightarrow S_1S_2...S_k$, where each $S_i$ could be nonterminal or terminal, enumerate all possible partitions of $n$ characters to $k$ grammar symbols. Then, create sub-expressions recursively and combine the sub-expressions together with a concatenation operator. Memoization the intermediate results makes this process scalable. 
 \end{enumerate}   
-The next phase of Hampi is to encode the core string constraints as fomulas in the logic of fixed-size bit-vectors. A bit-vector is fixed size, ordered list of bits. The fragment of bit vector logic that is used by Hampi contains standard boolean operations, extracting sub-vectors, and comparing bit vectors. Hampi asks STP for a satisfying assignment to the resulting bit-vector formula. If STP found one, Hampi decodes it and produce a string solution for the input constraints, otherwise Hampi will terminate and report that the string constraints is not satisfiable.
+The next phase of Hampi is to encode the core string constraints as fomulas in the logic of fixed-size bit-vectors. A bit-vector is fixed size, ordered list of bits. The fragment of bit vector logic that is used by Hampi contains standard boolean operations, extracting sub-vectors, and comparing bit vectors. Hampi asks STP for a satisfying assignment to the resulting bit-vector formula. If STP found one, Hampi decodes it and produce a string solution for the input constraints, otherwise Hampi will terminate and report that the string constraints is not satisfiable. The encode procedure is as follows:
+\begin{enumerate}
+	\item The constant string values are enforced by Hampi as relevant elements of the bit-vector variable.
+	\item Hampi encodes the union operator(+) as a disjunction in the bit-vector logic.
+	\item Hampi encodes the concatenation operator by enumerating all possible distributions of the characters to the sub-expressions, encoding the sub-expression recursively, and combining the sub-formulas in a conjunction.
+	\item The Kleene Star will be encoded similarly to concatenation.
+	\item After STP finds a solution to the bit-vector formula (if exists), Hampi decodes the solution by reading 8-bit sub-vectors as consecutive ASC2 characters.
+	 
+
+\end{enumerate}

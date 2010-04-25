@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.15)  24 APR 2010 23:25
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=latex 2010.1.15)  25 APR 2010 00:02
 entering extended mode
 **main.tex
 ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.tex"
@@ -99,19 +99,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 10.
 
-[2]) ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\fuzzing.tex")
+[2]) ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\fuzzing.tex"
+[3])
 ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\symbolicgrammar.tex
 ") ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\history.tex")
-[3] ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.bbl"
-[4]) [5] ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.aux")
- ) 
+("C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.bbl" [4])
+[5] ("C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.aux") ) 
 Here is how much of TeX's memory you used:
  725 strings out of 495286
  9761 string characters out of 3180363
- 61982 words of memory out of 3000000
+ 60982 words of memory out of 3000000
  3948 multiletter control sequences out of 15000+200000
  10834 words of font info for 32 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  25i,8n,19p,1446b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.dvi (5 pages, 30640 bytes).
+Output written on main.dvi (5 pages, 31828 bytes).
