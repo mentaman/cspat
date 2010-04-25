@@ -20,3 +20,13 @@ Reg is the declaration of regular language. Regular languages are defined as fol
 Vals are temporary variables that act as shortcuts for expressing constraints on expressions that are concatenations of the string varibles and constants.
 
 Assert is the key word that used by Hampi to express the membership of strings in regular languages.
+
+After parsing all the Hampi input, Hampi normalize the string constraints into core form. The core string constraints are an internal intemediate representation that is easier to be encoded into bit-vector logic than raw Hampi input is. A core string constraints specifies membership in a regular language. A core string constraint is expressed in the form $StrExp\in RegExp or StrExp\notin RegExp$, where $StrExp$ is an expression composed of concatenations of string constants and occurrences of the string variable, and $RegExp$ is a regular expression.
+
+The algorithm Hampi uses to create regular expressions that specify the set of strings of fixed length that are derivable from the context free grammar:
+\begin{enumerate}
+	\item Expand all special symbols in the grammar, like repitition, option, character range.
+	\item Remove $\epsilon$ productions.
+	\item Take the following steps to construct the regular expression that encodes all fixed size strings of the grammar: (i) precompute the shortest and longest size of the string that can be generated from every nonterminal(i.e. upper bound and lower bound). (ii) given a size $n$ and a nonterminal $N$, examine all the possible productions for $N$. For each $N\rightarrow S_1S_2...S_k$, where each $S_i$ could be nonterminal or terminal, enumerate all possible partitions of $n$ characters to $k$ grammar symbols. Then, create sub-expressions recursively and combine the sub-expressions together with a concatenation operator. Memoization the intermediate results makes this process scalable. 
+\end{enumerate}   
+The next phase of Hampi is to encode the core string constraints as fomulas in the logic of fixed-size bit-vectors. A bit-vector is fixed size, ordered list of bits. The fragment of bit vector logic that is used by Hampi contains standard boolean operations, extracting sub-vectors, and comparing bit vectors. Hampi asks STP for a satisfying assignment to the resulting bit-vector formula. If STP found one, Hampi decodes it and produce a string solution for the input constraints, otherwise Hampi will terminate and report that the string constraints is not satisfiable.
