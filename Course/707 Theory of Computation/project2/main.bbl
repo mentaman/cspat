@@ -80,6 +80,14 @@ M.~Harman and P.~McMinn.
   climbing for structural test data generation.}
 \newblock In {\em ISSTA}, 2007.
 
+\bibitem{hampi}
+Adam Kiezun, Vijay Ganesh, Philip~J. Guo, Pieter Hooimeijer, and Michael~D.
+  Ernst.
+\newblock Hampi: a solver for string constraints.
+\newblock In {\em ISSTA '09: Proceedings of the eighteenth international
+  symposium on Software testing and analysis}, pages 105--116, New York, NY,
+  USA, 2009. ACM.
+
 \bibitem{symbolic}
 James~C. King.
 \newblock Symbolic execution and program testing.
