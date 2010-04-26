@@ -25,6 +25,13 @@ S\'{e}bastien Bardin and Philippe Herrmann.
 \newblock {Pruning the Search Space in Path-Based Test Generation}.
 \newblock In {\em ICST}, 2009.
 
+\bibitem{pathfeasibility}
+Nikolaj Bj{\o}rner, Nikolai Tillmann, and Andrei Voronkov.
+\newblock Path feasibility analysis for string-manipulating programs.
+\newblock In {\em TACAS '09: Proceedings of the 15th International Conference
+  on Tools and Algorithms for the Construction and Analysis of Systems}, pages
+  307--321, Berlin, Heidelberg, 2009. Springer-Verlag.
+
 \bibitem{select}
 Robert~S. Boyer, Bernard Elspas, and Karl~N. Levitt.
 \newblock {SELECT--a formal system for testing and debugging programs by
@@ -54,6 +61,26 @@ Lori~A. Clarke.
 \newblock {A System to Generate Test Data and Symbolically Execute Programs}.
 \newblock {\em TSE}, 1976.
 
+\bibitem{database}
+Michael Emmi, Rupak Majumdar, and Koushik Sen.
+\newblock Dynamic test input generation for database applications.
+\newblock In {\em ISSTA '07: Proceedings of the 2007 international symposium on
+  Software testing and analysis}, pages 151--162, New York, NY, USA, 2007. ACM.
+
+\bibitem{injection}
+Xiang Fu, Xin Lu, Boris Peltsverger, Shijun Chen, Kai Qian, and Lixin Tao.
+\newblock A static analysis framework for detecting sql injection
+  vulnerabilities.
+\newblock In {\em COMPSAC '07: Proceedings of the 31st Annual International
+  Computer Software and Applications Conference}, pages 87--96, Washington, DC,
+  USA, 2007. IEEE Computer Society.
+
+\bibitem{STP}
+Vijay Ganesh.
+\newblock {\em Decision procedures for bit-vectors, arrays and integers}.
+\newblock PhD thesis, Stanford, CA, USA, 2007.
+\newblock Adviser-Dill, David L.
+
 \bibitem{grammar}
 P.~Godefroid, A.~Kiezun, and M.~Levin.
 \newblock Grammar-based whitebox fuzzing.
@@ -79,6 +106,11 @@ M.~Harman and P.~McMinn.
 \newblock {A theoretical \& empirical analysis of evolutionary testing and hill
   climbing for structural test data generation.}
 \newblock In {\em ISSTA}, 2007.
+
+\bibitem{theorybook}
+J.~Hopcroft and J.~Ullman.
+\newblock {\em Introduction to automata theory languages and computation.}
+\newblock Addison-Wesley Series in Computer Science, 1979.
 
 \bibitem{hampi}
 Adam Kiezun, Vijay Ganesh, Philip~J. Guo, Pieter Hooimeijer, and Michael~D.
@@ -126,7 +158,7 @@ M.~Levin P.~Godefroid and D.~Molnar.
 
 \bibitem{fuzz}
 M.~Y.~Levin P.~Godefroid and D.Molnar.
-\newblock {Automated Whitebox Fuzz Testing}.
+\newblock {Automated Whitebox Fuzz Testing.}
 \newblock In {\em NDSS}, 2008.
 
 \bibitem{extenjpf}
@@ -139,10 +171,24 @@ Koushik Sen, Darko Marinov, and Gul Agha.
 \newblock Cute: a concolic unit testing engine for c.
 \newblock In {\em ESEC/FSE}, 2005.
 
+\bibitem{stringanalysis}
+Daryl Shannon, Sukant Hajra, Alison Lee, Daiqian Zhan, and Sarfraz Khurshid.
+\newblock Abstracting symbolic execution with string analysis.
+\newblock In {\em TAICPART-MUTATION '07: Proceedings of the Testing: Academic
+  and Industrial Conference Practice and Research Techniques - MUTATION}, pages
+  13--22, Washington, DC, USA, 2007. IEEE Computer Society.
+
 \bibitem{pex}
 N.~Tillmann and J.~de~Halleux.
 \newblock {Pex-White Box Test Generation for .NET.}
 \newblock In {\em TAP}, 2008.
+
+\bibitem{webapp}
+Gary Wassermann, Dachuan Yu, Ajay Chander, Dinakar Dhurjati, Hiroshi Inamura,
+  and Zhendong Su.
+\newblock Dynamic test input generation for web applications.
+\newblock In {\em ISSTA '08: Proceedings of the 2008 international symposium on
+  Software testing and analysis}, pages 249--260, New York, NY, USA, 2008. ACM.
 
 \bibitem{fitness}
 Tao Xie, Nikolai Tillmann, Peli de~Halleux, and Wolfram Schulte.
