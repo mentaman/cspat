@@ -1,1 +1,46 @@
-\section{symbolicgrammar}
+\section{CESE: Directed Test Generation using Symbolic Grammars}
+
+Majuumar and Xu~\cite{CESE} presented an approach to generate
+tests using symbolic grammars. This section introduces
+an example of concrete grammar (parsing an arithmetic
+operations) and shows differences of test generation
+based on random testing,  constrained exhaustive enumeration,
+symbolic or concolic execution, and CESE.
+ 
+ \begin{enumerate}  
+  \item{Example} \\
+They use a calculation example, called \textit{SimpleCalc} to show the effectiveness
+of their approach:
+\[Expressions~e~::=~(e)~|~e~*~e~|~e~/~e~|~e~\%~e |~e~+~e~|~e~-~e~|~e~\vee~e~|~e~\wedge~e~|~-~e~|~l~|~n\]
+\[Letters~l~::= [a~-~zA~-~Z]\]
+\[Numbers~n~::= [0~-~9]\]
+\textit{SimpleCalc} creates various forms of arithmetic expressions
+including letters, operations, and numbers. However, \textit{SimpleCalc} includes
+a fault to introduce an error; \textit{SimpleCalc} does
+not check a division by zero. For example, when a certain
+number is divided by zero (e.g., 7/0), such an operation
+causes an error. In order to detect the fault in \textit{SimpleCalc},
+testers require an arithmetic expression that is a number divided by zero.  
+
+  \item{Random Testing}\\
+
+Random testing is to generate random test inputs. In a situation where possible input space is large, random testing is not effective to generate a set of test inputs covering particular branches. Consider that our goal is to generate valid inputs using random testing. If an input size of four for \textit{SimpleCalc}, a total number of valid inputs is only 108,066 over 4.2 million possible inputs including that an input of size one is around 4.18 million possible inputs. Therefore, to generate valid inputs randomly is around 0.1\% probability over possible input space. With such a low probability, it is not trivial to generate a test (of interest) to detect the fault in \textit{SimpleCalc}. In addition, \textit{SimpleCalc} has an error when a number is divided by zero (e.g., an expressing including ``/0''). In order to detect the fault, only 372 inputs (that can detect the fault) should be generated over 4.2 million input space. Random testing has very low chance to generate such inputs to detect the fault.
+  
+  \item{Constrained Exhaustive Enumeration} \\
+  
+Constrained Exhaustive Enumeration takes an input as specification (e.g., grammar) and generate all valid inputs satisfying an input grammar. In general, such a technique generates all possible valid inputs for given an input grammar. For \textit{SimpleCalc}, valid input space is over 187 million for an input of size six.  Most of generated tests explore the same path of the given grammar; 0 + 0, 0 + 1, ..., 9 + 9 is generated based on the same path instead of different paths. If we want to generate test inputs for exploring different paths, this technique is not effective. 
+
+  
+  \item{Symbolic or Concolic Execution} \\
+
+Symbolic execution~\cite{system} and Concolic execution~\cite{dart, cute} (symbolic execution based on concrete variables) explores paths based on solving constraints collected during execution of a program. These techniques have two phases; (1) Tests are generated randomly, and (2) Tests are refined iteratively using constraints collected during execution of a program. However, these techniques are to find all feasible paths satisfying assignments based on constraints. For a size of four, an existing Concolic technique generates a total of 248,523 inputs, and takes more than 30 minutes. Testing of 248,523 inputs to detect the fault in \textit{SimpleCalc} has very low chance.
+   
+ 
+  \item{CESE} \\
+  
+To overcome limitations of previous approaches (e.g., generating a large number of tests to detect a fault), CESE combines the selectiveness of specification-guided test generation and directiveness of symbolic or concolic test generation. CESE is to combine to generate input by symbolic grammar with to execute concolic test. They first introduce a symbolic grammar to covert concrete grammar using symbolic values instead of individual character. For example, in SimpleCalc, they replace Letters $l$ and Numbers $n$ from $[a-zA-Z]$ and $[0-9]$ to $[\alpha][\beta]$ that are symbolic values. Such a conversion reduces the number of strings significantly. For example, previous concrete grammar generates 100 different strings $0/0, 0/1,..., 9/9$ to represent division expressions. However, such a conversion can represent one symbolic string $\beta1 / \beta2$ form to represent all possible division expressions. Given a converted symbolic grammar, they apply concolic execution to find all possible paths. Based on the idea, they replace given a concrete grammar to a symbolic grammar by replacing certain lexical. In addition, they execute concolically for a given grammar; for instance $\alpha1 + \alpha2$ is executed to represent +  operation over $\alpha1$ and $\alpha2$ that exercise different paths of symbolic inputs. As a results, concolic execution exercise 188 paths. In the of performance, on the symbolic grammar, CESE can generate 6,611 and takes less time (that other previous approaches) to compute concolic executions.
+
+ 
+ 
+ \end{enumerate}
+ 
