@@ -36,6 +36,21 @@ The next phase of Hampi is to encode the core string constraints as fomulas in t
 	\item Hampi encodes the concatenation operator by enumerating all possible distributions of the characters to the sub-expressions, encoding the sub-expression recursively, and combining the sub-formulas in a conjunction.
 	\item The Kleene Star will be encoded similarly to concatenation.
 	\item After STP finds a solution to the bit-vector formula (if exists), Hampi decodes the solution by reading 8-bit sub-vectors as consecutive ASC2 characters.
-	 
-
 \end{enumerate}
+We will further illustrate the procedure by the following example:\\
+
+\indent Var v:2;\\
+\indent cfg $E := "()"|EE|"("E")"$;\\
+\indent reg $Efixed := fixsize(E, 6)$;\\
+\indent Val $q := concat("((",v,"))")$;\\
+\indent assert q in Efixed;\\
+\indent assert q contains $"())"$;\\
+
+\noindent Step 1: Normalize the constraints to core form. The results after this step are:\\ 
+$c_1: ((v))\in ()[()()+(())]+[()()+(())]()+([()()+(())])$\\
+$c_2: ((v))\in [(+)]*())[(+)]*$\\
+\noindent Step 2: Encode the core form in bit-vector logic. We will illustrate how Hampi would encode constraint $c_1$. First of all, Hampi will create a bit-vector variable $bv$ of size $48=6*8$ bits to represent the lefthand side of $c_1$. Second, the characters are translated into the ASC2 codes corresponding to them, "(" is $40$, and ")" is $41$. Then Hampi encode the lefthand side of $c_1$ as formula $L_1$, by specifying the constant value: $L_1$: $(bv[0]=40)\wedge (bv[1]=40)\wedge (bv[4]=41) \wedge (bv[5]=41)$. Byte $bv[2]$ and $bv[3]$ will be reserved for $v$, a 2-byte variable. Similarly, the right hand side of $c_1$ will be encoded as $D_{1a}\vee D_{1b}\vee D_{1c}$. The entire bit-vector logic of constraint $c_1$ after encoding would be $L_1\vee(D_{1a}\wedge D{1b}\wedge D{1c})$. The final formula that Hampi sends to STP solver is $(C_1\wedge C_2)$.\\
+\noindent Step 3: STP finds a solution that satisfies the formula: $bv[0]=40, bv[1]=40, bv[2]=41, bv[3]=40, bv[4]=41, bv[5]=41$. In the decoded ASC2, the solution is $"(()())"$(quote mark is not part of the solution string).
+\noindent Step 4: Hampi reads the assignment for variable $v$ off of the STP solution, by decoding the elements of $dv$ that corresponds to $v$, i.e., element 2 and 3. It reports the solutions for $v$ as $")("$.( even though there may be other solutions possible, STP can only find one.)
+
+The performance of Hampi is evaluated through automatic finding of SQL injection attack strings by running a dynamic analysis tool on PHP web applications. Results show that Hampi has successfully replaced Ardilla\cite{}'s custom attack generator, it solves the associated constraints quickly, finds all of the solution of $N\leq 6$, and solved all of the constraints in less than 10 seconds per constraint. 
