@@ -1,16 +1,13 @@
 This is BibTeX, Version 0.99cThe top-level auxiliary file: C:\Documents and Settings\Xi Ge\My Documents\707\project2\main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Repeated entry---line 300 of file references.bib
- :    @inproceedings{fuzz
- :                       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 336 of file references.bib
+Repeated entry---line 338 of file references.bib
  :  @inproceedings{fuzzing
  :                        ,
 I'm skipping whatever remains of this entry
 Name 1 in "P. Godefroid, M. Levin, and D. Molnar." has a comma at the end for entry fuzzing
 while executing---line 1049 of file plain.bst
+Warning--empty school in STP
 Name 1 in "P. Godefroid, M. Levin, and D. Molnar." has a comma at the end for entry fuzzing
 while executing---line 1090 of file plain.bst
-(There were 4 error messages)
+(There were 3 error messages)
