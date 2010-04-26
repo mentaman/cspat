@@ -5,6 +5,13 @@ S.~Bardin and P.~Herrmann.
 \newblock {Structural Testing of Executables.}
 \newblock In {\em ICST}, 2008.
 
+\bibitem{counter}
+Dirk Beyer, Adam~J. Chlipala, and Rupak Majumdar.
+\newblock Generating tests from counterexamples.
+\newblock In {\em ICSE '04: Proceedings of the 26th International Conference on
+  Software Engineering}, pages 326--335, Washington, DC, USA, 2004. IEEE
+  Computer Society.
+
 \bibitem{pathfeasibility}
 Nikolaj Bj{\o}rner, Nikolai Tillmann, and Andrei Voronkov.
 \newblock Path feasibility analysis for string-manipulating programs.
@@ -30,10 +37,17 @@ Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
 \newblock Exe: automatically generating inputs of death.
 \newblock In {\em CCS}, 2006.
 
-\bibitem{test76}
-Lori~A. Clarke.
-\newblock {A System to Generate Test Data and Symbolically Execute Programs}.
-\newblock {\em TSE}, 1976.
+\bibitem{system}
+L.~A. Clarke.
+\newblock A system to generate test data and symbolically execute programs.
+\newblock {\em IEEE Trans. Softw. Eng.}, 2(3):215--222, 1976.
+
+\bibitem{yagg}
+David Coppit and Jiexin Lian.
+\newblock yagg: an easy-to-use generator for structured test inputs.
+\newblock In {\em ASE '05: Proceedings of the 20th IEEE/ACM international
+  Conference on Automated software engineering}, pages 356--359, New York, NY,
+  USA, 2005. ACM.
 
 \bibitem{database}
 Michael Emmi, Rupak Majumdar, and Koushik Sen.
@@ -70,6 +84,11 @@ Patrice Godefroid, Nils Klarlund, and Koushik Sen.
 \newblock Dart: directed automated random testing.
 \newblock In {\em PLDI}, pages 213--223, 2005.
 
+\bibitem{random}
+Patrice Godefroid, Nils Klarlund, and Koushik Sen.
+\newblock Dart: directed automated random testing.
+\newblock {\em SIGPLAN Not.}, 40(6):213--223, 2005.
+
 \bibitem{theorybook}
 J.~Hopcroft and J.~Ullman.
 \newblock {\em Introduction to automata theory languages and computation.}
@@ -88,12 +107,15 @@ James~C. King.
 \newblock Symbolic execution and program testing.
 \newblock {\em Commun. ACM}, 19(7):385--394, 1976.
 
-\bibitem{fuzzing}
-M.~Levin P.~Godefroid and D.~Molnar.
-\newblock {Automated Whitebox Fuzz Testing.}
-\newblock In {\em NDSS}, 2008.
+\bibitem{CESE}
+Rupak Majumdar and Ru-Gang Xu.
+\newblock Directed test generation using symbolic grammars.
+\newblock In {\em ESEC-FSE companion '07: The 6th Joint Meeting on European
+  software engineering conference and the ACM SIGSOFT symposium on the
+  foundations of software engineering}, pages 553--556, New York, NY, USA,
+  2007. ACM.
 
-\bibitem{fuzz}
+\bibitem{fuzzing}
 M.~Y.~Levin P.~Godefroid and D.Molnar.
 \newblock {Automated Whitebox Fuzz Testing.}
 \newblock In {\em NDSS}, 2008.
@@ -119,6 +141,11 @@ Daryl Shannon, Sukant Hajra, Alison Lee, Daiqian Zhan, and Sarfraz Khurshid.
 N.~Tillmann and J.~de~Halleux.
 \newblock {Pex-White Box Test Generation for .NET.}
 \newblock In {\em TAP}, 2008.
+
+\bibitem{Test}
+Willem Visser, Corina~S. P\v{a}s\v{a}reanu, and Sarfraz Khurshid.
+\newblock Test input generation with java pathfinder.
+\newblock {\em SIGSOFT Softw. Eng. Notes}, 29(4):97--107, 2004.
 
 \bibitem{webapp}
 Gary Wassermann, Dachuan Yu, Ajay Chander, Dinakar Dhurjati, Hiroshi Inamura,
