@@ -1,0 +1,1624 @@
+.DATA 23	* string length
+.SDATA "Arrays bounds violation"	* string constant
+.DATA 19	* string length
+.SDATA "Out of stack space "	* string constant
+.DATA 24	* string length
+.SDATA "Enter number of sticks: "	* string constant
+.DATA 42	* string length
+.SDATA " is too few sticks; pick a larger number. "	* string constant
+.DATA 19	* string length
+.SDATA " is a lot of sticks"	* string constant
+.DATA 63	* string length
+.SDATA "Do you really want to play this long of a game? 0=no / 1= yes: "	* string constant
+.DATA 2	* string length
+.SDATA "OK"	* string constant
+.DATA 13	* string length
+.SDATA "Well I don't!"	* string constant
+.DATA 31	* string length
+.SDATA "I don't understand your answer."	* string constant
+.DATA 54	* string length
+.SDATA "Oops, I got confused and let you take too many sticks."	* string constant
+.DATA 10	* string length
+.SDATA "Game over."	* string constant
+.DATA 41	* string length
+.SDATA "Do you want instructions? 0=no / 1= yes: "	* string constant
+.DATA 67	* string length
+.SDATA "We alternate picking 1, 2, or 3 sticks.  The one who picks the last"	* string constant
+.DATA 31	* string length
+.SDATA "stick loses.  That will be you."	* string constant
+.DATA 13	* string length
+.SDATA "You go first."	* string constant
+.DATA 42	* string length
+.SDATA "You must pick 1, 2, or 3 sticks each turn."	* string constant
+.DATA 10	* string length
+.SDATA "There are "	* string constant
+.DATA 18	* string length
+.SDATA " sticks remaining."	* string constant
+.DATA 40	* string length
+.SDATA "It is your turn.  How many do you want? "	* string constant
+.DATA 11	* string length
+.SDATA "You picked "	* string constant
+.DATA 45	* string length
+.SDATA "You must pick 1, 2, or 3 sticks.  Try again: "	* string constant
+.DATA 15	* string length
+.SDATA "There are only "	* string constant
+.DATA 21	* string length
+.SDATA " sticks.  Try again: "	* string constant
+.DATA 50	* string length
+.SDATA "You don't seem to understand this game.  Good bye."	* string constant
+.DATA 6	* string length
+.SDATA "I won."	* string constant
+.DATA 48	* string length
+.SDATA "There only one stick remaining.  I must pick it."	* string constant
+.DATA 26	* string length
+.SDATA "Congratulations!  You won."	* string constant
+.DATA 10	* string length
+.SDATA "There are "	* string constant
+.DATA 18	* string length
+.SDATA " sticks remaining."	* string constant
+.DATA 23	* string length
+.SDATA "It is my pick.  I pick "	* string constant
+.DATA 8	* string length
+.SDATA " sticks."	* string constant
+.DATA 6	* string length
+.SDATA "Thanks"	* string constant
+.DATA 0	* storage location (882) for var N
+.DATA 0	* storage location (883) for var pick
+.DATA 0	* storage location (884) for var k
+.DATA 0	* storage location (885) for var picktext
+* BEGIN preamble
+: LDC 4, 0(0)	* initialize ZEROREG to 0
+: LD 5, 0(4)	* initialize SP to end of memory
+: LDA 5, -1(5)	* subtract one to get the true SP
+: LDA 6, 0(5)	* FP and SP start off the same
+* END preamble
+* BEGIN: load a string's location into ACC0
+: LDC 0, 312(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 884(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, 884(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 30(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 354(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 422(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 454(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: procedure call
+: LDA 0, 33(7)	* Get return address into ACC0
+: LDA 3, -890(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 6, 10(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 588(4)	* Jump to the start of the proc
+: LD 0, -4(6)	* Load the return value into ACC0
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 882(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: load a string's location into ACC0
+: LDC 0, 468(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: Do loop
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: JEQ 0, 439(7)	* Jump to the end of the loop if done
+* BEGIN: load a string's location into ACC0
+: LDC 0, 511(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 522(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 541(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 884(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: Do loop
+* BEGIN: variable (rvalue) access
+: LD 0, 884(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 4(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 127(7)	* Jump to the end of the loop if done
+* BEGIN: variable (rvalue) access
+: LD 0, 884(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 0, 1	* Add ACC0 & ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 884(4)	* Store ACC0 into global offset
+* END: assignment
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 883(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: load a string's location into ACC0
+: LDC 0, 582(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JGT 0, 24(7)	* Jump over rest of logical or code
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 57(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 3(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 1, 0	* for OR, add right and left
+: JEQ 0, 1(7)	* Jump over Load 1 if ACC0 == 0
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 10(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 594(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: LDA 7, 37(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: JEQ 0, 21(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 640(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 656(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: LDA 7, 1(7)	* Jump over the rest of the if
+* BEGIN: break
+: LDA 7, 318(4)	* skip to the end of the loop
+* END: break
+: LDA 7, -142(7)	* Jump back to start of loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: Do loop
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JGT 0, 24(7)	* Jump over rest of logical or code
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 57(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 3(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: >
+: SUB 0, 1, 0	* for >, subtract right from left
+: JGT 0, 2(7)	* Jump to Load 1 if ACC0 > 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: >
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 1, 0	* for OR, add right and left
+: JEQ 0, 1(7)	* Jump over Load 1 if ACC0 == 0
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 11(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 678(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 882(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 13(7)	* Jump over the then stmts if false
+* BEGIN: procedure call
+: LDA 0, 9(7)	* Get return address into ACC0
+: LDA 3, -890(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+: LDA 6, 4(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 877(4)	* Jump to the start of the proc
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+: LDA 7, 159(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 12(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 729(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: break
+: LDA 7, 576(4)	* skip to the end of the loop
+* END: break
+: LDA 7, 132(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 22(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 736(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 785(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: break
+: LDA 7, 576(4)	* skip to the end of the loop
+* END: break
+: LDA 7, 95(7)	* Jump over the rest of the if
+* BEGIN: load a string's location into ACC0
+: LDC 0, 812(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 823(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 842(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+* BEGIN: procedure call
+: LDA 0, 23(7)	* Get return address into ACC0
+: LDA 3, -890(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 98(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* Store param in slot
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 99(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: LDA 5, -1(5)	* decrement SP by local var's size (i.e., push)
+: LDA 6, 7(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 901(4)	* Jump to the start of the proc
+: LD 0, -4(6)	* Load the return value into ACC0
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 883(4)	* Store ACC0 into global offset
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 866(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: variable (rvalue) access
+: LD 0, 882(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, 883(4)	* Load the global var into ACC0
+* END: variable (rvalue) access
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, 882(4)	* Store ACC0 into global offset
+* END: assignment
+: LDA 7, -454(7)	* Jump back to start of loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: Do loop
+* BEGIN: load a string's location into ACC0
+: LDC 0, 875(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+: HALT 0, 0, 0	* End of Program
+* BEGIN: procedure code
+: LDA 0, 0(0)	* NOOP to mark beginning of proc
+* BEGIN: for loop
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -8(6)	* Store ACC0 into local offset (relative to FP)
+* END: save initial value to loop var
+* BEGIN: load an int constant
+: LDC 0, 3(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -9(6)	* Store ACC0 into local offset (relative to FP)
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, -8(6)	* Load the local var into ACC0
+: LD 1, -9(6)	* Load the local var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 873(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: load a string's location into ACC0
+: LDC 0, 45(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -4(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 15(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 12(7)	* Jump over the then stmts if false
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 70(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: LDA 7, 205(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 100(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 2(7)	* Jump over the then stmts if false
+* BEGIN: return
+: LDA 7, 875(4)	* Jump to the end of the proc
+* END: return
+: LDA 7, 188(7)	* Jump over the rest of the if
+* BEGIN: for loop
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save initial value to loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 52(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -6(6)	* Store ACC0 into local offset (relative to FP)
+* END: save initial value to loop var
+* BEGIN: load an int constant
+: LDC 0, 3(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: save max value to max loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 53(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -7(6)	* Store ACC0 into local offset (relative to FP)
+* END: save max value to max loop var
+: LDA 5, 0(5)	* NOOP to mark top of loop
+: LD 0, -6(6)	* Load the local var into ACC0
+: LD 1, -7(6)	* Load the local var into ACC0
+: SUB 1, 1, 0	* Subtract the loop var from the max
+: JLT 1, 847(4)	* go to the loop exit
+* BEGIN: body of for loop
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: write(s)
+: OUT 0, 0, 0	* write out the int value in ACC0
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 113(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 133(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+* END: write(s)
+: IN 0, 0, 0	* Read into ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -5(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 27(7)	* if left is false jump over the rest of the and
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 49(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 200(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <=
+: SUB 0, 1, 0	* for <=, subtract right from left
+: JLE 0, 2(7)	* Jump to Load 1 if ACC0 <= 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <=
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: ADD 0, 1, 0	* for AND, add right and left
+: LDA 0, -2(0)	* Then subtract 2
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 12(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 197(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: return
+: LDA 7, 875(4)	* Jump to the end of the proc
+* END: return
+: LDA 7, 54(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 12(7)	* Jump over the then stmts if false
+* BEGIN: load a string's location into ACC0
+: LDC 0, 200(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+: LDA 7, 27(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 2(7)	* Jump over the then stmts if false
+* BEGIN: break
+: LDA 7, 847(4)	* skip to the end of the loop
+* END: break
+: LDA 7, 10(7)	* Jump over the rest of the if
+* BEGIN: load a string's location into ACC0
+: LDC 0, 214(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* END: body of for loop
+: LD 0, -6(6)	* Load the local var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -6(6)	* Store ACC0 into local offset (relative to FP)
+: LDA 7, 692(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for !=, subtract right from left
+: JEQ 0, 1(7)	* Jump over Load 1 if ACC0 == 0
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 1(7)	* Jump over the then stmts if false
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+* END: body of for loop
+: LD 0, -8(6)	* Load the local var into ACC0
+: LDA 0, 1(0)	* increment the loop var
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 54(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -8(6)	* Store ACC0 into local offset (relative to FP)
+: LDA 7, 607(4)	* return to the top of the loop
+: LDA 5, 0(5)	* NOOP to mark end of loop
+* END: for loop
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+: LD 0, 0(6)	* Load the return address from the 1st slot in the AR to ACC0
+: LDA 7, 0(0)	* Return to calling location (stored in ACC0)
+* END: procedure code
+* BEGIN: procedure code
+: LDA 0, 0(0)	* NOOP to mark beginning of proc
+* BEGIN: load a string's location into ACC0
+: LDC 0, 246(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: load a string's location into ACC0
+: LDC 0, 301(0)	* Load a string's location into ACC0
+* END: load a string's location into ACC0
+* BEGIN: write(s)
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 2, 0(1)	* Load next char from string into ACC2
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 2, 0, 0	* Write out character in ACC2
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTNL 0, 0, 0	* dump out the newline
+* END: write(s)
+* BEGIN: exit
+: HALT 0, 0, 0	* exit
+* END: exit
+: LD 0, 0(6)	* Load the return address from the 1st slot in the AR to ACC0
+: LDA 7, 0(0)	* Return to calling location (stored in ACC0)
+* END: procedure code
+* BEGIN: procedure code
+: LDA 0, 0(0)	* NOOP to mark beginning of proc
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 13(7)	* Jump over the then stmts if false
+* BEGIN: procedure call
+: LDA 0, 9(7)	* Get return address into ACC0
+: LDA 3, -890(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 97(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* Store return address (in ACC0) to SP/FP
+* return value sits at SP-1/FP-1
+: ST 5, -2(5)	* Store SP to SP-2/FP-2
+: ST 6, -3(5)	* Store FP to SP-3/FP-3
+: LDA 5, -4(5)	* decrement SP by 4 (i.e., 4 pushes)
+: LDA 6, 4(5)	* Set FP to be the "pre-push of AR" SP
+* SP already points to end of the AR
+: LDA 7, 877(4)	* Jump to the start of the proc
+: LD 5, -2(6)	* Restore SP from FP-2
+: LD 6, -3(6)	* Restore FP from FP-3
+* END: procedure call
+: LDA 7, 112(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 10(7)	* Jump over the then stmts if false
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -4(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+: LDA 7, 87(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 4(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: <
+: SUB 0, 1, 0	* for <, subtract right from left
+: JLT 0, 2(7)	* Jump to Load 1 if ACC0 < 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+* END: <
+: JEQ 0, 19(7)	* Jump over the then stmts if false
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -4(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+: LDA 7, 53(7)	* Jump over the rest of the if
+* BEGIN: variable (rvalue) access
+: LD 0, -5(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* Subtract ACC0 from ACC1 placing result in ACC0
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 55(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 4(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+* BEGIN: mod
+: DIV 2, 1, 0	* Divide left by right & put result in ACC2
+: MUL 2, 2, 0	* Multiply the right by the divide result & put in ACC2
+: SUB 0, 1, 2	* Subtract the multiplication result from left & put in ACC
+* END: mod
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -4(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+* BEGIN: variable (rvalue) access
+: LD 0, -4(6)	* Load the local var into ACC0
+* END: variable (rvalue) access
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 51(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: load an int constant
+: LDC 0, 0(0)	* Load a constant into ACC0
+* END: load an int constant
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 1, 0(5)	* Load stored result into ACC1
+: SUB 0, 1, 0	* for =, subtract right from left
+: JEQ 0, 2(7)	* Jump to Load 1 if ACC0 == 0
+: LDC 0, 0(0)	* Load 0 into ACC0
+: LDA 7, 1(7)	* Jump over Load 1
+: LDC 0, 1(0)	* Load 1 into ACC0
+: JEQ 0, 9(7)	* Jump over the then stmts if false
+* BEGIN: load an int constant
+: LDC 0, 1(0)	* Load a constant into ACC0
+* END: load an int constant
+* BEGIN: push to stack
+: LDA 3, -887(5)	* Subtract the stack limit from SP - store in ACC3
+: LDC 2, 50(0)	* Load diagnostic char into ACC2
+: JLE 3, 1044(4)	* stack failure
+: ST 0, 0(5)	* save ACC0 into the current SP location
+: LDA 5, -1(5)	* decrement SP by 1 (i.e., push)
+* END: push to stack
+* BEGIN: assignment
+: LDA 5, 1(5)	* increment SP by 1 (i.e., pop)
+: LD 0, 0(5)	* Load stored result into ACC0
+: ST 0, -4(6)	* Store ACC0 into local offset (relative to FP)
+* END: assignment
+: LD 0, 0(6)	* Load the return address from the 1st slot in the AR to ACC0
+: LDA 7, 0(0)	* Return to calling location (stored in ACC0)
+* END: procedure code
+* BEGIN: stack limit message handler
+: LDC 0, 25(0)	* Load the error message into ACC0
+: LDA 1, 1(0)	* Increment the address stored in ACC0 to get the string's char location (put in ACC1)
+: LD 0, 0(0)	* Load the string size into ACC0
+: JEQ 0, 5(7)	* Jump to end when run out of string
+: LDA 0, -1(0)	* subtract one from string size
+: LD 3, 0(1)	* Load next char from string into ACC3
+: LDA 1, 1(1)	* increment pointer into string
+: OUTC 3, 0, 0	* Write out character in ACC3
+: LDA 7, -6(7)	* Go back to start of loop
+: OUTC 2, 0, 0	* Write out diagnostic char in ACC2
+: OUTNL 0, 0, 0	* dump out the newline
+: HALT 0, 0, 0	* Halt for stack limit
+* END: stack limit message handler
