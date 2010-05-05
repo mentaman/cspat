@@ -441,13 +441,15 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		TypeRecord type = (TypeRecord) node.jjtGetValue();
 		SimpleNode firstChildNode = (SimpleNode) node.jjtGetChild(0);
 		firstChildNode.jjtAccept(this, data);
-		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
-				"push first child's value");
 		int saveLineNbr = 0;
 		if (type.equals(TypeRecord.boolType)) {
 			saveLineNbr = lineNbr;
 			lineNbr++;
 		}
+		
+		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
+				"push first child's value");
+		
 
 		SimpleNode secondChildNode = (SimpleNode) node.jjtGetChild(1);
 		secondChildNode.jjtAccept(this, data);
@@ -470,8 +472,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "skip load false");
 				code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 as false");
+				
 				code.emitJNE(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
 						RegisterConstant.PC, saveLineNbr, "short circuit");
+				
 			}
 
 		} else if (operator.equals("-")) {
@@ -621,7 +625,6 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "skip load false");
 				code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 as false");
-
 			}
 		}
 
