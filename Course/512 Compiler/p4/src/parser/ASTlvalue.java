@@ -5,23 +5,40 @@ package parser;
 import type.TypeRecord;
 
 public class ASTlvalue extends SimpleNode {
-  public ASTlvalue(int id) {
-    super(id);
-  }
+	public ASTlvalue(int id) {
+		super(id);
+	}
 
-  public ASTlvalue(Ice9Parser p, int id) {
-    super(p, id);
-  }
+	public ASTlvalue(Ice9Parser p, int id) {
+		super(p, id);
+	}
 
-  public boolean isAssignment = false;
-  
-  public TypeRecord originalType;
-  
-  public boolean isArray = false;
-  
-  /** Accept the visitor. **/
-  public Object jjtAccept(Ice9ParserVisitor visitor, Object data) {
-    return visitor.visit(this, data);
-  }
+	public boolean isAssignment = false;
+
+	public TypeRecord originalType;
+
+	public boolean isArray = false;
+
+	/** Accept the visitor. **/
+	public Object jjtAccept(Ice9ParserVisitor visitor, Object data) {
+		return visitor.visit(this, data);
+	}
+
+	public ASTnoAssignExp FindNoAssignExp() {
+		Node parent = this.jjtGetParent();
+		while (parent != null && !(parent instanceof ASTnoAssignExp)) {
+			parent = parent.jjtGetParent();
+		}
+		if (parent instanceof ASTnoAssignExp) {
+			return (ASTnoAssignExp) parent;
+		}
+		else {
+			return null;
+		}
+	}
+
 }
-/* JavaCC - OriginalChecksum=24c007a820800d908e232d835ba552c9 (do not edit this line) */
+/*
+ * JavaCC - OriginalChecksum=24c007a820800d908e232d835ba552c9 (do not edit this
+ * line)
+ */
