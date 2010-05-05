@@ -4,7 +4,6 @@ package parser;
 
 import java.util.ArrayList;
 
-
 public class SimpleNode implements Node {
 
 	protected Node parent;
@@ -27,7 +26,7 @@ public class SimpleNode implements Node {
 	public void setFirstToken(Token token) {
 		if (tokens.size() > 0) {
 			tokens.set(0, token);
-		}else{
+		} else {
 			tokens.add(token);
 		}
 	}
@@ -43,16 +42,16 @@ public class SimpleNode implements Node {
 	public Token getTokenAt(int index) {
 		return tokens.get(index);
 	}
-	
-	public int getTokenSize(){
+
+	public int getTokenSize() {
 		return tokens.size();
 	}
-	
-	public ArrayList<Token> getTokens(){
+
+	public ArrayList<Token> getTokens() {
 		return tokens;
 	}
-	
-	public void setTokens(ArrayList<Token> data ){
+
+	public void setTokens(ArrayList<Token> data) {
 		tokens = data;
 	}
 
@@ -140,6 +139,30 @@ public class SimpleNode implements Node {
 				if (n != null) {
 					n.dump(prefix + " ");
 				}
+			}
+		}
+	}
+
+	public void jjtDeleteChild(Node n) {
+		int i;
+		int j = 0;
+		int position = 0;
+		Node[] c = new Node[children.length - 1];
+		for (i = 0; i < children.length; i++) {
+			if (children[i] == n)
+				continue;
+			c[j++] = children[i];
+
+		}
+		children = c;
+
+	}
+
+	public void jjtReplaceNode(SimpleNode oldNo, SimpleNode newNo) {
+		for (int i = 0; i < children.length; i++) {
+			if (children[i] == oldNo) {
+				children[i] = newNo;
+				return;
 			}
 		}
 	}
