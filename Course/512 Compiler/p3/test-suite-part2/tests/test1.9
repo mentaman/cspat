@@ -1,26 +1,30 @@
-var a : str[2]
+# bubble sort
 
-proc test(c:str)
+var n, t: int
+var a: int[100]
 
-writes "c is ";
-write c;
+write "Input length of array (1-100):";
+n := read;
+if (n < 1) + (n > 100) -> write "wrong"; exit; fi
 
-c := "i am c";
-writes "c is ";
-write c;
+n := n - 1;	# set n to last element
 
-end
+fa i := 0 to n ->
+  writes "Input ";
+  writes i+1;
+  writes ": ";
+  a[i] := read;
+af
 
-a[0] := "i am a[0]";
-a[1] := "i am a[1]";
+fa i := 0 to n-1 ->
+  fa j := i+1 to n ->
+    if a[i] > a[j] ->
+      t := a[i];
+      a[i] := a[j];
+      a[j] := t;
+    fi
+  af
+af
 
-writes "a[0] is: ";
-write a[0];
-writes "a[1] is: ";
-write a[1];
-
-test(a[1]);
-
-write "after test(a[1])";
-writes "a[1] is: ";
-write a[1];
+write "Sorted list:";
+fa i := 0 to n -> write a[i]; af

@@ -1,8 +1,0 @@
-Loading file: test-suite-part2/out/test1.tm
-a[0] is: i am a[0]
-a[1] is: i am a[1]
-c is i am a[1]
-c is i am c
-after test(a[1])
-a[1] is: i am a[1]
-Number of instructions executed = 682
