@@ -1,3 +1,14 @@
-write "hello world";
+var a,b,c : int
 
+write "please give a value for a";
+a:=read;
+
+b := a + 0;
+c := a - 0;
+
+writes "b := a + 0, b is ";
+write b;
+
+writes "c := a - 0, c is ";
+write c;
 
