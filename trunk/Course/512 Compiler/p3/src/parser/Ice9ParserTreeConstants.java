@@ -40,8 +40,9 @@ public interface Ice9ParserTreeConstants
   public int JJTPROCEDURECALL = 34;
   public int JJTASSOCIATEEXP = 35;
   public int JJTEXP = 36;
-  public int JJTNOASSIGNEXP = 37;
-  public int JJTCOMPARES = 38;
+  public int JJTASSIGNEXP = 37;
+  public int JJTNOASSIGNEXP = 38;
+  public int JJTCOMPARES = 39;
 
 
   public String[] jjtNodeName = {
@@ -82,8 +83,9 @@ public interface Ice9ParserTreeConstants
     "procedureCall",
     "associateExp",
     "exp",
+    "assignExp",
     "noAssignExp",
     "compares",
   };
 }
-/* JavaCC - OriginalChecksum=50cea81fcf5906f2d0a2b736977a8066 (do not edit this line) */
+/* JavaCC - OriginalChecksum=8bde2274078d4d8afa44c1ec0e48f12e (do not edit this line) */

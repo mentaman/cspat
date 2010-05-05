@@ -41,7 +41,8 @@ public interface Ice9ParserVisitor
   public Object visit(ASTprocedureCall node, Object data);
   public Object visit(ASTassociateExp node, Object data);
   public Object visit(ASTexp node, Object data);
+  public Object visit(ASTassignExp node, Object data);
   public Object visit(ASTnoAssignExp node, Object data);
   public Object visit(ASTcompares node, Object data);
 }
-/* JavaCC - OriginalChecksum=67e71af78928d2c72285bdf0f96e0b29 (do not edit this line) */
+/* JavaCC - OriginalChecksum=ae7f9ba383d44179d5938adabd97d2a0 (do not edit this line) */
