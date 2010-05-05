@@ -1,3 +1,4 @@
 Loading file: out.tm
+in if
 a := 6 
-Number of instructions executed = 36
+Number of instructions executed = 67

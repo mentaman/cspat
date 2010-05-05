@@ -13,26 +13,58 @@ import parser.ASTnoAssignExp;
 import parser.ASTprogram;
 import parser.ASTstm;
 import parser.Node;
+import parser.SimpleNode;
 import parser.Token;
 
 public class ASTOptimizer extends CascadeVisitor {
 
 	HashMap<String, DefUseInfo> blockDefUses = new HashMap<String, DefUseInfo>();
-
+    ArrayList<ASTstm> unusedDefsArrayList = new ArrayList<ASTstm>();
+	
+	private boolean debug = true;
+	
+	private void debug(String text){
+		if (debug) {
+			System.out.println(text);
+		}
+	}
+	
 	@Override
 	public Object visit(ASTprogram node, Object data) {
 
 		super.visit(node, data);
-		exitBlock();
+		exitLastBlock();
 		return data;
 	}
 	
 	
 
-	private void exitBlock() {
+	private void exitLastBlock() {
 		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
 			DefUseInfo defUse = entry.getValue();
-			defUse.deleteUnusedDef();
+			unusedDefsArrayList.addAll(defUse.findUnusedDef());
+		}
+		
+		for (ASTstm stm : unusedDefsArrayList) {
+			((SimpleNode)(stm.jjtGetParent())).jjtDeleteChild(stm);
+		}
+		
+	}
+
+	@Override
+	public Object visit(ASTifstm node, Object data) {
+        enterNewBlock();
+        debug("blockdefuses: " + blockDefUses);
+		
+		return super.visit(node, data);
+	}
+
+
+
+	private void enterNewBlock() {
+		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
+			DefUseInfo defUse = entry.getValue();
+			unusedDefsArrayList.addAll(defUse.findUnusedDefAndKeepLatest());
 		}
 		
 	}
@@ -40,17 +72,9 @@ public class ASTOptimizer extends CascadeVisitor {
 
 
 	@Override
-	public Object visit(ASTifstm node, Object data) {
-//		exitPreviousBlock();
-		node.childrenAccept(this, data);
-		return data;
-	}
-
-
-
-	@Override
 	public Object visit(ASTassignExp node, Object data) {
 		ASTlvalue lvalue = (ASTlvalue) node.jjtGetChild(0);
+		lvalue.jjtAccept(this, data);
 		ASTnoAssignExp noAssignExp = (ASTnoAssignExp) node.jjtGetChild(1);
 		Token idToken = lvalue.getFirstToken();
 		String id = idToken.image;
@@ -78,6 +102,7 @@ public class ASTOptimizer extends CascadeVisitor {
 		Token idToken = node.getFirstToken();
 		String id = idToken.image;
 		if (!node.isAssignment) {
+			
 			if (blockDefUses.containsKey(id)) {
 				blockDefUses.get(id).used(node.FindNoAssignExp());
 			}
