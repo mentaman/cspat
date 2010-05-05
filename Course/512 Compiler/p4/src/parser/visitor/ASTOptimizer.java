@@ -39,7 +39,7 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	HashMap<String, DefUseInfo> blockDefUses = new HashMap<String, DefUseInfo>();
 	HashMap<String, Integer> constantTables = new HashMap<String, Integer>();
-	
+
 	boolean usedBuiltInInt = false;
 	boolean builtInIntRedefined = false;
 	// HashMap<String, DefUseInfo> currentDefUses = new HashMap<String,
@@ -58,10 +58,9 @@ public class ASTOptimizer extends CascadeVisitor {
 	public Object visit(ASTprogram node, Object data) {
 		super.visit(node, data);
 		exitLastBlock();
-		
+
 		node.usedBuildInInt = usedBuiltInInt;
-		
-		
+
 		return data;
 	}
 
@@ -199,8 +198,6 @@ public class ASTOptimizer extends CascadeVisitor {
 		debug("primary node constant value: " + node.constantValue);
 		return data;
 	}
-	
-	
 
 	@Override
 	public Object visit(ASTproc node, Object data) {
@@ -209,7 +206,7 @@ public class ASTOptimizer extends CascadeVisitor {
 		if (id.equals("int")) {
 			builtInIntRedefined = true;
 		}
-		
+
 		enterNewBlock();
 		super.visit(node, data);
 		exitBlock();
@@ -347,12 +344,31 @@ public class ASTOptimizer extends CascadeVisitor {
 		SimpleNode secondChildNode = (SimpleNode) node.jjtGetChild(1);
 		secondChildNode.jjtAccept(this, data);
 
+		Token token = node.getFirstToken();
+		String operator = token.image;
+
 		if (!node.isConstant()) {
+			// check whether there is v * 1 or v * 0
+			if (firstChildNode.isConstant()) {
+				SimpleNode parent = (SimpleNode) node.jjtGetParent();
+				if (firstChildNode.constantValue == 0) {
+					parent.jjtReplaceNode(node, secondChildNode);
+					debug("replace additive with second child node because add or subtract 0");
+				}
+
+			} else if (secondChildNode.isConstant()) {
+
+				SimpleNode parent = (SimpleNode) node.jjtGetParent();
+				if (secondChildNode.constantValue == 0) {
+					parent.jjtReplaceNode(node, firstChildNode);
+					debug("replace additive with first child node because add or subtract 0");
+				}
+
+			}
+
 			return data;
 		}
 
-		Token token = node.getFirstToken();
-		String operator = token.image;
 		if (operator.equals("+")) {
 			if (type.equals(TypeRecord.intType)) {
 				node.constantValue = firstChildNode.constantValue
@@ -571,11 +587,8 @@ public class ASTOptimizer extends CascadeVisitor {
 				usedBuiltInInt = true;
 			}
 		}
-	
-		
-		
+
 		return super.visit(node, data);
 	}
 
-	
 }
