@@ -69,17 +69,37 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	}
 
+	private void enterNewBlock() {
+		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
+			DefUseInfo defUse = entry.getValue();
+			unusedDefsArrayList.addAll(defUse.findUnusedDefAndKeepLatest());
+		}
+		blockDefUses.clear();
+		constantTables.clear();
+	}
+
+	private void exitBlock() {
+		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
+			DefUseInfo defUse = entry.getValue();
+			unusedDefsArrayList.addAll(defUse.findUnusedDefAndKeepLatest());
+		}
+		blockDefUses.clear();
+		constantTables.clear();
+	}
+
 	@Override
 	public Object visit(ASTcompares node, Object data) {
+		debug("in ASTcompares");
 		SimpleNode firstChildNode = (SimpleNode) node.jjtGetChild(0);
 		firstChildNode.jjtAccept(this, data);
 
-		String operator = ((SimpleNode) node.jjtGetChild(1)).getFirstToken().image;
+		SimpleNode compareOpNode = (SimpleNode) node.jjtGetChild(1);
+		String operator = compareOpNode.getFirstToken().image;
 
 		SimpleNode thirdChildNode = (SimpleNode) node.jjtGetChild(2);
 		thirdChildNode.jjtAccept(this, data);
 
-		if (!node.isConstant()) {
+		if (!firstChildNode.isConstant() || !thirdChildNode.isConstant()) {
 			return data;
 		}
 		Token token = node.getFirstToken();
@@ -117,6 +137,18 @@ public class ASTOptimizer extends CascadeVisitor {
 			node.constantValue = 0;
 		}
 		debug("ASTcompares node constant value: " + node.constantValue);
+		ASTnoAssignExp parent = (ASTnoAssignExp) node.jjtGetParent();
+		ASTboolTerm boolterm = new ASTboolTerm(
+				Ice9ParserTreeConstants.JJTBOOLTERM);
+		boolterm.constantValue = node.constantValue;
+		if (boolterm.constantValue == 1) {
+			boolterm.addToken(new Token(0, "true"));
+		} else if (boolterm.constantValue == 0) {
+			boolterm.addToken(new Token(0, "false"));
+		}
+		boolterm.jjtSetValue(new TypeRecord(BasicType.BOOL));
+		parent.jjtReplaceNode(node, boolterm);
+
 		return data;
 	}
 
@@ -319,17 +351,24 @@ public class ASTOptimizer extends CascadeVisitor {
 		for (int i = 0; i < childrenCount; i++) {
 			debug("child " + i + ": " + node.jjtGetChild(i));
 		}
+		HashMap<String, Integer> saveConstants = new HashMap<String, Integer>();
+		for (Entry<String, Integer> entry : constantTables.entrySet()) {
+			saveConstants.put(entry.getKey(), entry.getValue());
+		}
 
 		for (int i = 0; i + 1 < childrenCount; i += 2) {
-			enterNewBlock();
+			constantTables = saveConstants;
 			node.jjtGetChild(i).jjtAccept(this, data); // generate expression
+			enterNewBlock();
 			node.jjtGetChild(i + 1).jjtAccept(this, data); // generate stms
+			exitBlock();
 		}
 
 		if (node.hasElse) {
 			enterNewBlock();
 			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
 			// else stms
+			exitBlock();
 		}
 
 		return data;
@@ -338,22 +377,17 @@ public class ASTOptimizer extends CascadeVisitor {
 	@Override
 	public Object visit(ASTdostm node, Object data) {
 		enterNewBlock();
-		return super.visit(node, data);
+		super.visit(node, data);
+		exitBlock();
+		return data;
 	}
 
 	@Override
 	public Object visit(ASTfa node, Object data) {
 		enterNewBlock();
-		return super.visit(node, data);
-	}
-
-	private void enterNewBlock() {
-		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
-			DefUseInfo defUse = entry.getValue();
-			unusedDefsArrayList.addAll(defUse.findUnusedDefAndKeepLatest());
-		}
-		blockDefUses.clear();
-		constantTables.clear();
+		super.visit(node, data);
+		exitBlock();
+		return data;
 	}
 
 	@Override
@@ -390,6 +424,8 @@ public class ASTOptimizer extends CascadeVisitor {
 						.valueOf(intterm.constantValue)));
 				intterm.jjtSetValue(new TypeRecord(BasicType.INT));
 				node.jjtReplaceNode(noAssignExp, intterm);
+				debug("replace lvalue with int constant "
+						+ intterm.constantValue);
 			} else if (TypeRecord.boolType.equals(type)) {
 
 				ASTboolTerm boolterm = new ASTboolTerm(
@@ -402,7 +438,8 @@ public class ASTOptimizer extends CascadeVisitor {
 				}
 				boolterm.jjtSetValue(new TypeRecord(BasicType.BOOL));
 				node.jjtReplaceNode(noAssignExp, boolterm);
-
+				debug("replace lvalue with bool constant "
+						+ boolterm.constantValue);
 			}
 			constantTables.put(id, noAssignExp.constantValue);
 		}
@@ -443,7 +480,7 @@ public class ASTOptimizer extends CascadeVisitor {
 					boolterm.jjtSetValue(new TypeRecord(BasicType.BOOL));
 					SimpleNode parent = (SimpleNode) node.jjtGetParent();
 					parent.jjtReplaceNode(node, boolterm);
-					debug("replace lvalue with int constant "
+					debug("replace lvalue with bool constant "
 							+ constantTables.get(id));
 				}
 			} else if (blockDefUses.containsKey(id)) {

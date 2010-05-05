@@ -4,12 +4,14 @@ a:=1*2* -3;
 b:= true * (true + false);
 c:=a;
 d:= a + a + c;
-if(b) ->
+if(a > 1) ->
 c := 1;
 d := c;
-
 write "true";
-
+[] (a < 2) ->
+write "false";
+[] else ->
+write "else";
 fi
 writes "a := ";
 write a;
