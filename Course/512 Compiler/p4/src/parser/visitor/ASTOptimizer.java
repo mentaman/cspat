@@ -6,7 +6,9 @@ import java.util.Map.Entry;
 
 
 import parser.ASTassignExp;
+import parser.ASTdostm;
 import parser.ASTexp;
+import parser.ASTfa;
 import parser.ASTifstm;
 import parser.ASTlvalue;
 import parser.ASTnoAssignExp;
@@ -19,6 +21,7 @@ import parser.Token;
 public class ASTOptimizer extends CascadeVisitor {
 
 	HashMap<String, DefUseInfo> blockDefUses = new HashMap<String, DefUseInfo>();
+//	HashMap<String, DefUseInfo> currentDefUses = new HashMap<String, DefUseInfo>();
     ArrayList<ASTstm> unusedDefsArrayList = new ArrayList<ASTstm>();
 	
 	private boolean debug = true;
@@ -31,7 +34,7 @@ public class ASTOptimizer extends CascadeVisitor {
 	
 	@Override
 	public Object visit(ASTprogram node, Object data) {
-
+//        currentDefUses = globalDefUses;
 		super.visit(node, data);
 		exitLastBlock();
 		return data;
@@ -51,22 +54,54 @@ public class ASTOptimizer extends CascadeVisitor {
 		
 	}
 
+
 	@Override
 	public Object visit(ASTifstm node, Object data) {
-        enterNewBlock();
+      
         debug("blockdefuses: " + blockDefUses);
-		
-		return super.visit(node, data);
+    	int childrenCount = node.jjtGetNumChildren();
+		debug("if children count: " + childrenCount);
+		for (int i = 0; i < childrenCount; i++) {
+			debug("child " + i + ": " + node.jjtGetChild(i));
+		}
+
+		for (int i = 0; i + 1 < childrenCount; i += 2) {
+			enterNewBlock();
+			node.jjtGetChild(i).jjtAccept(this, data); // generate expression
+			node.jjtGetChild(i + 1).jjtAccept(this, data); // generate stms
+		}
+
+		if (node.hasElse) {
+			enterNewBlock();
+			node.jjtGetChild(childrenCount - 1).jjtAccept(this, data); // generate
+			// else stms
+		}
+	
+		return data;
 	}
 
 
+
+	
+
+	@Override
+	public Object visit(ASTdostm node, Object data) {
+		enterNewBlock();
+		return super.visit(node, data);
+	}
+
+	@Override
+	public Object visit(ASTfa node, Object data) {
+		enterNewBlock();
+		return super.visit(node, data);
+	}
 
 	private void enterNewBlock() {
 		for (Entry<String, DefUseInfo> entry : blockDefUses.entrySet()) {
 			DefUseInfo defUse = entry.getValue();
 			unusedDefsArrayList.addAll(defUse.findUnusedDefAndKeepLatest());
 		}
-		
+		blockDefUses.clear();
 	}
 
 

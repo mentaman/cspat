@@ -13,6 +13,29 @@ public class SimpleNode implements Node {
 	protected Ice9Parser parser;
 	protected Token token;
 	protected ArrayList<Token> tokens = new ArrayList<Token>();
+	protected int constantValue;
+
+	public boolean isConstant() {
+
+		if (jjtGetNumChildren() == 0) {
+			if (this instanceof ASTintTerm || this instanceof ASTboolTerm) {
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		} else {
+
+			for (int i = 0; i < jjtGetNumChildren(); i++) {
+				SimpleNode child = (SimpleNode) jjtGetChild(i);
+				if (!child.isConstant()) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 	public SimpleNode(int i) {
 		id = i;

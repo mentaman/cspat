@@ -99,28 +99,34 @@
 89: LDA   6, 1(6)  restore fp
 90: LDA   7, 0(1)  jump to the return address
 2: LDA   7, 91(5)  jump to start of the program
-91: LDC   0, 6(5)  load integer 6
-92: ST    0, 74(5)  store int/bool/string into previous used static data
-93: LDC   0, 1(5)  load booleantrue
-95: LDC   0, 41(5)  load string offset 41
-96: LD    1, 0(0)  load str length into ac2
-97: JEQ   1, 5(7)  output nothing when empty
-98: LDA   0, 1(0)  increase offset
-99: LD    2, 0(0)  load char into ac3
-100: OUTC   2, 2, 2  write char
-101: LDA   1, -1(1)  decrease length of remaining string in ac2
-102: JNE   1, -5(7)  continue print if not yet finish
-103: OUTNL 0, 0, 0  write new line
-94: JEQ   0, 9(7)  if expr not true
-104: LDC   0, 66(5)  load string offset 66
-105: LD    1, 0(0)  load str length into ac2
-106: JEQ   1, 5(7)  output nothing when empty
-107: LDA   0, 1(0)  increase offset
-108: LD    2, 0(0)  load char into ac3
-109: OUTC   2, 2, 2  write char
-110: LDA   1, -1(1)  decrease length of remaining string in ac2
-111: JNE   1, -5(7)  continue print if not yet finish
-112: LD    0, 74(5)  load int/bool/str from static data
-113: OUT   0, 0, 0  write integer
-114: OUTNL 0, 0, 0  write new line
-115: HALT  0, 0, 0  program ends
+91: LDC   0, 3(5)  load integer 3
+92: ST    0, 72(5)  store int/bool/string into previous used static data
+93: LDC   0, 4(5)  load integer 4
+94: ST    0, 73(5)  store int/bool/string into previous used static data
+95: LDC   0, 6(5)  load integer 6
+96: ST    0, 74(5)  store int/bool/string into previous used static data
+97: LDC   0, 1(5)  load booleantrue
+99: LDC   0, 8(5)  load integer 8
+100: ST    0, 74(5)  store int/bool/string into previous used static data
+101: LDC   0, 41(5)  load string offset 41
+102: LD    1, 0(0)  load str length into ac2
+103: JEQ   1, 5(7)  output nothing when empty
+104: LDA   0, 1(0)  increase offset
+105: LD    2, 0(0)  load char into ac3
+106: OUTC   2, 2, 2  write char
+107: LDA   1, -1(1)  decrease length of remaining string in ac2
+108: JNE   1, -5(7)  continue print if not yet finish
+109: OUTNL 0, 0, 0  write new line
+98: JEQ   0, 11(7)  if expr not true
+110: LDC   0, 66(5)  load string offset 66
+111: LD    1, 0(0)  load str length into ac2
+112: JEQ   1, 5(7)  output nothing when empty
+113: LDA   0, 1(0)  increase offset
+114: LD    2, 0(0)  load char into ac3
+115: OUTC   2, 2, 2  write char
+116: LDA   1, -1(1)  decrease length of remaining string in ac2
+117: JNE   1, -5(7)  continue print if not yet finish
+118: LD    0, 74(5)  load int/bool/str from static data
+119: OUT   0, 0, 0  write integer
+120: OUTNL 0, 0, 0  write new line
+121: HALT  0, 0, 0  program ends
