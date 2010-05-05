@@ -127,7 +127,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		currentTable = globalTable;
 
-		emitIntFunction();
+		if (node.usedBuildInInt) {
+			emitIntFunction();
+		}
 
 		// super.visit(node, data);
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
