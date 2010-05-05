@@ -1,16 +1,19 @@
-var a,b,c :int
-a:=1;
-a:=2;
-b:=3;
-c:=4;
-a:=5;
-a:=6;
+var a,c,d :int
+var b : bool
+a:=1*2* -3;
+b:= true * (true + false);
+c:=a;
+d:= a + a + c;
+if(b) ->
+c := 1;
+d := c;
 
-if true ->
-a:=7;
-a:=8;
-write "in if";
+write "true";
+
 fi
-
 writes "a := ";
 write a;
+writes "c := ";
+write c;
+writes "d := ";
+write d;

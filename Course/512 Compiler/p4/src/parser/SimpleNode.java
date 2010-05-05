@@ -13,7 +13,7 @@ public class SimpleNode implements Node {
 	protected Ice9Parser parser;
 	protected Token token;
 	protected ArrayList<Token> tokens = new ArrayList<Token>();
-	protected int constantValue;
+	public int constantValue;
 
 	public boolean isConstant() {
 

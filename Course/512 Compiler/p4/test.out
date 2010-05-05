@@ -1,4 +1,6 @@
 Loading file: out.tm
-in if
-a := 8 
-Number of instructions executed = 73
+true
+a := -6 
+c := 1 
+d := 1 
+Number of instructions executed = 130

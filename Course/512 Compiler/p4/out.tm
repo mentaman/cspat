@@ -3,14 +3,18 @@
 .DATA    13
 .SDATA   "out of memory"
 .DATA    5
-.SDATA   "in if"
+.SDATA   "d := "
+.DATA    4
+.SDATA   "true"
 .DATA    18
 .SDATA   "array index error!"
+.DATA    5
+.SDATA   "c := "
 .DATA    5
 .SDATA   "a := "
 0: LD    6, 0(5)  save stack pointer
 1: LD    4, 0(5)  save frame pointer
-3: LDC   0, 47(5)  load array error str address
+3: LDC   0, 52(5)  load array error str address
 4: LD    1, 0(0)  load str length into ac2
 5: JEQ   1, 5(7)  output nothing when empty
 6: LDA   0, 1(0)  increase offset
@@ -41,7 +45,7 @@
 33: LDA   1, -1(1)  decrease str length
 34: LDC   2, -1(5)  load -1 into ac3
 35: LDA   6, -1(6)  push -1
-36: LDC   3, 75(5)  push -1
+36: LDC   3, 87(5)  push -1
 37: SUB   3, 6, 3  push -1
 38: JLE   3, 13(5)  push -1
 39: ST    2, 0(6)  push -1
@@ -52,14 +56,14 @@
 43: LDA   1, -1(1)  decrease str length
 44: LDC   2, 1(5)  load 1 into ac3
 45: LDA   6, -1(6)  push 1
-46: LDC   3, 75(5)  push 1
+46: LDC   3, 87(5)  push 1
 47: SUB   3, 6, 3  push 1
 48: JLE   3, 13(5)  push 1
 49: ST    2, 0(6)  push 1
 40: LDA   7, 9(7)  jump to start parsing str
 50: LDC   2, 0(5)  load 0 as initial result
 51: LDA   6, -1(6)  push 0
-52: LDC   3, 75(5)  push 0
+52: LDC   3, 87(5)  push 0
 53: SUB   3, 6, 3  push 0
 54: JLE   3, 13(5)  push 0
 55: ST    2, 0(6)  push 0
@@ -68,7 +72,7 @@
 58: LDC   3, 10(5)  load 10 into ac4
 59: MUL   2, 2, 3  mul result with 10
 60: LDA   6, -1(6)  push result
-61: LDC   3, 75(5)  push result
+61: LDC   3, 87(5)  push result
 62: SUB   3, 6, 3  push result
 63: JLE   3, 13(5)  push result
 64: ST    2, 0(6)  push result
@@ -80,7 +84,7 @@
 70: LDA   6, 1(6)  pop result into AC4
 71: ADD   2, 2, 3  compute result
 72: LDA   6, -1(6)  push result
-73: LDC   3, 75(5)  push result
+73: LDC   3, 87(5)  push result
 74: SUB   3, 6, 3  push result
 75: JLE   3, 13(5)  push result
 76: ST    2, 0(6)  push result
@@ -99,16 +103,16 @@
 89: LDA   6, 1(6)  restore fp
 90: LDA   7, 0(1)  jump to the return address
 2: LDA   7, 91(5)  jump to start of the program
-91: LDC   0, 3(5)  load integer 3
-92: ST    0, 72(5)  store int/bool/string into previous used static data
-93: LDC   0, 4(5)  load integer 4
-94: ST    0, 73(5)  store int/bool/string into previous used static data
-95: LDC   0, 6(5)  load integer 6
-96: ST    0, 74(5)  store int/bool/string into previous used static data
-97: LDC   0, 1(5)  load booleantrue
-99: LDC   0, 8(5)  load integer 8
-100: ST    0, 74(5)  store int/bool/string into previous used static data
-101: LDC   0, 41(5)  load string offset 41
+91: LDC   0, -6(5)  load integer -6
+92: ST    0, 86(5)  store int/bool/string into previous used static data
+93: LDC   0, 1(5)  load booleantrue
+94: ST    0, 84(5)  store int/bool/string into previous used static data
+95: LDC   0, -6(5)  load integer -6
+96: ST    0, 85(5)  store int/bool/string into previous used static data
+97: LDC   0, -18(5)  load integer -18
+98: ST    0, 83(5)  store int/bool/string into previous used static data
+99: LD    0, 84(5)  load int/bool/str from static data
+101: LDC   0, 47(5)  load string offset 47
 102: LD    1, 0(0)  load str length into ac2
 103: JEQ   1, 5(7)  output nothing when empty
 104: LDA   0, 1(0)  increase offset
@@ -117,8 +121,8 @@
 107: LDA   1, -1(1)  decrease length of remaining string in ac2
 108: JNE   1, -5(7)  continue print if not yet finish
 109: OUTNL 0, 0, 0  write new line
-98: JEQ   0, 11(7)  if expr not true
-110: LDC   0, 66(5)  load string offset 66
+100: JEQ   0, 9(7)  if expr not true
+110: LDC   0, 77(5)  load string offset 77
 111: LD    1, 0(0)  load str length into ac2
 112: JEQ   1, 5(7)  output nothing when empty
 113: LDA   0, 1(0)  increase offset
@@ -126,7 +130,29 @@
 115: OUTC   2, 2, 2  write char
 116: LDA   1, -1(1)  decrease length of remaining string in ac2
 117: JNE   1, -5(7)  continue print if not yet finish
-118: LD    0, 74(5)  load int/bool/str from static data
+118: LD    0, 86(5)  load int/bool/str from static data
 119: OUT   0, 0, 0  write integer
 120: OUTNL 0, 0, 0  write new line
-121: HALT  0, 0, 0  program ends
+121: LDC   0, 71(5)  load string offset 71
+122: LD    1, 0(0)  load str length into ac2
+123: JEQ   1, 5(7)  output nothing when empty
+124: LDA   0, 1(0)  increase offset
+125: LD    2, 0(0)  load char into ac3
+126: OUTC   2, 2, 2  write char
+127: LDA   1, -1(1)  decrease length of remaining string in ac2
+128: JNE   1, -5(7)  continue print if not yet finish
+129: LDC   0, 1(5)  load integer 1
+130: OUT   0, 0, 0  write integer
+131: OUTNL 0, 0, 0  write new line
+132: LDC   0, 41(5)  load string offset 41
+133: LD    1, 0(0)  load str length into ac2
+134: JEQ   1, 5(7)  output nothing when empty
+135: LDA   0, 1(0)  increase offset
+136: LD    2, 0(0)  load char into ac3
+137: OUTC   2, 2, 2  write char
+138: LDA   1, -1(1)  decrease length of remaining string in ac2
+139: JNE   1, -5(7)  continue print if not yet finish
+140: LDC   0, 1(5)  load integer 1
+141: OUT   0, 0, 0  write integer
+142: OUTNL 0, 0, 0  write new line
+143: HALT  0, 0, 0  program ends
