@@ -24,6 +24,7 @@ import parser.ASTlvalue;
 import parser.ASTnoAssignExp;
 import parser.ASTplusMinus;
 import parser.ASTproc;
+import parser.ASTprocedureCall;
 import parser.ASTprogram;
 import parser.ASTstm;
 import parser.ASTtimeDivide;
@@ -38,6 +39,9 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	HashMap<String, DefUseInfo> blockDefUses = new HashMap<String, DefUseInfo>();
 	HashMap<String, Integer> constantTables = new HashMap<String, Integer>();
+	
+	boolean usedBuiltInInt = false;
+	boolean builtInIntRedefined = false;
 	// HashMap<String, DefUseInfo> currentDefUses = new HashMap<String,
 	// DefUseInfo>();
 	ArrayList<ASTstm> unusedDefsArrayList = new ArrayList<ASTstm>();
@@ -52,9 +56,12 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTprogram node, Object data) {
-		// currentDefUses = globalDefUses;
 		super.visit(node, data);
 		exitLastBlock();
+		
+		node.usedBuildInInt = usedBuiltInInt;
+		
+		
 		return data;
 	}
 
@@ -197,6 +204,12 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	@Override
 	public Object visit(ASTproc node, Object data) {
+		Token idToken = node.getFirstToken();
+		String id = idToken.image;
+		if (id.equals("int")) {
+			builtInIntRedefined = true;
+		}
+		
 		enterNewBlock();
 		super.visit(node, data);
 		exitBlock();
@@ -549,4 +562,20 @@ public class ASTOptimizer extends CascadeVisitor {
 		return super.visit(node, data);
 	}
 
+	@Override
+	public Object visit(ASTprocedureCall node, Object data) {
+		Token idToken = node.getFirstToken();
+		String id = idToken.image;
+		if (builtInIntRedefined) {
+			if (id.equals("int")) {
+				usedBuiltInInt = true;
+			}
+		}
+	
+		
+		
+		return super.visit(node, data);
+	}
+
+	
 }
