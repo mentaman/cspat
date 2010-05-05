@@ -1,0 +1,18 @@
+
+var a :int
+proc test(c: int)
+
+
+writes "c is ";
+write c;
+c := c - 1;
+if c > 0 ->
+test(c);
+fi
+
+
+end
+
+a := 10000;
+write a;
+test(a);
