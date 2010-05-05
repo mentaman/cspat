@@ -4,13 +4,17 @@
  */options{  JDK_VERSION = "1.5";  STATIC = true;                                }PARSER_BEGIN(Ice9Parser)package parser;import type.*;import table.*;import java.util.*;import java.io.*;import parser.visitor.*;public class Ice9Parser/*@bgen(jjtree)*/implements Ice9ParserTreeConstants/*@egen*/{/*@bgen(jjtree)*/
   protected static JJTIce9ParserState jjtree = new JJTIce9ParserState();
 
-/*@egen*/  public static boolean isDebug = false;  public static boolean isDebug2 = false;  public static boolean debugTable = false;  public static SymbolTable globalTable = new SymbolTable();  public static SymbolTable currentTable = new SymbolTable();  public static Stack < String > loopStack = new Stack < String > ();  public static void debug(String text)  {    if (isDebug)    {      System.out.println(text);    }  }  public static void debugTable(String text)  {    if (debugTable)    {      System.out.println(text);    }  }  public static void debug2(String text)  {    if (isDebug2)    {      System.out.println(text);    }  }  public static void debug()  {    System.out.println();  }  public static void main(String args []) throws ParseException, java.io.IOException  {    Ice9Parser parser = null;    try    {      //      parser = new Ice9Parser(new java.io.FileInputStream("test-suite/tests/test245.9"));      parser = new Ice9Parser(new java.io.FileInputStream("test.dat"));      //      parser = new Ice9Parser(System.in);      //      System.out.println("Reading from file " + "dice/test1.9");
-      ASTprogram n = parser.program();      n.dump("");      //      CodeGenerationVisitor visitor = new CodeGenerationVisitor();
-      CodeGenerationVisitor visitor = new CodeGenerationVisitor();      n.jjtAccept(visitor, null);      System.out.println("successfully");    }    //    catch (java.io.FileNotFoundException e)    //    {    //      System.out.println("Ice9 Parser:  File not found.");    //      return;    //    }    catch (TokenMgrError e)    {      //      System.out.println(e.getMessage());
+/*@egen*/  public static boolean isDebug = false;  public static boolean isDebug2 = false;  public static boolean debugTable = false;  public static SymbolTable globalTable = new SymbolTable();  public static SymbolTable currentTable = new SymbolTable();  public static Stack < String > loopStack = new Stack < String > ();  public static HashMap < String, Integer > stringTable = new HashMap < String, Integer > ();  public static void debug(String text)  {    if (isDebug)    {      System.out.println(text);    }  }  public static void debugTable(String text)  {    if (debugTable)    {      System.out.println(text);    }  }  public static void debug2(String text)  {    if (isDebug2)    {      System.out.println(text);    }  }  public static void debug()  {    System.out.println();  }  public static void main(String args []) throws ParseException, java.io.IOException  {    Ice9Parser parser = null;    try    {      //      parser = new Ice9Parser(new java.io.FileInputStream("test-suite/tests/test245.9"));      parser = new Ice9Parser(new java.io.FileInputStream("test-suite-part2/tests/test" + 139 + ".9"));      //      parser = new Ice9Parser(System.in);      //      System.out.println("Reading from file " + "dice/test1.9");
+      ASTprogram n = parser.program();//      n.dump("");      //      CodeGenerationVisitor visitor = new CodeGenerationVisitor();
+      CodeGenerationVisitor visitor = new CodeGenerationVisitor(globalTable, stringTable, "generated.tm");      n.jjtAccept(visitor, null);      System.out.println("successfully");    }    //    catch (java.io.FileNotFoundException e)    //    {    //      System.out.println("Ice9 Parser:  File not found.");    //      return;    //    }    catch (TokenMgrError e)    {      //      System.out.println(e.getMessage());
       String message = e.getMessage();      int lineIndex = message.indexOf("line");      int commaIndex = message.indexOf(",");      int quoteIndex = message.indexOf("\"");      int lineNbr = Integer.parseInt(message.substring(lineIndex + 5, commaIndex));      String t = message.substring(quoteIndex + 1, message.length() - 1);      System.out.println("line " + lineNbr + ": illegal character (" + t + ")");    }    catch (TypeException e)    {      System.out.println(e.prettyMessage());      System.out.println(e.getMessage());      //      System.out.println(e.getMessage());
-    }    catch (SymbolTableException e)    {      System.out.println(e.prettyMessage());      System.out.println(e.getMessage());    }    catch (ParseException e)    {      Token t = e.currentToken;      int line = t.next.beginLine;      String value = t.image;      if (value == null)      {        value = "";      }      System.out.println("line " + line + ": syntax error near " + value);      System.out.println(e.getMessage());    }    catch (Exception e)    {      e.printStackTrace();    }    catch (Error e)    {      e.printStackTrace();    }    finally    {      debugTable("debug table: " + currentTable.toString());    }    FileWriter fstream = new FileWriter("test.out");    BufferedWriter out = new BufferedWriter(fstream);    for (int i = 1; i <= 0; i++)    {      try      {        System.out.println("parsing " + "test-suite/tests/test" + i + ".9");        parser.ReInit(new java.io.FileInputStream("test-suite/tests/test" + i + ".9"));        parser.program();        System.out.println("successfully");        out.write("test " + i + " successful!\n");      }      catch (TokenMgrError e)      {        //      System.out.println(e.getMessage());
+    }    catch (SymbolTableException e)    {      System.out.println(e.prettyMessage());      System.out.println(e.getMessage());    }    catch (ParseException e)    {      Token t = e.currentToken;      int line = t.next.beginLine;      String value = t.image;      if (value == null)      {        value = "";      }      System.out.println("line " + line + ": syntax error near " + value);      System.out.println(e.getMessage());    }    catch (Exception e)    {      e.printStackTrace();    }    catch (Error e)    {      e.printStackTrace();    }    finally    {      debugTable("debug table: " + currentTable.toString());    }    FileWriter fstream = new FileWriter("test.out");    BufferedWriter out = new BufferedWriter(fstream);    String expectedOut = "expected.out";    FileWriter expectStream = new FileWriter(expectedOut);    BufferedWriter expectOut = new BufferedWriter(expectStream);    for (int i = 139; i <= 139; i++)    {      try      {        System.out.println("parsing " + "test-suite-part2/tests/test" + i + ".9");        parser.ReInit(new java.io.FileInputStream("test-suite-part2/tests/test" + i + ".9"));        ASTprogram n = parser.program();        //        n.dump("");        //      CodeGenerationVisitor visitor = new CodeGenerationVisitor();
+        String outputFile = "test-suite-part2/out/test" + i + ".tm";        String executeFile = "test-suite-part2/generated/test" + i + ".out";        String expectedOutputFile = "test-suite-part2/expected/test" + i + ".out";        CodeGenerationVisitor visitor = new CodeGenerationVisitor(globalTable, stringTable, outputFile);        n.jjtAccept(visitor, null);
+        n.dump("");        FileWriter executeStream = new FileWriter(executeFile);        BufferedWriter executeOut = new BufferedWriter(executeStream);        String command = "./tm -b " + outputFile;        //        System.out.println("command: " + command);        Process p = Runtime.getRuntime().exec(command);        BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));        String s = null;        while ((s = stdInput.readLine()) != null)        {          System.out.println("tm: " + s);          executeOut.write(s + "\n");        }        executeOut.close();
+                BufferedReader reader = new BufferedReader(new FileReader(expectedOutputFile));        String line = null;
+        expectOut.write("output from file: " + "test" + i + ".out \n");        while ((line = reader.readLine()) != null)        {          expectOut.write(line + "\n");        }        //        out.write("test " + i + " successful!\n");      }      catch (TokenMgrError e)      {        //      System.out.println(e.getMessage());
         String message = e.getMessage();        int lineIndex = message.indexOf("line");        int commaIndex = message.indexOf(",");        int quoteIndex = message.indexOf("\"");        int lineNbr = Integer.parseInt(message.substring(lineIndex + 5, commaIndex));        String t = message.substring(quoteIndex + 1, message.length() - 1);        System.out.println("line " + lineNbr + ": illegal character (" + t + ")");      }      catch (TypeException e)      {        System.out.println(e.prettyMessage());        System.out.println(e.getMessage());        //      System.out.println(e.getMessage());
-      }      catch (SymbolTableException e)      {        System.out.println(e.prettyMessage());        System.out.println(e.getMessage());      }      catch (ParseException e)      {        Token t = e.currentToken;        int line = t.next.beginLine;        String value = t.image;        if (value == null)        {          value = "";        }        System.out.println("line " + line + ": syntax error near " + value);        System.out.println(e.getMessage());      }      catch (Exception e)      {        e.printStackTrace();      }      catch (Error e)      {        e.printStackTrace();      }    }    try    {      out.close();    }    catch (Exception e)    {}  }}PARSER_END(Ice9Parser)SKIP :{  " "| "\r"| "\t"| "\n"| "\r\n"}SPECIAL_TOKEN :{  < SINGLE_LINE_COMMENT :    "#" (~[ "\n", "\r" ])*    (      "\n"    | "\r"    | "\r\n"    )? >}TOKEN :{  < VAR : "var" >| < PROC : "proc" >| < END : "end" >| < RETURN : "return" >| < READ : "read" >| < WRITE : "write" >| < WRITES : "writes" >| < FORWARD : "forward" >| < TYPE : "type" >| < RARROW : "->" >}TOKEN : /*if*/{  < IF : "if" >| < ELSE : "else" >| < FI : "fi" >| < LR : "[]" >}TOKEN : /*do*/{  < DO : "do" >| < OD : "od" >}TOKEN : /*fa*/{  < FA : "fa" >| < AF : "af" >| < TO : "to" >}TOKEN : /*stm*/{  < BREAK : "break" >| < EXIT : "exit" >}TOKEN :{  < TRUE : "true" >| < FALSE : "false" >}/*
+      }      catch (SymbolTableException e)      {        System.out.println(e.prettyMessage());        System.out.println(e.getMessage());      }      catch (ParseException e)      {        Token t = e.currentToken;        int line = t.next.beginLine;        String value = t.image;        if (value == null)        {          value = "";        }        System.out.println("line " + line + ": syntax error near " + value);        System.out.println(e.getMessage());      }      catch (Exception e)      {        e.printStackTrace();      }      catch (Error e)      {        e.printStackTrace();      }    }    try    {      out.close();    }    catch (Exception e)    {}    try    {      expectOut.close();    }    catch (Exception e)    {}  }}PARSER_END(Ice9Parser)SKIP :{  " "| "\r"| "\t"| "\n"| "\r\n"}SPECIAL_TOKEN :{  < SINGLE_LINE_COMMENT :    "#" (~[ "\n", "\r" ])*    (      "\n"    | "\r"    | "\r\n"    )? >}TOKEN :{  < VAR : "var" >| < PROC : "proc" >| < END : "end" >| < RETURN : "return" >| < READ : "read" >| < WRITE : "write" >| < WRITES : "writes" >| < FORWARD : "forward" >| < TYPE : "type" >| < RARROW : "->" >}TOKEN : /*if*/{  < IF : "if" >| < ELSE : "else" >| < FI : "fi" >| < LR : "[]" >}TOKEN : /*do*/{  < DO : "do" >| < OD : "od" >}TOKEN : /*fa*/{  < FA : "fa" >| < AF : "af" >| < TO : "to" >}TOKEN : /*stm*/{  < BREAK : "break" >| < EXIT : "exit" >}TOKEN :{  < TRUE : "true" >| < FALSE : "false" >}/*
 id	-> [A-Za-z][A-Za-z0-9_]*
 int	-> [0-9]+
 string  -> "[^"\n]*" 		# double-quoted string: any char but " and \n
@@ -289,9 +293,9 @@ if	-> 'if' exp '->' stms { '[]' exp '->' stms } 'fi'
   ASTifstm jjtn000 = new ASTifstm(JJTIFSTM);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
-/*@egen*/  debug("if()");  TypeRecord conditionType;  Token iftoken;  SymbolTable newScope;}{/*@bgen(jjtree) ifstm */
+/*@egen*/  debug("if()");  TypeRecord conditionType;  Token iftoken;  SymbolTable newScope;  Token e;}{/*@bgen(jjtree) ifstm */
   try {
-/*@egen*/  iftoken = < IF > conditionType = noAssignExp()  {    debug2("type:" + conditionType);    if (!conditionType.equals(TypeRecord.boolType))    {      throw new TypeException(TypeError.WRONG_TYPE, "if condition must be bool", iftoken);    }  }  < RARROW >  {    newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;  }  stms()  {    currentTable = currentTable.parent;  }  (    LOOKAHEAD(2)    < LR > conditionType = noAssignExp()    {      if (!conditionType.equals(TypeRecord.boolType))      {        throw new TypeException(TypeError.WRONG_TYPE, "else if condition must be bool", iftoken);      }    }    < RARROW >    {      newScope = new SymbolTable();      newScope.parent = currentTable;      currentTable = newScope;    }    stms()    {      currentTable = currentTable.parent;    }  )*  [    LOOKAHEAD(2)    < LR > < ELSE > < RARROW >    {      newScope = new SymbolTable();      newScope.parent = currentTable;      currentTable = newScope;    }    stms()    {      currentTable = currentTable.parent;    }  ]  < FI >/*@bgen(jjtree)*/
+/*@egen*/  iftoken = < IF > conditionType = noAssignExp()  {    debug2("type:" + conditionType);    if (!conditionType.equals(TypeRecord.boolType))    {      throw new TypeException(TypeError.WRONG_TYPE, "if condition must be bool", iftoken);    }  }  < RARROW >  {    newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;  }  stms()  {    currentTable = currentTable.parent;  }  (    LOOKAHEAD(2)    < LR > conditionType = noAssignExp()    {      if (!conditionType.equals(TypeRecord.boolType))      {        throw new TypeException(TypeError.WRONG_TYPE, "else if condition must be bool", iftoken);      }    }    < RARROW >    {      jjtn000.hasElseIf = true;      newScope = new SymbolTable();      newScope.parent = currentTable;      currentTable = newScope;    }    stms()    {      currentTable = currentTable.parent;    }  )*  [    LOOKAHEAD(2)    < LR > e = < ELSE > < RARROW >    {      jjtn000.hasElse = true;      newScope = new SymbolTable();      newScope.parent = currentTable;      currentTable = newScope;    }    stms()    {      currentTable = currentTable.parent;    }  ]  < FI >/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -347,7 +351,7 @@ fa	-> 'fa' id ':=' exp 'to' exp '->' stms 'af'
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  debug("fa()");  TypeRecord lowType;  TypeRecord highType;  Token dotoken;  Token id;}{/*@bgen(jjtree) fa */
   try {
-/*@egen*/  < FA > id = < ID > < ASSIGN > lowType = noAssignExp()  {    if (!lowType.equals(TypeRecord.intType))    {      throw new TypeException(TypeError.WRONG_TYPE, "low condition must be int", id);    }  }  < TO > highType = noAssignExp()  {    if (!highType.equals(TypeRecord.intType))    {      throw new TypeException(TypeError.WRONG_TYPE, "high condition must be int", id);    }  }  < RARROW >  {    SymbolTable newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;    currentTable.insertId(id, new TypeRecord(BasicType.INT, true));    loopStack.push("fa");  }  stms()  {    loopStack.pop();    currentTable = currentTable.parent;  }  < AF >/*@bgen(jjtree)*/
+/*@egen*/  < FA > id = < ID > < ASSIGN > lowType = noAssignExp()  {    if (!lowType.equals(TypeRecord.intType))    {      throw new TypeException(TypeError.WRONG_TYPE, "low condition must be int", id);    }  }  < TO > highType = noAssignExp()  {    if (!highType.equals(TypeRecord.intType))    {      throw new TypeException(TypeError.WRONG_TYPE, "high condition must be int", id);    }  }  < RARROW >  {    SymbolTable newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;    currentTable.insertId(id, new TypeRecord(BasicType.INT, true));    jjtn000.setFirstToken(id);    loopStack.push("fa");  }  stms()  {    loopStack.pop();    currentTable = currentTable.parent;  }  < AF >/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -376,9 +380,9 @@ proc	-> 'proc' id '(' declist ')'
   ASTproc jjtn000 = new ASTproc(JJTPROC);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
-/*@egen*/  debug("proc()");  Token id;  List < ParaType > paras;  TypeRecord returnType = null;  ProcType forwardType = null;  Token end;}{/*@bgen(jjtree) proc */
+/*@egen*/  debug("proc()");  Token id;  List < ParaType > paras;  TypeRecord returnType = null;  ProcType forwardType = null;  Token end;  ProcType newproc = null;  TypeRecord varType = null;}{/*@bgen(jjtree) proc */
   try {
-/*@egen*/  < PROC > id = < ID >  {    if (currentTable.existsProc(id))    {      throw new SymbolTableException(LookupError.PROC_ALREADY_DEFINED, id, "proc has been defined in current table.");    }    if (currentTable.existsForward(id))    {      forwardType = currentTable.lookupForward(id);    }  }  < LPAREN > paras = declist() < RPAREN >  [    < COLON > typeid()    {      returnType = (TypeRecord) ((SimpleNode) (jjtree.peekNode())).jjtGetValue();    }  ]  {    if (forwardType != null)    {      if (returnType == null)      {        returnType = TypeRecord.voidType;      }      if (!returnType.equals(forwardType.returnType))      {        throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " return type of proc is different from forward", id);      }      List < ParaType > forwardParas = forwardType.paraTypes;      if (paras.size() != forwardParas.size())      {        throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " size of parameters of proc is different from forward", id);      }      for (int i = 0; i < paras.size(); i++)      {        if (!paras.get(i).type.equals(forwardParas.get(i).type))        {          throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " " + i + "th para is different from forward", id);        }      }    }    ProcType newproc = new ProcType(returnType, paras);    currentTable.insertProc(id, newproc);    jjtn000.jjtSetValue(TypeRecord.voidType);    SymbolTable newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;    if (returnType != null)    {      currentTable.insertId(id, returnType);    }    for (ParaType para : paras)    {      currentTable.insertId(para.id, para.type);    }  }  (    type()  | var()  )*  (    stm()  )*  {    currentTable = currentTable.parent;  }  end = < END >/*@bgen(jjtree)*/
+/*@egen*/  < PROC > id = < ID >  {    if (currentTable.existsProc(id))    {      throw new SymbolTableException(LookupError.PROC_ALREADY_DEFINED, id, "proc has been defined in current table.");    }    if (currentTable.existsForward(id))    {      forwardType = currentTable.lookupForward(id);    }  }  < LPAREN > paras = declist() < RPAREN >  [    < COLON > typeid()    {      returnType = (TypeRecord) ((SimpleNode) (jjtree.peekNode())).jjtGetValue();    }  ]  {    if (returnType == null)    {      returnType = TypeRecord.voidType;    }    if (forwardType != null)    {      if (!returnType.equals(forwardType.returnType))      {        throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " return type of proc is different from forward", id);      }      List < ParaType > forwardParas = forwardType.paraTypes;      if (paras.size() != forwardParas.size())      {        throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " size of parameters of proc is different from forward", id);      }      for (int i = 0; i < paras.size(); i++)      {        if (!paras.get(i).type.equals(forwardParas.get(i).type))        {          throw new TypeException(TypeError.WRONG_TYPE, "proc " + id.image + " " + i + "th para is different from forward", id);        }      }    }    newproc = new ProcType(returnType, paras);    currentTable.insertProc(id, newproc);    jjtn000.jjtSetValue(TypeRecord.voidType);    SymbolTable newScope = new SymbolTable();    newScope.parent = currentTable;    currentTable = newScope;    if (!returnType.equals(TypeRecord.voidType))    {      currentTable.insertId(id, returnType);    }    for (ParaType para : paras)    {      currentTable.insertId(para.id, para.type);    }  }  (    type()  | varType = var()    {      SimpleNode varNode = (SimpleNode) jjtree.peekNode();      if (!newproc.localVariablesHashMap.containsKey(varType))      {        newproc.localVariablesHashMap.put(varType, new ArrayList < Token > ());      }      newproc.localVariablesHashMap.get(varType).addAll(varNode.getTokens());    }  )*  (    stm()  )*  {    jjtn000.setFirstToken(id);    newproc.typeTable = currentTable.typeTable;    currentTable = currentTable.parent;  }  end = < END >/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -399,13 +403,18 @@ proc	-> 'proc' id '(' declist ')'
     }
   }
 /*@egen*/}/*var	-> 'var' varlist
-varlist  -> idlist ':' typeid { '[' int ']' } { ',' varlist}*/void varlist() :{/*@bgen(jjtree) varlist */
+varlist  -> idlist ':' typeid { '[' int ']' } { ',' varlist}*/TypeRecord varlist() :{/*@bgen(jjtree) varlist */
   ASTvarlist jjtn000 = new ASTvarlist(JJTVARLIST);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  debug("varlist()");  List < Token > tokens;  TypeRecord type;  Token size;  String typeid;  TypeRecord currentType;  SimpleNode typeNode;  boolean isFirst = true;  TypeRecord baseType;  TypeRecord returnType;}{/*@bgen(jjtree) varlist */
   try {
-/*@egen*/  tokens = idlist() < COLON > typeid = typeid()  {    typeNode = (SimpleNode) jjtree.peekNode();    currentType = (TypeRecord) typeNode.jjtGetValue();    baseType = currentType;    returnType = currentType;  }  (    < LBRACE > size = < INT > < RBRACE >    {      if (Integer.parseInt(size.image) == 0)      {        throw new TypeException(TypeError.WRONG_VALUE, "array size cannot be 0", size);      }      int intsize = Integer.parseInt(size.image);      if (isFirst)      {        currentType = TypeRecord.arrayType(intsize, currentType);        isFirst = false;        returnType = currentType;      }      else      {        TypeRecord newArray = TypeRecord.arrayType(intsize, baseType);        currentType.underType = newArray;        currentType = newArray;      }    }  )*  {    currentTable.insertIds(tokens, returnType);  }  (    LOOKAHEAD(2)    < COMMA > varlist()  )*/*@bgen(jjtree)*/
+/*@egen*/  tokens = idlist() < COLON > typeid = typeid()  {    typeNode = (SimpleNode) jjtree.peekNode();    currentType = (TypeRecord) typeNode.jjtGetValue();    baseType = currentType;    returnType = currentType;  }  (    < LBRACE > size = < INT > < RBRACE >    {      if (Integer.parseInt(size.image) == 0)      {        throw new TypeException(TypeError.WRONG_VALUE, "array size cannot be 0", size);      }      int intsize = Integer.parseInt(size.image);      if (isFirst)      {        currentType = TypeRecord.arrayType(intsize, currentType);        isFirst = false;        returnType = currentType;      }      else      {        TypeRecord newArray = TypeRecord.arrayType(intsize, baseType);        currentType.underType = newArray;        currentType = newArray;      }    }  )*  {    jjtn000.jjtSetValue(returnType);    currentTable.insertIds(tokens, returnType);    for (Token t : tokens)    {      jjtn000.addToken(t);    }  }  (    LOOKAHEAD(< COMMA > varlist())    < COMMA > varlist()  )*/*@bgen(jjtree)*/
+  {
+    jjtree.closeNodeScope(jjtn000, true);
+    jjtc000 = false;
+  }
+/*@egen*/  {    return returnType;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -425,13 +434,18 @@ varlist  -> idlist ':' typeid { '[' int ']' } { ',' varlist}*/void varlist() :
       jjtree.closeNodeScope(jjtn000, true);
     }
   }
-/*@egen*/}void var() :{/*@bgen(jjtree) var */
+/*@egen*/}TypeRecord var() :{/*@bgen(jjtree) var */
   ASTvar jjtn000 = new ASTvar(JJTVAR);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
-/*@egen*/  debug("var()");}{/*@bgen(jjtree) var */
+/*@egen*/  debug("var()");  TypeRecord type = null;}{/*@bgen(jjtree) var */
   try {
-/*@egen*/  < VAR > varlist()/*@bgen(jjtree)*/
+/*@egen*/  < VAR > type = varlist()/*@bgen(jjtree)*/
+  {
+    jjtree.closeNodeScope(jjtn000, true);
+    jjtc000 = false;
+  }
+/*@egen*/  {    jjtn000.jjtSetValue(type);    SimpleNode varlist = (SimpleNode) jjtn000.jjtGetChild(0);    jjtn000.setTokens(varlist.getTokens());    return type;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -518,7 +532,7 @@ declist	-> idlist ':' typeid { ',' declist }
       jjtree.closeNodeScope(jjtn000, true);
     }
   }
-/*@egen*/}/* type	-> 'type' id '=' typeid { '[' int ']' } */void type() :{/*@bgen(jjtree) type */
+/*@egen*/}/* type	-> 'type' id '=' typeid { '[' int ']' } */TypeRecord type() :{/*@bgen(jjtree) type */
   ASTtype jjtn000 = new ASTtype(JJTTYPE);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
@@ -529,7 +543,7 @@ declist	-> idlist ':' typeid { ',' declist }
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    currentTable.insertType(id, returnType);    jjtn000.jjtSetValue(returnType);  }/*@bgen(jjtree)*/
+/*@egen*/  {    currentTable.insertType(id, returnType);    jjtn000.jjtSetValue(returnType);    return returnType;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -555,14 +569,14 @@ lvalue	-> id | lvalue '[' exp ']'
   ASTlvalue jjtn000 = new ASTlvalue(JJTLVALUE);
   boolean jjtc000 = true;
   jjtree.openNodeScope(jjtn000);
-/*@egen*/  debug("lvalue()");  Token id;  TypeRecord type;  Token lbrace;  TypeRecord indexType;}{/*@bgen(jjtree) lvalue */
+/*@egen*/  debug("lvalue()");  Token id;  TypeRecord type;  Token lbrace;  TypeRecord indexType;  TypeRecord lookupType;}{/*@bgen(jjtree) lvalue */
   try {
-/*@egen*/  id = < ID >  {    type = currentTable.lookupId(id);  }  (    lbrace = < LBRACE > indexType = noAssignExp() < RBRACE >    {      if (!TypeRecord.isArray(type))      {        throw new TypeException(TypeError.WRONG_TYPE, "type must be array for indexing", lbrace);      }      if (!indexType.equals(TypeRecord.intType))      {        throw new TypeException(TypeError.WRONG_TYPE, "array index must be integer", lbrace);      }      type = type.underType;    }  )*/*@bgen(jjtree)*/
+/*@egen*/  id = < ID >  {    type = currentTable.lookupId(id);    lookupType = type;    if (TypeRecord.isArray(type))    {      jjtn000.isArray = true;    }  }  (    lbrace = < LBRACE > indexType = noAssignExp() < RBRACE >    {      if (!TypeRecord.isArray(type))      {        throw new TypeException(TypeError.WRONG_TYPE, "type must be array for indexing", lbrace);      }      if (!indexType.equals(TypeRecord.intType))      {        throw new TypeException(TypeError.WRONG_TYPE, "array index must be integer", lbrace);      }      type = type.underType;    }  )*/*@bgen(jjtree)*/
   {
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    debugTable("id:" + id + " type: " + type);    jjtn000.jjtSetValue(type);    return type;  }/*@bgen(jjtree)*/
+/*@egen*/  {    jjtn000.originalType = lookupType;    debugTable("id:" + id + " type: " + type);    jjtn000.jjtSetValue(type);    jjtn000.setFirstToken(id);    return type;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -617,8 +631,7 @@ exp	-> lvalue
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {
-    jjtn000.setFirstToken(t);    return t;  }/*@bgen(jjtree)*/
+/*@egen*/  {    jjtn000.setFirstToken(t);    return t;  }/*@bgen(jjtree)*/
   } finally {
     if (jjtc000) {
       jjtree.closeNodeScope(jjtn000, true);
@@ -688,8 +701,7 @@ exp	-> lvalue
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  Object returnType;  Token t;}{/*@bgen(jjtree) Times */
   try {
-/*@egen*/  PrefixExp()  {    returnType = ((SimpleNode) (jjtree.peekNode())).jjtGetValue();  }  (    LOOKAHEAD(2)    (      t = < MULTIPLY >    | t = < DIVIDE >
-    | t = < MOD >    )/*@bgen(jjtree) #timeDivide( 2) */
+/*@egen*/  PrefixExp()  {    returnType = ((SimpleNode) (jjtree.peekNode())).jjtGetValue();  }  (    LOOKAHEAD(2)    (      t = < MULTIPLY >    | t = < DIVIDE >    | t = < MOD >    )/*@bgen(jjtree) #timeDivide( 2) */
     {
       ASTtimeDivide jjtn001 = new ASTtimeDivide(JJTTIMEDIVIDE);
       boolean jjtc001 = true;
@@ -783,9 +795,7 @@ exp	-> lvalue
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    if (returnType.equals(TypeRecord.strType))    {      throw new TypeException(TypeError.WRONG_TYPE, "string type not allowed", t);    }    if (TypeRecord.isArray(returnType))    {      throw new TypeException(TypeError.WRONG_TYPE, "array type not allowed", t);    }    if ((t.image.equals("?") || (t2 != null && t2.image.equals("?"))) && !returnType.equals(TypeRecord.boolType))    {      throw new TypeException(TypeError.WRONG_TYPE, "unary ? only allows bool", t);    }    if (t.image.equals("-") && (!returnType.equals(TypeRecord.boolType) && !returnType.equals(TypeRecord.intType)))    {      throw new TypeException(TypeError.WRONG_TYPE, "unary - only allows bool and int", t);    }    if ((t.image.equals("?") || (t2 != null && t2.image.equals("?"))) && returnType.equals(TypeRecord.boolType))    {      returnType = TypeRecord.intType;    }    jjtn000.jjtSetValue(returnType);
-    jjtn000.addToken(t);
-    jjtn000.addToken(t2);    debug2("in unary: ");    debug2("this: " + jjtn000.jjtGetValue());    return (TypeRecord) returnType;  }/*@bgen(jjtree)*/
+/*@egen*/  {    if (returnType.equals(TypeRecord.strType))    {      throw new TypeException(TypeError.WRONG_TYPE, "string type not allowed", t);    }    if (TypeRecord.isArray(returnType))    {      throw new TypeException(TypeError.WRONG_TYPE, "array type not allowed", t);    }    if ((t.image.equals("?") || (t2 != null && t2.image.equals("?"))) && !returnType.equals(TypeRecord.boolType))    {      throw new TypeException(TypeError.WRONG_TYPE, "unary ? only allows bool", t);    }    if (t.image.equals("-") && (!returnType.equals(TypeRecord.boolType) && !returnType.equals(TypeRecord.intType)))    {      throw new TypeException(TypeError.WRONG_TYPE, "unary - only allows bool and int", t);    }    if ((t.image.equals("?") || (t2 != null && t2.image.equals("?"))) && returnType.equals(TypeRecord.boolType))    {      returnType = TypeRecord.clone(TypeRecord.intType);    }    jjtn000.jjtSetValue(returnType);    jjtn000.addToken(t);    jjtn000.addToken(t2);    debug2("in unary: ");    debug2("this: " + jjtn000.jjtGetValue());    return (TypeRecord) returnType;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -847,7 +857,7 @@ exp	-> lvalue
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    jjtn000.jjtSetValue(TypeRecord.intType);    debug2("found int types");    debug2("this: " + jjtn000.jjtGetValue());    jjtn000.setFirstToken(t);    return TypeRecord.intType;  }/*@bgen(jjtree)*/
+/*@egen*/  {    jjtn000.jjtSetValue(TypeRecord.clone(TypeRecord.intType));    debug2("found int types");    debug2("this: " + jjtn000.jjtGetValue());    jjtn000.setFirstToken(t);    return TypeRecord.intType;  }/*@bgen(jjtree)*/
   } finally {
     if (jjtc000) {
       jjtree.closeNodeScope(jjtn000, true);
@@ -859,7 +869,7 @@ exp	-> lvalue
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  Token t;}{/*@bgen(jjtree) boolTerm */
   try {
-/*@egen*/  (    t = < TRUE >    {      jjtn000.jjtSetValue(TypeRecord.boolType);    }  | t = < FALSE >    {      jjtn000.jjtSetValue(TypeRecord.boolType);    }  )/*@bgen(jjtree)*/
+/*@egen*/  (    t = < TRUE >    {      jjtn000.jjtSetValue(TypeRecord.clone(TypeRecord.boolType));    }  | t = < FALSE >    {      jjtn000.jjtSetValue(TypeRecord.clone(TypeRecord.boolType));    }  )/*@bgen(jjtree)*/
   {
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
@@ -876,7 +886,7 @@ exp	-> lvalue
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  Token t;}{/*@bgen(jjtree) readTerm */
   try {
-/*@egen*/  t = < READ >  {    jjtn000.jjtSetValue(TypeRecord.intType);  }/*@bgen(jjtree)*/
+/*@egen*/  t = < READ >  {    jjtn000.jjtSetValue(TypeRecord.clone(TypeRecord.intType));  }/*@bgen(jjtree)*/
   {
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
@@ -893,12 +903,12 @@ exp	-> lvalue
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  Token t;}{/*@bgen(jjtree) stringTerm */
   try {
-/*@egen*/  t = < STRING >  {    jjtn000.jjtSetValue(TypeRecord.strType);  }/*@bgen(jjtree)*/
+/*@egen*/  t = < STRING >  {    TypeRecord newTypeRecord = new TypeRecord(BasicType.STRING);    int strLength = t.image.length() - 2;    newTypeRecord.length = strLength;    newTypeRecord.token = t;    if (!stringTable.containsKey(t.image))    {      String stringValue = t.image;      if (stringValue.startsWith("'"))      {        stringValue = "\"" + stringValue.substring(1, stringValue.length() - 1) + "\"";      }      stringTable.put(stringValue, 0);    }    jjtn000.jjtSetValue(newTypeRecord);  }/*@bgen(jjtree)*/
   {
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    jjtn000.setFirstToken(t);    return TypeRecord.strType;  }/*@bgen(jjtree)*/
+/*@egen*/  {    jjtn000.setFirstToken(t);    return newTypeRecord;  }/*@bgen(jjtree)*/
   } finally {
     if (jjtc000) {
       jjtree.closeNodeScope(jjtn000, true);
@@ -915,7 +925,7 @@ exp	-> lvalue
     jjtree.closeNodeScope(jjtn000, true);
     jjtc000 = false;
   }
-/*@egen*/  {    if (types.size() != proc.paraTypes.size())    {      throw new TypeException(TypeError.WRONG_TYPE, "the size of parameters " + types.size() + " is not equal to the size of proc " + id.image + " parameters: " + proc.paraTypes.size(), rparen);    }    for (int i = 0; i < types.size(); i++)    {      TypeRecord procparaType = proc.paraTypes.get(i).type;      if (!types.get(i).equals(procparaType))      {        throw new TypeException(TypeError.WRONG_TYPE, i + "th parameter " + types.get(i) + " is not equal to " + i + "th parameter" + procparaType + " of proc " + id.image, rparen);      }    }    jjtn000.jjtSetValue(proc.returnType);    return proc.returnType;  }/*@bgen(jjtree)*/
+/*@egen*/  {    if (types.size() != proc.paraTypes.size())    {      throw new TypeException(TypeError.WRONG_TYPE, "the size of parameters " + types.size() + " is not equal to the size of proc " + id.image + " parameters: " + proc.paraTypes.size(), rparen);    }    for (int i = 0; i < types.size(); i++)    {      TypeRecord procparaType = proc.paraTypes.get(i).type;      if (!types.get(i).equals(procparaType))      {        throw new TypeException(TypeError.WRONG_TYPE, i + "th parameter " + types.get(i) + " is not equal to " + i + "th parameter" + procparaType + " of proc " + id.image, rparen);      }    }    jjtn000.setFirstToken(id);    jjtn000.jjtSetValue(proc.returnType);    return proc.returnType;  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
@@ -972,17 +982,43 @@ exp	-> lvalue
   jjtree.openNodeScope(jjtn000);
 /*@egen*/  debug("exp()");  Token assign;}{/*@bgen(jjtree) exp */
   try {
-/*@egen*/  (    LOOKAHEAD(lvalue() < ASSIGN > noAssignExp())    lvalue() assign = < ASSIGN > noAssignExp()/*@bgen(jjtree)*/
-    {
-      jjtree.closeNodeScope(jjtn000, true);
-      jjtc000 = false;
-    }
-/*@egen*/    {      SimpleNode node = (SimpleNode) (jjtn000);      debug2("node in assign: " + node);      SimpleNode firstChild = ((SimpleNode) (node.jjtGetChild(0)));      SimpleNode secondChild = ((SimpleNode) (node.jjtGetChild(1)));      TypeRecord firstType = (TypeRecord) firstChild.jjtGetValue();      TypeRecord secondType = (TypeRecord) secondChild.jjtGetValue();      if (!firstType.equals(secondType))      {        throw new TypeException(TypeError.TYPE_NOT_EQUAL, "type not equal in assign", assign);      }      if (TypeRecord.isArray(firstType))      {        throw new TypeException(TypeError.WRONG_TYPE, "array type not allowed", assign);      }      if (firstType.notAssignable)      {        throw new TypeException(TypeError.WRONG_TYPE, "this lvalue is not assignable", assign);      }      jjtn000.jjtSetValue(TypeRecord.voidType);    }  | noAssignExp()/*@bgen(jjtree)*/
+/*@egen*/  (    LOOKAHEAD(assignExp())    assignExp()  | noAssignExp()/*@bgen(jjtree)*/
     {
       jjtree.closeNodeScope(jjtn000, true);
       jjtc000 = false;
     }
 /*@egen*/    {      SimpleNode node = (SimpleNode) (jjtn000.jjtGetChild(0));      jjtn000.jjtSetValue(node.jjtGetValue());    }  )/*@bgen(jjtree)*/
+  } catch (Throwable jjte000) {
+    if (jjtc000) {
+      jjtree.clearNodeScope(jjtn000);
+      jjtc000 = false;
+    } else {
+      jjtree.popNode();
+    }
+    if (jjte000 instanceof RuntimeException) {
+      throw (RuntimeException)jjte000;
+    }
+    if (jjte000 instanceof ParseException) {
+      throw (ParseException)jjte000;
+    }
+    throw (Error)jjte000;
+  } finally {
+    if (jjtc000) {
+      jjtree.closeNodeScope(jjtn000, true);
+    }
+  }
+/*@egen*/}void assignExp() :{/*@bgen(jjtree) assignExp */
+  ASTassignExp jjtn000 = new ASTassignExp(JJTASSIGNEXP);
+  boolean jjtc000 = true;
+  jjtree.openNodeScope(jjtn000);
+/*@egen*/  Token assign;}{/*@bgen(jjtree) assignExp */
+  try {
+/*@egen*/  lvalue() assign = < ASSIGN > noAssignExp()/*@bgen(jjtree)*/
+  {
+    jjtree.closeNodeScope(jjtn000, true);
+    jjtc000 = false;
+  }
+/*@egen*/  {    SimpleNode node = (SimpleNode) (jjtn000);    debug2("node in assign: " + node);    SimpleNode firstChild = ((SimpleNode) (node.jjtGetChild(0)));    SimpleNode secondChild = ((SimpleNode) (node.jjtGetChild(1)));    TypeRecord firstType = (TypeRecord) firstChild.jjtGetValue();    TypeRecord secondType = (TypeRecord) secondChild.jjtGetValue();    if (!firstType.equals(secondType))    {      throw new TypeException(TypeError.TYPE_NOT_EQUAL, "type not equal in assign", assign);    }    if (TypeRecord.isArray(firstType))    {      throw new TypeException(TypeError.WRONG_TYPE, "array type not allowed", assign);    }    if (firstType.notAssignable)    {      throw new TypeException(TypeError.WRONG_TYPE, "this lvalue is not assignable", assign);    }    jjtn000.jjtSetValue(TypeRecord.voidType);  }/*@bgen(jjtree)*/
   } catch (Throwable jjte000) {
     if (jjtc000) {
       jjtree.clearNodeScope(jjtn000);
