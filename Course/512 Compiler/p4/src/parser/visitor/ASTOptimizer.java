@@ -23,6 +23,7 @@ import parser.ASTintTerm;
 import parser.ASTlvalue;
 import parser.ASTnoAssignExp;
 import parser.ASTplusMinus;
+import parser.ASTproc;
 import parser.ASTprogram;
 import parser.ASTstm;
 import parser.ASTtimeDivide;
@@ -191,6 +192,16 @@ public class ASTOptimizer extends CascadeVisitor {
 		debug("primary node constant value: " + node.constantValue);
 		return data;
 	}
+	
+	
+
+	@Override
+	public Object visit(ASTproc node, Object data) {
+		enterNewBlock();
+		super.visit(node, data);
+		exitBlock();
+		return data;
+	}
 
 	@Override
 	public Object visit(ASTnoAssignExp node, Object data) {
@@ -214,6 +225,52 @@ public class ASTOptimizer extends CascadeVisitor {
 		secondChildNode.jjtAccept(this, data);
 
 		if (!node.isConstant()) {
+			// check whether there is v * 1 or v * 0
+			if (firstChildNode.isConstant()) {
+				SimpleNode parent = (SimpleNode) node.jjtGetParent();
+				if (firstChildNode.constantValue == 1) {
+					if (operator.equals("*")) {
+						parent.jjtReplaceNode(node, secondChildNode);
+						debug("replace multiply with second child node because multiplied by 1 ");
+					}
+
+				} else if (firstChildNode.constantValue == 0) {
+					ASTintTerm intterm = new ASTintTerm(
+							Ice9ParserTreeConstants.JJTINTTERM);
+					intterm.constantValue = 0;
+					intterm.addToken(new Token(0, String
+							.valueOf(intterm.constantValue)));
+					intterm.jjtSetValue(new TypeRecord(BasicType.INT));
+					parent.jjtReplaceNode(node, intterm);
+					debug("replace multiply with int constant "
+							+ intterm.constantValue);
+				}
+
+			} else if (secondChildNode.isConstant()) {
+
+				SimpleNode parent = (SimpleNode) node.jjtGetParent();
+				if (secondChildNode.constantValue == 1) {
+					if (operator.equals("*") || operator.equals("/")) {
+						parent.jjtReplaceNode(node, firstChildNode);
+						debug("replace multiply with first child node because multiplied by 1 ");
+					}
+
+				} else if (secondChildNode.constantValue == 0) {
+					if (operator.equals("*")) {
+						ASTintTerm intterm = new ASTintTerm(
+								Ice9ParserTreeConstants.JJTINTTERM);
+						intterm.constantValue = 0;
+						intterm.addToken(new Token(0, String
+								.valueOf(intterm.constantValue)));
+						intterm.jjtSetValue(new TypeRecord(BasicType.INT));
+						parent.jjtReplaceNode(node, intterm);
+						debug("replace multiply with int constant "
+								+ intterm.constantValue);
+					}
+				}
+
+			}
+
 			return data;
 		}
 

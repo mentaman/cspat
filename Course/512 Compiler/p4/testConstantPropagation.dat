@@ -1,0 +1,21 @@
+var a,c,d :int
+var b : bool
+a:=1*2* -3;
+b:= true * (true + false);
+c:=a;
+d:= a + a + c;
+if(a > 1) ->
+c := 1;
+d := c;
+write "true";
+[] (a < 2) ->
+write "false";
+[] else ->
+write "else";
+fi
+writes "a := ";
+write a;
+writes "c := ";
+write c;
+writes "d := ";
+write d;
