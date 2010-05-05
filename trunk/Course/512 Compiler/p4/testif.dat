@@ -1,0 +1,19 @@
+var i : int
+
+i := 5;
+
+if i < 1 ->
+write "i < 1";
+[] i > 1 ->
+write "i > 1";
+fi
+write "out of 1st loop";
+
+if i < 1 ->
+write "i < 1";
+[] i < 3 ->
+write "i < 3";
+[] else ->
+write "i >= 3";
+fi
+write "out of 2nd loop";
