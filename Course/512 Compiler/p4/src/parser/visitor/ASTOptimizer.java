@@ -22,12 +22,15 @@ import parser.ASTifstm;
 import parser.ASTintTerm;
 import parser.ASTlvalue;
 import parser.ASTnoAssignExp;
+import parser.ASTotherstm;
 import parser.ASTplusMinus;
 import parser.ASTproc;
 import parser.ASTprocedureCall;
 import parser.ASTprogram;
 import parser.ASTstm;
+import parser.ASTstms;
 import parser.ASTtimeDivide;
+import parser.Ice9ParserConstants;
 import parser.Ice9ParserTreeConstants;
 import parser.Node;
 import parser.SimpleNode;
@@ -39,6 +42,10 @@ public class ASTOptimizer extends CascadeVisitor {
 
 	HashMap<String, DefUseInfo> blockDefUses = new HashMap<String, DefUseInfo>();
 	HashMap<String, Integer> constantTables = new HashMap<String, Integer>();
+	Stack<FaLoopInfo> faStack = new Stack<FaLoopInfo>();
+	ArrayList<FaLoopInfo> savefas = new ArrayList<FaLoopInfo>();
+	ArrayList<Integer> saveFaConstant = new ArrayList<Integer>();
+	ArrayList<ASTlvalue> savelvalues = new ArrayList<ASTlvalue>();
 
 	boolean usedBuiltInInt = false;
 	boolean builtInIntRedefined = false;
@@ -60,6 +67,74 @@ public class ASTOptimizer extends CascadeVisitor {
 		exitLastBlock();
 
 		node.usedBuildInInt = usedBuiltInInt;
+
+		if (savefas.size() > 0) {
+
+			for (int i = 0; i < savefas.size(); i++) {
+				FaLoopInfo faInfo = savefas.get(i);
+				int constantValue = saveFaConstant.get(i);
+				ASTlvalue lvalueNode = savelvalues.get(i);
+				ASTfa faNode = faInfo.faNode;
+
+				SimpleNode lowNode = (SimpleNode) faNode.jjtGetChild(0);
+				int low = lowNode.constantValue;
+
+				ASTstm newstm = new ASTstm(Ice9ParserTreeConstants.JJTSTM);
+				newstm.jjtSetValue(TypeRecord.voidType);
+				ASTotherstm newotherstm = new ASTotherstm(
+						Ice9ParserTreeConstants.JJTOTHERSTM);
+				newotherstm.jjtSetValue(TypeRecord.voidType);
+				ASTexp newexp = new ASTexp(Ice9ParserTreeConstants.JJTEXP);
+
+				ASTassignExp newassign = new ASTassignExp(
+						Ice9ParserTreeConstants.JJTASSIGNEXP);
+				newassign.jjtSetValue(TypeRecord.voidType);
+
+				ASTintTerm intterm = new ASTintTerm(
+						Ice9ParserTreeConstants.JJTINTTERM);
+				intterm.constantValue = saveFaConstant.get(i) * (low - 1);
+				intterm.addToken(new Token(0, String
+						.valueOf(intterm.constantValue)));
+				intterm.jjtSetValue(new TypeRecord(BasicType.INT));
+
+				newstm.jjtAddChild(newotherstm, 0);
+				newotherstm.jjtAddChild(newexp, 0);
+				newexp.jjtAddChild(newassign, 0);
+				
+				newassign.jjtAddChild(lvalueNode, 0);
+				newassign.jjtAddChild(intterm, 1);
+
+				Node temp = faNode;
+
+				while (temp.jjtGetParent() != null && !(temp instanceof ASTstm)) {
+					temp = temp.jjtGetParent();
+
+				}
+
+				ASTstm stm = (ASTstm) temp;
+				Node parentNode = stm.jjtGetParent();
+				if (parentNode instanceof ASTstms) {
+					ASTstms stms = (ASTstms) parentNode;
+					ArrayList<Node> newNodes = new ArrayList<Node>();
+
+					for (int j = 0; j < stms.jjtGetNumChildren(); j++) {
+						Node childNode = stms.jjtGetChild(j);
+						if (childNode == stm) {
+							newNodes.add(newstm);
+						}
+						newNodes.add(childNode);
+					}
+
+					stms.jjtClearChildren();
+					for (int j = 0; j < newNodes.size(); j++) {
+						stms.jjtAddChild(newNodes.get(j), j);
+					}
+				} else if (parentNode instanceof ASTproc) {
+
+				}
+
+			}
+		}
 
 		return data;
 	}
@@ -471,7 +546,12 @@ public class ASTOptimizer extends CascadeVisitor {
 	@Override
 	public Object visit(ASTfa node, Object data) {
 		enterNewBlock();
+		String loopVariable = node.getFirstToken().image;
+		faStack.push(new FaLoopInfo(loopVariable, node));
+
 		super.visit(node, data);
+
+		faStack.pop();
 		exitBlock();
 		return data;
 	}
@@ -528,6 +608,147 @@ public class ASTOptimizer extends CascadeVisitor {
 						+ boolterm.constantValue);
 			}
 			constantTables.put(id, noAssignExp.constantValue);
+		}
+
+		// end constant propagation
+
+		if (!faStack.empty()) {
+			FaLoopInfo faInfo = faStack.peek();
+
+			Node currentNode = noAssignExp;
+			if (currentNode.jjtGetNumChildren() != 1) {
+				return data;
+			}
+
+			ASTAdditive additive = null;
+
+			while (currentNode.jjtGetNumChildren() != 0
+					&& !(currentNode instanceof ASTtimeDivide)) {
+				if (currentNode.jjtGetNumChildren() != 1) {
+					return data;
+				} // make sure it has only one child
+
+				if (currentNode instanceof ASTAdditive) {
+					additive = (ASTAdditive) currentNode;
+				}
+
+				currentNode = currentNode.jjtGetChild(0);
+			}
+
+			if (!(currentNode instanceof ASTtimeDivide)) {
+				return data;
+			}
+			debug("found ASTtimeDivide");
+
+			String operator = ((ASTtimeDivide) currentNode).getFirstToken().image;
+
+			if (!operator.equals("*")) {
+				return data;
+			}
+
+			debug("found *");
+
+			SimpleNode leftChildNode = (SimpleNode) currentNode.jjtGetChild(0);
+			Node tempNode1 = leftChildNode;
+			if (tempNode1.jjtGetNumChildren() != 1) {
+				return data;
+			}
+
+			while (tempNode1.jjtGetNumChildren() != 0) {
+				if (tempNode1.jjtGetNumChildren() != 1) {
+					return data;
+				} // make sure it has only one child
+				tempNode1 = tempNode1.jjtGetChild(0);
+			}
+
+			debug("found tempNode1: " + tempNode1);
+
+			SimpleNode rightChildNode = (SimpleNode) currentNode.jjtGetChild(1);
+			Node tempNode2 = rightChildNode;
+			if (tempNode2.jjtGetNumChildren() != 1) {
+				return data;
+			}
+
+			while (tempNode2.jjtGetNumChildren() != 0) {
+				if (tempNode2.jjtGetNumChildren() != 1) {
+					return data;
+				} // make sure it has only one child
+				tempNode2 = tempNode2.jjtGetChild(0);
+			}
+
+			debug("found tempNode2: " + tempNode2);
+
+			if (tempNode1 instanceof ASTlvalue && rightChildNode.isConstant()) {
+				// debug("found fa optimization opportunity");
+				ASTlvalue templvalue = (ASTlvalue) tempNode1;
+				if (!templvalue.getFirstToken().image
+						.equals(faInfo.loopVariable)) {
+					return data;
+				}
+
+				debug("found fa optimization opportunity");
+				saveFaConstant.add(rightChildNode.constantValue);
+				savefas.add(faInfo);
+				savelvalues.add(lvalue);
+
+				ASTplusMinus plusMinus = new ASTplusMinus(
+						Ice9ParserTreeConstants.JJTPLUSMINUS);
+				plusMinus.setFirstToken(new Token(0, "+"));
+				plusMinus.jjtSetValue(new TypeRecord(BasicType.INT));
+
+				ASTlvalue newlvalue = new ASTlvalue(
+						Ice9ParserTreeConstants.JJTLVALUE);
+				newlvalue.setFirstToken(new Token(0, id));
+				newlvalue.jjtSetValue(new TypeRecord(BasicType.INT));
+
+				ASTintTerm intterm = new ASTintTerm(
+						Ice9ParserTreeConstants.JJTINTTERM);
+				intterm.constantValue = rightChildNode.constantValue;
+				intterm.addToken(new Token(0, String
+						.valueOf(intterm.constantValue)));
+				intterm.jjtSetValue(new TypeRecord(BasicType.INT));
+				plusMinus.jjtAddChild(newlvalue, 0);
+				plusMinus.jjtAddChild(intterm, 1);
+
+				additive.jjtClearChildren();
+				additive.jjtAddChild(plusMinus, 0);
+			} else if (tempNode2 instanceof ASTlvalue
+					&& leftChildNode.isConstant()) {
+
+				ASTlvalue templvalue = (ASTlvalue) tempNode2;
+				if (!templvalue.getFirstToken().image
+						.equals(faInfo.loopVariable)) {
+					return data;
+				}
+
+				debug("found fa optimization opportunity");
+				saveFaConstant.add(leftChildNode.constantValue);
+				savefas.add(faInfo);
+				savelvalues.add(lvalue);
+
+				ASTplusMinus plusMinus = new ASTplusMinus(
+						Ice9ParserTreeConstants.JJTPLUSMINUS);
+				plusMinus.setFirstToken(new Token(0, "+"));
+				plusMinus.jjtSetValue(new TypeRecord(BasicType.INT));
+
+				ASTlvalue newlvalue = new ASTlvalue(
+						Ice9ParserTreeConstants.JJTLVALUE);
+				newlvalue.setFirstToken(new Token(0, id));
+				newlvalue.jjtSetValue(new TypeRecord(BasicType.INT));
+
+				ASTintTerm intterm = new ASTintTerm(
+						Ice9ParserTreeConstants.JJTINTTERM);
+				intterm.constantValue = leftChildNode.constantValue;
+				intterm.addToken(new Token(0, String
+						.valueOf(intterm.constantValue)));
+				intterm.jjtSetValue(new TypeRecord(BasicType.INT));
+				plusMinus.jjtAddChild(newlvalue, 0);
+				plusMinus.jjtAddChild(intterm, 1);
+
+				additive.jjtClearChildren();
+				additive.jjtAddChild(plusMinus, 0);
+
+			}
 		}
 
 		return data;

@@ -189,6 +189,11 @@ public class SimpleNode implements Node {
 			}
 		}
 	}
+	
+	public void jjtClearChildren(){
+		children = null;
+	}
+	
 }
 
 /*
