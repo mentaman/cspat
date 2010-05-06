@@ -100,7 +100,7 @@ public class ASTOptimizer extends CascadeVisitor {
 				newstm.jjtAddChild(newotherstm, 0);
 				newotherstm.jjtAddChild(newexp, 0);
 				newexp.jjtAddChild(newassign, 0);
-				
+
 				newassign.jjtAddChild(lvalueNode, 0);
 				newassign.jjtAddChild(intterm, 1);
 
@@ -112,25 +112,21 @@ public class ASTOptimizer extends CascadeVisitor {
 				}
 
 				ASTstm stm = (ASTstm) temp;
-				Node parentNode = stm.jjtGetParent();
-				if (parentNode instanceof ASTstms) {
-					ASTstms stms = (ASTstms) parentNode;
-					ArrayList<Node> newNodes = new ArrayList<Node>();
+				SimpleNode parentNode = (SimpleNode) stm.jjtGetParent();
 
-					for (int j = 0; j < stms.jjtGetNumChildren(); j++) {
-						Node childNode = stms.jjtGetChild(j);
-						if (childNode == stm) {
-							newNodes.add(newstm);
-						}
-						newNodes.add(childNode);
+				ArrayList<Node> newNodes = new ArrayList<Node>();
+
+				for (int j = 0; j < parentNode.jjtGetNumChildren(); j++) {
+					Node childNode = parentNode.jjtGetChild(j);
+					if (childNode == stm) {
+						newNodes.add(newstm);
 					}
+					newNodes.add(childNode);
+				}
 
-					stms.jjtClearChildren();
-					for (int j = 0; j < newNodes.size(); j++) {
-						stms.jjtAddChild(newNodes.get(j), j);
-					}
-				} else if (parentNode instanceof ASTproc) {
-
+				parentNode.jjtClearChildren();
+				for (int j = 0; j < newNodes.size(); j++) {
+					parentNode.jjtAddChild(newNodes.get(j), j);
 				}
 
 			}

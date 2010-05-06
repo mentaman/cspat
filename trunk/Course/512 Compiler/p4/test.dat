@@ -1,3 +1,5 @@
+proc test()
+
 var a,b : int;
 
 
@@ -15,3 +17,7 @@ af
 
 writes "a := ";
 write a;
+
+end
+
+test();
