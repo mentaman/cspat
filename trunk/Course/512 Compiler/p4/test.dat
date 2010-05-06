@@ -1,14 +1,17 @@
-var a,b,c : int
+var a,b : int;
 
-write "please give a value for a";
-a:=read;
 
-b := a + 0;
-c := a - 0;
+writes "before a := ";
+write a;
 
-writes "b := a + 0, b is ";
-write b;
+fa i := 1 to 3 ->
 
-writes "c := a - 0, c is ";
-write c;
 
+a:=3*i;
+writes "after a := ";
+write a;
+
+af
+
+writes "a := ";
+write a;
