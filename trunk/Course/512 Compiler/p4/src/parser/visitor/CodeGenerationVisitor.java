@@ -135,7 +135,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		for (int i = 0; i < node.jjtGetNumChildren(); i++) {
 			SimpleNode childNode = (SimpleNode) node.jjtGetChild(i);
 			if (childNode instanceof ASTstms) {
-				code.emitLDA(RegisterConstant.PC, lineNbr,
+				code.emitLDC(RegisterConstant.PC, lineNbr,
 						RegisterConstant.ZERO, saveLineNbr,
 						"jump to start of the program");
 			}
@@ -144,9 +144,12 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 
 		code.emitHALT(lineNbr++, "program ends");
 
+		JumpChainEliminator jumpChainEliminator = new JumpChainEliminator(code
+				.toString());
+		String optimizedCode = jumpChainEliminator.eliminateJumpChain();
 		try {
-			FileWriter writer = new FileWriter(outputFile);
-			writer.write(code.toString());
+			FileWriter writer = new FileWriter(outputFile);			
+			writer.write(optimizedCode);
 			writer.close();
 		} catch (IOException e) {
 			debug("e");
@@ -192,7 +195,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		} catch (SymbolTableException e) {
 			e.printStackTrace();
 		}
-		
+
 		intProc.startLineNbr = lineNbr;
 		code.emitLD(RegisterConstant.AC, -3, RegisterConstant.FP, lineNbr++,
 				"load str offset");
@@ -222,7 +225,7 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		// code.emitJNE(RegisterConstant.AC4, 5, RegisterConstant.PC, lineNbr++,
 		// "jump if equal");
 		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
-		"decrease str length");
+				"decrease str length");
 		code.emitLDC(RegisterConstant.AC3, -1, RegisterConstant.ZERO,
 				lineNbr++, "load -1 into ac3");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push -1");
@@ -235,13 +238,13 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 		code.emitLDA(RegisterConstant.AC, -1, RegisterConstant.AC, lineNbr++,
 				"move back str offset");
 		code.emitLDA(RegisterConstant.AC2, 1, RegisterConstant.AC2, lineNbr++,
-		"increase str length");
+				"increase str length");
 
 		code.emitJEQ(RegisterConstant.AC4, lineNbr - save1 - 1,
 				RegisterConstant.PC, save1, "jump if equal '+'");
 
 		code.emitLDA(RegisterConstant.AC2, -1, RegisterConstant.AC2, lineNbr++,
-		"decrease str length");
+				"decrease str length");
 		code.emitLDC(RegisterConstant.AC3, 1, RegisterConstant.ZERO, lineNbr++,
 				"load 1 into ac3");
 		lineNbr = code.emitPUSH(RegisterConstant.AC3, lineNbr, "push 1");
@@ -448,10 +451,9 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 			saveLineNbr = lineNbr;
 			lineNbr++;
 		}
-		
+
 		lineNbr = code.emitPUSH(RegisterConstant.AC, lineNbr,
 				"push first child's value");
-		
 
 		SimpleNode secondChildNode = (SimpleNode) node.jjtGetChild(1);
 		secondChildNode.jjtAccept(this, data);
@@ -474,10 +476,10 @@ public class CodeGenerationVisitor extends CascadeVisitor {
 						lineNbr++, "skip load false");
 				code.emitLDC(RegisterConstant.AC, 0, RegisterConstant.ZERO,
 						lineNbr++, "load 0 as false");
-				
+
 				code.emitJNE(RegisterConstant.AC, lineNbr - saveLineNbr - 1,
 						RegisterConstant.PC, saveLineNbr, "short circuit");
-				
+
 			}
 
 		} else if (operator.equals("-")) {
