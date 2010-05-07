@@ -1,0 +1,12 @@
+0: LD    6, 0(5)  save stack pointer
+1: LDC   7, 3(5)  load array error str address
+2: LDC   1, 4(5)  load array error str address
+3: LDC   7, 5(5)  load str length into ac
+4: JEQ   1, 5(7)  output nothing when empty
+5: LDA   5, 6(5)  increase offset
+6: LDA   7, 3(5)  load char into ac
+7: LDA   7, 8(5)  load char into ac
+8: LDA   3, 3(5)  load char into ac
+9: LDA   7, 1(7)  load char into ac
+10: LDA   1, -7(7)  load char into ac
+11: LDA   7, -9(7)  load char into ac
