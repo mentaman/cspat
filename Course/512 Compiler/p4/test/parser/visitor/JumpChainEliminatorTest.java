@@ -17,11 +17,12 @@ public class JumpChainEliminatorTest {
 				+ "6: LDA   7, 3(5)  load char into ac3 \n"
 				+ "7: LDA   7, 8(5)  load char into ac3 \n"
 				+ "8: LDA   3, 3(5)  load char into ac3 \n"
-				+ "9: JLT   3, 3(5)  load char into ac3 \n"
-				+ "10: JEQ   3, 3(5)  load char into ac3 \n"
+				+ "9: LDA   7, 1(7)  load char into ac3 \n"
+				+ "10: LDA   1, -7(7)  load char into ac3 \n"
+				+ "11: LDA   7, -9(7)  load char into ac3 \n"
 			;
 
 		JumpChainEliminator eliminator = new JumpChainEliminator(testcode);
-		eliminator.eliminateJumpChain();
+		System.out.println(eliminator.eliminateJumpChain());
 	}
 }

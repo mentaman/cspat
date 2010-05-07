@@ -1,3 +1,4 @@
 Loading file: out.tm
-a := 10 
-Number of instructions executed = 38
+Abort limit reached
+Last executed cmd:   76:   LD  0,  -2(4)  | before:  r[0]: 1000  r[4]: 9998  m[9996]: 1000  |  load hi into ac 
+Number of instructions executed = 20000
