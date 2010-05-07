@@ -3,8 +3,6 @@ package parser.visitor;
 import java.util.*;
 import java.util.Map.Entry;
 
-import com.sun.org.apache.bcel.internal.generic.Type;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import parser.ASTAdditive;
 import parser.ASTPrefixExp;
