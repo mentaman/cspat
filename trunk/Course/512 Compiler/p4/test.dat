@@ -1,38 +1,23 @@
-var seive : bool [1001]
-var N, L, cnt : int
+var a,b, c,d,e :int
 
-N := 1000;
-L := N/2;
+write "please give a value for c";
+c:=read;
+a:=1*c* -3;
+b:= 0 * c;
+d := c * 1 * 2;
+e := c * 0 * 100;
 
-seive[1] := false;  # one is not prime
 
-fa i := 2 to 1000 -> seive[i] := true; af
+writes "a := 1*c*-3, a is ";
+write a;
 
-# there is a tighter limit, but this will do
-fa i := 2 to L ->
-   #writes "working on number "; write i;
+writes "b := 0 * c, b is ";
+write b;
 
-   fa j := i+1 to N ->
-      if j % i = 0 ->
-      	 # i divides j => j is not prime
-	 seive[j] := false;
-      fi
-   af
-af
+writes "d := c * 1 * 2, d is ";
+write d;
 
-writes "The prime numbers under "; writes N; write " are:";
-writes "\t";
+writes "e := c * 0 * 100, e is ";
+write e;
 
-cnt := 0;
-fa i := 2 to N ->
-  if seive[i] -> 
-     writes i; 
-     writes "\t"; 
-     cnt := cnt + 1; 
-     if cnt > 8 -> 
-       writes "\n\t";
-       cnt := 0;
-     fi   
-  fi
-af
-write "";
+
