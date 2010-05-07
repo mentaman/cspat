@@ -1,0 +1,23 @@
+proc test()
+
+var a,b : int;
+
+
+writes "before a := ";
+write a;
+
+fa i := 1 to 3 ->
+
+
+a:=3*i;
+writes "after a := ";
+write a;
+
+af
+
+writes "a := ";
+write a;
+
+end
+
+test();
