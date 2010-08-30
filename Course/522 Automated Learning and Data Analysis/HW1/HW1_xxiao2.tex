@@ -1,0 +1,120 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC522, Automated Learning and Data Analysis\\
+\textbf{Homework 1}\\
+\textbf{Student: Xusheng Xiao}
+\end{flushleft}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+	\item \textbf{Problem 1 (6 points).} Please classify the following attributes as binary, discrete, or continuous. Also classify them as qualitative (nominal or ordinal) or quantitative (interval or ratio). Some cases may have more than one interpretation, so briefly indicate your reasoning then in doubt.	
+	\begin{enumerate}
+		\item Time in terms of AM or PM
+		\item Brightness as measured by a light meter
+		\item Brightness as measured by people’s judgments
+		\item Angles as measured in degrees between 0 and 360.
+		\item Bronze, Silver, and Gold medals as awarded at the Olympics
+		\item Height above sea level.
+		\item Number of patients in a hospital
+		\item ISBN numbers for books. (Look up the format on the Web.)
+		\item Ability to pass light in terms of the following values: opaque, translucent, transparent.
+		\item Military rank
+		\item Distance from the center of campus.
+		\item Density of a substance in grams per cubic centimeter.
+		\item Coat check number. (When you attend an event and you give your coat in exchange to a number that you can use to claim your coat when you leave.)
+	\end{enumerate}
+  
+ \item \textbf{Problem 2 (5 points).} For the following vectors, x and y, calculate the indicated similarity or distance measures.
+ \begin{enumerate}
+		\item X=(1,1,1,1), Y=(2,2,2,2): cosine, correlation coefficient, Euclidean distance
+		\item X=(0,1,0,1), Y=(1,0,1,0): cosine, correlation coefficient, Euclidean distance, Jaccard coefficient
+		\item X=(0,-1,0,1), Y=(1,0,-1,0): cosine, correlation, Euclidean distance
+		\item X=(1,1,0,1,0,1), Y=(1,1,1,0,0,1): cosine, correlation coefficient, Jaccard coefficient
+		\item X=(2,-1,0,2,0,-3), Y=(-1,1,-1,0,0,-1): cosine, correlation coefficient
+ \end{enumerate}
+ 
+ \item\textbf{Problem 3 (6 points). } Show that the set difference metric given by D(A,B) := size(A-B) + size(B-A) satisfies the metric axioms given on pages 70/71 of our textbook. Here, A and B are sets, and A-B indicates the set difference.
+
+
+\item \textbf{Problem 4 (6 points).} Describe how you would create visualizations to .display information that describes
+ \begin{enumerate}
+		\item Computer networks. Be sure to include both the static aspects of the network, such as connectivity, and the dynamic aspects, such as traffic.
+		\item The distribution of specific plant and animal species around the world for a specific moment in time.
+		\item The use of computer resources such as processor time, main memory, and disk for asset of benchmark database programs.
+ \end{enumerate}
+ 
+In your answers, please address the following issues:
+\begin{itemize}
+\item Representation: how will you map objects, attributes, and relationships to visual elements?
+\item Arrangement: are there special considerations that need to be taken into account with respect to how visual elements are displayed? E.g. choice of viewpoint, use of transparency, etc.
+\item Selection: how will you handle a large number of attributes and data objects?
+\end{itemize}
+
+\item \textbf{Problem 5 (5 points).}
+ \begin{enumerate}
+		\item Describe how a box plot can give information about whether the value of an attribute is symmetrically distributed. What can you say about the symmetry of the distribution of the attributes shown in Figure 3.11 on page 115 of our textbook.
+		\item Compare sepal length, sepal width, petal length, and petal width using Figure 3.12 on page 115.
+ \end{enumerate}
+
+
+
+\end{enumerate}
+\end{document}
