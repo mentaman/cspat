@@ -1,0 +1,126 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC520, Introduction to Artificial Intelligence\\
+\textbf{Homework 1}\\
+\textbf{Student: Xusheng Xiao}
+\end{flushleft}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+	\item \textbf{ (12 points) Describe PEAS for the following:}
+	\begin{enumerate}
+	\item Bot to display advertisements in a search engine (eg. Bing, Google etc.)
+	\item Industrial robot (eg. detect surface defects on automobile body in assembly line)
+	\item Recommendation system (eg. Amazon book suggestion system)
+	\end{enumerate}
+     
+     In each case, state whether the environment is fully observable, deterministic, episodic, and single agent. 
+
+
+\item \textbf{(18 points) Answer the following questions from the textbook: 2.6a, 2.6b, 2.12}
+
+\item \textbf{(20 points) Introducing our agent Mr.Wuf who will help us moving things from one place to another. One day, Mr.Wuf is assigned a task of transferring a set of boxes one-by-one by lifting them from location A and placing them in location B inside a building. A signaling system says whether the agent is near its destination or not. The room has stationary obstacles whose locations are unknown. If the agent bumps into an obstacle, the box in hand will fall down and some boxes have fragile goods. But there are safe paths, some longer than the others. Your must help Mr.Wuf with the task by answering the following questions. Mr.Wuf does not have enough time !!!}
+
+	\begin{enumerate}
+	\item Define PEAS.
+	\item Is it sufficient for Mr.Wuf to be simple reflex ? Why or why not ?
+	\item Mr.Wuf likes to move randomly. To what extent would this help ? Are there drawbacks ?
+	\item Suggest one improvement to Mr.Wuf's design. Does your improvement have drawbacks ?
+	\end{enumerate}
+	
+\item \textbf{(30 points) Consider the following english sentences.}
+	\begin{enumerate}
+	\item Marcus was a man
+	\item Marcus was a Pompeian
+	\item All Pompeians were Romans
+	\item Caesar was a ruler
+	\item All Romans were either loyal to Caesar or hated him
+	\item Everyone is loyal to someone
+	\item Any man only tries to assassinate rulers he is not loyal to
+	\item Marcus tried to assassinate Caesar
+	\end{enumerate}
+
+\textbf{Now answer the following questions:}
+
+	\begin{enumerate}
+	\item Convert the above into first order predicate logic using the following predicates: ruler, man, Pompeian, Roman, loyalto, hate, tryassassinate Use appropriate quantifiers and connectors.
+	\item Convert the above sentence to CNF.
+	\item Answer the following questions using resolution discussed in class based on the knowledge above:
+		\begin{enumerate}
+		\item Was Marcus loyal to Caesar ?
+		\item Did Marcus hate Caesar ?
+		\end{enumerate}
+
+	\end{enumerate}
+
+\item \textbf{(20 points) Consider the following English statements:}
+	\begin{enumerate}
+	\item John is a graduate student
+	\item Graduate students buy cheaper books
+	\item AI book is costly
+	\item The neighborhood store "Bookmarks" has a discount on the AI book
+	\item Books on discount are cheap
+	\end{enumerate}
+
+\textbf{Now, using the resolution approach for first order predicate logic discussed in class, answer: "Will John buy the AI book from BookMarks?"}
+
+\end{enumerate}
+\end{document}
