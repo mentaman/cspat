@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  31 AUG 2010 00:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  31 AUG 2010 11:42
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -262,23 +262,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--197
 
  []
 
-[4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
 
- (/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+[4]
+Overfull \hbox (12.87656pt too wide) in paragraph at lines 222--234
+\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A; C\OT1/cmr/m/n/10 ) = \OM
+L/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^@ \OML
+/cmm/m/it/10 C\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cm
+m/m/it/10 C \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) = \OML/cmm
+/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) + \OML/cmm/m/
+it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
+ ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A 
+[] C\OT1/cmr/m/n/10 )$. 
+ []
+
+
+Overfull \hbox (13.78345pt too wide) in paragraph at lines 222--234
+\OT1/cmr/m/n/10 By De Mor-gan, $\OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 B\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 A [] B [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/m/it/10 size\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 A [] B\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\
+OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B [] C\OT1/cmr/m/n/10 )$. 
+ []
+
+
+Overfull \hbox (38.91032pt too wide) in paragraph at lines 222--234
+\OT1/cmr/m/n/10 Since $\OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A
+ [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/m/it/10 size\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 A [] B [] C\OT1/cmr/m/n/10 )$, $\OML/cmm/m/it/10 size\OT1/c
+mr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 A [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/
+m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A [] B\OT1/cmr/m/n/10 ) +
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 250.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
- [5]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 250.
+ [5] [6]
 (./HW1_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
- 1479 strings out of 493849
- 17155 string characters out of 3149230
+ 1481 strings out of 493849
+ 17176 string characters out of 3149230
  73904 words of memory out of 3000000
- 4783 multiletter control sequences out of 15000+200000
- 5647 words of font info for 23 fonts, out of 3000000 for 9000
+ 4784 multiletter control sequences out of 15000+200000
+ 5993 words of font info for 24 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,7n,22p,339b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,7n,22p,339b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (5 pages, 17980 bytes).
+Output written on HW1_xxiao2.dvi (6 pages, 22252 bytes).
