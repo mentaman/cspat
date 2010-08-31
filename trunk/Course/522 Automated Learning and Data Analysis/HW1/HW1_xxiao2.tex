@@ -198,7 +198,44 @@
 		
  \end{enumerate}
  
- \item\textbf{Problem 3 (6 points). } Show that the set difference metric given by D(A,B) := size(A-B) + size(B-A) satisfies the metric axioms given on pages 70/71 of our textbook. Here, A and B are sets, and A-B indicates the set difference.
+ \item\textbf{Problem 3 (6 points). } Show that the set difference metric given by $D(A,B) := size(A-B) + size(B-A)$ satisfies the metric axioms given on pages 70/71 of our textbook. Here, $A$ and $B$ are sets, and $A-B$ indicates the set difference. \\
+ 
+ 
+ \begin{theorem}
+    $D(A,B) := size(A-B) + size(B-A)$ satisfies the metric axioms, where A and B are sets, and A-B indicates the set difference.
+ \end{theorem}
+ \begin{proof}
+ To prove $D(A,B) := size(A-B) + size(B-A)$ satisfies the metric axioms, we need to show three properties of metrics hold for $D(A,B)$. \\
+ \begin{enumerate}
+\item \textbf{Positivity.} 
+\begin{enumerate}
+\item $D(A,A) \geq 0 $ for all $A$. Since $ A - B $ indicates the set difference, $A - A = \emptyset \Rightarrow size(A - A) = 0$.\\
+ As a result, $D(A,A) := size(A-A) + size(A-A) = 0 + 0 = 0 \Rightarrow D(A,A) \geq 0$.
+\item $D(A,B) = 0 $ only if $ A = B $. Suppose $A \neq B$, then $A-B \neq \emptyset \Rightarrow size(A-B) > 0, size(B-A) >0.$ \\
+As a result, $D(A,B) := size(A-B) + size(B-A) > 0 \Rightarrow D(A,B) \neq 0$. \\
+Since $D(A,A) \geq 0 $ for all $A$, $D(A,B) = 0 $ only if $ A = B $.
+\end{enumerate}
+
+\item \textbf{Symmetry.} \\
+$ D(A,B) = D(B,A)  $ for all $ x $ and $ y $. Since $D(A,B) = size(A-B) + size(B-A)$, $D(B,A) = size(B-A) + size(A-B) = D(A,B)$.
+
+\item \textbf{Triangle Inequality.} \\
+$ D(A,C) \leq D(A,B) + D(B,C) $ for all set $A,B,$ and $C$. \\
+By De Morgan, $D(A,B) = size(A-B) + size(B-A) = size(A) + size(B) - 2size(A \bigcap B) $ \\
+ $D(B,C) = size(B-C) + size(C-B) = size(B) + size(C) - 2size(B \bigcap C) $ \\
+ $D(A,C) = size(A-C) + size(C-A) = size(A) + size(C) - 2size(A \bigcap C) $.\\
+ $D(A,B) + D(B,C) - D(A,C)=size(A) + size(B) - 2size(A \bigcap B) + size(B) + size(C) - 2size(B \bigcap C)  - size(A) - size(C) + 2size(A \bigcap C)  $ \\
+ $\Rightarrow D(A,B) + D(B,C) - D(A,C)= 2size(B) - 2size(A \bigcap B) - 2size(B \bigcap C) + 2size(A \bigcap C)  $ \\
+ By De Morgan, $size(B) + size(A \bigcap B \bigcap C) \geq size(A \bigcap B) + size(B \bigcap C) $. \\
+ Since $size(A \bigcap C)  \geq  size(A \bigcap B \bigcap C) $, $size(B) + size(A \bigcap C) \geq size(A \bigcap B) + size(B \bigcap C) $.\\
+ $\Rightarrow 2size(B) - 2size(A \bigcap B) - 2size(B \bigcap C) + 2size(A \bigcap C)  \geq 0$ \\
+ $\Rightarrow D(A,B) + D(B,C) - D(A,C) \geq 0 \Rightarrow D(A,C) \leq D(A,B) + D(B,C) $\\
+ Thus, $ D(A,C) \leq D(A,B) + D(B,C) $ for all set $A,B,$ and $C$.
+\end{enumerate}
+ Since all these three properties hold for $D(A,B) := size(A-B) + size(B-A)$, $D(A,B)$ satisfies the metric axioms.
+ 
+ \end{proof}
+ 
 
 
 \item \textbf{Problem 4 (6 points).} Describe how you would create visualizations to .display information that describes
