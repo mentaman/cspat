@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  30 AUG 2010 10:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  31 AUG 2010 00:33
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -141,26 +141,144 @@ LaTeX Font Info:    ... okay on input line 55.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [1
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+
+(/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 112--118
+
+ []
+
+[1
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 106.
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 119--125
+\OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
+[] = [] =
+ []
 
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
+Underfull \hbox (badness 10000) in paragraph at lines 119--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
+
+ []
+
+
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 136--142
+\OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
+[] = [] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--142
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--154
+
+ []
+
+
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 155--161
+\OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
+[] = [] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--161
+
+ []
+
+
+Overfull \hbox (14.75761pt too wide) in paragraph at lines 162--163
+[]\OT1/cmr/bx/n/10 Euclidean dis-tance \OT1/cmr/m/n/10 = $[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--171
+
+ []
+
+
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 173--179
+\OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
+[] = [] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--179
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--189
+
+ []
+
+
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 191--197
+\OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
+[] = [] =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--197
+
+ []
+
+[4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
+
+ (/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 106.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
+ [5]
 (./HW1_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
- 1451 strings out of 493849
- 16662 string characters out of 3149230
- 68904 words of memory out of 3000000
- 4768 multiletter control sequences out of 15000+200000
- 3948 words of font info for 15 fonts, out of 3000000 for 9000
+ 1479 strings out of 493849
+ 17155 string characters out of 3149230
+ 73904 words of memory out of 3000000
+ 4783 multiletter control sequences out of 15000+200000
+ 5647 words of font info for 23 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,4n,22p,339b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,7n,22p,339b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (2 pages, 5068 bytes).
+Output written on HW1_xxiao2.dvi (5 pages, 17980 bytes).
