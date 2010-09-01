@@ -238,9 +238,9 @@ By De Morgan, $D(A,B) = size(A-B) + size(B-A) = size(A) + size(B) - 2size(A \big
  
 
 
-\item \textbf{Problem 4 (6 points).} Describe how you would create visualizations to .display information that describes
+\item \textbf{Problem 4 (6 points).} Describe how you would create visualizations to display information that describes
  \begin{enumerate}
-		\item Computer networks. Be sure to include both the static aspects of the network, such as connectivity, and the dynamic aspects, such as traffic.
+		\item Computer networks. Be sure to include both the static aspects of the network, such as connectivity, and the dynamic aspects, such as traffic. 		
 		\item The distribution of specific plant and animal species around the world for a specific moment in time.
 		\item The use of computer resources such as processor time, main memory, and disk for asset of benchmark database programs.
  \end{enumerate}
@@ -252,10 +252,25 @@ In your answers, please address the following issues:
 \item Selection: how will you handle a large number of attributes and data objects?
 \end{itemize}
 
+\begin{enumerate}
+\item \textbf{Computer network.} Computer networks can be visualized using the graph representation. Each server will be the nodes. If two servers are connected, there will be a link between the nodes. The width of the link can represent the bandwidth and the color can represent whether the connection is busy or not. 
+\item \textbf{Distribution of plant and animal species.} The species can be represented using tree. However, showing all the species in a whole tree does not make sense, since the number is too huge. Thus, we can only show the first several high level names of the species and users can expand the specific specie if they are interested. Besides, we can also using color for representing the number of animal species in one tree node.
+
+\item \textbf{Computer Resources.} The computer resources can be represented using bar plot. To combine the processor time, memory and disk, we can use three bars in different colors for a database program.
+
+\end{enumerate}
+
+		
+
 \item \textbf{Problem 5 (5 points).}
  \begin{enumerate}
-		\item Describe how a box plot can give information about whether the value of an attribute is symmetrically distributed. What can you say about the symmetry of the distribution of the attributes shown in Figure 3.11 on page 115 of our textbook.
-		\item Compare sepal length, sepal width, petal length, and petal width using Figure 3.12 on page 115.
+		\item Describe how a box plot can give information about whether the value of an attribute is symmetrically distributed. What can you say about the symmetry of the distribution of the attributes shown in Figure 3.11 on page 115 of our textbook. \\
+
+		In the box plot, the lower and upper ends of the box indicate the 25th and 75th percentiles, which are the median of the lower and upper halves.  The line inside the box indicate the 50th percentiles. If the line is in the middle of the box, which means that the lower half and the upper half have similar numbers, the values of the attribute is symmetrically distributed. Similarly, if the line is near the lower end or upper end, the distribution is not symmetric.
+
+		\item Compare sepal length, sepal width, petal length, and petal width using Figure 3.12 on page 115. \\
+		
+		For sepal length, all the three Iris species have symmetrically distributed values, since the line inside the box is in the middle. The only difference is the value: the sepal lengthes of most of Setosa iris are about 5 centimetres, most of Versicolour iris are about 6 centimetres, and Virginica iris are about 6.5 centimetres. The distributions of Sepal width and Petal Length are a little bit skewed, but still near symmetric. However, the distributions of petal width are skewed for Setosa and Versicolor.
  \end{enumerate}
 
 
