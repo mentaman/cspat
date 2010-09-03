@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  2 SEP 2010 21:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  3 SEP 2010 00:15
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -313,12 +313,109 @@ Overfull \hbox (67.20668pt too wide) in paragraph at lines 86--93
 
 [1
 
-] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+[]\OT1/cmr/m/n/10 Performance
+ []
+
+
+Underfull \hbox (badness 6493) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10 Find a short-
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 144--144
+\OT1/cmr/m/n/10 mov-ing all the
+ []
+
+
+Underfull \hbox (badness 3579) in paragraph at lines 144--144
+[]\OT1/cmr/m/n/10 Location A &
+ []
+
+
+Underfull \hbox (badness 1360) in paragraph at lines 144--144
+\OT1/cmr/m/n/10 boxes and legs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+[]\OT1/cmr/m/n/10 Signalling sys-
+ []
+
+
+Overfull \hbox (117.65944pt too wide) in paragraph at lines 142--147
+[][] 
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 177--178
 
  []
 
-[3] [4] (./HW1_xxiao2.aux) ) 
+
+Overfull \hbox (37.38515pt too wide) in paragraph at lines 187--188
+[]$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 8\OML/
+cmm/m/it/10 Y\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 man\OT1/cmr/m/n/10 (\OML/cmm/m/
+it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 ruler\OT1/cmr/m/n/
+10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 try
+assassinate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 )) \OMS/cmsy/m
+/n/10 ) :\OML/cmm/m/it/10 loyalto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr
+/m/n/10 )))$ 
+ []
+
+
+Overfull \hbox (28.0659pt too wide) in paragraph at lines 198--199
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 man\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT
+1/cmr/m/n/10 4) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 ruler\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 tryassass
+inate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; Y\O
+T1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 loyalto\OT1/cmr/m/n/10 (\
+OML/cmm/m/it/10 X\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; Y\OT1/cmr/m/n/10 1)$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--210
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 ruler\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\
+OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 tryassassinate\OT1/cmr/m
+/n/10 (\OML/cmm/m/it/10 Marcus; Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 tryassassinate\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 Marcus; Caesar\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 _
+ []
+
+
+Overfull \hbox (84.53943pt too wide) in paragraph at lines 204--216
+[] 
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 ruler\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\
+OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 tryassassinate\OT1/cmr/m
+/n/10 (\OML/cmm/m/it/10 Marcus; Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--224
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 tryassassinate\OT1/cmr/m/n/10 (\OML/cmm/m
+/it/10 Marcus; Caesar\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 _
+ []
+
+
+Overfull \hbox (86.22368pt too wide) in paragraph at lines 217--231
+[] 
+ []
+
+[6]
+Overfull \hbox (38.1302pt too wide) in paragraph at lines 282--295
+[] 
+ []
+
+[7] (./HW1_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
  1463 strings out of 493849
  16856 string characters out of 3149230
@@ -326,6 +423,6 @@ Here is how much of TeX's memory you used:
  4769 multiletter control sequences out of 15000+200000
  5993 words of font info for 24 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,8n,22p,711b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,22p,761b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (4 pages, 12712 bytes).
+Output written on HW1_xxiao2.dvi (7 pages, 23048 bytes).

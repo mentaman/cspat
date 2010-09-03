@@ -127,13 +127,26 @@
 \end{enumerate}
 
 
-\item \textbf{(20 points) Introducing our agent Mr.Wuf who will help us moving things from one place to another. One day, Mr.Wuf is assigned a task of transferring a set of boxes one-by-one by lifting them from location A and placing them in location B inside a building. A signaling system says whether the agent is near its destination or not. The room has stationary obstacles whose locations are unknown. If the agent bumps into an obstacle, the box in hand will fall down and some boxes have fragile goods. But there are safe paths, some longer than the others. Your must help Mr.Wuf with the task by answering the following questions. Mr.Wuf does not have enough time !!!}
+\item \textbf{(20 points) Introducing our agent Mr.Wuf who will help us moving things from one place to another. One day, Mr.Wuf is assigned a task of transferring a set of boxes one-by-one by lifting them from location A and placing them in location B inside a building. A signalling system says whether the agent is near its destination or not. The room has stationary obstacles whose locations are unknown. If the agent bumps into an obstacle, the box in hand will fall down and some boxes have fragile goods. But there are safe paths, some longer than the others. Your must help Mr.Wuf with the task by answering the following questions. Mr.Wuf does not have enough time !!!}
 
 	\begin{enumerate}
 	\item Define PEAS.
 	\item Is it sufficient for Mr.Wuf to be simple reflex ? Why or why not ?
 	\item Mr.Wuf likes to move randomly. To what extent would this help ? Are there drawbacks ?
 	\item Suggest one improvement to Mr.Wuf's design. Does your improvement have drawbacks ?
+	\end{enumerate}
+	
+	\textbf{	Answer:}
+	\begin{enumerate}
+	\item 
+		\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+		\hline  Agent Type& Performance Measure &  Environment&  Actuators & Sensors \\ 
+		\hline  Mr. Wuf & Find a shortest safe path for moving all the boxes from Location A to B in the building &  Location A \& B in a building, obstacles, boxes & hands for lifting boxes and legs for walking & Signalling system, eyes \\ 
+		\hline 
+		\end{tabular} 
+	\item It is not sufficient. When the signalling system says that it is still not the destination, Mr. Wuf should move. Since Mr. Wuf is simple reflex, he can only choose one direction to move. If by moving in that direction he would face an obstacle, then he will still do that since he is simple reflex and can only move that direction by receiving the percept saying that current location is not destination. After he falls, he goes back to Location A and moves another box. However, since he is simple reflex, he would choose the same path as last time and fall again. As a result, he would fail the mission.
+	\item Moving randomly can help Mr. Wuf a little. For example, when there is an obstacle on the right of Mr. Wuf, he may randomly choose to move up and then right to avoid that.
+	\item Mr. Wuf can perform better if he is simple reflex with state. Whenever Mr. Wuf reaches a new location, save the location and the direction in a state. If he moves right on one location and then bump into an obstacle, he also save it. Later when he reaches the same location, he can change the direction clock-wisely and move. The drawback of it is it may not find an optimal path.
 	\end{enumerate}
 	
 \item \textbf{(30 points) Consider the following english sentences.}
@@ -160,6 +173,65 @@
 		\end{enumerate}
 
 	\end{enumerate}
+	
+	\textbf{Answer:}\\
+	\begin{enumerate}
+	\item FOPL:
+		\begin{enumerate}
+		\item $ man(Marcus) $
+		\item $ Pompeian(Marcus) $
+		\item $ \forall X (Pompeian(X) \Rightarrow Roman(X)) $
+		\item $ ruler(Caesar) $
+		\item $ \forall X (Roman(X) \Rightarrow loyalto(X, Caesar) \vee hate(X, Caesar)) $
+		\item $ \forall X (\exists Y (loyal(X, Y))) $
+		\item $ \forall X (\forall Y ( (man(X) \wedge ruler(Y) \wedge tryassassinate(X,Y) ) \Rightarrow \neg loyalto(X,Y))) $
+		\item $ tryassassinate(Marcus, Caesar) $
+		\end{enumerate}
+	\item CNF: 
+		\begin{enumerate}
+		\item $ man(Marcus) $
+		\item $ Pompeian(Marcus) $
+		\item $ \neg Pompeian(X1) \vee Roman(X1) $
+		\item $ ruler(Caesar) $
+		\item $ \neg Roman(X2) \vee loyalto(X2, Caesar) \vee hate(X2, Caesar) $
+		\item $ loyal(X3, a) $
+		\item $ \neg man(X4) \vee \neg ruler(Y1) \vee \neg tryassassinate(X4,Y1)  \vee \neg loyalto(X4,Y1) $
+		\item $ tryassassinate(Marcus, Caesar) $
+		\end{enumerate}
+		
+		\item \textbf{Answers:}
+		\begin{enumerate}
+		\item Conclusion: $  \neg loyalto(Marcus, Caesar)$\\
+		------------------------------------------------\\
+		Negated conclusion:  \\
+		1. $ loyalto(Marcus, Caesar) $ \\
+		------------------------------------------------\\
+		\begin{tabular}{c|p{8cm}|l}
+		2. &$ \neg ruler(Y1) \vee \neg tryassassinate(Marcus,Y1)  \vee \neg loyalto(Marcus,Y1) $ & $i + vii \lbrace Marcus/X4 \rbrace $\\ 
+		3. & $ \neg tryassassinate(Marcus,Caesar)  \vee \neg loyalto(Marcus,Caesar)  $ &  $iv + 2 \lbrace Caesar / Y1 \rbrace$ \\
+		4. &$ \neg loyalto(Marcus,Caesar) $& $viii + 3 \lbrace \rbrace$\\
+		5. & $ \emptyset $ &$ 4 + 1 \lbrace \rbrace$\\
+
+		\end{tabular} 
+		
+		\item Conclusion: $  hate(Marcus, Caesar)$\\
+		------------------------------------------------\\
+		Negated conclusion:  \\
+		1. $ \neg hate(Marcus, Caesar) $ \\
+		------------------------------------------------\\
+		\begin{tabular}{c|p{8cm}|l}
+		2. &$ \neg ruler(Y1) \vee \neg tryassassinate(Marcus,Y1)  \vee \neg loyalto(Marcus,Y1) $ & $i + vii \lbrace Marcus/X4 \rbrace $\\ 
+		3. & $ \neg tryassassinate(Marcus,Caesar)  \vee \neg loyalto(Marcus,Caesar)  $ &  $iv + 2 \lbrace Caesar / Y1 \rbrace$ \\
+		4. &$ \neg loyalto(Marcus,Caesar) $& $viii + 3 \lbrace \rbrace$\\
+		5. & $ Roman(Marcus) $ &$ ii + iii \lbrace Marcus / X1 \rbrace$\\
+		6. & $ loyalto(Marcus, Caesar) \vee hate(Marcus, Caesar)  $ &$ 5 + v \lbrace Marcus / X2 \rbrace$\\
+		7. & $ hate(Marcus, Caesar)  $ &$ 6 + 4 \lbrace \rbrace$\\
+		8. & $ \emptyset  $ &$ 7 + 1 \lbrace \rbrace$\\
+		\end{tabular} 
+		\end{enumerate} 
+	\end{enumerate}
+	
+
 
 \item \textbf{(20 points) Consider the following English statements:}
 	\begin{enumerate}
@@ -171,6 +243,55 @@
 	\end{enumerate}
 
 \textbf{Now, using the resolution approach for first order predicate logic discussed in class, answer: "Will John buy the AI book from BookMarks?"}
+
+Lexicon: \\
+Constant: John, AI book, Bookmarks \\
+Variable: X,Y\\
+Predicate: \\
+\begin{tabular}{p{2.5cm}l}
+ $graduate(X)$ & -- X is a graduate student \\ 
+ $book(X)$ & -- X is a book  \\
+ $cheap(X)$ & -- X is cheap  \\
+$ buy(X,Y)$ & -- X buys Y \\
+ $store(X)$ & -- X is a store  \\ 
+ $discount(X)$ & -- X has discount  \\ 
+\end{tabular} 
+
+
+
+FOPL:
+\begin{enumerate}
+\item $ graduate(John) $
+\item $ \forall X, Y (graduate(X) \wedge book(Y) \wedge cheap(Y) \Rightarrow buy(X,Y) ) $
+\item $ book(AI book) \wedge costly(AI book) $
+\item $ store(Bookmarks) \wedge discount(AI book) $
+\item $ \forall X (book(X) \wedge discount(X) \Rightarrow cheap(X)) $
+\end{enumerate}
+
+CNF:
+\begin{enumerate}
+\item $ graduate(John) $
+\item $ \neg graduate(X1) \vee \neg book(Y1) \vee \neg cheap(Y1) \vee buy(X1,Y1) $
+\item $ book(AI book) $
+\item $ costly(AI book) $
+\item $ store(Bookmarks) $
+\item $ discount(AI book) $
+\item $ \neg book(X2) \vee \neg discount(X2) \vee cheap(X2) $
+\end{enumerate}
+
+Conclusion: $ buy(John, AI book) $ -- John buy the AI book from BookMarks. \\
+------------------------------------------------\\
+Negated conclusion:  \\
+1. $ \neg buy(John, AI book) $ \\
+------------------------------------------------\\
+\begin{tabular}{c|p{8cm}|l}
+2. &$  \neg discount(AI Book) \vee cheap(AI Book) $ & $g + c \lbrace AI Book/X2 \rbrace $\\ 
+3. & $ cheap(AI Book) $ &  $f + 2 \lbrace  \rbrace$ \\
+4. &$ \neg book(Y1) \vee \neg cheap(Y1) \vee buy(John,Y1) $& $b + a \lbrace John / X1 \rbrace$\\
+5. & $ \neg cheap(AI Book) \vee buy(John,AI Book) $ &$ 4 + c \lbrace AI Book / Y1 \rbrace$\\
+6. & $ buy(John,AI Book) $ &$ 5 + 3 \lbrace \rbrace$\\
+7. & $ \emptyset $ &$ 1 + 6 \lbrace \rbrace$\\
+\end{tabular} 
 
 \end{enumerate}
 \end{document}
