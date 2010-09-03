@@ -72,10 +72,60 @@
 	\item Recommendation system (eg. Amazon book suggestion system)
 	\end{enumerate}
      
-     In each case, state whether the environment is fully observable, deterministic, episodic, and single agent. 
+     In each case, state whether the environment is fully observable, deterministic, episodic, and single agent. \\
+     
+
+	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2cm}|p{2cm}|}
+	\hline  \textbf{Agent Type} &  \textbf{Performance Measure }&  \textbf{Environment }& \textbf{Actuators }& \textbf{Sensors}  \\ 
+	\hline  AD Bot in search engines &  Highly relevant to search condition, low prize, free shipping &  users, keyboards,  screen & Display ADs  & Keyboard entry of search condition and search history\\ 
+	\hline  Industrial robot  & Maximize precision of detecting defects, low cost & Product parts, assemble line & Display detected defects & Scanned image data \\ 
+	\hline  Recommendation system &  Recommended books are highly related to user preference and most possible for users to purchase  &  Users, recommendation system & Display recommended books  &Keyboard entry of search words, history of purchased book\\ 
+	\hline 
+	\end{tabular} 
+	
+	\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2cm}|p{2cm}|}
+	\hline  \textbf{Task Environment} &  \textbf{Observable}&  \textbf{Deterministic }& \textbf{Episodic }& \textbf{Agents}  \\ 
+	\hline  AD Bot in search engines &  Partially &  Stochastic & Sequential  & single agent\\ 
+	\hline  Industrial robot  & Fully & Deterministic & Episodic & single agent \\ 
+	\hline  Recommendation system &  Partially  &  Stochastic & Sequential  &single agent\\ 
+	\hline 
+	\end{tabular} 
+
 
 
 \item \textbf{(18 points) Answer the following questions from the textbook: 2.6a, 2.6b, 2.12}
+
+	\begin{enumerate}
+	\item This exercise explores the difference between agent functions and agent programs.
+
+		\begin{enumerate}
+		\item Can there be more than one agent program that implements a given agent function? Given an example, or show why one is not possible.
+		\item Are there agent functions that cannot be implemented by any agent program?
+		\end{enumerate}
+
+\textbf{	Answer:}
+		\begin{enumerate}
+		\item There can be multiple programs that implement a given agent function. For example, for the vacuum agent problem shown in textbook, using table to map the percept to action is one implementation. However, we can also compute the hash code of the percept by adopting some hash function, and then use the computed hash code to look up for the corresponding action. This hash-look-up is another implementation for the same vacuum agent problem. Thus,  there can be multiple programs that implement a given agent function. 
+		\item I believe the answer is "there is not any function cannot be implemented by any agent program". The scientific research is evolving fast in modern society. A few years ago, touch screen only can support very basic functionalities for human to communicate with computers. Using just several fingers to do zooming and rotating seems like an agent function that cannot be implemented. Nowadays, with the advances of multi-touch technologies, users now can touch the screen with multiple fingers and using different combination of fingers to send different signals to PC for different actions, such as zooming and rotating objects. 
+		\end{enumerate}
+
+	\item Consider a modified version of Exercise 2.8, in which the geography of the environment - its extent, boundaries, and obstacles - is unknown, as is the initial dirt configuration. (The agent can go \textit{Up} and \textit{Down} as well as \textit{Left} and \textit{Right}.) Repeat this exercise for the case in which the location sensor is replaced with a ``bump'' sensor that detects the agent's attempts to move into obstacles or to cross the boundaries of the environment. Suppose the bump sensor stops working; how should the agent behave? 
+	\begin{enumerate}
+	\item Can a simple reflex agent be perfectly rational for this environment? Explain.\\
+	Since the bump sensor stops working, which makes the agent cannot get the correct information about obstacles, extent and boundaries, a simple reflex agent cannot work perfectly. For example, if we define a rule that if there is no dirt on the current location, move right. In the situation where the right location has an obstacle and moving right cannot achieve, the simple reflex agent cannot have the other reaction and only can stay in the same location forever. 
+	
+	\item Can a simple reflex agent with a \textit{randomized} agent function outperform a simple reflex agent? Design such an agent and measure its performance on several environments.\\
+	With the bump sensor not working, a randomized agent should perform better than a simple reflex agent. The reason is that with the simple reflex agent, there must be a correct percept of the environment for it to do the right action. But with the bump sensor not working, a simple reflex agent cannot react correctly. However, for a randomized agent, it would pick random action based on the given percept. Thus, it is possible that it can correctly pick up the right action with the bump sensor not working. The design could be quite simple: The vacuum sucks up when it detects the current location has dirt; every time when the agent detects that there is no dirt on the current location, it randomly picks up a possible direction and move. 
+	
+	\item Can you design an environment in which your randomized agent will perform poorly? Show your results. \\
+	To make a randomized agent perform poorly, we can design an environment that requires the agent to move several times of the same direction, say \textit{Up}. Since it is randomized, the probability for it to choose \textit{Up} action continuously for several times is very low. It is very possible that it moves up and then the other direction, which makes it difficult to move ``up'' for several times.
+	
+	\item Can a reflex agent with state outperform a simple reflex agent? Design such an agent and measure its performance on several environments. Can you design a rational agent of this type? \\
+	A state reflex agent can outperform a simple reflex agent. We can design it like this: If there is no dirt on the current location, move right and save the direction in a state. If last time's moving can not succeed, change the direction clock-wisely, and try to move again. As a result, such a state reflex agent can find a way around obstacles and reach a location where there is dirt.
+	\end{enumerate}
+
+\end{enumerate}
+
 
 \item \textbf{(20 points) Introducing our agent Mr.Wuf who will help us moving things from one place to another. One day, Mr.Wuf is assigned a task of transferring a set of boxes one-by-one by lifting them from location A and placing them in location B inside a building. A signaling system says whether the agent is near its destination or not. The room has stationary obstacles whose locations are unknown. If the agent bumps into an obstacle, the box in hand will fall down and some boxes have fragile goods. But there are safe paths, some longer than the others. Your must help Mr.Wuf with the task by answering the following questions. Mr.Wuf does not have enough time !!!}
 
