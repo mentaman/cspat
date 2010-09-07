@@ -57,7 +57,9 @@
 \begin{flushleft}
 \textbf{Course:} CSC520, Introduction to Artificial Intelligence\\
 \textbf{Homework 1}\\
-\textbf{Student: Xusheng Xiao}
+\textbf{Student: Xusheng Xiao} \\
+\textbf{Unity ID: xxiao2} \\
+\textbf{Email: xxiao2@ncsu.edu}
 \end{flushleft}
 
 \noindent{\hrulefill}
@@ -146,7 +148,7 @@
 		\end{tabular} 
 	\item It is not sufficient. When the signalling system says that it is still not the destination, Mr. Wuf should move. Since Mr. Wuf is simple reflex, he can only choose one direction to move. If by moving in that direction he would face an obstacle, then he will still do that since he is simple reflex and can only move that direction by receiving the percept saying that current location is not destination. After he falls, he goes back to Location A and moves another box. However, since he is simple reflex, he would choose the same path as last time and fall again. As a result, he would fail the mission.
 	\item Moving randomly can help Mr. Wuf a little. For example, when there is an obstacle on the right of Mr. Wuf, he may randomly choose to move up and then right to avoid that.
-	\item Mr. Wuf can perform better if he is simple reflex with state. Whenever Mr. Wuf reaches a new location, save the location and the direction in a state. If he moves right on one location and then bump into an obstacle, he also save it. Later when he reaches the same location, he can change the direction clock-wisely and move. The drawback of it is it may not find an optimal path.
+	\item Mr. Wuf can perform better if he is simple reflex with state and equipped with the sensor to detect obstacles and current locations. Whenever Mr. Wuf reaches a new location, save the location and the direction in a state. If he moves right on one location and then bump into an obstacle, he also save it. Later when he reaches the same location, he can change the direction clock-wisely and move. The drawback of it is it may not find an optimal path.
 	\end{enumerate}
 	
 \item \textbf{(30 points) Consider the following english sentences.}
@@ -255,42 +257,44 @@ Predicate: \\
 $ buy(X,Y)$ & -- X buys Y \\
  $store(X)$ & -- X is a store  \\ 
  $discount(X)$ & -- X has discount  \\ 
+ $ hasBook(X,Y) $ & -- X has book Y
 \end{tabular} 
-
-
 
 FOPL:
 \begin{enumerate}
 \item $ graduate(John) $
-\item $ \forall X, Y (graduate(X) \wedge book(Y) \wedge cheap(Y) \Rightarrow buy(X,Y) ) $
-\item $ book(AI book) \wedge costly(AI book) $
-\item $ store(Bookmarks) \wedge discount(AI book) $
+\item $ \forall X, Y (graduate(X) \wedge book(Y) \wedge buy(X,Y)   \Rightarrow cheap(Y)) $
+\item $ book(AI book) \wedge \neg cheap(AI book) $
+\item $ store(Bookmarks) \wedge hasBook(Bookmarks, AI book) \wedge discount(AI book) $
 \item $ \forall X (book(X) \wedge discount(X) \Rightarrow cheap(X)) $
 \end{enumerate}
 
 CNF:
 \begin{enumerate}
 \item $ graduate(John) $
-\item $ \neg graduate(X1) \vee \neg book(Y1) \vee \neg cheap(Y1) \vee buy(X1,Y1) $
+\item $ \neg graduate(X1) \vee \neg book(Y1) \vee \neg buy(X1,Y1)  \vee  cheap(Y1)$
 \item $ book(AI book) $
-\item $ costly(AI book) $
+\item $ \neg cheap(AI book) $
 \item $ store(Bookmarks) $
+\item $ hasBook(Bookmarks, AI book) $
 \item $ discount(AI book) $
 \item $ \neg book(X2) \vee \neg discount(X2) \vee cheap(X2) $
 \end{enumerate}
 
-Conclusion: $ buy(John, AI book) $ -- John buy the AI book from BookMarks. \\
+Conclusion: $ store(Bookmarks) \wedge hasBook(Bookmarks, AI Book) \Rightarrow buy(John, AI book) $ -- John buy the AI book from BookMarks. \\
 ------------------------------------------------\\
 Negated conclusion:  \\
-1. $ \neg buy(John, AI book) $ \\
+1. $ \neg store(Bookmarks) \vee \neg hasBook(Bookmarks, AI Book) \vee buy(John, AI book) $ \\
 ------------------------------------------------\\
 \begin{tabular}{c|p{8cm}|l}
-2. &$  \neg discount(AI Book) \vee cheap(AI Book) $ & $g + c \lbrace AI Book/X2 \rbrace $\\ 
-3. & $ cheap(AI Book) $ &  $f + 2 \lbrace  \rbrace$ \\
-4. &$ \neg book(Y1) \vee \neg cheap(Y1) \vee buy(John,Y1) $& $b + a \lbrace John / X1 \rbrace$\\
-5. & $ \neg cheap(AI Book) \vee buy(John,AI Book) $ &$ 4 + c \lbrace AI Book / Y1 \rbrace$\\
-6. & $ buy(John,AI Book) $ &$ 5 + 3 \lbrace \rbrace$\\
-7. & $ \emptyset $ &$ 1 + 6 \lbrace \rbrace$\\
+2. & $ \neg discount(AI Book) \vee cheap(AI Book) $ & $h + c \lbrace AI Book/X2 \rbrace $\\ 
+3. & $ cheap(AI Book) $ &  $g + 2 \lbrace  \rbrace$ \\
+4. & $ \neg book(Y1) \vee \neg buy(John,Y1)  \vee cheap(Y1) $& $b + a \lbrace John / X1 \rbrace$\\
+5. & $ cheap(AI Book) \vee \neg buy(John,AI Book) $ &$ 4 + c \lbrace AI Book / Y1 \rbrace$\\
+6. & $ \neg buy(John,AI Book) $ &$ 5 + d \lbrace \rbrace$\\
+7. & $ \neg store(Bookmarks) \vee buy(John, AI book) $ &$ 1 + f \lbrace \rbrace$\\ 
+8. & $ buy(John, AI book) $ &$ e + 7 \lbrace \rbrace$\\
+9. & $ \emptyset $ &$ 6 + 8 \lbrace \rbrace$\\
 \end{tabular} 
 
 \end{enumerate}
