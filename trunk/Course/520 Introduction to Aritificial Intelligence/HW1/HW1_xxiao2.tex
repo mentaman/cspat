@@ -185,7 +185,7 @@
 		\item $ \forall X (Pompeian(X) \Rightarrow Roman(X)) $
 		\item $ ruler(Caesar) $
 		\item $ \forall X (Roman(X) \Rightarrow loyalto(X, Caesar) \vee hate(X, Caesar)) $
-		\item $ \forall X (\exists Y (loyal(X, Y))) $
+		\item $ \forall X (\exists Y (loyalto(X, Y))) $
 		\item $ \forall X (\forall Y ( (man(X) \wedge ruler(Y) \wedge tryassassinate(X,Y) ) \Rightarrow \neg loyalto(X,Y))) $
 		\item $ tryassassinate(Marcus, Caesar) $
 		\end{enumerate}
@@ -196,7 +196,7 @@
 		\item $ \neg Pompeian(X1) \vee Roman(X1) $
 		\item $ ruler(Caesar) $
 		\item $ \neg Roman(X2) \vee loyalto(X2, Caesar) \vee hate(X2, Caesar) $
-		\item $ loyal(X3, a) $
+		\item $ loyalto(X3, f(X3)) -- f(X3)$ is a function of X3 
 		\item $ \neg man(X4) \vee \neg ruler(Y1) \vee \neg tryassassinate(X4,Y1)  \vee \neg loyalto(X4,Y1) $
 		\item $ tryassassinate(Marcus, Caesar) $
 		\end{enumerate}
@@ -254,7 +254,7 @@ Predicate: \\
  $graduate(X)$ & -- X is a graduate student \\ 
  $book(X)$ & -- X is a book  \\
  $cheap(X)$ & -- X is cheap  \\
-$ buy(X,Y)$ & -- X buys Y \\
+$ buy(X,Y,Z)$ & -- X buys Y from Z\\
  $store(X)$ & -- X is a store  \\ 
  $discount(X)$ & -- X has discount  \\ 
  $ hasBook(X,Y) $ & -- X has book Y
@@ -263,7 +263,7 @@ $ buy(X,Y)$ & -- X buys Y \\
 FOPL:
 \begin{enumerate}
 \item $ graduate(John) $
-\item $ \forall X, Y (graduate(X) \wedge book(Y) \wedge buy(X,Y)   \Rightarrow cheap(Y)) $
+\item $ \forall X, Y, Z (graduate(X) \wedge book(Y) \wedge store(Z) \wedge hasBook(Z,Y)\wedge  cheap(Y)  \Rightarrow  buy(X,Y,Z)) $
 \item $ book(AI book) \wedge \neg cheap(AI book) $
 \item $ store(Bookmarks) \wedge hasBook(Bookmarks, AI book) \wedge discount(AI book) $
 \item $ \forall X (book(X) \wedge discount(X) \Rightarrow cheap(X)) $
@@ -272,7 +272,7 @@ FOPL:
 CNF:
 \begin{enumerate}
 \item $ graduate(John) $
-\item $ \neg graduate(X1) \vee \neg book(Y1) \vee \neg buy(X1,Y1)  \vee  cheap(Y1)$
+\item $ \neg graduate(X1) \vee \neg book(Y1) \vee \neg cheap(Y1) \vee \neg store(Z) \vee \neg hasBook(Z1,Y1) \vee buy(X1,Y1,Z1)$
 \item $ book(AI book) $
 \item $ \neg cheap(AI book) $
 \item $ store(Bookmarks) $
@@ -281,20 +281,20 @@ CNF:
 \item $ \neg book(X2) \vee \neg discount(X2) \vee cheap(X2) $
 \end{enumerate}
 
-Conclusion: $ store(Bookmarks) \wedge hasBook(Bookmarks, AI Book) \Rightarrow buy(John, AI book) $ -- John buy the AI book from BookMarks. \\
+Conclusion: $ buy(John, AI book, Bookmarks) $ -- John buy the AI book from BookMarks. \\
 ------------------------------------------------\\
 Negated conclusion:  \\
-1. $ \neg store(Bookmarks) \vee \neg hasBook(Bookmarks, AI Book) \vee buy(John, AI book) $ \\
+1. $ \neg buy(John, AI book,Bookmarks) $ \\
 ------------------------------------------------\\
 \begin{tabular}{c|p{8cm}|l}
 2. & $ \neg discount(AI Book) \vee cheap(AI Book) $ & $h + c \lbrace AI Book/X2 \rbrace $\\ 
 3. & $ cheap(AI Book) $ &  $g + 2 \lbrace  \rbrace$ \\
-4. & $ \neg book(Y1) \vee \neg buy(John,Y1)  \vee cheap(Y1) $& $b + a \lbrace John / X1 \rbrace$\\
-5. & $ cheap(AI Book) \vee \neg buy(John,AI Book) $ &$ 4 + c \lbrace AI Book / Y1 \rbrace$\\
-6. & $ \neg buy(John,AI Book) $ &$ 5 + d \lbrace \rbrace$\\
-7. & $ \neg store(Bookmarks) \vee buy(John, AI book) $ &$ 1 + f \lbrace \rbrace$\\ 
-8. & $ buy(John, AI book) $ &$ e + 7 \lbrace \rbrace$\\
-9. & $ \emptyset $ &$ 6 + 8 \lbrace \rbrace$\\
+4. & $ \neg book(Y1) \vee \neg cheap(Y1)  \vee \neg store(Z1) \vee \neg hasBook(Z1,Y1) \vee buy(John,Y1,Z1)$& $b + a \lbrace John / X1 \rbrace$\\
+5. & $ \neg cheap(AI Book) \vee \neg store(Z1) \vee \neg hasBook(Z1,AI book) \vee buy(John,AI Book, Z1) $ &$ 4 + c \lbrace AI Book / Y1 \rbrace$\\
+6. & $ \neg store(Z1) \vee \neg hasBook(Z1,AI book) \vee buy(John,AI Book,Z1) $ &$ 5 + 3 \lbrace \rbrace$\\
+7. & $ \neg hasBook(Bookmarks,AI book)  \vee buy(John, AI book,Bookmarks) $ &$ 6 + e \lbrace Bookmarks / Z1 \rbrace$\\ 
+8. & $ buy(John, AI book, Bookmarks) $ &$ f + 7 \lbrace \rbrace$\\
+9. & $ \emptyset $ &$ 1 + 8 \lbrace \rbrace$\\
 \end{tabular} 
 
 \end{enumerate}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  6 SEP 2010 23:31
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  7 SEP 2010 16:45
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -411,6 +411,17 @@ Overfull \hbox (86.22368pt too wide) in paragraph at lines 219--233
  []
 
 [6]
+Overfull \hbox (19.09294pt too wide) in paragraph at lines 266--267
+[]$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 X; Y; Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+graduate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^
+ \OML/cmm/m/it/10 book\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS
+/cmsy/m/n/10 ^ \OML/cmm/m/it/10 store\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\OT1/cm
+r/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 hasBook\OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 Z; Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 cheap\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 )
+ []
+
+
 Overfull \hbox (11.69682pt too wide) in paragraph at lines 268--269
 []$\OML/cmm/m/it/10 store\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Bookmarks\OT1/cmr/m/
 n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 hasBook\OT1/cmr/m/n/10 (\OML/cmm/m/i
@@ -419,25 +430,47 @@ count\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 AIbook\OT1/cmr/m/n/10 )$
  []
 
 
-Overfull \hbox (61.87085pt too wide) in paragraph at lines 284--299
-[]\OT1/cmr/m/n/10 Conclusion: $\OML/cmm/m/it/10 store\OT1/cmr/m/n/10 (\OML/cmm/
-m/it/10 Bookmarks\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 hasBook\
-OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Bookmarks; AIBook\OT1/cmr/m/n/10 ) \OMS/cmsy/m
-/n/10 ) \OML/cmm/m/it/10 buy\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 John; AIbook\OT1/
-cmr/m/n/10 )$
+Overfull \hbox (31.12102pt too wide) in paragraph at lines 275--276
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 graduate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ X\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 book\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 cheap
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/
+cmm/m/it/10 store\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 ) \OMS/cmsy
+/m/n/10 _ :\OML/cmm/m/it/10 hasBook\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\OT1/cmr/
+m/n/10 1\OML/cmm/m/it/10 ; Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _
  []
 
 
-Overfull \hbox (23.66725pt too wide) in paragraph at lines 284--299
-\OT1/cmr/m/n/10 1. $\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 store\OT1/cmr/m/n/10 (\O
-ML/cmm/m/it/10 Bookmarks\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 
-hasBook\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Bookmarks; AIBook\OT1/cmr/m/n/10 ) \OM
-S/cmsy/m/n/10 _ \OML/cmm/m/it/10 buy\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 John; AIb
-ook\OT1/cmr/m/n/10 )$ 
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 book\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Y\O
+T1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 cheap\OT1/cmr/m/n/10 (\OM
+L/cmm/m/it/10 Y\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 store\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _
  []
 
 
-Overfull \hbox (38.76332pt too wide) in paragraph at lines 284--299
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 cheap\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 AI
+Book\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 store\OT1/cmr/m/n/10
+ (\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--294
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 store\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z\
+OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 _ :\OML/cmm/m/it/10 hasBook\OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; AIbook\OT1/cmr/m/n/10 ) \
+OMS/cmsy/m/n/10 _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--295
+[]$\OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 hasBook\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 
+Bookmarks; AIbook\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 _
+ []
+
+
+Overfull \hbox (52.63033pt too wide) in paragraph at lines 284--299
 [] 
  []
 
@@ -451,4 +484,4 @@ Here is how much of TeX's memory you used:
  714 hyphenation exceptions out of 8191
  27i,9n,22p,761b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (7 pages, 23812 bytes).
+Output written on HW1_xxiao2.dvi (7 pages, 24296 bytes).
