@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  1 SEP 2010 16:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  15 SEP 2010 21:22
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -141,139 +141,140 @@ LaTeX Font Info:    ... okay on input line 55.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
-LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+ [1
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 116.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+LaTeX Font Info:    Try loading font information for U+msb on input line 116.
 
 (/usr/local/texlive/2009/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 112--118
+Underfull \hbox (badness 10000) in paragraph at lines 114--120
 
  []
 
-[1
 
-]
-Overfull \hbox (21.36388pt too wide) in paragraph at lines 119--125
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 121--127
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--125
+Underfull \hbox (badness 10000) in paragraph at lines 121--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--134
+Underfull \hbox (badness 10000) in paragraph at lines 130--136
 
  []
 
 
-Overfull \hbox (21.36388pt too wide) in paragraph at lines 136--142
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 138--144
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--142
+Underfull \hbox (badness 10000) in paragraph at lines 138--144
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--154
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 
-Overfull \hbox (21.36388pt too wide) in paragraph at lines 155--161
+Underfull \hbox (badness 10000) in paragraph at lines 150--156
+
+ []
+
+
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 157--163
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--161
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
 
  []
 
 
-Overfull \hbox (14.75761pt too wide) in paragraph at lines 162--163
+Overfull \hbox (14.75761pt too wide) in paragraph at lines 164--165
 []\OT1/cmr/bx/n/10 Euclidean dis-tance \OT1/cmr/m/n/10 = $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--171
+Underfull \hbox (badness 10000) in paragraph at lines 167--173
 
  []
 
 
-Overfull \hbox (21.36388pt too wide) in paragraph at lines 173--179
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 175--181
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 173--179
+Underfull \hbox (badness 10000) in paragraph at lines 175--181
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--189
+Underfull \hbox (badness 10000) in paragraph at lines 185--191
 
  []
 
 
-Overfull \hbox (21.36388pt too wide) in paragraph at lines 191--197
+Overfull \hbox (21.36388pt too wide) in paragraph at lines 193--199
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--197
+Underfull \hbox (badness 10000) in paragraph at lines 193--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
 
  []
 
 [4]
-Overfull \hbox (12.87656pt too wide) in paragraph at lines 222--234
+Overfull \hbox (12.87656pt too wide) in paragraph at lines 224--236
 \OML/cmm/m/it/10 D\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A; C\OT1/cmr/m/n/10 ) = \OM
 L/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^@ \OML
 /cmm/m/it/10 C\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cm
@@ -285,7 +286,7 @@ it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
  []
 
 
-Overfull \hbox (13.78345pt too wide) in paragraph at lines 222--234
+Overfull \hbox (13.78345pt too wide) in paragraph at lines 224--236
 \OT1/cmr/m/n/10 By De Mor-gan, $\OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/
 m/it/10 B\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/i
 t/10 A [] B [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/m/it/10 size\OT
@@ -294,7 +295,7 @@ OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B [] C\OT1/cmr/m/n/10 )$.
  []
 
 
-Overfull \hbox (38.91032pt too wide) in paragraph at lines 222--234
+Overfull \hbox (38.91032pt too wide) in paragraph at lines 224--236
 \OT1/cmr/m/n/10 Since $\OML/cmm/m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A
  [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/m/it/10 size\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 A [] B [] C\OT1/cmr/m/n/10 )$, $\OML/cmm/m/it/10 size\OT1/c
@@ -303,22 +304,32 @@ m/n/10 (\OML/cmm/m/it/10 A [] C\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^U \OML/cmm/
 m/it/10 size\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A [] B\OT1/cmr/m/n/10 ) +
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 250.
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 252.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/local/texlive/2009/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 250.
- [5] [6]
-(./HW1_xxiao2.aux) ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 252.
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--274
+
+ []
+
+[6] [7] (./HW1_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
  1481 strings out of 493849
  17176 string characters out of 3149230
- 74904 words of memory out of 3000000
+ 75904 words of memory out of 3000000
  4784 multiletter control sequences out of 15000+200000
  5993 words of font info for 24 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,7n,22p,467b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,7n,22p,485b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (6 pages, 23736 bytes).
+Output written on HW1_xxiao2.dvi (7 pages, 24920 bytes).
