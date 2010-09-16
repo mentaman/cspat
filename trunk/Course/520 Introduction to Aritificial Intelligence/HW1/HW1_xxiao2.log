@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  7 SEP 2010 21:29
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  7 SEP 2010 22:16
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -354,14 +354,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 179--180
  []
 
 
-Overfull \hbox (37.38515pt too wide) in paragraph at lines 189--190
+Overfull \hbox (29.60735pt too wide) in paragraph at lines 189--190
 []$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 8\OML/
-cmm/m/it/10 Y\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 man\OT1/cmr/m/n/10 (\OML/cmm/m/
-it/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 ruler\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 try
-assassinate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 )) \OMS/cmsy/m
-/n/10 ) :\OML/cmm/m/it/10 loyalto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr
-/m/n/10 )))$ 
+cmm/m/it/10 Y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 man\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 X\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 ruler\OT1/cmr/m/n/1
+0 (\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 trya
+ssassinate\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n
+/10 ) :\OML/cmm/m/it/10 loyalto\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m
+/n/10 )))$ 
  []
 
 
