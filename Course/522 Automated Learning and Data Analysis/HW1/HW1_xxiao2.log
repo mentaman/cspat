@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  15 SEP 2010 21:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  16 SEP 2010 01:00
 entering extended mode
  %&-line parsing enabled.
 **HW1_xxiao2.tex
@@ -231,7 +231,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--173
 
  []
 
-
+[3]
 Overfull \hbox (21.36388pt too wide) in paragraph at lines 175--181
 \OML/cmm/m/it/10 corr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = 
 [] = [] =
@@ -242,7 +242,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 175--181
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
@@ -326,10 +326,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 273--274
 Here is how much of TeX's memory you used:
  1481 strings out of 493849
  17176 string characters out of 3149230
- 75904 words of memory out of 3000000
+ 72904 words of memory out of 3000000
  4784 multiletter control sequences out of 15000+200000
  5993 words of font info for 24 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  27i,7n,22p,485b,260s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW1_xxiao2.dvi (7 pages, 24920 bytes).
+Output written on HW1_xxiao2.dvi (7 pages, 24956 bytes).
