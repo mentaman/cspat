@@ -1,0 +1,115 @@
+% $Id: AllegProposal.tex,v 1.8 2000/07/05 21:02:12 culver Exp $
+% AllegProposal.tex
+% by A. Thall
+% 13. Feb 2003
+%
+% Small edits and a few additions made by R. Roos
+% 21 Jan 2007
+% Most particularly, the "box" around the thesis statement has been removed,
+% section titles have been modified. The section named "Prior work II" has
+% been commented out. The \topmargin has been changed to -.5in and the
+% change to \parindent has been commented out.
+% The filename "nausicaa.eps" has been changed to simply "nausicaa" so that
+% pdflatex can be used on the file (and a file named "nausicaa.pdf" has
+% been created using the "epstopdf" command).
+% Several subsections have been added to illustrate subsection usage.
+% The word "comp" has been replaced by "project" or "thesis" throughout.
+% Other small changes have been made.
+%
+% This document provides a sample Senior Project Proposal template for use
+% by students in Allegheny's CS and Applied Computing programs.
+
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[11pt]{article}
+
+%The following is used by WinEdt to set up cross-referencing to the BibTeX files
+%It is NOT commented out---the comment lets it be simply ignored by non-WinEdt LaTeX compilers
+
+%GATHER{mybibtexDB.bib}
+
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{fancybox}
+\usepackage{listings}
+\usepackage{url}
+
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6in}
+\setlength{\oddsidemargin}{.25in}
+\setlength{\topmargin}{-.5in}  % changed from -.25 by RSR on 1/21/07
+%\parindent .5in    % commented out by RSR 1/21/07
+
+%put words in the hyphenation statement if you want to enforce
+%how LaTeX should break them (or not) at the end of a line.
+%\hyphenation{repre-sen-tations problems exact linear}
+\hyphenation{itself}
+
+%%%%%
+%% Commented out -- RSR, 1/21/07
+%%%%%
+% The following provides a box to surround the thesis statement
+%\newenvironment{Thesis}%
+%{\begin{Sbox}\begin{minipage}{.95\linewidth}}%
+%{\end{minipage}\end{Sbox}\begin{center}\fbox{\TheSbox}\end{center}}
+
+\title{ Efficient approaches for merging local-histograms to global-histogram}
+\author{Zhe Zhang, Xusheng Xiao, Ye Jin \\ Possible thesis advisor:  Steffen Heber}
+
+\begin{document}
+
+% You can specify a language and other options for
+% the code-formatting "listings" package
+\lstset{language=C++,basicstyle=\small,
+        stringstyle=\ttfamily,showstringspaces=false}
+
+\singlespace
+\maketitle
+
+
+\doublespace
+% This sets section-numbering to only include Section and Subsection numbers
+\setcounter{secnumdepth}{2}
+
+\section{Introduction}
+Recently years, in many nature scientific research areas, such as global climate research, it becomes not only more globalized but also more commonly that original data gathered are in tera-scale or peta-scale. Original local data's measurements, like range or precision, vary within different areas or countries. \\
+Histogram is a graphical representation in statistic that is also used in Visualization of Data Mining. It is easy to generate local histogram for a single chunk data with consistent measurements. However, scientists who focus on global area research, like those climate ones studying global warming, will need global statistic results, for example: global histogram. It will be unrealistically time and resource-consuming to go through whole bunch of data again only for those global statistic results.\\
+Some smart scientists has already published their concept that pre-process the data while they are generated in memory and have not been stored into file-system, and hence there will be less need to read-out those peta-scale source data and do the analysis.\cite{PredatA} Based on their thought, we plan to implement and test the correctness ad performance of our methods that generate global-histogram from local-histograms via both serial programming and Parallel programming using MPI. Also we will compare our methods' performance with others\cite{21}. 
+
+\section{Application}
+The application will be related with data statistics in global climate. Specifically with in Generate Global temperature, humidity distribution-histogram by merging local-grid ones using MPI Parallel Programming.
+
+\section{Intuition thought, Method and its benefits}
+The Intuition thought is that using Parallel Programming to generate the peta-scale global histogram's generation from local histograms (results) but not from original data to reduce or eliminate the I/O burden of re-read and write the data  file-systems.\\
+There are three step: 
+\begin{enumerate}
+\item{Split souce data into multi-part evenly and Sort data}\\
+This step is to simulate the multiple local data sources, and prepare(sort) the data for later manipulations of generating local histogram via different sort algorithm .
+\item{Generate local-histogram based on the single part well sorted data}\\
+This step is using MPI to communicate among processes first to pass global information package. Then based on the global information package that all processes received, each process calculate local histogram via self-defined hist-function() in C program language, which produce the same output as using R.
+\item{Merge those local-histograms into one global-histogram}\\
+This step use MPI to pass the local result of local-histograms among all processes, and merge them to global-histogram.
+\end{enumerate}
+
+
+\section{Data sources}
+\begin{enumerate}
+\item \textbf{GIS free online database}: $http://data.geocomm.com/$  \\
+Reasons: In this database, the maps are divided into hierarchical levels, from states to  country to global. This kind of raw data confront the problem of how to generate global histogram without going through the whole huge chunk data again?
+\item \textbf{Microarray Data}: $http://www.cse.buffalo.edu/faculty/azhang/Teaching/Project2.rar$ \\
+Reasons: In the past few years, microarray technology has become one of the foremost tools in biological research. The emergence of this technology has empowered researchers in functional genomics to monitor gene expression profiles of thousands of genes (perhaps even an entire genome) at a time. However, mining microarray data also presents great challenges to Bioinformatics research. This data source will provide us a chance to analyze microarray data using data mining techniques, such as clustering and classification.
+\end{enumerate}
+
+
+
+
+% This includes all references from the BibTeX file in the bibliography
+\nocite{*}
+
+\begin{spacing}{1}
+  \bibliographystyle{plain}
+  \bibliography{mybibtexDB}
+\end{spacing}
+
+\end{document}
