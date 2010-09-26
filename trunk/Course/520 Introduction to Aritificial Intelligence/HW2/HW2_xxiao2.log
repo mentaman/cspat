@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  21 SEP 2010 21:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  26 SEP 2010 19:56
 entering extended mode
  %&-line parsing enabled.
 **HW2_xxiao2.tex
@@ -198,12 +198,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--154
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--160
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
@@ -217,23 +217,145 @@ Underfull \hbox (badness 10000) in paragraph at lines 165--166
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--175
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+[3]
 File: romania.eps Graphic file (type eps)
-<romania.eps>
-Overfull \hbox (82.09561pt too wide) in paragraph at lines 181--183
+ <romania.eps>
+Overfull \hbox (39.38344pt too wide) in paragraph at lines 205--207
  [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (5.38388pt too wide) in paragraph at lines 219--220
+[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova rimnicu[]vilc
+ea
+ []
 
-[3] [4] (./HW2_xxiao2.aux) ) 
+
+Overfull \hbox (5.38388pt too wide) in paragraph at lines 220--221
+[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova rimnicu[]vilc
+ea
+ []
+
+
+Overfull \hbox (34.88393pt too wide) in paragraph at lines 221--222
+[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova pitesti rimni
+cu[]vilcea
+ []
+
+
+Overfull \hbox (15.2283pt too wide) in paragraph at lines 222--223
+[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova pitesti bucha
+rest 
+ []
+
+
+Overfull \hbox (20.5227pt too wide) in paragraph at lines 226--227
+[]\OT1/cmr/m/n/10 arad zerind oradea sibiu rimnicu[]vilcea craiova pitesti buch
+arest 
+ []
+
+[4]
+Overfull \hbox (6.88382pt too wide) in paragraph at lines 246--247
+[]\OT1/cmr/m/n/10 bucharest fa-garas sibiu rimnicu[]vilcea craiova do-breta meh
+a-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Overfull \hbox (27.42476pt too wide) in paragraph at lines 262--263
+[]\OT1/cmr/m/n/10 Yes. In a path ``arad timisoara lu-goj meha-dia do-breta crai
+ova rimnicu[]vilcea
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+[5]
+Overfull \hbox (2.2838pt too wide) in paragraph at lines 300--301
+\OT1/cmr/m/n/10 Fa-garas, Bucharest, Rimnice ViL-Cea, Craiova, Pitesti, Zerind 
+
+ []
+
+[6]
+Overfull \hbox (8.01991pt too wide) in paragraph at lines 317--318
+\OT1/cmr/m/n/10 Zerind, Fa-garas, Bucharest, Giurgiu, Pitesti, Urz-iceni, Rimni
+ce
+ []
+
+
+Overfull \hbox (5.97635pt too wide) in paragraph at lines 318--335
+[]$ 
+ []
+
+
+Overfull \hbox (2.68968pt too wide) in paragraph at lines 318--335
+[]$ 
+ []
+
+
+Overfull \hbox (4.4159pt too wide) in paragraph at lines 318--335
+[]$ 
+ []
+
+
+Overfull \hbox (3.81363pt too wide) in paragraph at lines 318--335
+[]$ 
+ []
+
+
+Overfull \hbox (7.36803pt too wide) in paragraph at lines 318--335
+[]$ 
+ []
+
+[7] (./HW2_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
- 1481 strings out of 493849
- 17163 string characters out of 3149230
+ 1482 strings out of 493849
+ 17181 string characters out of 3149230
  70904 words of memory out of 3000000
- 4783 multiletter control sequences out of 15000+200000
+ 4784 multiletter control sequences out of 15000+200000
  5647 words of font info for 23 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,9n,22p,501b,330s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,22p,504b,412s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW2_xxiao2.dvi (4 pages, 8408 bytes).
+Output written on HW2_xxiao2.dvi (7 pages, 18056 bytes).
