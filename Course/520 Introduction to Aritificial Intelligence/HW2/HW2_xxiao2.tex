@@ -152,7 +152,10 @@ prof(edison,finance). \\
 		\end{itemize}
 	\item (4 points) Now, write a query to find the location of Prof. Smith. and show the result. (Hint: the professor will be in same building as his/her department) \\
 	
-	prof(smith,D),in(D,L).
+	prof(smith,Dept),in(Dept,Location). \\
+	
+	Dept = cs,
+Location = daniel ;
 	
 	\item (4 points) Add to the Prolog database a rule with head location(X, Y) that will display the location of a faculty given a query such as location(smith,Where).\\
 	
@@ -161,24 +164,45 @@ prof(edison,finance). \\
 		\begin{itemize}
 		\item Name the faculty in the College of Engineering. \\
 		
-		prof(Faculty, ce)
+		prof(Faculty, ce).\\
+		
+		Faculty = smith ; \\
+
+		Faculty = jones ;
 		\item List ALL the occupants of Daniels Hall. \\
 		
-		in(Occupant, daniel)
+		in(Occupant, daniel).\\
+		
+		Occupant = ce ; \\
+
+		Occupant = cs ; \\
+
+		Occupant = civil ; 
+		
 		\end{itemize}
 
 	\end{enumerate}
 
 
 
-\item \textbf{(12 points) Question 3.15 a, b, c, and d from Russell \& Norvig, p. 116.}
-
+\item \textbf{(12 points) Question 3.15 a, b, c, and d from Russell \& Norvig, p. 116. \\
+Consider a state space where the start state is number 1 and the successor function for
+state n returns two states, numbers 2n and 2n + 1.}
+	\begin{enumerate}
+	\item Draw the portion of the state space for states 1 to 15.
+	\item Suppose the goal state is 11. List the order in which nodes will be visited for breadthfirst
+search, depth-limited search with limit 3, and iterative deepening search.
+	\item Would bidirectional search be appropriate for this problem? If so, describe in detail
+how it would work.
+	\item Does the answer to (c) suggest a reformulation of the problem that would allow you to
+solve the problem of getting from state 1 to a given goal state with almost no search?
+\end{enumerate}
 	
 \item \textbf{(30 points) Here is a road map of Romania map. (The numbers on the edges indicate the distance between the cities connected, but you don't distances them until Homework 3.).}
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.5, clip]{romania.eps} 
+\includegraphics[scale=0.45, clip]{romania.eps} 
 \vspace*{-2ex}
 \end{figure}
 
@@ -187,9 +211,130 @@ For this assignment, you may use the Prolog source in the webnotes for dfs.pl, b
 	\begin{enumerate}
 	\item (8 points) Consider the path from Arad to Bucharest and the path from Bucharest to Arad. Show the paths returned by DFS and BFS results for each case.
 Does either DFS or BFS return a path through the same set of cities for either? Give a reason for this behavior.
-	\item (6 points) Is there a case where Depth-First performs worse than Breadth-First (in terms of number of cities visited in the path, not the distance) ? If yes, what is it? If not, explain why.
-	\item (6 points) Is there a case where Breadth-First performs worse than Depth-First (in terms of number of cities visited in the path, not the distance)? If yes, what is it? If not, explain why.
-	\item (10 points) For the same graph, perform a hand-execution of Depth-First Iterative Deepening (DFID) with increment and cutoff initialized to 1, starting at Oradea. List the nodes in the order expanded and the state of the datastructure for the first five iterations of DFID. Expand the nodes alphabetically and insert them in nondecreasing alphabetical order. Compare this list with Breadth-First Search. (No Prolog is required for the DFID portion of this question.).
+		\begin{enumerate}
+		\item \textbf{Arad to Bucharest}
+			\begin{itemize}
+			\item \textbf{DFS}:
+				\begin{itemize}
+				\item arad timisoara lugoj mehadia dobreta craiova rimnicu\_vilcea pitesti bucharest
+				\item arad timisoara lugoj mehadia dobreta craiova rimnicu\_vilcea sibiu fagaras bucharest 
+				\item arad timisoara lugoj mehadia dobreta craiova pitesti rimnicu\_vilcea sibiu fagaras bucharest 
+				\item arad timisoara lugoj mehadia dobreta craiova pitesti bucharest 
+				\item arad sibiu rimnicu\_vilcea craiova pitesti bucharest 
+				\item arad sibiu rimnicu\_vilcea pitesti bucharest 
+				\item arad sibiu fagaras bucharest 
+				\item arad zerind oradea sibiu rimnicu\_vilcea craiova pitesti bucharest 
+				\item arad zerind oradea sibiu rimnicu\_vilcea pitesti bucharest 
+				\item arad zerind oradea sibiu fagaras bucharest 
+				\end{itemize}
+			\item \textbf{BFS}:
+				\begin{itemize}
+				\item arad sibiu fagaras bucharesttrue 
+				\item arad sibiu rimnicu\_vilcea pitesti bucharest
+				\end{itemize}
+			\end{itemize}
+		\item \textbf{Bucharest to Arad}
+		\begin{itemize}
+			\item \textbf{DFS}:
+				\begin{itemize}
+				\item bucharest pitesti craiova dobreta mehadia lugoj timisoara arad
+				\item bucharest pitesti craiova rimnicu\_vilcea sibiu oradea zerind arad
+				\item bucharest pitesti craiova rimnicu\_vilcea sibiu arad 
+				\item bucharest pitesti rimnicu\_vilcea craiova dobreta mehadia lugoj timisoara arad 
+				\item bucharest pitesti rimnicu\_vilcea sibiu oradea zerind arad 
+				\item bucharest pitesti rimnicu\_vilcea sibiu arad 
+				\item bucharest fagaras sibiu rimnicu\_vilcea craiova dobreta mehadia lugoj timisoara arad 
+				\item bucharest fagaras sibiu rimnicu\_vilcea pitesti craiova dobreta mehadia lugoj timisoara arad 
+				\item bucharest fagaras sibiu oradea zerind arad 
+				\item bucharest fagaras sibiu arad 
+				\end{itemize}
+			\item \textbf{BFS}:
+				\begin{itemize}
+				\item bucharest fagaras sibiu aradtrue 
+				\end{itemize}
+			\end{itemize}
+		\end{enumerate}
+		
+	DFS and BFS do return some paths through same set of cities. In such a undirectional graph, the set of paths found by DFS is the super set of the set of paths found by BFS, since BFS only finds shortest paths in a graph where the weight for each link in the graph is uniform.
+	
+	\item (6 points) Is there a case where Depth-First performs worse than Breadth-First (in terms of number of cities visited in the path, not the distance) ? If yes, what is it? If not, explain why. \\
+	
+	Yes. In a path ``arad timisoara lugoj mehadia dobreta craiova rimnicu\_vilcea pitesti bucharest'' found by DFS, BFS found a shorter path ``arad sibiu fagaras bucharesttrue ''.
+	
+	\item (6 points) Is there a case where Breadth-First performs worse than Depth-First (in terms of number of cities visited in the path, not the distance)? If yes, what is it? If not, explain why. \\
+	
+	No. Since in such a uniform weight graph, BFS always finds shortest paths.
+	
+	\item (10 points) For the same graph, perform a hand-execution of Depth-First Iterative Deepening (DFID) with increment and cutoff initialized to 1, starting at Oradea. List the nodes in the order expanded and the state of the data structure for the first five iterations of DFID. Expand the nodes alphabetically and insert them in nondecreasing alphabetical order. Compare this list with Breadth-First Search. (No Prolog is required for the DFID portion of this question.).\\
+		\begin{itemize}
+		\item \textbf{Limit = 1.} 
+			\begin{itemize}
+			\item \textbf{expanded nodes:} Oradea
+			\item \textbf{data structure:} \\
+			$\left[ Oradea , Sibiu \right]$\\
+			$\left[ Oradea, Zerind\right]$ 
+			\end{itemize}
+		\item \textbf{Limit = 2.} 
+			\begin{itemize}
+			\item \textbf{expanded nodes:} Oradea, Sibiu, Zerind
+			\item \textbf{data structure:} \\
+			$\left[ Oradea, Sibiu, Arad \right]$\\
+			$ \left[ Oradea, Sibiu, Fagaras \right],$ \\ 
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea \right]$\\ 
+			$\left[ Oradea, Zerind, Arad\right] $ 
+			\end{itemize}
+		\item \textbf{Limit = 3.} 
+			\begin{itemize}
+			\item \textbf{expanded nodes:} Oradea, Sibiu, Arad, Fagaras, Rimnice ViLCea, Zerind, Arad, 
+			\item \textbf{data structure:} \\
+			$\left[ Oradea, Sibiu, Arad,Timisoara \right]$ \\ 
+			$\left[ Oradea, Sibiu, Arad,Zerind \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest \right],$ \\ 
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea, Craiova \right]$\\
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti \right]$ \\
+			$ \left[ Oradea, Zerind, Arad, Sibiu\right]$ \\ 
+			$\left[ Oradea, Zerind, Arad, Timisoara\right] $ 
+			\end{itemize}
+		\item \textbf{Limit = 4.} 
+			\begin{itemize}
+			\item \textbf{expanded nodes:} Oradea, Sibiu, Arad, Timisoara,Zerind, Fagaras, Bucharest, Rimnice ViLCea, Craiova, Pitesti, Zerind
+			\item \textbf{data structure:} \\
+			$\left[ Oradea, Sibiu, Arad,Timisoara, Lugoj \right]$ \\ 
+		    $\left[ Oradea, Sibiu, Arad,Zerind \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest, Giurgiu \right]$ \\ 
+			$\left[ Oradea, Sibiu, Fagaras, Bucharest, Pitesti \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest, Urziceni \right]$ \\
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea, Craiova,Dobreta \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea, Craiova,Pitesti \right]$ \\ 
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti, Bucharest \right] $ \\
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti, Craiova \right]$ \\
+			$ \left[ Oradea, Zerind, Arad, Sibiu, Fagaras\right]$ \\ 
+			$\left[ Oradea, Zerind, Arad, Sibiu, Rimnice Vilcea\right]$ \\
+			$\left[ Oradea, Zerind, Arad, Timisoara, Lugoj\right] $ 
+			\end{itemize}
+		\item \textbf{Limit = 5.} 
+			\begin{itemize}
+			\item \textbf{expanded nodes:} Oradea, Sibiu, Arad, Timisoara,Luogj, Zerind, Fagaras, Bucharest, Giurgiu, Pitesti, Urziceni, Rimnice Vilcea, Craiova, Dobreta, Pitesti, Pitesti, Bucharest, Zerind, Arad, Sibiu, Fagaras, Rimnice Vilcea, Timisoara, Luogj 
+			\item \textbf{data structure:} \\
+			$\left[ Oradea, Sibiu, Arad,Timisoara, Lugoj, Mehadia \right]$ \\ 
+			$\left[ Oradea, Sibiu, Arad,Zerind \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest, Giurgiu \right]$ \\ 
+			$\left[ Oradea, Sibiu, Fagaras, Bucharest, Pitesti, Craiova\right]$ \\ 
+			$\left[ Oradea, Sibiu, Fagaras, Bucharest, Pitesti, Rimnice Vilcea\right]$ \\ 
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest, Urziceni, Hirsova\right]$ \\
+			$ \left[ Oradea, Sibiu, Fagaras, Bucharest, Urziceni, Vaslui\right]$ \\
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea, Craiova,Dobreta,Mehadia \right]$ \\ 
+			$ \left[ Oradea, Sibiu, Rimnice Vilcea, Craiova,Pitesti, Bucharest \right]$ \\ 
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti, Bucharest, Giurgiu \right] $ \\
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti, Bucharest, Urziceni \right] $ \\
+			$\left[ Oradea, Sibiu, Rimnice Vilcea, Pitesti, Craiova, Dobreta \right]$ \\
+			$ \left[ Oradea, Zerind, Arad, Sibiu, Fagaras, Bucharest\right]$ \\ 
+			$\left[ Oradea, Zerind, Arad, Sibiu, Rimnice Vilcea, Craiova\right]$ \\
+			$\left[ Oradea, Zerind, Arad, Sibiu, Rimnice Vilcea, Pitesti\right]$ \\
+			$\left[ Oradea, Zerind, Arad, Timisoara, Lugoj,Mehadia\right] $ 
+			\end{itemize}
+		\end{itemize}
+	
 	\end{enumerate}
 
 \end{enumerate}
