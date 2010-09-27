@@ -190,12 +190,34 @@ Consider a state space where the start state is number 1 and the successor funct
 state n returns two states, numbers 2n and 2n + 1.}
 	\begin{enumerate}
 	\item Draw the portion of the state space for states 1 to 15.
+	
+	
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5, clip]{state1-15.eps} 
+\vspace*{-2ex}
+\end{figure}
+	
 	\item Suppose the goal state is 11. List the order in which nodes will be visited for breadthfirst
 search, depth-limited search with limit 3, and iterative deepening search.
+
+		\begin{itemize}
+		\item \textbf{Breadth First Search:} \\
+			1,2,3,4,5,6,7,8,9,10,11
+		\item \textbf{Depth-limited Search with Limit 3:} \\
+		    1,2,4,8,9, 5, 10, 11
+		\item \textbf{Iterative Deepening Search:} \\
+			1,2,3,4,5,6,7,8,9,10,11
+		\end{itemize}
 	\item Would bidirectional search be appropriate for this problem? If so, describe in detail
-how it would work.
+how it would work. \\
+
+	I think bidirectional search is appropriate for this problem. We can apply breadth first search on both start state and goal state. Each direction searches one node at a time. Then the order of nodes visited would be: [1, 2, 3] , [11, 5, 2]. Since it meets at the node 2, the search finds a path.
+	
 	\item Does the answer to (c) suggest a reformulation of the problem that would allow you to
-solve the problem of getting from state 1 to a given goal state with almost no search?
+solve the problem of getting from state 1 to a given goal state with almost no search? \\
+
+	No. Reformulation of the problem sometimes can reduce the search space but cannot eliminate all the search space.
 \end{enumerate}
 	
 \item \textbf{(30 points) Here is a road map of Romania map. (The numbers on the edges indicate the distance between the cities connected, but you don't distances them until Homework 3.).}
