@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  28 SEP 2010 11:57
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=latex 2009.11.7)  28 SEP 2010 23:23
 entering extended mode
  %&-line parsing enabled.
 **HW2_xxiao2.tex
@@ -262,7 +262,7 @@ File: state1-15.eps Graphic file (type eps)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 212--214
+Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
@@ -271,117 +271,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
 File: romania.eps Graphic file (type eps)
 <romania.eps>
-Overfull \hbox (39.38344pt too wide) in paragraph at lines 227--229
+Overfull \hbox (39.38344pt too wide) in paragraph at lines 233--235
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Overfull \hbox (5.38388pt too wide) in paragraph at lines 241--242
-[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova rimnicu[]vilc
-ea
- []
-
 [4]
-Overfull \hbox (5.38388pt too wide) in paragraph at lines 242--243
+Overfull \hbox (5.38388pt too wide) in paragraph at lines 247--248
 []\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova rimnicu[]vilc
 ea
  []
 
 
-Overfull \hbox (34.88393pt too wide) in paragraph at lines 243--244
+Overfull \hbox (5.38388pt too wide) in paragraph at lines 248--249
+[]\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova rimnicu[]vilc
+ea
+ []
+
+
+Overfull \hbox (34.88393pt too wide) in paragraph at lines 249--250
 []\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova pitesti rimni
 cu[]vilcea
  []
 
 
-Overfull \hbox (15.2283pt too wide) in paragraph at lines 244--245
+Overfull \hbox (15.2283pt too wide) in paragraph at lines 250--251
 []\OT1/cmr/m/n/10 arad timisoara lu-goj meha-dia do-breta craiova pitesti bucha
 rest 
  []
 
 
-Overfull \hbox (20.5227pt too wide) in paragraph at lines 248--249
+Overfull \hbox (20.5227pt too wide) in paragraph at lines 254--255
 []\OT1/cmr/m/n/10 arad zerind oradea sibiu rimnicu[]vilcea craiova pitesti buch
 arest 
  []
 
 [5]
-Overfull \hbox (6.88382pt too wide) in paragraph at lines 268--269
+Overfull \hbox (6.88382pt too wide) in paragraph at lines 274--275
 []\OT1/cmr/m/n/10 bucharest fa-garas sibiu rimnicu[]vilcea craiova do-breta meh
 a-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
 
-Overfull \hbox (27.42476pt too wide) in paragraph at lines 284--285
+Overfull \hbox (27.42476pt too wide) in paragraph at lines 290--291
 []\OT1/cmr/m/n/10 Yes. In a path ``arad timisoara lu-goj meha-dia do-breta crai
 ova rimnicu[]vilcea
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
 [6]
-Overfull \hbox (2.2838pt too wide) in paragraph at lines 322--323
-\OT1/cmr/m/n/10 Fa-garas, Bucharest, Rimnice ViL-Cea, Craiova, Pitesti, Zerind 
+Overfull \hbox (29.81165pt too wide) in paragraph at lines 329--330
+\OT1/cmr/m/n/10 Fa-garas, Bucharest, Rimnice ViL-Cea, Craiova, Pitesti, Zerind,
+Arad,
+ []
+
+
+Overfull \hbox (5.90889pt too wide) in paragraph at lines 346--348
+\OT1/cmr/m/n/10 Timisoara,Luogj, Zerind, Fa-garas, Bucharest, Giurgiu, Pitesti,
 
  []
 
 
-Overfull \hbox (8.01991pt too wide) in paragraph at lines 339--340
-\OT1/cmr/m/n/10 Zerind, Fa-garas, Bucharest, Giurgiu, Pitesti, Urz-iceni, Rimni
-ce
+Overfull \hbox (27.86722pt too wide) in paragraph at lines 346--348
+\OT1/cmr/m/n/10 Bucharest, Zerind,Arad, Sibiu, Fa-garas, Rimnice Vil-cea, Timis
+oara,
  []
 
-
-Overfull \hbox (5.97635pt too wide) in paragraph at lines 340--357
+[7]
+Overfull \hbox (5.97635pt too wide) in paragraph at lines 348--365
 []$ 
  []
 
 
-Overfull \hbox (2.68968pt too wide) in paragraph at lines 340--357
+Overfull \hbox (2.68968pt too wide) in paragraph at lines 348--365
 []$ 
  []
 
 
-Overfull \hbox (4.4159pt too wide) in paragraph at lines 340--357
+Overfull \hbox (4.4159pt too wide) in paragraph at lines 348--365
 []$ 
  []
 
 
-Overfull \hbox (3.81363pt too wide) in paragraph at lines 340--357
+Overfull \hbox (3.81363pt too wide) in paragraph at lines 348--365
 []$ 
  []
 
 
-Overfull \hbox (7.36803pt too wide) in paragraph at lines 340--357
+Overfull \hbox (7.36803pt too wide) in paragraph at lines 348--365
 []$ 
  []
 
-[7] [8] (./HW2_xxiao2.aux) ) 
+[8] (./HW2_xxiao2.aux) ) 
 Here is how much of TeX's memory you used:
  1484 strings out of 493849
  17207 string characters out of 3149230
- 71904 words of memory out of 3000000
+ 70904 words of memory out of 3000000
  4785 multiletter control sequences out of 15000+200000
  5647 words of font info for 23 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 27i,9n,22p,504b,421s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,22p,504b,417s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on HW2_xxiao2.dvi (8 pages, 19116 bytes).
+Output written on HW2_xxiao2.dvi (8 pages, 20424 bytes).
