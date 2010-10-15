@@ -19,7 +19,7 @@
 %   Version 1: moves/5 uses move/2; assumes depth increases by one each move
 %  
 %==============================================================================
-path(Start, Goal):- heuristic(Start, Goal, Val), path([[state(Start,0,Val,Val)]], [], Goal).
+path(Start, Goal):- heuristic(Start, Goal, Val), path([[state(Start,0,0,0)]], [], Goal).
 
 path([], _, _):-
   write('Search over, no (more) solutions found.'), nl,
@@ -59,7 +59,7 @@ moves(state(Name,Depth,H,F),
   Name \== NewName,
   NewDepth is Depth + Distance,
   heuristic(NewName, Goal, NewH),
-  NewF is NewDepth + NewH,
+  NewF is NewDepth,
   \+member([state(NewName,NewDepth,NewH,NewF) | RestofPath], OpenList),
   \+member(state(NewName,_,_,_), ClosedList).
 
@@ -112,6 +112,19 @@ split([state(N1,D1,H1,F1) | RestofPath1],
 %==============================================================================
 myMerge([], List, List):- !.
 myMerge(List, [], List):- !.
+
+myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
+        [[state(N2,D2,H2,F2) | RestofPath2] | T2],
+        [[state(N2,D2,H2,F2) | RestofPath2] | T]):-
+    F2 < F1, N1 == N2, !,
+    myMerge(T1, T2, T).
+
+myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
+        [[state(N2,D2,H2,F2) | RestofPath2] | T2],
+        [[state(N1,D1,H1,F1) | RestofPath1] | T]):-
+    F1 < F2, N1 == N2,!,
+    myMerge(T1, T2, T).
+
 myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
         [[state(N2,D2,H2,F2) | RestofPath2] | T2],
         [[state(N1,D1,H1,F1) | RestofPath1] | T]):-

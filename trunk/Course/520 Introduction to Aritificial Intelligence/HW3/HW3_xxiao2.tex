@@ -107,6 +107,10 @@ The following modifications to the code will be necessary before you start:
   		
   		\item (10 pts.)Change the astar.pl code and/or the heuristic2.pl code so as to implement dynamic programming search, as discussed in the web notes.
   		\item (10 pts.)Do enough exploration to find at least one path that is longer using dynamic programming than that found using A*, or to satisfy yourself that there are no such paths. Find at least one path that is found by expanding more nodes than the comparable path using A*, or satisfy yourself that there are no such paths. If there is such a path, list the nodes in the path and the total distance.
+  		
+  		
+  		\textbf{Answer:} There are no such paths found by dynamic programming search that is longer using branch-and-bound than that found using A*, since both of these two searches find optimal paths. From orlando to tallahassee, dynamic programming expands more nodes than A*. The nodes expanded by dynamic programming is \\ $\left[orlando, daytonaBeach, tampa, jacksonville, westPalmBeach,miami,lakeCity,savannah \right]$, while the nodes expanded by A* is $\left[orlando, daytonaBeach, tampa, jacksonville,lakeCity \right]$. The path found by dynamic programming and A* is $\left[orlando, tampa, lakeCity, tallahassee \right]$ (cost 357).
+  		 
 	\end{enumerate}
 	
 Submit the following:
