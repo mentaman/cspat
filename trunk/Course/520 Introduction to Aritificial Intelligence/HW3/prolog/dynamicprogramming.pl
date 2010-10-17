@@ -115,25 +115,28 @@ myMerge(List, [], List):- !.
 
 myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
         [[state(N2,D2,H2,F2) | RestofPath2] | T2],
-        [[state(N2,D2,H2,F2) | RestofPath2] | T]):-
-    F2 < F1, N1 == N2, !,
-    myMerge(T1, T2, T).
+        [[state(N1,D1,H1,F1) | RestofPath1] | T]):-
+    F1 < F2,
+    myMerge(T1, [[state(N2,D2,H2,F2) | RestofPath2] | T2], T),\+member([state(N1,_,_,_)|_],T).
 
 myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
         [[state(N2,D2,H2,F2) | RestofPath2] | T2],
         [[state(N1,D1,H1,F1) | RestofPath1] | T]):-
-    F1 < F2, N1 == N2,!,
-    myMerge(T1, T2, T).
+    F1 < F2,!,
+    myMerge(T1, [[state(N2,D2,H2,F2) | RestofPath2] | T2], T3),member([state(N1,_,_,_)|_],T3),delete(T3,[state(N1,_,_,_)|_],T).
 
+    
 myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
         [[state(N2,D2,H2,F2) | RestofPath2] | T2],
-        [[state(N1,D1,H1,F1) | RestofPath1] | T]):-
-    F1 < F2, !,
-    myMerge(T1, [[state(N2,D2,H2,F2) | RestofPath2] | T2], T).
+        [[state(N2,D2,H2,F2) | RestofPath2] | T]):- 
+    myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1], T2, T),\+member([state(N2,_,_,_) | _],T).
+    
 myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1],
         [[state(N2,D2,H2,F2) | RestofPath2] | T2],
-        [[state(N2,D2,H2,F2) | RestofPath2] | T]):-
-    myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1], T2, T).
+        [[state(N2,D2,H2,F2) | RestofPath1] | T]):-
+    myMerge([[state(N1,D1,H1,F1) | RestofPath1] | T1], T2, T3),member([state(N2,_,_,_)|_],T3),delete(T3,[state(N2,_,_,_)|_],T).
+
+
 
 %==============================================================================
 %  
