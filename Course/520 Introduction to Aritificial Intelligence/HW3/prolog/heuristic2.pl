@@ -34,4 +34,4 @@
 heuristic(City1, City2, Value):-
      city(City1, Lat1, Long1),
      city(City2, Lat2, Long2),
-     Value is sqrt((69.1 * (Lat1 - Lat2)) ^ 2 + (69.1 * cos(abs(Lat1 - Lat2) / 2) * (Long1 - Long2)) ^ 2).
+     Value is sqrt((69.1 * (Lat1 - Lat2)) ^ 2 + (69.1 * cos((Lat1 + Lat2) / 2) * (Long1 - Long2)) ^ 2).
