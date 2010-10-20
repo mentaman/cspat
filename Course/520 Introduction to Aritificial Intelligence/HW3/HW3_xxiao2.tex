@@ -156,6 +156,101 @@ Now, answer the following questions: \\
 \end{figure} 
 	\end{enumerate}
 
-	\item (20 pts.) Ex. 10.4, p. 397 in the textbook.  
+	\item (20 pts.) Ex. 10.4, p. 397 in the textbook. The original STRIPS planner was designed to control Shakey the robot. Figure \ref{fig:shakey} shows a version of Shakey's world consisting of four rooms lined up along a corridor, where each room has a door and a light switch. The actions in Shakey's world include moving from place to place, pushing movable objects (such as boxes), climbing onto and down from rigid objects (such as boxes), and turning light switches on and off. The robot itself could not climb on a box or toggle a switch, but the planner was capable of finding and printing out plans that were beyond the robot's abilities. Shakey's six actions are the following:
+	\begin{itemize}
+  		\item $ Go(x,y,r) $, which requires that Shakey be $At x$ and that $x$ and $y$ are locations In the same room $r$. By convention a door between two rooms is in both of them.
+  		\item Push a box $b$ from location $x$ to location $y$ within the same room: $Push(b,x,y,r)$. You will need the predicate $Box$ and constants for the boxes. 
+  		\item Climb onto a box from position $x$: $ClimbUp(x, b)$; climb down from a box to position $x$: $ClimbDown(b,x)$. We will need the predicate $On$ and the constant $Floor$.
+  		\item Turn a light switch on or off: $TurnOn(s,b);$ $TurnOff(s,b)$. To turn a light on or off, Shakey must be on top of a box at the light switch's location.   
+	\end{itemize}
+	 Write PDDL sentences for Shakey's six actions and the initial state from Figure \ref{fig:shakey}. Construct a plan for Shakey to get $Box_2$ into $Room_2$.\\	 
+	 
+	Assume that each room has $5 * 3$ locations (5 columns and 3 rows). Corridor has 4 locations for 4 doors. Each door is at location 10 in each room.\\
+	 
+	$Constants: shakey,b_1, b_2, b_3, b_4, r_1,r_2,r_3,r_4, d_1,d_2,d_3,d_4,floor,c$ \\
+	$Predicates: corridor(X) - X is corridor$ \\
+	$room(X) - X is room$\\
+	$box(X) - X is box$\\
+	$switch(X) - X is switch$\\
+	$on(X,Y) - X is on Y$\\
+	$at(X,Y,Z) - X is at location Y in Z, Z can be room or corridor$\\
+	$lightOn(X) - X is turned on $\\
+	$lightOff(X) - X is turned off$\\
+	$between(D,X,R,Y,C) - D is a door between location X in room R and location Y in corridor C$ \\
+	
+	$Init(box(b_1) \wedge box(b_2) \wedge box(b_3) \wedge box(b_4) \wedge room(r_1)\wedge room(r_2)\wedge room(r_3)\wedge room(r_4)\wedge door(d_1)\wedge door(d_2)\wedge door(d_3)\wedge door(d_4)\wedge switch(s_1)\wedge switch(s_2)\wedge switch(s_3)\wedge switch(s_4)\wedge corridor(c) \wedge at(b_1,5,r_1)\wedge at(b_2,14,r_1)\wedge at(b_3,13,r_1)\wedge at(b_4,1,r_1)) \wedge at(d_1,10,r_1)\wedge between(d_1,10,r_1, 1, c)\wedge at(d_2,10,r_2)\wedge between(d_2,10,r_2, 2, c)\wedge at(d_3,10,r_3)\wedge between(d_3,10,r_3, 3, c)\wedge at(d_4,10,r_4)\wedge between(d_4,10,r_4, 4, c)\wedge at(shakey,7,r_3) \wedge at(s_1,15,r_1) \wedge at(s_2,15,r_2) \wedge at(s_3,15,r_3) \wedge at(s_4,15,r_4) \wedge lightOn(s_1)\wedge lightOff(s_2)\wedge lightOff(s_3)\wedge lightOn(s_4)$ \\
+	$goal(at(b_2,10,r_2)) $ \\
+	
+	\% shakey go from location X to location Y in room R
+	$action( go(X,Y,R), $ \\
+	$PRECOND: room(R) \wedge at(shakey,X,R) $\\
+	$EFFECT: at(shakey,Y,R)) $\\
+	
+	\% shakey go from location X in room R to location Y in corridor C
+	$action( go(X,R,Y,C), $ \\
+	$PRECOND: room(R) \wedge corridor(C) \wedge door(D) \wedge at(shakey,X,R)  \wedge at(D,X,R) \wedge between(D,X,R,Y,C)$ \\
+	$EFFECT: at(shakey,Y,C)) $\\
+	
+	\% shakey go from location X in corridor C to location Y in room R
+	$action( go(X,C,Y,R), $ \\
+	$PRECOND: room(R) \wedge corridor(C) \wedge door(D) \wedge at(shakey,X,C) \wedge at(D,Y,C) \wedge between(D,Y,R,X,C) $ \\
+	$EFFECT: at(shakey,Y,R)) $\\
+	
+	\% push a box from location X to location Y in room R
+	$action( push(B,X,Y,C), $ \\
+	$PRECOND: room(R) \wedge box(B) \wedge at(B,X,R) \wedge at(shakey,X,R)$\\
+	$EFFECT: at(B,Y,R)) $\\
+	
+    \% push a box from location X to location Y in corridor C
+	$action( push(B,X,Y,C), $ \\
+	$PRECOND: corridor(C) \wedge box(B) \wedge at(B,X,C) \wedge at(shakey,X,C)$\\
+	$EFFECT: at(B,Y,C) \wedge at(shakey,Y,C)) $\\
+	
+	\% push a box from location X in room R into location Y in corridor C 
+	$action( push(B,X,R,Y,C), $ \\
+	$PRECOND: room(R) \wedge corridor(C) \wedge box(B) \wedge door(D) \wedge at(B,X,R) \wedge at(shakey,X,R)  \wedge at(D,X,R) \wedge between(D,X,R,Y,C)$ \\
+	$EFFECT: at(B,Y,C) \wedge at(shakey,Y,C)) $\\
+	
+	\% push a box from location X in corridor C into location Y in room R
+	$action( push(B,X,C,Y,R), $ \\
+	$PRECOND: room(R) \wedge corridor(C) \wedge box(B) \wedge door(D) \wedge at(B,X,C) \wedge at(shakey,X,C) \wedge at(D,Y,C) \wedge between(D,Y,R,X,C)$ \\
+	$EFFECT: at(B,Y,R) \wedge at(shakey,Y,R)) $\\
+	
+	
+	\% climb up onto a box B at location X
+	$action( climbUp(X,B), $ \\
+	$PRECOND: room(R) \wedge box(B) \wedge at(shakey,X,R) \wedge at(B,X,R) \wedge on(floor) $\\
+	$EFFECT: on(B)) $\\
+	
+	\% climb down from box B onto location X
+	$action( climbDown(B,X), $ \\
+	$PRECOND: room(R) \wedge box(B) \wedge on(B) \wedge at(B, X, R)$\\
+	$EFFECT: on(floor) \wedge at(shakey, X, R)) $\\
+	
+	\% turn on switch S on box B
+	$action( turnOn(S,B), $ \\
+	$PRECOND: room(R) \wedge box(B) \wedge switch(S) \wedge at(S,X,R) \wedge at(B,X,R) \wedge lightOff(S) $\\
+	$EFFECT: lightOn(S)) $\\
+	
+	\% turn off switch S on box B
+	$action( turnOff(S,B), $ \\
+	$PRECOND: room(R) \wedge box(B) \wedge switch(S) \wedge at(S,X,R) \wedge at(B,X,R) \wedge lightOn(S) $\\
+	$EFFECT: lightOff(S)) $\\
+	
+	A plan that moves box $b_2$ into room $r_2$ is: \\
+	\begin{multline*}
+	go(7,10,r_3), go(10,r_3,3,c), go(3,1,c),go(1,c,10,r_1),go(10,14,r_1),\\
+	push(b_2,14,10,r_1),push(b_2,10,r_1,1,c),push(b_2,1,2,c),push(b_2,2,c,10,r_2)
+	\end{multline*}
+	
+	 
+	 
+\begin{figure}[h]
+\begin{center}
+  \includegraphics[scale=0.5]{shakey.png}
+  \label{fig:shakey}
+  \caption{Shakey's World. Shakey can move between landmarks within a room, can pass through the door between rooms, can climb climbable objects and push pushable objects, and can flip light switches.}
+\end{center}
+\end{figure} 
 \end{enumerate}
 \end{document}
