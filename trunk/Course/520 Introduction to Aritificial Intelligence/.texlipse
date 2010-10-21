@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Wed Oct 13 23:58:34 EDT 2010
+builderNum=2
+outputDir=HW3/
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=HW3
+mainTexFile=HW3_xxiao2.tex
+outputFile=HW3_xxiao2.pdf
+langSpell=
+markDer=true
+srcDir=HW3/
