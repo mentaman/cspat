@@ -1,0 +1,142 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{article}%
+%Options -- Point size:  10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper (default), a4paper, a5paper, b5paper
+%                        legalpaper, executivepaper
+%        -- Orientation  (portrait is the default)
+%                        landscape
+%        -- Print size:  oneside (default), twoside
+%        -- Quality      final(default), draft
+%        -- Title page   notitlepage, titlepage(default)
+%        -- Columns      onecolumn(default), twocolumn
+%        -- Equation numbering (equation numbers on the right is the default)
+%                        leqno
+%        -- Displayed equations (centered is the default)
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Open bibliography style (closed is the default)
+%                        openbib
+% For instance the command
+%           \documentclass[a4paper,12pt,leqno]{article}
+% ensures that the paper size is a4, the fonts are typeset at the size 12p
+% and the equation numbers are on the left side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%-------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{Course:} CSC 520, Introduction to Artificial Intelligence\\
+\textbf{Homework 4}\\
+\textbf{Student: Xusheng Xiao} \\
+\textbf{Unity ID: xxiao2} \\
+\textbf{Email: xxiao2@ncsu.edu}
+\end{flushleft}
+
+\noindent{\hrulefill}
+
+\bigskip
+
+\begin{enumerate}
+  \item (20 points) Two grad students in the Knowledge Discovery Lab (KDL) prefer two different coffees (Brazilian and Indian). However, there is only one coffee machine in the lab! There are three operators: load coffee into the machine, brew the coffee, and clean the machine. Suppose the machine contains old Brazilian coffee, and a student wishes to brew a fresh pot of Indian coffee. Help the grad students with a plan!
+  
+The PDDL description of the actions are as follows (X is a variable; nil and waste are constants):
+
+Action: load(X)	 \\
+\hspace*{6ex} 	PRECOND: coffee(X), loaded(nil) \\
+\hspace*{6ex} 	EFFECT: loaded(X), $\neg$loaded(nil)\\
+Action: brew(X)	 \\
+\hspace*{6ex} 	PRECOND: loaded(X), $\neg$loaded(nil), $\neg$loaded(waste)\\
+\hspace*{6ex} 	EFFECT: $\neg$loaded(X), loaded(waste), pot(X)\\
+Action: clean(X)	 \\
+\hspace*{6ex} 	PRECOND: loaded(X), $\neg$loaded(nil)\\
+\hspace*{6ex} 	EFFECT: $\neg$loaded(X), loaded(nil)\\
+ 	
+\begin{enumerate}
+  \item (5 pts.) Specify the initial state and the goal conditions, and draw the ``relaxed planning graph'' for this problem. Use $b$ and $i$ as constants to represent the coffee. (A relaxed planning graph ignores negative interactions--ie, no mutexes.)
+  \item (10 pts.) Now make the graph into a standard planning graph by including the mutexes. Indicate the appropriate mutexes at each level. Indicate which type of mutex each is.
+  \item (5 pts.) Avoiding the mutexes, extract a plan from the planning graph in (b).
+\end{enumerate} 	
+
+ 	\item (30 pts.) Consider the following description: There are four animals in the world, by the names of Mufasa, Velocitus Incalculii, Willie, and Woody. Mufasa is a lion, Velocitus Incalculii is a roadrunner, Willie is a whale, and Woody is a woodpecker. Roadrunners and woodpeckers are kinds of birds, while lions and whales are kinds of mammals. All mammals are covered with hair while birds are covered with feathers. As a general rule, mammals can run and birds can fly, but there are exceptions. Whales can swim and not run, and roadrunners can run and not fly, and therefore both are exceptions to the general rules. Lions and woodpeckers are not exceptions. 
+
+Answer the following questions:
+	\begin{enumerate}
+		\item (5 pts.) Represent the above world description using a semantic network.
+		\item (5 pts.) Implement the semantic net in Prolog. Use a technique patterned on examples in class and webnotes.
+		\item (5 pts.) Mufasa is a lion, which is a kind of mammal. Therefore, lion is a mammal. Add a rule to your prolog database that generalizes this to all animals. Run a sample query to demonstrate this rule and show the output.
+		\item (10 pts.) Now add rules to the prolog database so that all animal instances inherit the properties of their kind, namely being covered with hair or feathers, running, swimming, or flying. Run a sample query to demonstrate the rules and show the output.
+		\item (5 pts.) Because your implementation did not account for exceptions, it should conclude that Willie can run and Velocitus Incalculii can fly!! Fix this problem. (Note: While it may be true that road runners can indeed fly, they cannot be airborne for more than a few seconds, and hence for this question consider them non-flying birds.) Show the output to show that you have fixed this problem.
+\end{enumerate}
+
+\textbf{To earn full credit, submit the prolog file, and sample queries and outputs for (c), (d) and (e).}
+
+\item (15 pts.) In a document classification problem, we wish to classify each document in the collection into a predefined set of categories based on the text (or, the words) contained in them. A fairly straightforward way is to use a Naive Bayes classifier where the document is the hypothesis variable and the evidence is the presence (or absence) of the words. We assume that the words occur independently.
+	\begin{enumerate}
+  		\item (5 pts.) If you were asked to build such a Naive Bayes model, how would you do it, given a training set? (You don't have to actually build anything.)
+  		\item (5 pts.) If a new document is presented, explain how it would be classified.
+		\item (5 pts.) Is the conditional independence assumption valid for this problem? Explain. 
+	\end{enumerate}
+
+\item (10 pts.) As a part of a regular health checkup mandated by your insurance company, you undergo a medical check for presence of a particular new virus in your blood. The test is 98\% accurate. Recent statistics show that only a small proportion of the population has the virus (about 1 in 10000). Should you be happy that this is a rare virus? Given a positive test result, what are the chances that you actually have the virus? 
+
+\item (25 pts) Babies have few and simple needs, but they have even fewer ways to communicate those needs to their parents. Parents need some way to figure out what is the matter with their child. Assume we know the following:
+
+P(sick) = .3 \\
+P(ache $|$ sick) = .75\\
+P(ache $|$ $\neg$sick) = .1\\
+P(tired) = .6\\
+P(cry $|$ ache, tired) = .9\\
+P(cry $|$ ache, $\neg$tired) = .65\\
+P(cry $|$ $\neg$ache, tired) = .55\\
+P(cry $|$ $\neg$ache, $\neg$tired) = .2\\
+
+	\begin{enumerate}
+		\item (5 pts) Assuming that the above conditional probabilities are sufficient to specify the values for a Bayes net for this problem, draw a picture of such a Bayesian network.
+		\item (20 pts) Compute the full joint probability table for this Bayesian network. Please model your table on the following template:
+	\end{enumerate}
+	
+	\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{2}{|c|}{}&\multicolumn{2}{c|}{sick}&\multicolumn{2}{c|}{$\neg$sick} \\ \cline{3-6}
+	\multicolumn{2}{|c|}{}&tired&$\neg$tired&tired&$\neg$tired \\ \hline
+	ache&cry& & & & \\ \cline{2-6}
+	&$\neg$cry& & & & \\ \hline
+	$\neg$ache&cry& & & & \\ \cline{2-6}
+	&$\neg$cry& & & & \\ \hline
+	\end{tabular}
+	\end{table}
+	 
+\end{enumerate}
+\end{document}
