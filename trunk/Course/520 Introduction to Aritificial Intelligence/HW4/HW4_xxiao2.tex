@@ -82,20 +82,132 @@ Action: clean(X)	 \\
 \hspace*{6ex} 	EFFECT: $\neg$loaded(X), loaded(nil)\\
  	
 \begin{enumerate}
-  \item (5 pts.) Specify the initial state and the goal conditions, and draw the ``relaxed planning graph'' for this problem. Use $b$ and $i$ as constants to represent the coffee. (A relaxed planning graph ignores negative interactions--ie, no mutexes.)
-  \item (10 pts.) Now make the graph into a standard planning graph by including the mutexes. Indicate the appropriate mutexes at each level. Indicate which type of mutex each is.
+  \item (5 pts.) Specify the initial state and the goal conditions, and draw the ``relaxed planning graph'' for this problem. Use $b$ and $i$ as constants to represent the coffee. (A relaxed planning graph ignores negative interactions--ie, no mutexes.)\\
+  
+  Init(loaded(waste) $\wedge$ coffee(b) $\wedge$ coffee(i)) \\
+  
+  goal(pot(i))\\
+  
+  Figure \ref{fig:planninggraph} shows the relaxed planning graph.
+  
+  %\usepackage{graphics} is needed for \includegraphics
+\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.6]{planning.png}
+  \caption{Relaxed Planning Graph}
+  \label{fig:planninggraph}
+\end{center}
+\end{figure}
+  
+  \item (10 pts.) Now make the graph into a standard planning graph by including the mutexes. Indicate the appropriate mutexes at each level. Indicate which type of mutex each is.\\
+  
+  Since it is hard to see all the types of conflicts in the graph, I list all the conflicts in Figure \ref{fig:planninggraph} as below:
+  \begin{itemize}
+  	\item  level S2:
+  			\begin{itemize}
+ 				 \item \textbf{Negated Literals:} [ $\neg$loaded(waste), loaded(waste)], [ $\neg$loaded(nil), loaded(nil)]
+ 				 \item \textbf{Inconsistent Support:}  [ loaded(waste), loaded(nil)], [ $\neg$loaded(waste), $\neg$loaded(nil)]
+			\end{itemize}
+	\item  level A2: 
+			\begin{itemize}
+ 				 \item \textbf{Inconsistent Effect:} [ clean(waste), load(b) ], [ clean(waste), load(i)], 
+ 				 \item \textbf{Interference:}  [ load(b), load(i)]
+ 				 \item \textbf{Competing Needs:} 
+			\end{itemize}
+	\item  level S3:
+  			\begin{itemize}
+ 				 \item \textbf{Negated Literals:} [ $\neg$loaded(waste), loaded(waste)], [ $\neg$loaded(nil), loaded(nil)]
+ 				 \item \textbf{Inconsistent Support:}  [ loaded(waste), loaded(nil)], [ loaded(waste), loaded(b)], [ loaded(waste), loaded(i)], 
+ 				 [ loaded(b), loaded(i)], 
+			\end{itemize}
+	\item  level A3: 
+			\begin{itemize}
+ 				 \item \textbf{Inconsistent Effect:} [ clean(waste), load(b) ], [ clean(waste), load(i)], 
+ 				 [clean(b), load(b)],[clean(i), load(i)],[brew(b),load(b)],
+ 				 [brew(i),load(i)],[brew(b),clean(waste)],[brew(i),clean(waste)]
+ 				 \item \textbf{Interference:}  [ load(b), load(i) ], [brew(b),brew(i)],[brew(b),clean(b)],[brew(i),clean(i)]
+ 				 \item \textbf{Competing Needs:}  [brew(b), brew(i)], [clean(b),load(b)], [clean(b),load(i)],
+ 				 [clean(i),load(b)], [clean(i),load(i)],[brew(b),clean(i)],[brew(i),clean(b)],
+ 				 
+			\end{itemize}
+	\item  level S4:
+  			\begin{itemize}
+ 				 \item \textbf{Negated Literals:} [ $\neg$loaded(waste), loaded(waste)], [ $\neg$loaded(nil), loaded(nil)],
+ 				 [ $\neg$loaded(b), loaded(b)],[ $\neg$loaded(i), loaded(i)]
+ 				 \item \textbf{Inconsistent Support:}  [ loaded(waste), loaded(nil)], [ loaded(waste), loaded(b)], [ loaded(waste), loaded(i)], 
+ 				 [ loaded(b), loaded(i)], [pot(b), pot(i)], [pot(b), loaded(b)],[pot(i), loaded(i)],[pot(b),$\neg$loaded(waste) ],
+ 				 [pot(i),$\neg$loaded(waste) ],[pot(b),loaded(nil) ],[pot(i),loaded(nil) ],[pot(b),loaded(i) ],[pot(i),loaded(b) ]
+			\end{itemize}
+
+  \end{itemize}
+  
   \item (5 pts.) Avoiding the mutexes, extract a plan from the planning graph in (b).
+  
+  The plan is [ clean(waste), load(i), brew(i) ]
+  
 \end{enumerate} 	
 
  	\item (30 pts.) Consider the following description: There are four animals in the world, by the names of Mufasa, Velocitus Incalculii, Willie, and Woody. Mufasa is a lion, Velocitus Incalculii is a roadrunner, Willie is a whale, and Woody is a woodpecker. Roadrunners and woodpeckers are kinds of birds, while lions and whales are kinds of mammals. All mammals are covered with hair while birds are covered with feathers. As a general rule, mammals can run and birds can fly, but there are exceptions. Whales can swim and not run, and roadrunners can run and not fly, and therefore both are exceptions to the general rules. Lions and woodpeckers are not exceptions. 
 
 Answer the following questions:
 	\begin{enumerate}
-		\item (5 pts.) Represent the above world description using a semantic network.
+		\item (5 pts.) Represent the above world description using a semantic network. \\
+		
+		Figure \ref{fig:sn} shows the semantic network.
+		
+		\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.5]{semanticNetwork.png}
+  \caption{Semantic Network}
+  \label{fig:sn}
+\end{center}
+\end{figure}
 		\item (5 pts.) Implement the semantic net in Prolog. Use a technique patterned on examples in class and webnotes.
-		\item (5 pts.) Mufasa is a lion, which is a kind of mammal. Therefore, lion is a mammal. Add a rule to your prolog database that generalizes this to all animals. Run a sample query to demonstrate this rule and show the output.
-		\item (10 pts.) Now add rules to the prolog database so that all animal instances inherit the properties of their kind, namely being covered with hair or feathers, running, swimming, or flying. Run a sample query to demonstrate the rules and show the output.
-		\item (5 pts.) Because your implementation did not account for exceptions, it should conclude that Willie can run and Velocitus Incalculii can fly!! Fix this problem. (Note: While it may be true that road runners can indeed fly, they cannot be airborne for more than a few seconds, and hence for this question consider them non-flying birds.) Show the output to show that you have fixed this problem.
+		\item (5 pts.) Mufasa is a lion, which is a kind of mammal. Therefore, lion is a mammal. Add a rule to your prolog database that generalizes this to all animals. Run a sample query to demonstrate this rule and show the output.\\
+		
+		Query: value(lion,isa,X).\\
+		Result: X = mammals ; \\
+		
+		Query: value(roadrunner, isa, X).\\
+		Result: X = birds ;\\
+		
+		\item (10 pts.) Now add rules to the prolog database so that all animal instances inherit the properties of their kind, namely being covered with hair or feathers, running, swimming, or flying. Run a sample query to demonstrate the rules and show the output.\\
+		
+		Query: value(willie, coveredWith, X).\\
+		Result: X = hair ;\\
+		
+		Query: value(velocitusIncalculii, can, X). \\
+		Result: X = run ; X = fly. \\
+		
+		Query: value(mufasa, can, X).\\
+		Result: X = run ;\\
+		
+		Query: value(woody, coveredWith, X).\\
+		Result: X = feather ;\\
+		
+		
+		
+		\item (5 pts.) Because your implementation did not account for exceptions, it should conclude that Willie can run and Velocitus Incalculii can fly!! Fix this problem. (Note: While it may be true that road runners can indeed fly, they cannot be airborne for more than a few seconds, and hence for this question consider them non-flying birds.) Show the output to show that you have fixed this problem. \\
+		
+		Query: value(willie, can, X). \\
+		Result: X = swim ; false. \\
+		
+		Query: value(willie, can, run). \\
+		Result: false. \\
+		 
+		Query: value(whale, can, run). \\
+		Result: false. \\
+		
+		Query: value(velocitusIncalculii, can, X). \\
+		Result: X = run ; false. \\
+		
+		Query: value(velocitusIncalculii, can, fly). \\
+		Result: false. \\
+		
+		Query: value(roadrunner, can, fly). \\
+		Result: false. \\
+		
+		
 \end{enumerate}
 
 \textbf{To earn full credit, submit the prolog file, and sample queries and outputs for (c), (d) and (e).}
