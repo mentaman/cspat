@@ -214,12 +214,30 @@ Answer the following questions:
 
 \item (15 pts.) In a document classification problem, we wish to classify each document in the collection into a predefined set of categories based on the text (or, the words) contained in them. A fairly straightforward way is to use a Naive Bayes classifier where the document is the hypothesis variable and the evidence is the presence (or absence) of the words. We assume that the words occur independently.
 	\begin{enumerate}
-  		\item (5 pts.) If you were asked to build such a Naive Bayes model, how would you do it, given a training set? (You don't have to actually build anything.)
+  		\item (5 pts.) If you were asked to build such a Naive Bayes model, how would you do it, given a training set? (You don't have to actually build anything.)\\
+  		
+  		Suppose the words are $w_1, w_2, \ldots, w_n$ and the categories of documents are $C_1, C_2, \ldots, C_n$.\\
+  		Using a naive bayes classifier to classify documents, we can compute the probability for the categories using the following equations:
+  		\begin{equation} P(w_1, w_2, \ldots, w_n, C_i) \end{equation}
+  		Since the words occur independently, the above equation is equivalent to:
+  		\begin{equation} P(C_i) ( \prod_{k=1}^{n}P(w_k|C_i)) \end{equation}
+  		
+  		
   		\item (5 pts.) If a new document is presented, explain how it would be classified.
+  		If a new document is presented, we first compute the occurences of words in the new document. Assume that the values are $w_1, w_2, \ldots, w_n$. Then, we can compute the probabilities for all the categories using the equation (2) and choose the categories that has the highest probability.
+  		
 		\item (5 pts.) Is the conditional independence assumption valid for this problem? Explain. 
+		
+		The condition indenpence assumption may not be valid for this problem. Since for the documents that describes various topics, some words coexists for each topic. For example, for a document describing cardiac diseases, the word ``heart'' and ``cardiac'' may apprear together many times. 
 	\end{enumerate}
 
 \item (10 pts.) As a part of a regular health checkup mandated by your insurance company, you undergo a medical check for presence of a particular new virus in your blood. The test is 98\% accurate. Recent statistics show that only a small proportion of the population has the virus (about 1 in 10000). Should you be happy that this is a rare virus? Given a positive test result, what are the chances that you actually have the virus? 
+
+	The population of the earth is about 6.7 billion. Therefore, given the statistics result, there would still be $6,700,000,000 * (\frac{1}{10000})$ =  67,000 people suffering from the virus. Given a positive test result, the chances that you can have the virus can be computed using the following equation if we assume the test result is independent with the probability that people has the virus: 
+	\[
+	P(actual | test) = P(actual,test)/P(test) = P(actual) = \frac{1}{10000}
+	\]
+
 
 \item (25 pts) Babies have few and simple needs, but they have even fewer ways to communicate those needs to their parents. Parents need some way to figure out what is the matter with their child. Assume we know the following:
 
@@ -233,7 +251,19 @@ P(cry $|$ $\neg$ache, tired) = .55\\
 P(cry $|$ $\neg$ache, $\neg$tired) = .2\\
 
 	\begin{enumerate}
-		\item (5 pts) Assuming that the above conditional probabilities are sufficient to specify the values for a Bayes net for this problem, draw a picture of such a Bayesian network.
+		\item (5 pts) Assuming that the above conditional probabilities are sufficient to specify the values for a Bayes net for this problem, draw a picture of such a Bayesian network.\\
+		
+		Figure \ref{fig:bn} shows the bayes network for the babies problem.\\
+	
+\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.5]{bayesNetwork.png}
+  \caption{Bayes Network}
+  \label{fig:bn}
+  \vspace*{-4ex}
+\end{center}
+\end{figure}
+
 		\item (20 pts) Compute the full joint probability table for this Bayesian network. Please model your table on the following template:
 	\end{enumerate}
 	
@@ -243,12 +273,49 @@ P(cry $|$ $\neg$ache, $\neg$tired) = .2\\
 	\hline
 	\multicolumn{2}{|c|}{}&\multicolumn{2}{c|}{sick}&\multicolumn{2}{c|}{$\neg$sick} \\ \cline{3-6}
 	\multicolumn{2}{|c|}{}&tired&$\neg$tired&tired&$\neg$tired \\ \hline
-	ache&cry& & & & \\ \cline{2-6}
-	&$\neg$cry& & & & \\ \hline
-	$\neg$ache&cry& & & & \\ \cline{2-6}
-	&$\neg$cry& & & & \\ \hline
+	ache&cry& 0.1215& 0.0585& 0.0378 & 0.0182\\ \cline{2-6}
+	&$\neg$cry& 0.0135&0.0315 &0.0042 & 0.0098\\ \hline
+	$\neg$ache&cry& 0.02475 &0.006 & 0.2079& 0.0504\\ \cline{2-6}
+	&$\neg$cry& 0.02025&0.024 &0.1701 & 0.2016\\ \hline
 	\end{tabular}
 	\end{table}
-	 
+	
+	Below are the euqations for the four cells at the first row.
+	
+	\[
+	 \begin{array}{lcl} P(sick, tired, ache, cry)& = &P(sick) * P(tired | sick) * P(ache | sick, tired) * P(cry| sick,tired,ache) \\
+ 	 						   &=&P(sick) * P(tired) * P(ache|sick) * P(cry|ache,tired) \\
+ 	 						   &=&0.3*0.6 *0.75*0.90\\
+ 	 						   &=&0.1215 
+ 	 \end{array}	 
+ 	 \]
+ 	 
+ 	 \[
+	 \begin{array}{lcl} P(sick, \neg tired, ache, cry)& = &P(sick) * P(\neg tired | sick) * P(ache | sick, \neg tired) * P(cry| sick,\neg tired,ache) \\
+ 	 						   &=&P(sick) * P(\neg tired) * P(ache|sick) * P(cry|ache,\neg tired) \\
+ 	 						   &=&0.3*0.4 *0.75*0.65\\
+ 	 						   &=&0.0585
+ 	 \end{array}	 
+ 	 \]
+ 	 
+ 	 
+	\[
+	 \begin{array}{lcl} P(\neg sick, tired, ache, cry)& = &P(\neg sick) * P(tired | \neg sick) * P(ache | \neg sick, tired) * P(cry| \neg sick,tired,ache) \\
+ 	 						   &=&P(\neg sick) * P(tired) * P(ache|\neg sick) * P(cry|ache,tired) \\
+ 	 						   &=&0.7*0.6 *0.1*0.9\\
+ 	 						   &=&0.0378 
+ 	 \end{array}	 
+ 	 \]
+ 	 
+ 	 \[
+	 \begin{array}{lcl} P(\neg sick, \neg tired, ache, cry)& = &P(\neg sick) * P(\neg tired | \neg sick) * P(ache | \neg sick, \neg tired) * P(cry| \neg sick,\neg tired,ache) \\
+ 	 						   &=&P(\neg sick) * P(\neg tired) * P(ache|\neg sick) * P(cry|ache,\neg tired) \\
+ 	 						   &=&0.7*0.4 *0.1*0.65\\
+ 	 						   &=&0.0182
+ 	 \end{array}	 
+ 	 \]
+ 	 
+% 							   =0.3*0.4*0.75*0.65
+%							   =0.7
 \end{enumerate}
 \end{document}
