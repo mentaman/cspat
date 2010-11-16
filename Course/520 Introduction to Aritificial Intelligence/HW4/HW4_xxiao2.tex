@@ -84,7 +84,7 @@ Action: clean(X)	 \\
 \begin{enumerate}
   \item (5 pts.) Specify the initial state and the goal conditions, and draw the ``relaxed planning graph'' for this problem. Use $b$ and $i$ as constants to represent the coffee. (A relaxed planning graph ignores negative interactions--ie, no mutexes.)\\
   
-  Init(loaded(waste) $\wedge$ coffee(b) $\wedge$ coffee(i)) \\
+  Init($\neg$loaded(b) $\wedge$ $\neg$loaded(nil) $\wedge$ loaded(waste) $\wedge$ coffee(b) $\wedge$ coffee(i)) \\
   
   goal(pot(i))\\
   
