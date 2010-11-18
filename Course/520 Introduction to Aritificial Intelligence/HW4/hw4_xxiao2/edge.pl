@@ -1,0 +1,14 @@
+edge(mufasa, isa, lion).
+edge(willie, isa, whale).
+edge(woody, isa, woodpecker).
+edge(velocitusIncalculii, isa, roadrunner).
+edge(lion, ako, mammals).
+edge(whale, ako, mammals).
+edge(woodpecker, ako, birds).
+edge(roadrunner, ako, birds).
+edge(mammals, can, run).
+edge(mammals, coveredWith, hair).
+edge(birds, can, fly).
+edge(birds, coveredWith, feather).
+edge(whale, can, swim).
+edge(roadrunner, can, run).

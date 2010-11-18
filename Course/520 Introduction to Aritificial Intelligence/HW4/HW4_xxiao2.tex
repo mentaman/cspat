@@ -162,16 +162,33 @@ Answer the following questions:
   \label{fig:sn}
 \end{center}
 \end{figure}
-		\item (5 pts.) Implement the semantic net in Prolog. Use a technique patterned on examples in class and webnotes.
-		\item (5 pts.) Mufasa is a lion, which is a kind of mammal. Therefore, lion is a mammal. Add a rule to your prolog database that generalizes this to all animals. Run a sample query to demonstrate this rule and show the output.\\
+		\item (5 pts.) Implement the semantic net in Prolog. Use a technique patterned on examples in class and webnotes.\\
 		
-		Query: value(lion,isa,X).\\
-		Result: X = mammals ; \\
+		Rules: \\
+		value(Node, Slot, Value):- edge(Node, Slot, Value).\\
 		
-		Query: value(roadrunner, isa, X).\\
-		Result: X = birds ;\\
+		\item (5 pts.) Mufasa is a lion, which is a kind of mammal. Therefore, mufasa is a mammal. Add a rule to your prolog database that generalizes this to all animals. Run a sample query to demonstrate this rule and show the output.\\
+		
+		Rules: \\
+		value(Node, isa, Value):-\\
+        \hspace*{6ex} edge(Node, isa, Node1),\\
+    	\hspace*{6ex} edge(Node1, ako, Value).\\
+		
+		Query: value(mufasa,isa,X).\\
+		Result: X = lion; X = mammals ; \\
+		
+		Query: value(velocitusIncalculii, isa, X).\\
+		Result: X = roadrunner; X = birds ;\\
 		
 		\item (10 pts.) Now add rules to the prolog database so that all animal instances inherit the properties of their kind, namely being covered with hair or feathers, running, swimming, or flying. Run a sample query to demonstrate the rules and show the output.\\
+		
+		Rules: \\
+		value(Node, Slot, Value):- \\
+    	\hspace*{6ex} edge(Node, isa, Node1), \\
+    	\hspace*{6ex} value(Node1, Slot, Value).\\
+		value(Node, Slot, Value):-\\
+   		\hspace*{6ex} edge(Node, ako, Node1),\\
+    	\hspace*{6ex} value(Node1, Slot, Value).\\
 		
 		Query: value(willie, coveredWith, X).\\
 		Result: X = hair ;\\
@@ -188,6 +205,8 @@ Answer the following questions:
 		
 		
 		\item (5 pts.) Because your implementation did not account for exceptions, it should conclude that Willie can run and Velocitus Incalculii can fly!! Fix this problem. (Note: While it may be true that road runners can indeed fly, they cannot be airborne for more than a few seconds, and hence for this question consider them non-flying birds.) Show the output to show that you have fixed this problem. \\
+		
+		Modified the original rules to include exceptions of whale and roadrunner (Please see submitted prolog files).\\
 		
 		Query: value(willie, can, X). \\
 		Result: X = swim ; false. \\
