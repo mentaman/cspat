@@ -252,11 +252,11 @@ Answer the following questions:
 
 \item (10 pts.) As a part of a regular health checkup mandated by your insurance company, you undergo a medical check for presence of a particular new virus in your blood. The test is 98\% accurate. Recent statistics show that only a small proportion of the population has the virus (about 1 in 10000). Should you be happy that this is a rare virus? Given a positive test result, what are the chances that you actually have the virus? 
 
-	The population of the earth is about 6.7 billion. Therefore, given the statistics result, there would still be $6,700,000,000 * (\frac{1}{10000})$ =  67,000 people suffering from the virus. Given a positive test result, the chances that you can have the virus can be computed using the following equation if we assume the test result is independent with the probability that people has the virus: 
+	Since the proportion of the population that has the virus is $\frac{1}{10000}$, it is a rare virus. Given the test is 98\% accurate, once the test tells you that you got the virus, the probability that you actually got the virus is 98\%. Given a positive test result, the chances that you can have the virus can be computed using the following equation if we assume the test result is independent with the probability that people has the virus: 
 	\[
-	P(actual | test) = P(actual,test)/P(test) = P(actual) = \frac{1}{10000}
+	P(gotVirus | test) = P(gotVirus,test)/P(test) = P(gotVirus) = \frac{1}{10000}
 	\]
-
+If the assumption is not supported, then we need to compute the probability of $P(gotVirus,test)$ in order to compute $P(gotVirus | test)$.
 
 \item (25 pts) Babies have few and simple needs, but they have even fewer ways to communicate those needs to their parents. Parents need some way to figure out what is the matter with their child. Assume we know the following:
 
