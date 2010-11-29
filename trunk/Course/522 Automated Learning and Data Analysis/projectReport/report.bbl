@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{PDAT}
-A.~P Clark.
-\newblock {\em Principles of digital data transmission}.
-\newblock Wiley, New York, 1983.
-
 \bibitem{histogram}
 Felix Halim, Panagiotis Karras, and Roland~H.C. Yap.
 \newblock Fast and effective histogram construction.
@@ -12,15 +7,26 @@ Felix Halim, Panagiotis Karras, and Roland~H.C. Yap.
   knowledge management}, CIKM '09, pages 1167--1176, New York, NY, USA, 2009.
   ACM.
 
+\bibitem{datamining}
+Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
+\newblock {\em Introduction to Data Mining, (First Edition)}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+
+\bibitem{PDAT}
+A.~P Clark.
+\newblock {\em Principles of digital data transmission}.
+\newblock Wiley, New York, 1983.
+
 \bibitem{ps}
 Edgar Solomonik and Laxmikant~V. Kal«e.
 \newblock Highly scalable parallel sorting.
 \newblock {\em Parallel and Distributed Processing (IPDPS), 2010 IEEE
   international Symposium on}, 36:1--12, 2010.
 
-\bibitem{datamining}
-Pang-Ning Tan, Michael Steinbach, and Vipin Kumar.
-\newblock {\em Introduction to Data Mining, (First Edition)}.
-\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2005.
+\bibitem{soa}
+Thomas Erl.
+\newblock {\em Service-Oriented Architecture: Concepts, Technology, and
+  Design}.
+\newblock Prentice Hall PTR, Upper Saddle River, NJ, USA, 2005.
 
 \end{thebibliography}

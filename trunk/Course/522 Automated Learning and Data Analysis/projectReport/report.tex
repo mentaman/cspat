@@ -21,7 +21,8 @@ Xusheng Xiao\\
 \begin{document}
 \maketitle
 \abstract
-Huge amount of climate simulation data are collected from different areas (e.g., cities, countries). By understanding and analyzing the data, climate scientists try to predict the trends of the variation of climate both locally and globally. To assist the prediction, exploring visualization of data mining (e.g., histogram) has been used more and more frequently to get a general view ahead of predicting. Additionally, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down). To achieve local and global visualization of climate data, there are two major challenges: (1) globally tranferring data is time-consuming and (2) frequently drill-up and drill-down navigation requires computation of same data set multiple times. To address these challenges, we propose a service oriented approach to compute local and global visualization with sorting on-demand for climate data. For global transferring data, our novel approach first asks the data sources to compute local parameters (min, max and count). By collecting these local parameters, our approach computes global parameters and distribute these global parameters to guide local data sources how to compute the histogram data using proper parameters. These computed histogram data from different data sources are then transferred to form a global histogram, whose size is much less than the whole data sets. For data navigation of historgram, our approach caches the transferred data sets and sort only the data in the interval later requested by the data navigation. In this way, we enable climate scientists to navigate huge data sets with acceptable performance. Our preliminary results show that our approach can perform well on sample data sets of climate simulation data.  
+\textit{Huge amount of climate simulation data are collected from different areas (e.g., cities, countries). By understanding and analyzing the data, climate scientists try to predict the trends of the variation of climate both locally and globally. To assist the prediction, exploring visualization of data mining (e.g., histogram) has been used more and more frequently to get a general view ahead of predicting. Additionally, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down). To achieve local and global visualization of climate data, there are two major challenges: (1) globally tranferring data is time-consuming and (2) frequently drill-up and drill-down navigation requires computation of same data set multiple times. To address these challenges, we propose a service oriented approach to compute local and global visualization with sorting on-demand for climate data. For global transferring data, our novel approach first asks the data sources to compute local parameters (min, max and count). By collecting these local parameters, our approach computes global parameters and distribute these global parameters to guide local data sources how to compute the histogram data using proper parameters. These computed histogram data from different data sources are then transferred to form a global histogram, whose size is much less than the whole data sets. For data navigation of historgram, our approach caches the transferred data sets and sort only the data in the interval later requested by the data navigation. In this way, we enable climate scientists to navigate huge data sets with acceptable performance. Our preliminary results show that our approach can perform well on sample data sets of climate simulation data.  
+}\endabstract
 
 \section{Introduction}
 \subsection{Motivations} 
@@ -37,7 +38,7 @@ Increasing computing power enables modelers to generate larger simulation data s
 
 In order to assist the prediction of the climate variation, exploring visualization of data mining (e.g., histogram~\cite{histogram}) has been used more and more frequently. Showing a global histogram of climate simulation data collected from different data sources can help climate scientists obtain a general view ahead of predicting. However, climate data is well known for its huge amount. In every second, huge amount of climate simulation data is generated from different cities, countries or even thousands of sensors in the same area. The computation for global visualization using histogram normally depends on the distributed computation on different data sources. Hence, there is much need of transferring huge data sets from different data sources with acceptable error rate for computing global visualization. 
 
-%\usepackage{graphics} is needed for \includegraphics
+%\usepackage{graphics} is needed for \includegraphic
 
 Moreover, to better understand the details of specific areas, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down), analogous to navigation in data cube~\cite{datamining}. As we can see in Figure \ref{fig:drill}, the left histogram shows a better global generalization of the distribution of the whole dataset, whereas the right histogram demonstrates a better detailed visualization of the distribution for data with x-value ranges from -1.0 to 1.0. 
 
@@ -98,11 +99,39 @@ The Radar Data Information of those projects are stored on a Tb data storage sys
 \textbf{Package Loss} occurs when one or more packets of data travelling across a computer network fail to reach their destination. Packet loss is distinguished as one of the three main error types encountered in digital communications; the other two being bit error and spurious packets caused due to noise\footnote{\url{http://www.nessoft.com/kb/24}}.
 \subsection{Histogram}
 \subsection{Sort\cite{ps}}
-\section{Our Novel Approach}
-\subsubsection{Service-Oriented Framework}
-\subsubsection{Sorting Pre-conditioner Histogram}
-\section{Result}
-\section{Discussion}
+
+\section{Our Approach}
+Figure \ref{fig:overview} shows the overview of our approach. Generally, our approach consists of two major components: \textbf{Service-Oriented Histogram} and \textbf{On-demand Sorting}. In the figure, Region 1 demonstrates the procedure of Service-Oriented Histogram and Region 2 illustrates the procedure of Service-Oriented Histogram integrated with On-demand Sorting.
+
+\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.65]{architecture.png}
+  \caption{Overview of Our Approach}
+  \label{fig:overview}
+\end{center}
+\end{figure}
+
+\subsection{Service-Oriented Histogram}
+Global visualization of datasets requires accurate data from every source. To compute a global histogram, the data is collected distributedly from thousands of sources. Traditional approach simply uses a central computer to calculate all the collected date transferred from thousands of sources, which heavily relies on the data transfer of whole data sets from different data sources, which is shown to be challenging in Section 1.2 due to time-consuming data transfer and unacceptable package loss. Another traditional approach let the data sources compute their local histogram and then uses a central computer to integrate all the local histogram, rather than using a central computer to calculate all the collected raw date. This approach shows a little improvement. However, since the climate data collected from different dat sources usually varies a lot in terms of parameters (min, max and total count of sample data points), the local histogram cannot be used directly for merging a global histogram. Therefore, it still cast another burden on the central computer, which is how to fast coordinate different parameters such as min, max, and count among thousands of histograms.
+
+To address these issues, we advocate a novel approach, called \textbf{Service-Oriented Histogram}. Service-oriented histogram borrows the ideas from Service-Oriented Architecture (SOA)~\cite{soa}. In SOA, each component of the system is integrated as an individual service. Services have control over the logic they encapsulate (service autonomy). There are many benefits for this approach: The first benefit from such design principle is that SOA maximizes the reuse of services. Another benefit is that the service autonomy realizes the loose coupling among services which makes the global system more robust. Borrowing these concepts, instead of computing the global histogram in one central node, service-oriented histogram computes local histograms based on the computed global parameters and merge to form a global histogram. 
+
+To address the challenge of transferring whole data sets of climate data from different data sources, our approach let the data sources compute their local histograms. Moreover, to relieve the burden of the central computer for coordinating different parameters, we perform a global parameter computation before the data sources computing their local histograms. As shown in the Region 1 in Figure \ref{fig:overview}, before transferring their data to central computer, each data source computes its own parameters (min, max and count) and transmit its local parameters to all the others in the same region in order to compute global parameters. These regional parameters are further transferred to the central computer to finalize the global parameters. The global parameters are then re-distributed to each data source, guiding these data sources to compute local histograms.
+
+With the guidance of global parameters, each data source computes local histogram using the global paramaeters. In this way, we can only transfer the computed histrogram data rather than the whole data sets of climate data. Finally, since these local histograms are based on the same global parameters, the central computer directly merge the received local histograms to form the global histograms, shown as Region 2 in Figure \ref{fig:overview}.
+
+
+\subsection{On-demand Sorting}
+\textbf{On-demand Sorting} is another improvement of our service-oriented histogram approach. It is specially designed to meet the needs of users such as climate scientist who would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down). 
+
+When drill-up or drill-down is performed on the global histogram, re-transferring the whole data sets of climate data is required since the global histogram does not have the detailed enough data or lacks of more summarized data. To prevent re-transferring the whole data sets of climate data, we can re-apply service-oriented histogram approach described in Section 3.1. However, directly applying service-oriented histogram approach still requires re-computation of the same data, which reduces the performance gain when data navigation of global histogram is frequent.
+
+To address this issue, we propose another improvement approach, called On-demand Sorting. On-demand sorting requires each data source to cache the transferred data sets in the form of computed local histogram using global parameters. That is to say, if the computed local histogram has 50 sample points falling into the interval of [-1, 0], then these 50 data points shall be kept in one cache region instead of spreading into several regions. The benefits of this caching is we can sort only the data inside the interval requested by the data navigation instead of sorting all the data and re-computing the whole data sets.  
+
+Region 3 in Figure 2 illustrates the whole procedure of service-oriented histogram integrated with on-demand sorting: local sources first cache data and parameters (min, max, count) and index data with break number (e.g., 0.5 is in the break [0, 1] ); When users specify a certain interval, local sources check whether the data in the requested breaks are sorted or not; If data is already sorted, our approach transfers data directly to the central computer; If data is not sorted, our approach sorts only the data in the corresponding break and mark the break as sorted; Then our approach transfers local histogram data (min, max, count) to the central computer; Finally, the central computer merges data from different sources and form a global historgram that fulfills the requirements of data navigation.
+
+
+\section{Preliminary Result}
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
