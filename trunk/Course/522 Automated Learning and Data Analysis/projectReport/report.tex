@@ -132,6 +132,73 @@ Region 3 in Figure 2 illustrates the whole procedure of service-oriented histogr
 
 
 \section{Preliminary Result}
+
+We conduct experiments to compare the performance of three histogram approaches: Traditional Histogram, Service-Oriented Histogram, and Service-Oriented Histogram with On-demand Sorting. Below we describe the experiment procedures in detail.
+
+\begin{enumerate}
+\item{Traditional Histogram:} Collect all data sets into a central computer and execute original histogram multiple times to compute the results of discovery histograms. Table \ref{tbl:1stStr} shows the details of the results.
+
+\begin{table}[!iht]
+\centering
+\begin{tabular}{|c|c|c|c|p{3cm}|}
+\hline
+\textbf{Data Domain} & \textbf{Total Size} & \textbf{ Data Transfer Time (Hrs)} & \textbf{Discovery Histogram (Mins)} & \textbf{Total Execution Time (Hrs)}  \\ \hline
+VOCALS 2008 &  $\sim$3920 MB & $\sim$10 & $\sim$37& $\sim$10.6\\ \hline
+ASCOS 2008 & $\sim$3500 MB & $\sim$10 & $\sim$36& $\sim$10.5\\ \hline 
+AEROSE 2008 & $\sim$2880 MB & $\sim$7 & $\sim$35&  $\sim$7.5 \\\hline 
+STRATUS 2007 & $\sim$1470 MB & $\sim$5  & $\sim$34&  $\sim$5.5\\\hline
+\end{tabular}
+\caption{ Execution time of applying the traditional histogram approach to implement discovery histogram }
+\label{tbl:1stStr}
+\end{table}
+
+\item{Service-Oriented Histogram:} Applying the service-oriented histogram approach to reduce the time cost of data transfer, and execute original histogram multiple times to compute the results of discovery histograms. Table \ref{tbl:2ndStr} shows the details of the results.
+
+\begin{table}[!iht]
+\centering
+\begin{tabular}{|c|c|c|c|p{3cm}|}
+\hline
+\textbf{Data Domain} & \textbf{Total Size} & \textbf{ Service Request \& Response (Hrs)} & \textbf{Discovery Histogram (Mins) }& \textbf{Total Execution Time (Hrs) } \\ \hline
+VOCALS 2008 &  $\sim$3920 MB & $\sim$1 & $\sim$37& $\sim$1.6\\ \hline
+ASCOS 2008 & $\sim$3500 MB & $\sim$1 & $\sim$36& $\sim$1.5\\ \hline 
+AEROSE 2008 & $\sim$2880 MB & $\sim$1 & $\sim$35&  $\sim$1.5 \\\hline 
+STRATUS 2007 & $\sim$1470 MB & $\sim$1  & $\sim$34&  $\sim$1.5\\\hline
+\end{tabular}
+\caption{ Execution time of applying the service-oriented histogram approach to implement discovery histogram}
+\label{tbl:2ndStr}
+\end{table}
+
+\item{Service-Oriented Histogram with On-demand Sorting:} Applying the service-oriented histogram approach to reduce the time cost of data transfer, and execute the on-demand sorting multiple times to compute the results of discovery histograms. Table \ref{tbl:3rdStr} shows the details of the results.
+
+\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.5]{TimeComp.png}
+  \caption{Execution Time Comparison}
+  \label{fig:TCC}
+\end{center}
+\end{figure}
+
+\begin{table}[!iht]
+\centering
+\begin{tabular}{|c|c|c|c|p{3cm}|}
+\hline
+\textbf{Data Domain} & \textbf{Total Size} &\textbf{ Service Request \& Response (Hrs)}  & \textbf{Discovery Histogram (Mins)} & \textbf{Total Execution Time (Hrs)}  \\ \hline
+VOCALS 2008 &  $\sim$3920 MB & $\sim$1 & $\sim$7.221 & $\sim$1.1\\ \hline
+ASCOS 2008 & $\sim$3500 MB & $\sim$1 & $\sim$6.379& $\sim$1.1\\ \hline 
+AEROSE 2008 & $\sim$2880 MB & $\sim$1 & $\sim$6.218&  $\sim$1.1 \\\hline 
+STRATUS 2007 & $\sim$1470 MB & $\sim$1  & $\sim$6.019&  $\sim$1.1\\\hline
+\end{tabular}
+\caption{ Execution time of applying the service-oriented histogram with on-demand sorting approach to implement discovery histogram}
+\label{tbl:3rdStr}
+\end{table}
+
+\end{enumerate}
+
+Figure \ref{fig:TCC} shows the comparison of execution time the three different histogram approaches. From the figure, we can see the execution time of discovery histogram for all the four projects' data sets have been reduced tremendously in terms of execution time. 
+
+\section{Conclusion and Future Work}
+Climate data is well known for its tremendous size of data sets, which creates many challenges for visualizing global and local data sets with acceptable performance. In this paper, we propose a novel approach, named Service-Oriented Histogram with On-demand Sorting, that embraces the concepts and benefits of SOA to address the performance problems of data transferring and data navigation (drill-up and drill-down). To evaluation our approach, we conduct experiments on comparing the performance of three histogram approaches on implementing discovery histogram: traditional histogram, service-oriented histogram, and service-oriented histogram with on-demand sorting. Our preliminary results show that our service-oriented histogram with on-demand sorting approach achieve the best performance, which significantly reduce the execution time for data transferring and data navigation. Due to time limitation, we do not conduct complehensive experiments on larger size data sets. We plan to conduct such experiments so that we can better evaluate our approaches and improve the approaches.
+
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
