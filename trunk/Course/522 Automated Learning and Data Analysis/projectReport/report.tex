@@ -42,45 +42,48 @@ In order to assist the prediction of the climate variation, exploring visualizat
 Moreover, to better understand the details of specific areas, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down), analogous to navigation in data cube~\cite{datamining}. As we can see in Figure \ref{fig:drill}, the left histogram shows a better global generalization of the distribution of the whole dataset, whereas the right histogram demonstrates a better detailed visualization of the distribution for data with x-value ranges from -1.0 to 1.0. 
 
 \subsection{Challenges} 
-In order to visualize climate data sets locally and globally with acceptable performance, there are two major challenges. The first challenge is the high computation time and the unacceptable error rate during the global data transferring. From Table 1, as a example, in order to .
+In order to visualize climate data sets locally and globally with acceptable performance, there are two major challenges. The first challenge is the high computation time and the unacceptable package loss rate during the global data transferring. Table \ref{tbl:rawdata} shows the synopsis of raw climate data in multiple domains dollected in 2008. As we can see for the data of VOCALS in the table, the data size in 2008 is 3920 MB and transferring this data set requires 10 hours even in best case.
 
 \begin{table}[!iht]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{Data Domain} & \textbf{Single data set size} & \textbf{\# data sets} & \textbf{Total Size} & \textbf{ Collecting Time In Best Case} \\ \hline
+\textbf{Data Domain} & \textbf{Single data set size} & \textbf{\# data sets} & \textbf{Total Size} & \textbf{ Transfer Time In Best Case (Hrs)} \\ \hline
 VOCALS 2008 & $\sim$70000 KB & 56 & $\sim$3920 MB & $\sim$10 \\ \hline
 HrsASCOS 2008 & $\sim$140000 KB & 25&  $\sim$3500 MB & $\sim$10 \\ \hline 
 HrsAEROSE 2008 & $\sim$80000 KB & 36&  $\sim$2880 MB & $\sim$7 \\ \hline 
-HrsSTRATUS 2007 & $\sim$70000KB & 21&  $\sim$1470 MB & $\sim$5 Hrs \\ \hline
+HrsSTRATUS 2007 & $\sim$70000KB & 21&  $\sim$1470 MB & $\sim$5  \\ \hline
 \end{tabular}
-\caption{The synopsis of raw data in multiple domains collected in 2008.}
+\caption{The synopsis of raw climate data in multiple domains collected in 2008.}
 \label{tbl:rawdata}
 \end{table}
+
+Another challenge is the frequent data navigation of climate data. By drilling-up or drilling-down of the global histogram, we need to recompute the data sets in the specified range, which requires re-transferring the whole data if traditional approach is used. However, Table \ref{tbl:rawdata} already shows that tranferring whole data sets require non-trivial time. Thus, re-transferring whole data set for a navigation is unacceptable. Table \ref{tbl:time} further shows the detailed computation time needed to discovery meaningful or user-specified parameters visualization. As we can see in the table, for the data set of size about 3000 MB, it requires 4 minutes to compute a histogram and 30 times requires 120 minutes, which is far from acceptable performance. 
 
 
 \begin{table}[!iht]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{Data Size} & \textbf{Run Once Histogram} & \textbf{Discovery Histogram Run log(n) Times} & \textbf{User specified 30 Times} \\ \hline
+\textbf{Data Size} & \textbf{Histogram Execution Time (Once) } & \textbf{Discovery Histogram Execution Time (log(n))} & \textbf{User-specified (30 Times)} \\ \hline
 $\sim$1500 MB & 2 Mins & $\sim$17 * 2 = 34 Mins & 60 Mins \\ \hline
 $\sim$3000 MB & 4 Mins &  $\sim$18 * 2 = 36 Mins & 120 Mins \\ \hline 
 $\sim$4500 MB & 6 Mins &  $\sim$19 * 2 = 38 Mins & 180 Mins \\ \hline 
 \end{tabular}
-\caption{Total time needed to discovery meaningful or user specified parameters visualization.}
+\caption{Total time needed to discovery meaningful or user-specified parameters visualization.}
 \label{tbl:time}
 \end{table}
 
 \subsection{Solution}
+To address these two major challenges, we provide a novel approach, called Service-oriented Local and Global Visualization with Sorting On-demand for Climate Data. Basically, our approach consists of two major steps: 
+
+\begin{itemize}
+\item{\textbf{Part I: Service-Oriented Histogram.}} Instead of transferring the whole data sets from different data sources, our approach first locally compute the parameters (min, max and total count of sample data points) based on the requirements of a histogram request. These local data sources then communicates with each other to further compute regional parameters. These regional parameters are processed to compute the global parameters and then re-distribute to each data source for computing the required data sets of local histograms. These local histograms based on the global parameters, whose size is much less than the whole data sets, are finally transferred to compute the global histogram.
+\item{\textbf{Part II: On-demand Sorting.}} After transferring the required data sets of local histogram, each data source caches the data sets. When further data navigation requests come in, each data source sorts only the data in the intervals based on the request and recompute a local histogram. These recomputed local histograms are again sent to form a global histogram that fulfills the navigation requirement. 
+\end{itemize}
 
 
-\section{Approach}
-\begin{enumerate}
-\item{Part I: Service-Oriented Histogram}
-\item{Part II: On-demand Sorting}
-\end{enumerate}
-\section{Material and Methods}
+\section{Material and Approach}
 \subsection{Data Description}
 The Radar Data Information of those projects are stored on a Tb data storage system at PSD in Boulder, CO\footnote{\url{http://www.esrl.noaa.gov/psd/psd3/cruises/}}. The details of data is shown as below.
 \begin{itemize}
