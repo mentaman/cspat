@@ -1,13 +1,13 @@
 #TeXlipse project settings
-#Mon Nov 01 23:25:47 EDT 2010
+#Sun Nov 28 21:15:56 EST 2010
 builderNum=2
-outputDir=HW2/
+outputDir=projectReport/
 makeIndSty=
 bibrefDir=
 outputFormat=pdf
-tempDir=HW2
-mainTexFile=HW2_xxiao2.tex
-outputFile=HW2_xxiao2.pdf
+tempDir=projectReport
+mainTexFile=report.tex
+outputFile=report.pdf
 langSpell=
 markDer=true
-srcDir=HW2/
+srcDir=projectReport/
