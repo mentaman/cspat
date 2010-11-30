@@ -17,8 +17,29 @@ A.~P Clark.
 \newblock {\em Principles of digital data transmission}.
 \newblock Wiley, New York, 1983.
 
+\bibitem{hist}
+Karl Pearson.
+\newblock {\em Contributions to the mathematical theory of evolution}.
+\newblock [n. p.,], 1896.
+
+\bibitem{DenEst}
+W.~N Venables, Brian~D Ripley, and W.~N Venables.
+\newblock {\em Modern applied statistics with S}, volume Statistics and
+  computing.
+\newblock Springer, New York, 2002.
+
+\bibitem{stu}
+H.~A Sturges.
+\newblock The choice of a class interval.
+\newblock page 6566, 1926.
+
+\bibitem{sco}
+David~W Scott.
+\newblock On optimal and data-based histograms.
+\newblock page 605610, 1979.
+
 \bibitem{ps}
-Edgar Solomonik and Laxmikant~V. Kal«e.
+Edgar Solomonik and Laxmikant~V. Kale.
 \newblock Highly scalable parallel sorting.
 \newblock {\em Parallel and Distributed Processing (IPDPS), 2010 IEEE
   international Symposium on}, 36:1--12, 2010.
