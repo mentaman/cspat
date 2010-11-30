@@ -21,7 +21,7 @@ Xusheng Xiao\\
 \begin{document}
 \maketitle
 \abstract
-\textit{Huge amount of climate simulation data are collected from different areas (e.g., cities, countries). By understanding and analyzing the data, climate scientists try to predict the trends of the variation of climate both locally and globally. To assist the prediction, exploring visualization of data mining (e.g., histogram) has been used more and more frequently to get a general view ahead of predicting. Additionally, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down). To achieve local and global visualization of climate data, there are two major challenges: (1) globally tranferring data is time-consuming and (2) frequently drill-up and drill-down navigation requires computation of same data set multiple times. To address these challenges, we propose a service oriented approach to compute local and global visualization with sorting on-demand for climate data. For global transferring data, our novel approach first asks the data sources to compute local parameters (min, max and count). By collecting these local parameters, our approach computes global parameters and distribute these global parameters to guide local data sources how to compute the histogram data using proper parameters. These computed histogram data from different data sources are then transferred to form a global histogram, whose size is much less than the whole data sets. For data navigation of historgram, our approach caches the transferred data sets and sort only the data in the interval later requested by the data navigation. In this way, we enable climate scientists to navigate huge data sets with acceptable performance. Our preliminary results show that our approach can perform well on sample data sets of climate simulation data.  
+\textit{Huge amount of climate simulation data are collected from different areas (e.g., cities, countries). By understanding and analyzing the data, climate scientists try to predict the trends of the variation of climate both locally and globally. To assist the prediction, exploring visualization of data mining (e.g., histogram) has been used more and more frequently to get a general view ahead of predicting. Additionally, climate experts would like to analyze data by navigating among levels of data ranging from the most summarized (drill-up) to the most detailed (drill-down). To achieve local and global visualization of climate data, there are two major challenges: (1) globally tranferring data is time-consuming and (2) frequently drill-up and drill-down navigation requires computation of same data set multiple times. To address these challenges, we propose a service oriented approach to compute local and global visualization with sorting on-demand for climate data. For global transferring data, our novel approach first asks the data sources to compute local parameters (min, max and count). By collecting these local parameters, our approach computes global parameters and distribute these global parameters to guide local data sources how to compute the histogram data using proper parameters. These computed histogram data from different data sources are then transferred to form a global histogram, whose size is much less than the whole data sets. For data navigation of historgram, our approach caches the transferred data sets and sort only the data in the interval later requested by the data navigation. In this way, we enable climate scientists to navigate huge data sets with acceptable performance. To better improve the performance of constructing a histogram, we further propose a new histogram algorithm that uses the advantages of sorted and indexed data to construct a histogram. Our preliminary results show that our approach can perform well on sample data sets of climate simulation data.  
 }\endabstract
 
 \section{Introduction}
@@ -81,6 +81,7 @@ To address these two major challenges, we provide a novel approach, called Servi
 \begin{itemize}
 \item{\textbf{Part I: Service-Oriented Histogram.}} Instead of transferring the whole data sets from different data sources, our approach first locally compute the parameters (min, max and total count of sample data points) based on the requirements of a histogram request. These local data sources then communicates with each other to further compute regional parameters. These regional parameters are processed to compute the global parameters and then re-distribute to each data source for computing the required data sets of local histograms. These local histograms based on the global parameters, whose size is much less than the whole data sets, are finally transferred to compute the global histogram.
 \item{\textbf{Part II: On-demand Sorting.}} After transferring the required data sets of local histogram, each data source caches the data sets. When further data navigation requests come in, each data source sorts only the data in the intervals based on the request and recompute a local histogram. These recomputed local histograms are again sent to form a global histogram that fulfills the navigation requirement. 
+\item{\textbf{Part III: Histogram Algorithm with Sorting and Indexing Pre-conditioner.}} Once the climate data inside the requested interval is sorted and indexed, we propose a new histogram that use the sorted and indexed data to construct a histogram with better performance.
 \end{itemize}
 
 
@@ -98,10 +99,36 @@ The Radar Data Information of those projects are stored on a Tb data storage sys
 
 \textbf{Package Loss} occurs when one or more packets of data travelling across a computer network fail to reach their destination. Packet loss is distinguished as one of the three main error types encountered in digital communications; the other two being bit error and spurious packets caused due to noise\footnote{\url{http://www.nessoft.com/kb/24}}.
 \subsection{Histogram}
+In statistics, a histogram is a graphical representation, showing a visual impression of the distribution of experimental data. It is an estimate of the probability distribution of a continuous variable and was first introduced by Karl Pearson~\cite{hist}. A histogram consists of tabular frequencies, shown as adjacent rectangles, erected over discrete intervals (bins), with an area equal to the frequency of the observations in the interval. The height of a rectangle is also equal to the frequency density of the interval, i.e., the frequency divided by the width of the interval. The total area of the histogram is equal to the number of data. 
+
+\textbf{Mathematical definition}: A histogram is a function $m_i$ that counts the number of observations that fall into each of the disjoint categories (known as bins), whereas the graph of a histogram is merely one way to represent a histogram. Thus, if we let $n$ be the total number of observations and $k$ be the total number of bins, the histogram $m_i$ meets the following conditions: $n = \sum^k_{i=1}m_i$. 
+
+There is no "best" number of bins, and different bin sizes can reveal different features of the data. Some theoreticians have attempted to determine an optimal number of bins, but these methods generally make strong assumptions about the shape of the distribution. Depending on the actual data distribution and the goals of the analysis, different bin widths may be appropriate, so experimentation is usually needed to determine an appropriate width. There are, however, various useful guidelines and rules of thumb. \cite{DenEst}  Here we only consider the two formulas that have been implemented by R language.
+
+\subsubsection{Sturges's Formula}
+$k=\lceil log_2n + 1\rceil$, which implicitly bases the bin sizes on the range of the data, and can perform poorly if $n < 30$ or $ n>20000$\cite{stu}. For our case, our $n \gg 20000$, so we did not use this formula.
+
+\subsubsection{Scott's Choice}
+$h =\frac{3.5 \theta}{n^{1/3}}$, where $\theta$ is the sample standard deviation, $h$ is the width of bins\cite{sco}. We choose this method because it performs much better than Sturge's Formula with the $n > 20000$.
+
 \subsection{Sort\cite{ps}}
+\begin{enumerate}
+\item{\textbf{Bitonic Sort.}} Bitonic sort is a merge-based algorithm. It performs well when $n/p = 1$ or $n/p$ is small, $n$ is the number of elements to be sorted, $p $ is the number of processes. The time complexity will be $\Theta(lg^2n)$, there are $\Theta(lgn)$ times merge, each merge having a cost of $\Theta(lg n)$, when $n/p \doteq 1 $. However, it will be $\Theta(n \cdot lg^2n)$, when $n/p \gg 1$.
+\item{\textbf{Sample Sort.}} In practice, the algorithm often achieves almost perfect load balance. But it has been shown that if n is sufficiently large, no processor will end up. It is also an unachievable task since it use all-to-all communication , which demands $p^2$ memory and work on a single processor.
+\item{\textbf{Random Sampling Sort.}} The advantage of sorting by random sampling is that it is more \textbf{flexible with sample size} and often sufficient load balance can be achieved when sample size $s < p$, which allows for potentially better scaling. Additionally, a random sample can be retrieved before sorting local data, which \textbf{allows for overlap} between sorting and splitter calculation. However, the technique is \textbf{not wholly reliable} and can result in \textbf{severe load imbalance}, especially on a larger amount of processors. 
+\item{\textbf{Radix Sort.}} Radix Sort is a sorting method that uses the binary representation of keys to migrate them to the appropriate bucket in a series of steps. It is not a comparison-based sort. The main drawback of parallel radix sort is that it \textbf{requires multiple iterations of costly all-to-all data exchanges}. The cache efficiency of this algorithm can also be comparatively weak.
+\item{\textbf{Histogram Sort.}} Histogram Srot is another splitter-based method for parallel sorting. It is unique in its ability to \textbf{reliably achieve a defined level of load balance}.
+\item{\textbf{Optimizations for Histogram Sort.}}
+\begin{enumerate}\item{} Probe Determination.
+\item{}  Sort and Histogram Overlap.
+\item{}  All-to-All Communication Optimization.
+\item{}  Merging and All-to-All Overlap.
+\item{} Overlapping Sorting with All-to-All. 
+\end{enumerate}
+\end{enumerate}
 
 \section{Our Approach}
-Figure \ref{fig:overview} shows the overview of our approach. Generally, our approach consists of two major components: \textbf{Service-Oriented Histogram} and \textbf{On-demand Sorting}. In the figure, Region 1 demonstrates the procedure of Service-Oriented Histogram and Region 2 illustrates the procedure of Service-Oriented Histogram integrated with On-demand Sorting.
+Figure \ref{fig:overview} shows the overview of our approach. Generally, our approach consists of two major components: \textbf{Service-Oriented Histogram} and \textbf{On-demand Sorting}. In the figure, Region 1 demonstrates the procedure of Service-Oriented Histogram and Region 2 illustrates the procedure of Service-Oriented Histogram integrated with On-demand Sorting. To better improvde the performance of constructing a histogram based on the sorted climate data, we further propose a new histogram algorithm, named Histogram Algorithm with Sorting and Indexing Pre-conditioner. We describe our approach in details in the following sections.
 
 \begin{figure}[!iht]
 \begin{center}
@@ -129,6 +156,42 @@ When drill-up or drill-down is performed on the global histogram, re-transferrin
 To address this issue, we propose another improvement approach, called On-demand Sorting. On-demand sorting requires each data source to cache the transferred data sets in the form of computed local histogram using global parameters. That is to say, if the computed local histogram has 50 sample points falling into the interval of [-1, 0], then these 50 data points shall be kept in one cache region instead of spreading into several regions. The benefits of this caching is we can sort only the data inside the interval requested by the data navigation instead of sorting all the data and re-computing the whole data sets.  
 
 Region 3 in Figure 2 illustrates the whole procedure of service-oriented histogram integrated with on-demand sorting: local sources first cache data and parameters (min, max, count) and index data with break number (e.g., 0.5 is in the break [0, 1] ); When users specify a certain interval, local sources check whether the data in the requested breaks are sorted or not; If data is already sorted, our approach transfers data directly to the central computer; If data is not sorted, our approach sorts only the data in the corresponding break and mark the break as sorted; Then our approach transfers local histogram data (min, max, count) to the central computer; Finally, the central computer merges data from different sources and form a global historgram that fulfills the requirements of data navigation.
+
+\subsection{Histogram Algorithm with Sorting and Indexing Pre-conditioner}
+Once the data inside the requested interval is sorted, we can leverage a new histogram algorithm to construct the histogram with better performance. Below we show the pseudocode for our sorting and indexing first histogram algorithm, and provide analysis of the time complexity.
+
+\texttt{Algorithm 1: 1-D Histogram for sorted and indexed vector}
+
+Input: Sorted and Indexed Data Vector: $V=\{v_1, v_2, \cdots, v_n\}$, Break Vectors: $B =\{b_1, b_2, b_3 \cdots b_k\}$\\
+Output: Histogram Break Points  Index Vector $H=\{h_1, h_2, \cdots h_k\}$  ($|H| = k$)
+\begin{center}
+\begin{algorithmic}
+\FOR{$i=1$ \TO $k$}
+	\STATE status = TRUE
+	\STATE $j = l = \lfloor n/2 \rfloor$
+	\WHILE{status}
+		\IF{$b_i < v_j$}
+			\STATE $k = \lfloor j/2 \rfloor$
+		\ENDIF
+		\IF{$b_i>v_j$}
+			\STATE $k = \lfloor j/2+n/2 \rfloor$
+		\ENDIF
+		\IF{$l!=j$}
+			\STATE $j = l$
+		\ENDIF
+		\IF{$l==j$}
+			\STATE status = FALSE
+			\STATE $h_i = l$
+		\ENDIF
+	\ENDWHILE
+\ENDFOR
+\end{algorithmic}
+\end{center}
+
+The new time complexity of this algorithm is:\\
+1-D Histogram for sorted and indexed vector: $\theta(log_2n)$\\
+So for $p$ times histogram, the time complexity is not $p \cdot \theta( n \cdot log_2k)$ any more, it is $\theta(n \cdot log_2n) + p \cdot \theta(log_2n)$\\
+Hence, by using sorting and indexing first histogram, we can have better performance on constructing a histogram in terms of time and resources.
 
 
 \section{Preliminary Result}
@@ -170,13 +233,7 @@ STRATUS 2007 & $\sim$1470 MB & $\sim$1  & $\sim$34&  $\sim$1.5\\\hline
 
 \item{Service-Oriented Histogram with On-demand Sorting:} Applying the service-oriented histogram approach to reduce the time cost of data transfer, and execute the on-demand sorting multiple times to compute the results of discovery histograms. Table \ref{tbl:3rdStr} shows the details of the results.
 
-\begin{figure}[!iht]
-\begin{center}
-  \includegraphics[scale=0.6]{TimeComp.png}
-  \caption{Execution Time Comparison}
-  \label{fig:TCC}
-\end{center}
-\end{figure}
+
 
 \begin{table}[!iht]
 \centering
@@ -192,12 +249,23 @@ STRATUS 2007 & $\sim$1470 MB & $\sim$1  & $\sim$6.019&  $\sim$1.1\\\hline
 \label{tbl:3rdStr}
 \end{table}
 
-\end{enumerate}
-
 Figure \ref{fig:TCC} shows the comparison of execution time the three different histogram approaches. From the figure, we can see the execution time of discovery histogram for all the four projects' data sets have been reduced tremendously in terms of execution time. 
 
+\begin{figure}[!iht]
+\begin{center}
+  \includegraphics[scale=0.55]{TimeComp.png}
+  \caption{Execution Time Comparison}
+  \label{fig:TCC}
+\end{center}
+\vspace*{-4ex}
+\end{figure}
+
+\end{enumerate}
+
+
+
 \section{Conclusion and Future Work}
-Climate data is well known for its tremendous size of data sets, which creates many challenges for visualizing global and local data sets with acceptable performance. In this paper, we propose a novel approach, named Service-Oriented Histogram with On-demand Sorting, that embraces the concepts and benefits of SOA to address the performance problems of data transferring and data navigation (drill-up and drill-down). To evaluation our approach, we conduct experiments on comparing the performance of three histogram approaches on implementing discovery histogram: traditional histogram, service-oriented histogram, and service-oriented histogram with on-demand sorting. Our preliminary results show that our service-oriented histogram with on-demand sorting approach achieve the best performance, which significantly reduce the execution time for data transferring and data navigation. Due to time limitation, we do not conduct complehensive experiments on larger size data sets. We plan to conduct such experiments so that we can better evaluate our approaches and improve the approaches.
+Climate data is well known for its tremendous size of data sets, which creates many challenges for visualizing global and local data sets with acceptable performance. In this paper, we propose a novel approach, named Service-Oriented Histogram with On-demand Sorting, that embraces the concepts and benefits of SOA to address the performance problems of data transferring and data navigation (drill-up and drill-down). We also provides a new histogram algorithm to construct a histogram using sorted and indexed data, which proves to have better performance. To evaluation our approach, we conduct experiments on comparing the performance of three histogram approaches on implementing discovery histogram: traditional histogram, service-oriented histogram, and service-oriented histogram with on-demand sorting. Our preliminary results show that our service-oriented histogram with on-demand sorting approach achieve the best performance, which significantly reduce the execution time for data transferring and data navigation. Due to time limitation, we do not conduct complehensive experiments on larger size data sets. We plan to conduct such experiments so that we can better evaluate our approaches and improve the approaches.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
