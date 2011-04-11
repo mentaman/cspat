@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Orders xmlns:tns="http://www.example.org/P3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/P3 P3.xsd ">
+  <tns:order>
+    <tns:id>1</tns:id>
+    <tns:description>order 1</tns:description>
+    <tns:submissionDate>2011-04-04</tns:submissionDate>
+    <tns:shippingAddress>NCSU</tns:shippingAddress>
+    <tns:products>
+      <tns:product>
+        <tns:id>p1</tns:id>
+        <tns:name>product1</tns:name>
+        <tns:description>product 1</tns:description>
+        <tns:quantities>1</tns:quantities>
+        <tns:price>10.0</tns:price>
+      </tns:product>
+      <tns:product>
+        <tns:id>p2</tns:id>
+        <tns:name>product2</tns:name>
+        <tns:description>product 2</tns:description>
+        <tns:quantities>10</tns:quantities>
+        <tns:price>5</tns:price>
+      </tns:product>
+    </tns:products>
+  </tns:order>
+</tns:Orders>

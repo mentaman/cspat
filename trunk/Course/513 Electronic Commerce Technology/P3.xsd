@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/P3" xmlns:tns="http://www.example.org/P3" elementFormDefault="qualified">
+
+    <element name="Orders" type="tns:Orders"></element>
+
+
+
+    <complexType name="Orders">
+    	<sequence>
+    		<element name="order" type="tns:Order"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Order">
+    	<sequence>
+    		<element name="id" type="string"></element>
+    		<element name="description" type="string"></element>
+    		<element name="submissionDate" type="date" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="shippingAddress" type="string" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="products" type="tns:Products" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Products">
+    	<sequence>
+    		<element name="product" type="tns:Product" minOccurs="1" maxOccurs="unbounded"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Product">
+    	<sequence>
+    		<element name="id" type="string"></element>
+    		<element name="name" type="string"></element>
+    		<element name="description" type="string"></element>
+    		<element name="quantities">
+    			<simpleType>
+    				<restriction base="int">
+    					<minInclusive value="1"></minInclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    		<element name="price">
+    			<simpleType>
+    				<restriction base="double">
+    					<minInclusive value="0"></minInclusive>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+</schema>
