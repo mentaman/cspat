@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2010)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: references.bib
+Warning--I didn't find a database entry for "constraint"
+Warning--I didn't find a database entry for "inka"
+Warning--I didn't find a database entry for "onthefly"
+Warning--I didn't find a database entry for "extenjpf"
+Warning--I didn't find a database entry for "structural"
+Warning--I didn't find a database entry for "mixed"
+Warning--I didn't find a database entry for "fuzz"
+Warning--I didn't find a database entry for "pex"
+Warning--I didn't find a database entry for "hybrid"
+Warning--I didn't find a database entry for "distribute"
+Warning--I didn't find a database entry for "peephole"
+Warning--I didn't find a database entry for "demand"
+Warning--I didn't find a database entry for "allpath"
+You've used 18 entries,
+            2118 wiz_defined-function locations,
+            623 strings with 7961 characters,
+and the built_in function-call counts, 7410 in all, are:
+= -- 755
+> -- 326
+< -- 10
++ -- 130
+- -- 110
+* -- 476
+:= -- 1146
+add.period$ -- 62
+call.type$ -- 18
+change.case$ -- 107
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 327
+empty$ -- 592
+format.name$ -- 110
+if$ -- 1647
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 20
+newline$ -- 93
+num.names$ -- 36
+pop$ -- 140
+preamble$ -- 1
+purify$ -- 91
+quote$ -- 0
+skip$ -- 239
+stack$ -- 0
+substring$ -- 446
+swap$ -- 111
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 68
+warning$ -- 0
+while$ -- 68
+width$ -- 20
+write$ -- 215
+(There were 13 warnings)

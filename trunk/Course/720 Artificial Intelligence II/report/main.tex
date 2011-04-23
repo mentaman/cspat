@@ -1,0 +1,39 @@
+\documentclass[times, 10pt,onecolumn]{article} 
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{url}
+\usepackage{graphicx}
+%\usepackage{amsfonts, amsthm}
+
+\title{Artificial Intelligence in Software Engineering}
+\author{
+Xusheng Xiao\\
+\small{xxiao2@ncsu.edu}\\
+}
+\date{April 23, 2011}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document} 
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{abstract}
+Software Engineering is a knowledge-intensive activity, presumably requiring intelligence. To reduce human efforts in the activities of software engineering, Artificial Intelligence (AI) techniques, which aims to create computer systems that exhibit some form of human intelligence, are employed to assist or automate various activities of software engineering, such as testing, program analysis, debugging and even self-repair. In this project, I will provide a study of how various AI techniques are used in automating or assisting various activities of software engineering. In this report, we provide the details on how AI can be used in assisting software testing, fault detection and software repair. 
+\end{abstract}
+\input{introduction}
+
+
+\input{prune}
+
+\input{fault}
+
+\input{evolve}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
