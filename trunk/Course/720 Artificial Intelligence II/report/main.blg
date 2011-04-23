@@ -3,58 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Warning--I didn't find a database entry for "constraint"
-Warning--I didn't find a database entry for "inka"
-Warning--I didn't find a database entry for "onthefly"
-Warning--I didn't find a database entry for "extenjpf"
-Warning--I didn't find a database entry for "structural"
-Warning--I didn't find a database entry for "mixed"
-Warning--I didn't find a database entry for "fuzz"
-Warning--I didn't find a database entry for "pex"
-Warning--I didn't find a database entry for "hybrid"
-Warning--I didn't find a database entry for "distribute"
-Warning--I didn't find a database entry for "peephole"
-Warning--I didn't find a database entry for "demand"
-Warning--I didn't find a database entry for "allpath"
-You've used 18 entries,
+Repeated entry---line 999 of file references.bib
+ :    @inproceedings{fuzz
+ :                       ,
+I'm skipping whatever remains of this entry
+You've used 27 entries,
             2118 wiz_defined-function locations,
-            623 strings with 7961 characters,
-and the built_in function-call counts, 7410 in all, are:
-= -- 755
-> -- 326
+            640 strings with 8643 characters,
+and the built_in function-call counts, 9892 in all, are:
+= -- 962
+> -- 443
 < -- 10
-+ -- 130
-- -- 110
-* -- 476
-:= -- 1146
-add.period$ -- 62
-call.type$ -- 18
-change.case$ -- 107
++ -- 175
+- -- 146
+* -- 593
+:= -- 1551
+add.period$ -- 89
+call.type$ -- 27
+change.case$ -- 154
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 327
-empty$ -- 592
-format.name$ -- 110
-if$ -- 1647
+cite$ -- 27
+duplicate$ -- 457
+empty$ -- 856
+format.name$ -- 146
+if$ -- 2188
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 20
-newline$ -- 93
-num.names$ -- 36
-pop$ -- 140
+int.to.str$ -- 27
+missing$ -- 27
+newline$ -- 138
+num.names$ -- 54
+pop$ -- 223
 preamble$ -- 1
-purify$ -- 91
+purify$ -- 127
 quote$ -- 0
-skip$ -- 239
+skip$ -- 313
 stack$ -- 0
-substring$ -- 446
-swap$ -- 111
+substring$ -- 491
+swap$ -- 131
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
+type$ -- 108
 warning$ -- 0
-while$ -- 68
-width$ -- 20
-write$ -- 215
-(There were 13 warnings)
+while$ -- 86
+width$ -- 29
+write$ -- 303
+(There was 1 error message)
