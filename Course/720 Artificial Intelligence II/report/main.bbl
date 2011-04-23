@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{testbook}
-Paul Ammann and Jeff Offutt.
-\newblock {\em Introduction to software testing}.
-\newblock Cambridge University Press, Cambridge, UK, 2008.
-
 \bibitem{online}
 George~Kofi Baah, Alexander Gray, and Mary~Jean Harrold.
 \newblock On-line anomaly detection of deployed software: A statistical machine
@@ -12,6 +7,11 @@ George~Kofi Baah, Alexander Gray, and Mary~Jean Harrold.
 \newblock In {\em Proceedings of theThird International Workshop on Software
   Quality Assurance (SOQUA 2006)}, pages 70--77, Portland, Oregon, November
   2006.
+
+\bibitem{structural}
+S.~Bardin and P.~Herrmann.
+\newblock {Structural Testing of Executables.}
+\newblock In {\em ICST}, 2008.
 
 \bibitem{prune}
 S\'{e}bastien Bardin and Philippe Herrmann.
@@ -26,6 +26,12 @@ Nicolas Baskiotis, Mich\`{e}le Sebag, Marie-Claude Gaudel, and Sandrine
   Artifical intelligence}, pages 2274--2279, San Francisco, CA, USA, 2007.
   Morgan Kaufmann Publishers Inc.
 
+\bibitem{mixed}
+Cristian Cadar and Dawson Engler.
+\newblock {Execution Generated Test Cases: How to Make Systems Code Crash
+  Itself}.
+\newblock In {\em SPIN}, 2005.
+
 \bibitem{exe}
 Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
   Engler.
@@ -38,6 +44,11 @@ Vitaly Chipounov, Vlad Georgescu, Cristian Zamfir, and George Candea.
 \newblock Selective {S}ymbolic {E}xecution.
 \newblock In {\em Proceedings of the 5th {W}orkshop on {H}ot {T}opics in
   {S}ystem {D}ependability ({H}ot{D}ep)}, 2009.
+
+\bibitem{peephole}
+V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
+\newblock {Peephole Partial Order Reduction}.
+\newblock In {\em TACAS}, 2008.
 
 \bibitem{predictCoverage}
 Brett Daniel and Marat Boshernitsan.
@@ -64,15 +75,40 @@ Patrice Godefroid, Nils Klarlund, and Koushik Sen.
 \newblock Dart: directed automated random testing.
 \newblock In {\em PLDI}, pages 213--223, 2005.
 
-\bibitem{graph}
-Jonathan Gross and Jay Yellen.
-\newblock {\em Graph theory and its applications}.
-\newblock CRC Press, Inc., Boca Raton, FL, USA, 1999.
-
 \bibitem{symbolic}
 James~C. King.
 \newblock Symbolic execution and program testing.
 \newblock {\em Commun. ACM}, 19(7):385--394, 1976.
+
+\bibitem{hybrid}
+R.~Majumdar and K.~Sen.
+\newblock {Hybrid Concolic Testing}.
+\newblock In {\em ICSE}, 2007.
+
+\bibitem{onthefly}
+B.~Marre N.~Williams and P.~Mouy.
+\newblock {On-the-Fly Generation of K-Path Tests for C Functions}.
+\newblock In {\em ASE}, 2004.
+
+\bibitem{fuzz}
+M.~Y.~Levin P.~Godefroid and D.Molnar.
+\newblock {Automated Whitebox Fuzz Testing}.
+\newblock In {\em NDSS}, 2008.
+
+\bibitem{allpath}
+N.Williams P.Mouy, B.Marre and P.~Le Gall.
+\newblock {Generation of All-Paths Unit Test with Function Calls.}
+\newblock In {\em ICST}, 2008.
+
+\bibitem{extenjpf}
+C.~S.~Pasareanu S.~Anand and W.~Visser.
+\newblock {JPF-SE: A Symbolic Execution Extension to Java PathFinder.}
+\newblock In {\em TACAS}, 2007.
+
+\bibitem{demand}
+P.~Godefroid S.~Anand and N.~Tillmann.
+\newblock {Demand-Driven Compositional Symbolic Execution}.
+\newblock In {\em TACAS}, 2008.
 
 \bibitem{evolutionaryComputation}
 Eric Schulte, Stephanie Forrest, and Westley Weimer.
@@ -80,6 +116,11 @@ Eric Schulte, Stephanie Forrest, and Westley Weimer.
 \newblock In {\em Proceedings of the IEEE/ACM international conference on
   Automated software engineering}, ASE '10, pages 313--316, New York, NY, USA,
   2010. ACM.
+
+\bibitem{distribute}
+K.~Sen and G.~Agha.
+\newblock {Automated Systematic Testing of Open Distributed Programs}.
+\newblock In {\em FASE}, 2006.
 
 \bibitem{cute}
 Koushik Sen, Darko Marinov, and Gul Agha.
@@ -97,6 +138,11 @@ Yao Shi, Soyeon Park, Zuoning Yin, Shan Lu, Yuanyuan Zhou, Wenguang Chen, and
 \newblock In {\em Proceedings of the ACM international conference on Object
   oriented programming systems languages and applications}, OOPSLA '10, pages
   160--174, New York, NY, USA, 2010. ACM.
+
+\bibitem{pex}
+N.~Tillmann and J.~de~Halleux.
+\newblock {Pex-White Box Test Generation for .NET.}
+\newblock In {\em TAP}, 2008.
 
 \bibitem{geneticPatch}
 Westley Weimer, ThanhVu Nguyen, Claire~Le Goues, and Stephanie Forrest.
