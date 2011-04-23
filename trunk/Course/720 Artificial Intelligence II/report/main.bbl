@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{testbook}
+Paul Ammann and Jeff Offutt.
+\newblock {\em Introduction to software testing}.
+\newblock Cambridge University Press, Cambridge, UK, 2008.
+
 \bibitem{online}
 George~Kofi Baah, Alexander Gray, and Mary~Jean Harrold.
 \newblock On-line anomaly detection of deployed software: A statistical machine
