@@ -3,49 +3,53 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: plain.bst
 Database file #1: references.bib
-Repeated entry---line 999 of file references.bib
+Repeated entry---line 1093 of file references.bib
  :    @inproceedings{fuzz
  :                       ,
 I'm skipping whatever remains of this entry
-You've used 28 entries,
+Name 1 in "IEEE Intelligent Systems staff," has a comma at the end for entry genericprogramming
+while executing---line 1049 of file plain.bst
+Name 1 in "IEEE Intelligent Systems staff," has a comma at the end for entry genericprogramming
+while executing---line 1090 of file plain.bst
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            645 strings with 8749 characters,
-and the built_in function-call counts, 10147 in all, are:
-= -- 985
-> -- 456
+            646 strings with 8656 characters,
+and the built_in function-call counts, 9329 in all, are:
+= -- 927
+> -- 406
 < -- 10
-+ -- 180
-- -- 150
-* -- 606
-:= -- 1596
-add.period$ -- 92
-call.type$ -- 28
-change.case$ -- 158
++ -- 161
+- -- 134
+* -- 572
+:= -- 1461
+add.period$ -- 83
+call.type$ -- 25
+change.case$ -- 140
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 469
-empty$ -- 878
-format.name$ -- 150
-if$ -- 2242
+cite$ -- 25
+duplicate$ -- 424
+empty$ -- 787
+format.name$ -- 134
+if$ -- 2063
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 29
-newline$ -- 143
-num.names$ -- 56
-pop$ -- 231
+int.to.str$ -- 25
+missing$ -- 27
+newline$ -- 128
+num.names$ -- 50
+pop$ -- 193
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 117
 quote$ -- 0
-skip$ -- 320
+skip$ -- 298
 stack$ -- 0
-substring$ -- 496
-swap$ -- 132
+substring$ -- 508
+swap$ -- 126
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 110
+type$ -- 96
 warning$ -- 0
-while$ -- 88
-width$ -- 30
-write$ -- 314
-(There was 1 error message)
+while$ -- 84
+width$ -- 27
+write$ -- 287
+(There were 3 error messages)

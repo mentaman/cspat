@@ -1,23 +1,37 @@
 \section{AI in Software Repair}
+Manual fault fixing is a difficult, time-consuming, labor-intensive process. Some reports place software maintenance, traditionally defined as any modification made on a system after its delivery, at 90\% of the total cost of a typical software project~\cite{modernlegacy}. Modifying existing code, repairing defects,
+and otherwise evolving software are major parts of those costs. 
 
-Symbolic execution~\cite{symbolic} is used to reason path-flow behavior of a program by tracing path constraint information collected during symbolic execution. This technique is useful in automated software testing such as increasing path coverage.
+To alleviate the burden, Weimer et al. ~\cite{repair,geneticPatch} introduce a fully automated method
+for locating and repairing faults in software. Their approach works on off-the-shelf legacy applications and does not require formal specifications, program annotations or special coding practices. Once a program fault is discovered, an extended form of genetic programming~\cite{genericprogramming} is used to evolve program variants until one is found that both retains required functionality and also avoids the defect in question. Standard test cases are used to exercise the fault and to encode program requirements. After a successful repair has been discovered, it is minimized using structural differencing algorithms and delta debugging.
 
-There exist two issues with regards to limited scalability of symbolic execution. The first issue is that this technique can be applied on only small program with at most thousands of lines of code. Note that symbolic execution collects states and constraints to keep track of path information in a program. During symbolic execution, the size of such states and constraints is exponential to the number of conditions (e.g., as if-else statements in program) in a program. This problem is called as path explosion. Due to such an exponential growth, the technique is not yet applied to large programs (e.g., program with more than millions lines of code).
+\subsection{Generic Programming}
+Genetic programming (GP) is a computational method inspired by biological evolution, which discovers computer
+programs tailored to a particular task~\cite{genericprogramming}. GP operates on and maintains a population comprised of different programs, referred to as individuals or chromosomes. In GP, each chromosome is a tree-based representation of a program. The fitness, or desirability, of each chromosome, is evaluated via an external fitness function. In their paper, fitness is assessed via the test cases. Once fitness is computed, high-fitness individuals are selected to be copied into the next generation. Variations are introduced through
+computational analogies to the biological processes of mutation and crossover. These operations create
+a new generation and the cycle repeats.
 
-The second issue is related to symbolic execution interacting with environments such as library or third-party program. Many programs are often interacting with environments such as external libraries to control network devices. For example, if a program under test uses external libraries, the program may require symbolic execution on external libraries as well. Such symbolic execution of environments could result in path explosion.
+\subsection{Program Representation}
+In their approach, each individual (candidate program) is represented as a pair containing:
+(1) An abstract syntax tree (AST) including all of the statements in the program; (2) A weighted path through the program under test. The weighted path is a list of pairs, each pair containing a statement in the program and a weight based on that statement’s occurrences in various test cases.
 
-Ideally, testers often try to achieve covering all or specific paths of a system. However, in practice, covering such paths is not trivial due to limited scalability caused by path explosion. To address the issue, Chipounov et al.~\cite{selective} propose selective symbolic execution technique. The main idea of this technique, called selective symbolic execution (S$^2$E), combines both symbolic execution and concrete execution. More specifically, users specify portions (in a system) of interest. For example, portions of interest could be program related to CPU or memory usage to detect deadlock or memory leakage. S$^2$E explores such portions (of interest) symbolically (i.e., in-scope executions) and the remaining portions (of non-interest) concretely (i.e., out-scope executions). Therefore, execution of a program under test is back and forth between the symbolic and concrete executions based on which portions are executed.
+\subsection{Insights}
+A biggest impediment for an evolutionary algorithm like GP is the potentially infinite-size search space it must sample to search for a correct program. To address this problem, they introduce two key innovations. First, they restrict the algorithm to only produce changes that are based on structures in other parts of the program. In other words, they hypothesize that a program that is missing important functionality (e.g., a null check) will be able to copy and adapt it from another location in the program. Second, they constrain the
+genetic operations of mutation and crossover to operate only on the region of the program that is relevant to the error (that is, the portions of the program that were on the execution path that produced the error). Theses two insights are used together to reduce the search space of software repair.
 
-S$^2$E can be practical since the authors observe that developers often focus on only small portion of code in a system (e.g., kernel module or newly added feature) instead of testing a whole system. S$^2$E can be useful for many important software development tasks as follows.
+\subsection{Approach}
+To automatically find patches for program repair, their approach uses GP to maintain a population of variants of that program. Each variant is represented as an abstract syntax tree (AST) paired with a weighted program path. Their approach modifies variants using two genetic algorithm operations, \textit{crossover} and \textit{mutation}, specifically targeted to this representation. Each modification produces a new abstract syntax
+tree and weighted program path. Their approach then evaluates the fitness of each variant by compiling the abstract syntax tree and running it on the test cases. Its final fitness is a weighted sum of the positive and negative test cases it passes. Their approach stops when a program variant that passes all of the test cases is found. Because GP often introduces irrelevant changes or dead code, their approach further uses tree-structured difference algorithms and delta debugging techniques~\cite{deltadebugging} in a post-processing step to generate a 1-minimal patch that causes it to pass all of the testcases.
 
-\begin{figure}
-\centering
-\includegraphics[scale=0.6,clip]{fig/selective.eps} 
-\caption{\label{fig:s2e}Example of selective symbolic execution} 
-\end{figure}
+\subsection{Conclusion}
+Weimer et al.~\cite{geneticPatch,repair} present a fully automated technique for repairing bugs in off-the-shelf legacy software. Rather than using formal specifications or special coding practices, their approach uses an extended form of genetic programming to evolve program variants. Their approach considers only certain classes of repairs, using one part of a program as a template to repair another part. In their GP algorithm, they use a novel representation that combines abstract syntax trees with weighted violating paths; these insights allow their search to scale to large programs. They use standard test cases to show the fault and to encode required functionality; their initial repair is a variant that passes all test cases. The initial repair is minimized using delta debugging and structural differencing algorithm. They are able to generate and minimize repairs for ten different C programs totalling 63,000 lines in under 200 seconds on average.
 
 
-Selective symbolic execution (S$^2$E) has two dimensions in a system; code and data. Users can specify portions of code of interest by indicating file name or range of program counters. Given code information, S$^2$E executes the portion of code symbolically. All variables in the portion in conditional branches are involved in symbolic execution. Therefore, all paths could be explored symbolically. Users can specify portions of data of interest by indicating a data structure's name or address range of data segment. Then, S$^2$E executes all portion of code related to the data of interest symbolically.
-Figure~\ref{fig:s2e} shows an example of S$^2$E execution. In the example, the main function calls functions $f$ and $f_2$. Consider that users specify $f$ is portion (of interest) to be executed symbolically. To achieve the goal, when the main function calls the $f$ that has an input parameter $X$, $X$ is assigned to a symbolic value, $\lambda$ and $f$ is symbolically executed. However, when the main function calls the $f_2$ of non-interest, S$^2$E assigns $X$ as ``3'' to execute $f_2$ concretely.
+
+
+
+
+
+
 
 
