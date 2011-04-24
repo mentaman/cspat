@@ -44,17 +44,6 @@ Cristian Cadar, Vijay Ganesh, Peter~M. Pawlowski, David~L. Dill, and Dawson~R.
 \newblock In {\em CCS '06: Proceedings of the 13th ACM conference on Computer
   and communications security}, pages 322--335, New York, NY, USA, 2006. ACM.
 
-\bibitem{selective}
-Vitaly Chipounov, Vlad Georgescu, Cristian Zamfir, and George Candea.
-\newblock Selective {S}ymbolic {E}xecution.
-\newblock In {\em Proceedings of the 5th {W}orkshop on {H}ot {T}opics in
-  {S}ystem {D}ependability ({H}ot{D}ep)}, 2009.
-
-\bibitem{peephole}
-V.~Kahlon C.Wang, Z.~Yang and A.~Gupta.
-\newblock {Peephole Partial Order Reduction}.
-\newblock In {\em TACAS}, 2008.
-
 \bibitem{predictCoverage}
 Brett Daniel and Marat Boshernitsan.
 \newblock Predicting effectiveness of automatic testing tools.
@@ -67,13 +56,6 @@ Stephanie Forrest, ThanhVu Nguyen, Westley Weimer, and Claire Le~Goues.
 \newblock In {\em Proceedings of the 11th Annual conference on Genetic and
   evolutionary computation}, GECCO '09, pages 947--954, New York, NY, USA,
   2009. ACM.
-
-\bibitem{compositional}
-Patrice Godefroid.
-\newblock Compositional dynamic test generation.
-\newblock In {\em POPL '07: Proceedings of the 34th annual ACM SIGPLAN-SIGACT
-  symposium on Principles of programming languages}, pages 47--54, New York,
-  NY, USA, 2007. ACM.
 
 \bibitem{dart}
 Patrice Godefroid, Nils Klarlund, and Koushik Sen.
@@ -100,20 +82,10 @@ M.~Y.~Levin P.~Godefroid and D.Molnar.
 \newblock {Automated Whitebox Fuzz Testing}.
 \newblock In {\em NDSS}, 2008.
 
-\bibitem{allpath}
-N.Williams P.Mouy, B.Marre and P.~Le Gall.
-\newblock {Generation of All-Paths Unit Test with Function Calls.}
-\newblock In {\em ICST}, 2008.
-
 \bibitem{extenjpf}
 C.~S.~Pasareanu S.~Anand and W.~Visser.
 \newblock {JPF-SE: A Symbolic Execution Extension to Java PathFinder.}
 \newblock In {\em TACAS}, 2007.
-
-\bibitem{demand}
-P.~Godefroid S.~Anand and N.~Tillmann.
-\newblock {Demand-Driven Compositional Symbolic Execution}.
-\newblock In {\em TACAS}, 2008.
 
 \bibitem{evolutionaryComputation}
 Eric Schulte, Stephanie Forrest, and Westley Weimer.
@@ -122,10 +94,11 @@ Eric Schulte, Stephanie Forrest, and Westley Weimer.
   Automated software engineering}, ASE '10, pages 313--316, New York, NY, USA,
   2010. ACM.
 
-\bibitem{distribute}
-K.~Sen and G.~Agha.
-\newblock {Automated Systematic Testing of Open Distributed Programs}.
-\newblock In {\em FASE}, 2006.
+\bibitem{modernlegacy}
+Robert~C. seacord, Daniel Plakosh, and Grace~A. Lewis.
+\newblock {\em {Modernizing Legacy Systems: Software Technologies, Engineering
+  Process and Business Practices}}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 2003.
 
 \bibitem{cute}
 Koushik Sen, Darko Marinov, and Gul Agha.
@@ -144,6 +117,11 @@ Yao Shi, Soyeon Park, Zuoning Yin, Shan Lu, Yuanyuan Zhou, Wenguang Chen, and
   oriented programming systems languages and applications}, OOPSLA '10, pages
   160--174, New York, NY, USA, 2010. ACM.
 
+\bibitem{genericprogramming}
+IEEE Intelligent~Systems staff.
+\newblock Genetic programming.
+\newblock {\em IEEE Intelligent Systems}, 15:74--84, May 2000.
+
 \bibitem{pex}
 N.~Tillmann and J.~de~Halleux.
 \newblock {Pex-White Box Test Generation for .NET.}
@@ -160,6 +138,14 @@ Tao Xie, Nikolai Tillmann, Peli de~Halleux, and Wolfram Schulte.
 \newblock Fitness-guided path exploration in dynamic symbolic execution.
 \newblock In {\em Proc. the 39th Annual IEEE/IFIP International Conference on
   Dependable Systems and Networks (DSN 2009)}, June-July 2009.
+
+\bibitem{deltadebugging}
+Andreas Zeller.
+\newblock {Yesterday, My Program Worked. Today, It Does Not. Why?}
+\newblock In {\em Proceedings of the 7th European software engineering
+  conference held jointly with the 7th ACM SIGSOFT international symposium on
+  Foundations of software engineering}, ESEC/FSE-7, pages 253--267, London, UK,
+  1999. Springer-Verlag.
 
 \bibitem{constraintsolving}
 Jian Zhang.
