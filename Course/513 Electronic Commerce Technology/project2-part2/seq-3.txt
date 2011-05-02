@@ -1,0 +1,10 @@
+
+opt 3A4 Accept Req
+    Company->Shipper: 3B12 Req
+alt T
+    Shipper->Company: 3B12 Accept Res
+else T
+    Shipper->Company: 3B12 Reject Res
+end
+end
+

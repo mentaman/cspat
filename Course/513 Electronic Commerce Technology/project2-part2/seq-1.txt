@@ -1,0 +1,10 @@
+
+loop !acceptableQuote
+    Customer->Company: 3A1 Req
+alt T
+    Company->Customer: 3A1 Quote Res
+else T
+    Company->Customer: 3A1 Referral Res
+end
+end
+

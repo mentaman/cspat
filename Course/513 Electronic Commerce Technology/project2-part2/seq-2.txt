@@ -1,0 +1,10 @@
+
+opt acceptableQuote
+    Customer->Company: 3A4 Req
+alt T
+    Company->Customer: 3A1 Accept Res
+else T
+    Company->Customer: 3A1 Reject Res
+end
+end
+
