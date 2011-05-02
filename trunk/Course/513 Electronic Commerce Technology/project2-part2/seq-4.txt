@@ -1,0 +1,11 @@
+
+opt 3B12 Accept Res
+    Shipper->Company: 3C3 invoice
+
+opt T
+    Company->Shipper: 3C4 reject invoice
+end
+
+
+end
+

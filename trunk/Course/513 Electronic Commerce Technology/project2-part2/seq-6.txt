@@ -1,0 +1,10 @@
+
+opt 3B12 Accept Res
+    Company->Customer: 3C3 invoice
+
+opt T
+    Customer->Company: 3C4 reject invoice
+end
+
+
+end
